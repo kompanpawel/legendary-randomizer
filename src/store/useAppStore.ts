@@ -14,6 +14,8 @@ export interface GameSetup {
   henchmen: Henchman[];
   bystanders: number;
   isEpicMastermind: boolean;
+  /** Modyfikator liczby hero wynikający ze schematu (0 jeśli brak) */
+  schemeHeroMod: number;
   threatScore: number;
   balanceGap: number;
   counterCoverage: CounterCoverage;

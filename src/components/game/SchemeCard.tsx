@@ -1,4 +1,4 @@
-import { Scroll, Star } from 'lucide-react';
+import { Scroll, Star, Users, Info } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import type { Scheme } from '../../types/cards';
 import type { SchemeStats } from '../../types/stats';
@@ -8,12 +8,26 @@ interface SchemeCardProps {
   scheme: Scheme;
   stats?: SchemeStats;
   className?: string;
+  /** Liczba graczy – potrzebna do warunkowego heroCountMod */
+  playerCount?: number;
+  /** Jeśli podane – wyświetli ile dodatkowych hero zostało faktycznie wylosowanych */
+  schemeHeroMod?: number;
 }
 
-export function SchemeCard({ scheme, stats, className }: SchemeCardProps) {
+export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMod }: SchemeCardProps) {
   // Dynamiczna trudność: ile razy schemat pokonał graczy; jeśli brak danych – 3 (neutralna)
   const effectiveDifficulty = computeStrength(stats?.playCount ?? 0, stats?.wins ?? 0);
   const isStaticDefault = (stats?.playCount ?? 0) === 0;
+
+  const heroMod = scheme.overrides.heroCountMod ?? 0;
+  const modMinPlayers = scheme.overrides.heroCountModMinPlayers ?? 1;
+  const isModConditional = modMinPlayers > 1;
+  // Jeśli znamy playerCount – sprawdzamy czy mod jest aktywny; inaczej zakładamy aktywny
+  const isModActive = schemeHeroMod !== undefined
+    ? schemeHeroMod > 0
+    : heroMod > 0 && (playerCount === undefined || playerCount >= modMinPlayers);
+
+  const specialSetup = scheme.overrides.specialSetup;
 
   return (
     <div
@@ -54,7 +68,33 @@ export function SchemeCard({ scheme, stats, className }: SchemeCardProps) {
           ))}
         </div>
       </div>
+
+      {/* Extra Hero badge */}
+      {heroMod > 0 && (
+        <div
+          className={cn(
+            'mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border',
+            isModActive
+              ? 'bg-amber-500/15 border-amber-500/40 text-amber-300'
+              : 'bg-zinc-800/50 border-zinc-700 text-zinc-500'
+          )}
+        >
+          <Users size={12} className="flex-shrink-0" />
+          <span>
+            {isModConditional && !isModActive
+              ? `+${heroMod} Extra Hero (tylko ≥${modMinPlayers} graczy – nieaktywne)`
+              : `+${heroMod} Extra Hero${heroMod > 1 ? 's' : ''} do setup`}
+          </span>
+        </div>
+      )}
+
+      {/* Special setup note */}
+      {specialSetup && isModActive && (
+        <div className="mt-2 flex items-start gap-2 px-3 py-1.5 rounded-xl text-xs border bg-zinc-800/40 border-zinc-700 text-zinc-400">
+          <Info size={12} className="flex-shrink-0 mt-0.5 text-zinc-500" />
+          <span>{specialSetup}</span>
+        </div>
+      )}
     </div>
   );
 }
-

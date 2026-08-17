@@ -300,7 +300,19 @@ export default function SetupPage() {
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-semibold text-white">Players</h2>
             <span className="text-xs text-zinc-500">
-              {setupRules.heroCount}h {'\u00b7'} {setupRules.villainCount}v {'\u00b7'} {setupRules.henchmanCount}hm
+              {(() => {
+                const activeHeroMod = currentSetup?.schemeHeroMod ?? 0;
+                const effectiveHeroCount = setupRules.heroCount + activeHeroMod;
+                return (
+                  <>
+                    {effectiveHeroCount > setupRules.heroCount
+                      ? <span className="text-amber-400 font-semibold">{effectiveHeroCount}h</span>
+                      : <span>{effectiveHeroCount}h</span>
+                    }
+                    {' \u00b7 '}{setupRules.villainCount}v{' \u00b7 '}{setupRules.henchmanCount}hm
+                  </>
+                );
+              })()}
             </span>
           </div>
           <div className="grid grid-cols-5 gap-2">
@@ -418,7 +430,12 @@ export default function SetupPage() {
               stats={mastermindStatsMap.get(currentSetup.mastermind.id)}
               isEpic={currentSetup.isEpicMastermind}
             />
-            <SchemeCard scheme={currentSetup.scheme} stats={schemeStatsMap.get(currentSetup.scheme.id)} />
+            <SchemeCard
+              scheme={currentSetup.scheme}
+              stats={schemeStatsMap.get(currentSetup.scheme.id)}
+              playerCount={playerCount}
+              schemeHeroMod={currentSetup.schemeHeroMod}
+            />
 
             <div className="space-y-2">
               <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">Villains</p>
@@ -436,14 +453,18 @@ export default function SetupPage() {
 
             <div className="space-y-2">
               <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">Heroes</p>
-              {currentSetup.heroes.map((hero, idx) => (
-                <HeroCard
-                  key={hero.id}
-                  hero={hero}
-                  stats={statsMap.get(hero.id)}
-                  onReroll={() => handleReroll(idx)}
-                />
-              ))}
+              {currentSetup.heroes.map((hero, idx) => {
+                const isExtra = currentSetup.schemeHeroMod > 0 && idx >= currentSetup.heroes.length - currentSetup.schemeHeroMod;
+                return (
+                  <HeroCard
+                    key={hero.id}
+                    hero={hero}
+                    stats={statsMap.get(hero.id)}
+                    onReroll={() => handleReroll(idx)}
+                    badge={isExtra ? 'Extra' : undefined}
+                  />
+                );
+              })}
             </div>
 
             <Button variant="secondary" size="lg" className="w-full" onClick={() => setSaveModalOpen(true)}>

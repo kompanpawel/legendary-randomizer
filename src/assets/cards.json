@@ -23955,7 +23955,9 @@
         "villain-control",
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1
+      },
       "cards": [
         {
           "name": "Subjugate Earth with Mega-Corporations",
@@ -23974,7 +23976,9 @@
         "recruit-boost",
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1
+      },
       "cards": [
         {
           "name": "Befoul Earth Into a Polluted Wasteland",
@@ -24061,7 +24065,11 @@
         "empowered",
         "multi-class"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "heroCountModMinPlayers": 4,
+        "specialSetup": "Tylko 4-5 graczy: dodaj Extra Hero do talii Hero"
+      },
       "cards": [
         {
           "name": "Age of Ultron",
@@ -24112,7 +24120,10 @@
         "size-changing",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Wszystkie 14 kart Extra Hero trafia do talii Villain"
+      },
       "cards": [
         {
           "name": "Trap Heroes in the Microverse",
@@ -24776,7 +24787,9 @@
         "recruit-boost",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1
+      },
       "cards": [
         {
           "name": "Secret Invasion of the Skrull Shapeshifters",
@@ -24945,7 +24958,10 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Wszystkie 14 kart Extra Hero trafia do talii Villain"
+      },
       "cards": [
         {
           "name": "X-Cutioner's Song",
@@ -25352,7 +25368,9 @@
         "extra-draws",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1
+      },
       "cards": [
         {
           "name": "Contest of Champions, The",
@@ -25403,7 +25421,9 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1
+      },
       "cards": [
         {
           "name": "Annihilation: Conquest",
@@ -25573,7 +25593,10 @@
         "deck-thinning",
         "top-deck-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Extra Hero przetasowany jako zakryty stos Mutant Messiah"
+      },
       "cards": [
         {
           "name": "...Control the Mutant Messiah",
@@ -25755,7 +25778,9 @@
         "heavy-hitter",
         "top-deck-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 2
+      },
       "cards": [
         {
           "name": "Wager at Blackjack for Heroes' Souls",
@@ -25771,7 +25796,10 @@
       "countersNeeded": [
         "size-changing"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Extra Hero (z kartami Size-Changing) odłożony jako Shrink Tech"
+      },
       "cards": [
         {
           "name": "Auction Shrink Tech to Highest Bidder",
@@ -25992,7 +26020,10 @@
         "ambush",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "8 losowych kart Extra Hero trafia do talii Villain"
+      },
       "cards": [
         {
           "name": "Marvel Zombies",
@@ -26246,7 +26277,10 @@
         "deck-thinning",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 2,
+        "specialSetup": "Dwa Extra Heroes odłożone jako Wedding Heroes"
+      },
       "cards": [
         {
           "name": "Ruin the Perfect Wedding",
@@ -26443,7 +26477,9 @@
         "multi-class",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1
+      },
       "cards": [
         {
           "name": "Hydra Helicarriers Hunt Heroes",
@@ -26459,7 +26495,10 @@
       "countersNeeded": [
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Wybierz 5 kart (koszt ≤5) z Extra Hero jako Dark Loyalty deck"
+      },
       "cards": [
         {
           "name": "Secret Empire of Betrayal",
@@ -26743,7 +26782,10 @@
         "recruit-boost",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Wszystkie 14 kart Extra Hero trafia do talii Villain"
+      },
       "cards": [
         {
           "name": "Mark of Khonshu, The",
@@ -27030,7 +27072,10 @@
         "extra-draws",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Nie używaj wielu Heroes o tej samej nazwie"
+      },
       "cards": [
         {
           "name": "Go After Heroes' Loved Ones",
@@ -27129,7 +27174,10 @@
         "deck-thinning",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Extra Hero musi mieć \"Hulk\" w nazwie – 14 kart jako Mutation Pile"
+      },
       "cards": [
         {
           "name": "Mutating Gamma Rays",
@@ -27146,7 +27194,10 @@
         "heavy-hitter",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountMod": 1,
+        "specialSetup": "Extra Hero musi mieć \"Hulk\" w nazwie – 14 kart jako Hulk Deck"
+      },
       "cards": [
         {
           "name": "Shoot Hulk into Space",

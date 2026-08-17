@@ -21,6 +21,8 @@ export interface GameSetup {
   bystanders: number;
   /** Czy rozgrywka jest w trybie Epic masterminda */
   isEpicMastermind: boolean;
+  /** Modyfikator liczby hero wynikający ze schematu (0 jeśli brak) */
+  schemeHeroMod: number;
   /**
    * POST-SELECTION threat score ∈ [2,10]
    * 30% power-based + 70% counter-gap (niepokryte countery wrogów)
@@ -67,11 +69,17 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   if (schemes.length === 0 && !forcedScheme) throw new Error('No schemes in active expansions');
 
   const rules = getSetupRules(playerCount);
-  const { heroCount, villainCount, henchmanCount, bystanders } = rules;
+  const { villainCount, henchmanCount, bystanders } = rules;
 
   // Pick Mastermind and Scheme (forced or random)
   const mastermind = forcedMastermind ?? uniformSample(masterminds, 1)[0];
   const scheme = forcedScheme ?? uniformSample(schemes, 1)[0];
+
+  // Oblicz efektywną liczbę hero (base + modyfikator ze schematu)
+  const schemeHeroMod = scheme.overrides.heroCountMod ?? 0;
+  const schemeHeroModMinPlayers = scheme.overrides.heroCountModMinPlayers ?? 1;
+  const effectiveHeroMod = playerCount >= schemeHeroModMinPlayers ? schemeHeroMod : 0;
+  const heroCount = rules.heroCount + effectiveHeroMod;
 
   // ── Always Leads ──────────────────────────────────────────────────────────
   const resolution = resolveAlwaysLeads(mastermind.alwaysLeads, villains, henchmen);
@@ -164,6 +172,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     henchmen: selectedHenchmen,
     bystanders,
     isEpicMastermind,
+    schemeHeroMod: effectiveHeroMod,
     threatScore,
     balanceGap,
     counterCoverage,

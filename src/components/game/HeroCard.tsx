@@ -26,9 +26,11 @@ interface HeroCardProps {
   stats?: HeroStats;
   onReroll?: () => void;
   className?: string;
+  /** Opcjonalny etykieta (np. 'Extra') wyświetlana jako badge */
+  badge?: string;
 }
 
-export function HeroCard({ hero, stats, onReroll, className }: HeroCardProps) {
+export function HeroCard({ hero, stats, onReroll, className, badge }: HeroCardProps) {
   const primaryClass = hero.primaryClasses[0];
   const gradientClass = primaryClass ? classColorMap[primaryClass] : classColorMap['Tech'];
 
@@ -56,7 +58,14 @@ export function HeroCard({ hero, stats, onReroll, className }: HeroCardProps) {
       )}
 
       <div className="pr-8">
-        <h3 className="font-semibold text-white text-sm leading-tight">{hero.name}</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="font-semibold text-white text-sm leading-tight">{hero.name}</h3>
+          {badge && (
+            <span className="text-xs font-bold px-1.5 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-300">
+              {badge}
+            </span>
+          )}
+        </div>
         <p className="text-zinc-400 text-xs mt-0.5">{hero.faction}</p>
       </div>
 

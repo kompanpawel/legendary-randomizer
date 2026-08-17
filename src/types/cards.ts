@@ -64,7 +64,10 @@ export interface Scheme {
   countersNeeded: CounterTag[];
   overrides: {
     heroCountMod?: number;
+    /** Minimalna liczba graczy, od której heroCountMod jest aktywny (domyślnie: zawsze) */
+    heroCountModMinPlayers?: number;
     extraVillains?: number;
+    /** Opis specjalnych zasad setupu wynikających ze schematu */
     specialSetup?: string;
   };
   cards: readonly SchemeCard[];
