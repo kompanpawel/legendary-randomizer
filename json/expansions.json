@@ -1,0 +1,550 @@
+[
+  {
+    "id": 1,
+    "label": "Core Set",
+    "value": "coreset",
+    "initials": "C",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": 2,
+    "label": "Promo Cards",
+    "value": "promo",
+    "initials": "$",
+    "cardTypes": []
+  },
+  {
+    "id": 3,
+    "label": "Dark City",
+    "value": "darkcity",
+    "initials": "DC",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 4,
+    "label": "Fantastic Four",
+    "value": "ff",
+    "initials": "FF",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 5,
+    "label": "Paint the Town Red",
+    "value": "pttr",
+    "initials": "PtTR",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 6,
+    "label": "Villains",
+    "value": "villains",
+    "initials": "V",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": 7,
+    "label": "Guardians of the Galaxy",
+    "value": "gotg",
+    "initials": "GotG",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 8,
+    "label": "Fear Itself",
+    "value": "fearitself",
+    "initials": "FI",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 9,
+    "label": "Playable Marvel 3D Trading Cards",
+    "value": "3d",
+    "initials": "3D",
+    "cardTypes": [
+      1,
+      3,
+      6
+    ]
+  },
+  {
+    "id": 10,
+    "label": "Secret Wars, Volume 1",
+    "value": "sw1",
+    "initials": "SW1",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      9
+    ]
+  },
+  {
+    "id": 11,
+    "label": "Secret Wars, Volume 2",
+    "value": "sw2",
+    "initials": "SW2",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 12,
+    "label": "Captain America 75th Anniversary",
+    "value": "captainamerica",
+    "initials": "CA",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 13,
+    "label": "Civil War",
+    "value": "civilwar",
+    "initials": "CW",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9
+    ]
+  },
+  {
+    "id": 14,
+    "label": "Deadpool",
+    "value": "deadpool",
+    "initials": "DP",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 15,
+    "label": "Noir",
+    "value": "noir",
+    "initials": "Noir",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 16,
+    "label": "X-Men",
+    "value": "xmen",
+    "initials": "X",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 17,
+    "label": "Spider-Man Homecoming",
+    "value": "spiderhomecoming",
+    "initials": "SMH",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 18,
+    "label": "Champions",
+    "value": "champions",
+    "initials": "Champ",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 19,
+    "label": "World War Hulk",
+    "value": "wwhulk",
+    "initials": "WWH",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 20,
+    "label": "Marvel Studios, Phase 1",
+    "value": "marvelstudios",
+    "initials": "MS1",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": 21,
+    "label": "Ant-Man",
+    "value": "antman",
+    "initials": "AM",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 22,
+    "label": "Venom",
+    "value": "venom",
+    "initials": "Venom",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 23,
+    "label": "Dimensions",
+    "value": "dimensions",
+    "initials": "Dim",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      6
+    ]
+  },
+  {
+    "id": 24,
+    "label": "Revelations",
+    "value": "revelations",
+    "initials": "Rev",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 25,
+    "label": "S.H.I.E.L.D.",
+    "value": "shield",
+    "initials": "S.H.I.E.L.D.",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5,
+      8
+    ]
+  },
+  {
+    "id": 26,
+    "label": "Heroes of Asgard",
+    "value": "heroesofasgard",
+    "initials": "HoA",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 27,
+    "label": "The New Mutants",
+    "value": "newmutants",
+    "initials": "NM",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 28,
+    "label": "Into the Cosmos",
+    "value": "intothecosmos",
+    "initials": "ItC",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 29,
+    "label": "Realm of Kings",
+    "value": "realmofkings",
+    "initials": "Rok",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 30,
+    "label": "Annihilation",
+    "value": "annihilation",
+    "initials": "A",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 31,
+    "label": "Messiah Complex",
+    "value": "messiahcomplex",
+    "initials": "MC",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      9
+    ]
+  },
+  {
+    "id": 32,
+    "label": "Doctor Strange and the Shadows of Nightmare",
+    "value": "doctorstrange",
+    "initials": "DS",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 33,
+    "label": "Marvel Studios' Guardians of the Galaxy",
+    "value": "msgotg",
+    "initials": "MSGotG",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 34,
+    "label": "Black Panther",
+    "value": "blackpanther",
+    "initials": "BP",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 35,
+    "label": "Black Widow",
+    "value": "blackwidow",
+    "initials": "BW",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 36,
+    "label": "Marvel Studios' The Infinity Saga",
+    "value": "msis",
+    "initials": "MSIS",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 37,
+    "label": "Midnight Sons",
+    "value": "midnightsons",
+    "initials": "MNS",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 38,
+    "label": "Marvel Studios' What If...?",
+    "value": "mswi",
+    "initials": "MSWI",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": 39,
+    "label": "Marvel Studios' Ant-Man and the Wasp",
+    "value": "msaw",
+    "initials": "MSAW",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 40,
+    "label": "Marvel 2099",
+    "value": "2099",
+    "initials": "2099",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 41,
+    "label": "Weapon X",
+    "value": "weaponx",
+    "initials": "WX",
+    "cardTypes": [
+      1,
+      2,
+      4,
+      5,
+      7
+    ]
+  },
+  {
+    "id": 42,
+    "label": "Core Set Second Edition",
+    "value": "coreset2",
+    "initials": "C2E",
+    "cardTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+]

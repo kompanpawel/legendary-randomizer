@@ -1,0 +1,4369 @@
+[
+  {
+    "id": "sinister-six-2099-40-100",
+    "name": "Sinister Six 2099",
+    "setId": 40,
+    "vAttack": null,
+    "vAttackNumeric": null,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Electro 2099",
+        "isEpic": false,
+        "abilities": "Always Leads: Any “Alchemax“ or “Sinister“ Villain Group\nSetup: [Adapt].\nMaster Strike: Each player discards three cards then draws a card. [Adapt].\nFight: You may discard any number of cards, then draw that many cards. [Adapt]."
+      },
+      {
+        "name": "Epic Electro 2099",
+        "isEpic": true,
+        "abilities": "Always Leads: Any “Alchemax“ or “Sinister“ Villain Group\nSetup: [Adapt].\nMaster Strike: Each player discards four cards then draws a card. [Adapt].\nFight: You may discard a card. If you do, draw a card. [Adapt]."
+      },
+      {
+        "name": "Sandwoman 2099",
+        "isEpic": false,
+        "abilities": "Sandwoman 2099 gets +2[Attack] for each Villain in the city.\nMaster Strike: You may either recruit or attack this turn, but not both. [Adapt].\nFight: The next player may either recruit or attack in their next turn, but not both. [Adapt]."
+      },
+      {
+        "name": "Epic Sandwoman 2099",
+        "isEpic": true,
+        "abilities": "Sandwoman 2099 gets +3[Attack] for each Villain in the city.\nMaster Strike: You may either recruit or attack this turn, but not both. [Adapt].\nFight: The next player may either recruit or attack in their next turn, but not both. [Adapt]."
+      },
+      {
+        "name": "Vulture 2099",
+        "isEpic": false,
+        "abilities": "Vulture 2099 gets +[Attack] equal to the highest [Victory Points] value of any Villain in the Escape Pile, Rooftops, or Bridge.\nMaster Strike: If there are any Villains on the Rooftops or Birdge, one of them escapes and each player gains a Wound. [Adapt].\nFight: You may move a Villain to another city space. If another Villain is already there, swap them. [Adapt]."
+      },
+      {
+        "name": "Epic Vulture 2099",
+        "isEpic": true,
+        "abilities": "Vulture 2099 gets +[Attack] equal to the highest two [Victory Points] values among Villains in the Escape Pile, Rooftops, and Bridge.\nMaster Strike: If there are any Villains on the Rooftops or Birdge, each of them escapes and each player gains a Wound. [Adapt].\nFight: You may move a Villain to another city space. If another Villain is already there, swap them. [Adapt]."
+      },
+      {
+        "name": "Doctor Octopus 2099",
+        "isEpic": false,
+        "abilities": "Doctor Octopus 2099 gets +4[Attack] unless you played at least 8 cards or a Hero that costs 8 this turn.\nMaster Strike: Each player discards cards whose total cost is at least 8 (for that player) or gains a Wound. [Adapt].\nFight: You may gain a Hero from the HQ whose cost is at least 8. [Adapt]."
+      },
+      {
+        "name": "Epic Doctor Octopus 2099",
+        "isEpic": true,
+        "abilities": "Doctor Octopus 2099 gets +8[Attack] unless you played at least 8 cards or a Hero that costs 8 this turn.\nMaster Strike: Each player discards cards whose total cost is exactly 8 (for that player) or gains a Wound. [Adapt].\nFight: You get +4[Recruit], usable only to recruit a Hero that costs at least 8. [Adapt]."
+      },
+      {
+        "name": "Venom 2099",
+        "isEpic": false,
+        "abilities": "Venom 2099 gets -1[Attack] for each card you have that costs 2.\nMaster Strike: Each player KOs a card that costs 2 from their hand or discard pile or gains a Wound. [Adapt].\nFight: You may gain a Hero that costs 2 from the HQ or KO pile. [Adapt]."
+      },
+      {
+        "name": "Epic Venom 2099",
+        "isEpic": true,
+        "abilities": "Venom 2099 gets -1[Attack] for each card you have that costs 2.\nMaster Strike: Each player KOs a card that costs 2 from their hand or gains a Wound. [Adapt].\nFight: You may gain a Hero that costs 2 from the HQ or KO pile. [Adapt]."
+      },
+      {
+        "name": "Goblin 2099",
+        "isEpic": false,
+        "abilities": "Goblin 2099 gets -1[Attack] for each Bystander in your Victory Pile.\nMaster Strike: Each player puts a Bystander from their Victory Pile into the Escape Pile or gains a Wound. [Adapt].\nFight: Each villain in the city captures a Bystander. [Adapt]."
+      },
+      {
+        "name": "Epic Goblin 2099",
+        "isEpic": true,
+        "abilities": "Goblin 2099 gets -1[Attack] for each Bystander in your Victory Pile.\nMaster Strike: Each player puts two Bystanders from their Victory Pile into the Escape Pile or gains a Wound. [Adapt].\nFight: Each villain in the city captures a Bystander. [Adapt]."
+      }
+    ]
+  },
+  {
+    "id": "alchemax-executives-40-101",
+    "name": "Alchemax Executives",
+    "setId": 40,
+    "vAttack": null,
+    "vAttackNumeric": null,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Avatarr, CEO of Alchemax",
+        "isEpic": false,
+        "abilities": "Always Leads: Alchemax Enforcers\nSetup: Add an extra Hero to the Hero Deck. [Adapt].\nMaster Strike: Put the two highest-cost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Ranged]: Each player gains a Wound. [Adapt].\nFight: Each other player puts a non-grey Hero from their hand or discard pile into the Escape Pile. [Adapt]."
+      },
+      {
+        "name": "Epic Avatarr",
+        "isEpic": true,
+        "abilities": "Always Leads: Alchemax Enforcers\nSetup: Add an extra Hero to the Hero Deck. [Adapt].\nMaster Strike: Put the three highest-cost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Ranged]: Each player gains a Wound to the top of their deck. [Adapt].\nFight: Each other player puts a non-grey Hero from their hand into the Escape Pile. [Adapt]."
+      },
+      {
+        "name": "Fearmaster, VP of the Public Eye",
+        "isEpic": false,
+        "abilities": "Fearmaster gets +1[Attack] for each grey Hero you have.\nMaster Strike: Put the two lowest-cost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Instinct]: Count the number of [Instinct] cards in the Escape Pile. Each player discards that many non-grey Heroes, then draws a card for each card they discarded this way. [Adapt].\nFight: Each other player discards 2 grey Heroes. [Adapt]."
+      },
+      {
+        "name": "Epic Fearmaster",
+        "isEpic": true,
+        "abilities": "Fearmaster gets +2[Attack] for each grey Hero you have.\nMaster Strike: Put the three lowest-cost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Instinct]: Count the number of [Instinct] cards in the Escape Pile. Each player discards that many non-grey Heroes, then draws two cards. [Adapt].\nFight: Each other player discards 3 grey Heroes. [Adapt]."
+      },
+      {
+        "name": "John Herod, Executive VP",
+        "isEpic": false,
+        "abilities": "[Cyber-Mod][Covert][Covert]: John Herod gets +5[Attack].\nMaster Strike: Put the two rightmost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Covert]: You may pay 5[Attack] this turn to “expose Fake Captain America.“ If you do, KO one of your Heroes. If you don't by the end of this turn, each player gains a Wound (after you draw your new hand.) [Adapt].\nFight: KO two of your Heroes. [Adapt]."
+      },
+      {
+        "name": "Epic John Herod",
+        "isEpic": true,
+        "abilities": "[Cyber-Mod][Covert][Covert]: John Herod gets +7[Attack].\nMaster Strike: Put the three rightmost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Covert]: You may pay 7[Attack] this turn to “expose Fake Captain America.“ If you do, KO one of your Heroes. If you don't by the end of this turn, each player gains a Wound (after you draw your new hand.) [Adapt].\nFight: KO one of your Heroes. [Adapt]."
+      },
+      {
+        "name": "Tiger Wylde, General of Alchemax Elite",
+        "isEpic": false,
+        "abilities": "[Cyber-Mod][Strength]: Tiger Wylde gets +1[Attack] for each [Strength] card in the Escape Pile.\nMaster Strike: Put the two leftmost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Tech]: Each player reveals a [Tech] card or discards a card. [Adapt].\nFight: Send a Hero from the Escape Pile [Undercover]. Then [Adapt]."
+      },
+      {
+        "name": "Epic Tiger Wylde",
+        "isEpic": true,
+        "abilities": "[Cyber-Mod][Strength]: Tiger Wylde gets +1[Attack] for each [Strength] card in the Escape Pile.\nMaster Strike: Put the three leftmost Heroes from the HQ into the Escape Pile. Then [Cyber-Mod][Tech]: Each player discards a card at random. [Adapt].\nFight: Send a Hero from the Escape Pile [Undercover]. Then [Adapt]."
+      }
+    ]
+  },
+  {
+    "id": "annihilus-30-76",
+    "name": "Annihilus",
+    "setId": 30,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Annihilus",
+        "isEpic": false,
+        "abilities": "[Mass Momentum 2]\nAlways Leads: Annihilation Wave (1 player: Use 6 Henchmen.)\nMaster Strike: Reveal the top card of the Villain Deck. If it's a Bystander, Annihilus captures it. If it's a Villain, it enters the city, captures a Bystander, and moves forward an extra space (before doing any Ambush ability)."
+      },
+      {
+        "name": "Epic Annihilus",
+        "isEpic": true,
+        "abilities": "[Mass Momentum 4]\nAlways Leads: Annihilation Wave. Add an extra Villain Group (even for 1 player.)\nMaster Strike: Play a card from the Villain Deck. If it's a Villain, play a second card from the Villain Deck."
+      },
+      {
+        "name": "The Cosmic Control Rod",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals the top three cards of their deck, KOs the highest-cost Hero that is revealed this way and puts the rest back in any order."
+      },
+      {
+        "name": "Surging Annihilation",
+        "isEpic": false,
+        "abilities": "Fight: Check all Annihilation Wave villains from each other player's victory pile. The one worth the most VP enters the city, and that player rescues bystanders equal to that villain's VP."
+      },
+      {
+        "name": "Deploy the Planet Killer",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final tactic: if Weaponized Galactus is in the city, he escapes. If Weaponized Galactus wasn't in the city and wasn't in any victory pile, then he enters the city from the Villain Deck and you shuffle the Villain Deck."
+      },
+      {
+        "name": "Pull Into the Negative Zone",
+        "isEpic": false,
+        "abilities": "Fight: The cost of each hero currently in the HQ gets -2 this turn."
+      }
+    ]
+  },
+  {
+    "id": "kang-the-conqueror-30-77",
+    "name": "Kang the Conqueror",
+    "setId": 30,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Kang the Conqueror",
+        "isEpic": false,
+        "abilities": "Kang has [Conqueror 2] for each city space under a Time Incursion. (He benefits from Villains there.) Villains under a Time Incursion get +2[Attack].\nAlways Leads: Timelines of Kang\nMaster Strike: This Strike becomes a “Time Incursion.“ Put it above the rightmost city space that doesn't yet have a Time Incursion."
+      },
+      {
+        "name": "Epic Kang the Conqueror",
+        "isEpic": true,
+        "abilities": "Kang has [Conqueror 3] for each city space under a Time Incursion. Villains under a Time Incursion get +3[Attack].\nAlways Leads: Timelines of Kang\nMaster Strike: This Strike becomes a “Time Incursion.“ Put it above the rightmost city space that doesn't yet have a Time Incursion. If there are any Villains in any Time Incursions, each player gains a Wound."
+      },
+      {
+        "name": "Iron Lad Grows Up to Become Kang",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic: Each player reveals their hand. You choose a card named “Iron Lad“ from the Escape Pile, or from [Man Out of Time], or from any player's hand or discard pile or that you played this turn. Shuffle Iron Lad into Kang's Tactics as a Mastermind Tactic that says “Fight: Gain this as a Hero.“"
+      },
+      {
+        "name": "Leap Into the Timestream",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic: Take another turn after this one. Don't play a card from the Villain Deck at the start of that turn."
+      },
+      {
+        "name": "Pull From the Future",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top two cards of the Villain Deck. Choose a Villain revealed this way to enter an empty city space under a Time Incursion. Put the rest back in any order."
+      },
+      {
+        "name": "Savior From Another Timeline",
+        "isEpic": false,
+        "abilities": "Fight: You may gain a Hero from any HQ space under a Time Incurion. Send it as a [Man or Woman Out of Time]."
+      }
+    ]
+  },
+  {
+    "id": "morgan-le-fay-21-57",
+    "name": "Morgan Le Fay",
+    "setId": 21,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Morgan Le Fay",
+        "isEpic": false,
+        "abilities": "[Chivalrous Duel]\nAlways Leads: Queen's Vengeance\nMaster Strike: Each player in turn reveals a [Covert] Hero or gains a 0-cost Hero or Wound from the KO pile."
+      },
+      {
+        "name": "Epic Morgan Le Fay",
+        "isEpic": true,
+        "abilities": "[Chivalrous Duel]\nAlways Leads: Queen's Vengeance\nMaster Strike: Each player in turn gains a Wound, then gains a 0-cost Hero from the KO pile."
+      },
+      {
+        "name": "Reverse the Flow of Time",
+        "isEpic": false,
+        "abilities": "Fight: For the rest of the game, players take turns in the opposite order around the table."
+      },
+      {
+        "name": "Sorcerous Blasts",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards a [Covert] Hero or gains a Wound."
+      },
+      {
+        "name": "Stolen Tomes of Merlin",
+        "isEpic": false,
+        "abilities": "Fight: You get +4[Recruit] usable only for recruiting [Covert] and/or [Ranged] Heroes."
+      },
+      {
+        "name": "Transmogrify",
+        "isEpic": false,
+        "abilities": "Fight: Each other player in turn KOs a non-grey Hero from their discard pile, then gains a card from the KO pile that has a lower cost."
+      }
+    ]
+  },
+  {
+    "id": "ultron-21-58",
+    "name": "Ultron",
+    "setId": 21,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ultron",
+        "isEpic": false,
+        "abilities": "Always Leads: Ultron's Legacy\nMaster Strike: Each player reveals a [Tech] Hero or puts a non-grey Hero from their discard pile into a “Threat Analysis pile“ next to Ultron. Ultron is [Empowered] by each color in his Threat Analysis pile."
+      },
+      {
+        "name": "Epic Ultron",
+        "isEpic": true,
+        "abilities": "Always Leads: Ultron's Legacy\nMaster Strike: Each player puts a non-grey Hero from their hand into a “Threat Analysis pile“ next to Ultron. Ultron is [Triple Empowered] by each color in his Threat Analysis pile."
+      },
+      {
+        "name": "Arrogant Blindspot",
+        "isEpic": false,
+        "abilities": "Fight: You may gain a Hero from Ultron's Threat Analysis pile."
+      },
+      {
+        "name": "Paralyzing Encephalo-Ray",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards each card that has the same card name as any card in Ultron's Threat Analysis pile."
+      },
+      {
+        "name": "Predictive Analysis",
+        "isEpic": false,
+        "abilities": "Fight: Put the top three cards of the Hero Deck into Ultron's Threat Analysis pile."
+      },
+      {
+        "name": "Self-Repairing Legions",
+        "isEpic": false,
+        "abilities": "Fight: Each other player in turn reveals a [Tech] Hero or puts an Ultron's Legacy Villain from the Victory Pile into an empty city space."
+      }
+    ]
+  },
+  {
+    "id": "killmonger-34-85",
+    "name": "Killmonger",
+    "setId": 34,
+    "vAttack": "5",
+    "vAttackNumeric": 5,
+    "vp": 4,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Killmonger",
+        "isEpic": false,
+        "abilities": "While Killmonger has more than 0[Attack], you cannot fight him. Instead, you may spend [Attack] equal to his [Attack] to [Wound him] and get +1[Recruit].\nAlways Leads: Killmonger's League\nMaster Strike: Each player must reveal 4 different Hero Classes or gain one of the [Wounds on Killmonger]. Any player who can't do either must discard down to 4 cards."
+      },
+      {
+        "name": "Epic Killmonger",
+        "isEpic": true,
+        "abilities": "While Killmonger has more than 0[Attack], you cannot fight him. Instead, you may spend [Attack] equal to his [Attack] to [Wound him] and get +1[Recruit]. When you do fight him, each other player gains one of [his Wounds].\nAlways Leads: Killmonger's League\nMaster Strike: Each player gains a Wound. Gain them from [Killmonger's Wounds] if possible."
+      },
+      {
+        "name": "A Scar for Every Kill",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each non-Henchman Villain in your Victory Pile."
+      },
+      {
+        "name": "Rite of Challenge",
+        "isEpic": false,
+        "abilities": "Fight: Each player with no Killmonger Tactics in their Victory Pile gains a [Wound that was on Killmonger]. (You have this Tactic, so you won't gain a Wound.)"
+      },
+      {
+        "name": "Throw from the Waterfall",
+        "isEpic": false,
+        "abilities": "Fight: Draw two cards. Then each other player discards a card."
+      },
+      {
+        "name": "Altar of Resurrection",
+        "isEpic": false,
+        "abilities": "Fight: The player on your left chooses a non-Henchman Villain from their Victory Pile. It enters the city with a [Wound on it]. Then the player on your right does the same effect. (In solo, you do both.)"
+      }
+    ]
+  },
+  {
+    "id": "klaw-34-86",
+    "name": "Klaw",
+    "setId": 34,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Klaw",
+        "isEpic": false,
+        "abilities": "Klaw is [Double Empowered] by the color(s) of his “Sonic Frequency“.\nAlways Leads: Enemies of Wakanda\nMaster Strike: Put the top card of the Hero Deck next to Klaw as a “Sonic Frequency,“ putting any previous Frequency on the bottom of the Hero Deck. Each player must reveal a card that shares a color with it or gain a Wound."
+      },
+      {
+        "name": "Epic Klaw",
+        "isEpic": true,
+        "abilities": "Klaw is [Quadruple Empowered] by the color(s) of his “Sonic Frequency“.\nAlways Leads: Enemies of Wakanda\nMaster Strike: Put the top card of the Hero Deck next to Klaw as a “Sonic Frequency.“ Put any previous Frequency and each card from the HQ that does not share a color with the new Frequency on the bottom of the Hero Deck. Each player gains a Wound."
+      },
+      {
+        "name": "Cohesive Sound Construct",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. This Tactic enters the city as a Villain whose only ability is “Escape: This card becomes a Master Strike that takes effect immediately.“"
+      },
+      {
+        "name": "Convert Matter to Sound",
+        "isEpic": false,
+        "abilities": "Fight: Each other player simultaneously KOs one of their non-grey Heroes. Put one of those cards with the lowest cost next to Klaw as his new Sonic Frequency. Put any previous Frequency on the bottom of the Hero Deck."
+      },
+      {
+        "name": "Ultrasonic Boom",
+        "isEpic": false,
+        "abilities": "Fight: Put the top card of the Hero Deck next to Klaw as a Sonic Frequency. Each other player must discard a card that shares a color with it. Put any previous Frequency on the bottom of the Hero Deck."
+      },
+      {
+        "name": "Cruelty Provokes Resistance",
+        "isEpic": false,
+        "abilities": "Fight: Set aside all Heroes from the HQ that do not share any colors with Klaw's Sonic Frequency. Gain one of them. Put the rest on the bottom of the Hero Deck. Then refill the empty HQ spaces."
+      }
+    ]
+  },
+  {
+    "id": "taskmaster-35-87",
+    "name": "Taskmaster",
+    "setId": 35,
+    "vAttack": "5",
+    "vAttackNumeric": 5,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Taskmaster",
+        "isEpic": false,
+        "abilities": "Henchmen get +1[Attack] for each “Henchman Training“ stacked here.\nDuring your turn, Taskmaster gets +[Attack] equal to the highest cost Hero you played this turn.\nAlways Leads: Taskmaster's Thunderbolts\nMaster Strike: Stack this Strike next to Taskmaster as “Henchman Training.“ If there are any Henchmen in the city, each player gains a Wound."
+      },
+      {
+        "name": "Epic Taskmaster",
+        "isEpic": true,
+        "abilities": "Henchmen get +2[Attack] for each “Henchman Training“ stacked here.\nDuring your turn, Taskmaster gets +[Attack] equal to double the highest cost Hero you played this turn.\nAlways Leads: Taskmaster's Thunderbolts\nMaster Strike: Stack this Strike next to Taskmaster as “Henchman Training.“ If there are any Henchmen in the city, each player gains a Wound."
+      },
+      {
+        "name": "S.H.I.E.L.D. Initiative Trainer",
+        "isEpic": false,
+        "abilities": "Fight: Choose a Henchman from any player's Victory Pile to enter the city.\nKO any number of S.H.I.E.L.D. Agents and/or Troopers. Gain that many S.H.I.E.L.D. Officers."
+      },
+      {
+        "name": "Photographic Reflexes",
+        "isEpic": false,
+        "abilities": "Fight: Choose a Henchman from any player's Victory Pile to enter the city.\nPlay a copy of a Hero in the HQ that costs 6 or less."
+      },
+      {
+        "name": "Teacher and Assassin",
+        "isEpic": false,
+        "abilities": "Fight: Choose a Henchman from any player's Victory Pile to enter the city.\nEach other player reveals their hand and puts one of their non-grey Heroes on the bottom of the Hero Deck."
+      },
+      {
+        "name": "Henchman Instructor",
+        "isEpic": false,
+        "abilities": "Fight: Choose a Henchman from any player's Victory Pile to enter the city.\nThen each other player discards a card for each Henchman in the city and/or Escape Pile."
+      }
+    ]
+  },
+  {
+    "id": "indestructible-man-35-88",
+    "name": "Indestructible Man",
+    "setId": 35,
+    "vAttack": "0",
+    "vAttackNumeric": 0,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Indestructible Man",
+        "isEpic": false,
+        "abilities": "You can't use [Attack] to fight Indestructible Man.\nOnce during each of your turns, you may shuffle two Elite Assassins from your Victory Pile into the Villain Deck. If you do, fight Indestructible Man.\nAlways Leads: Elite Assassins\nMaster Strike: Shuffle an Elite Assassin from your Victory Pile into the Villain Deck. If you can't, each player gains a Wound."
+      },
+      {
+        "name": "Epic Indestructible Man",
+        "isEpic": true,
+        "abilities": "You can't use [Attack] to fight Indestructible Man.\nOnce during each of your turns, you may shuffle three Elite Assassins from your Victory Pile into the Villain Deck. If you do, fight Indestructible Man.\nAlways Leads: Elite Assassins\nMaster Strike: Each player shuffles an Elite Assassin from their Victory Pile into the Villain Deck. Each player that can't gains a Wound."
+      },
+      {
+        "name": "Manipulate Murderous Mad Monk",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the last Tactic, rescue four Bystanders and this Tactic enters the city as a “Molot Boga“ Villain whose abilities are:\n“Ambush: Play two cards from the Villain Deck.\nFight: KO one of your Heroes.\nEscape: Shuffle this back into Indestructible Man's Mastermind Tactics.“"
+      },
+      {
+        "name": "Secrets of Indestructibility",
+        "isEpic": false,
+        "abilities": "Fight: KO up to two Wounds from your hand and/or discard pile.\nIf this is not the last Tactic, play two cards from the Villain Deck."
+      },
+      {
+        "name": "International Arms Dealer",
+        "isEpic": false,
+        "abilities": "Fight: Gain a [Tech] Hero from the HQ. Each other player reveals a [Tech] Hero or gains a Wound.\nIf this is not the last Tactic, play two cards from the Villain Deck."
+      },
+      {
+        "name": "Unveil Project Four",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards each card with a “4“ printed anywhere on it. (The copyright date line doesn't count.)\nIf this is not the last Tactic, play two cards from the Villain Deck."
+      }
+    ]
+  },
+  {
+    "id": "arnim-zola-12-29",
+    "name": "Arnim Zola",
+    "setId": 12,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Arnim Zola",
+        "isEpic": false,
+        "abilities": "[Ultimate Abomination]\nAlways Leads: Zola's Creations\nMaster Strike: For each Hero in the HQ that has less than 2 printed [Attack], put that Hero on the bottom of the Hero Deck, and each player discards a card of that Hero's cost."
+      },
+      {
+        "name": "Dominate the Weak",
+        "isEpic": false,
+        "abilities": "Fight: The player of your choice gains a Hero from the HQ that has less than 2 printed [Attack]."
+      },
+      {
+        "name": "Computer-Uploaded Genius",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Hero or discards a card."
+      },
+      {
+        "name": "Pet Projects",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a Zola's Creations Villain from their Victory Pile or gains a Wound."
+      },
+      {
+        "name": "Crush Pacifist Resistance",
+        "isEpic": false,
+        "abilities": "Fight: KO up to two of your Heroes that have less than 2 printed [Attack]."
+      }
+    ]
+  },
+  {
+    "id": "baron-heinrich-zemo-12-30",
+    "name": "Baron Heinrich Zemo",
+    "setId": 12,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Baron Heinrich Zemo",
+        "isEpic": false,
+        "abilities": "Whenever you fight a Villain, you may use 2[Recruit] to rescue a Bystander. Baron Zemo gets +9[Attack] unless you are a [Savior].\nAlways Leads: Masters of Evil (WWII)\nMaster Strike: Each player KOs a Bystander from their Victory Pile. Any player who cannot do so gains a Wound."
+      },
+      {
+        "name": "Fallen Idols",
+        "isEpic": false,
+        "abilities": "Fight: Each other player that is not a [Savior] discards a card."
+      },
+      {
+        "name": "Finding Zemo",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top five cards of the Villain Deck. If you revealed any Bystanders, KO them and each other player gains a Wound. Put the rest back in random order."
+      },
+      {
+        "name": "Hatred for the Avengers",
+        "isEpic": false,
+        "abilities": "Fight: For each of your [Avengers] Heroes, rescue a Bystander."
+      },
+      {
+        "name": "Prisoners of War",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals an [Avengers] Hero or chooses a Bystander from their Victory Pile, and you rescue that Bystander."
+      }
+    ]
+  },
+  {
+    "id": "fin-fang-foom-18-48",
+    "name": "Fin Fang Foom",
+    "setId": 18,
+    "vAttack": "20",
+    "vAttackNumeric": 20,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Fin Fang Foom",
+        "isEpic": false,
+        "abilities": "[Size-Changing]: [Strength],[Instinct],[Covert],[Tech],[Ranged]\nAlways Leads: Monsters Unleashed\nMaster Strike: [Demolish] each player, then do it again for each Monsters Unleashed Villain in the city and Escape Pile."
+      },
+      {
+        "name": "Epic Fin Fang Foom",
+        "isEpic": true,
+        "abilities": "[Size-Changing]: [Strength],[Instinct],[Covert],[Tech],[Ranged]\nAlways Leads: Monsters Unleashed\nMaster Strike: [Demolish] each player, then do it again for each Monsters Unleashed Villain in the city and Escape Pile. KO all the Heroes [Demolished] this way."
+      },
+      {
+        "name": "Alien Dragon Technology",
+        "isEpic": false,
+        "abilities": "Fight: A Hero in the HQ gets [Size-Changing]: [Strength],[Instinct],[Covert],[Tech],[Ranged] this turn."
+      },
+      {
+        "name": "Flammable Acid Breath",
+        "isEpic": false,
+        "abilities": "Fight: KO the top card of the Hero Deck. Then each other player KOs a Hero of that Hero class from their discard pile ([Strength],[Instinct],[Covert],[Tech],[Ranged])."
+      },
+      {
+        "name": "Multipronged Assault",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals at least 3 Hero Classes ([Strength],[Instinct],[Covert],[Tech],[Ranged]) or gains a Wound."
+      },
+      {
+        "name": "Supersonic Dive Attack",
+        "isEpic": false,
+        "abilities": "Fight: KO the top card of the Hero Deck. Then each other player reveals their hand and discards a Hero of that Hero Class ([Strength],[Instinct],[Covert],[Tech],[Ranged])."
+      }
+    ]
+  },
+  {
+    "id": "pagliacci-18-49",
+    "name": "Pagliacci",
+    "setId": 18,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Pagliacci",
+        "isEpic": false,
+        "abilities": "Always Leads: Wrecking Crew\nMaster Strike 1, 5: This card becomes a Scheme Twist that takes effect immediately.\nMaster Strike 2, 3, 4: [Demolish] each player."
+      },
+      {
+        "name": "Epic Pagliacci",
+        "isEpic": true,
+        "abilities": "Always Leads: Wrecking Crew\nMaster Strike 1, 3, 5: This card becomes a Scheme Twist that takes effect immediately.\nMaster Strike 2, 4: [Demolish] each player."
+      },
+      {
+        "name": "Commedia Dell'Morte",
+        "isEpic": false,
+        "abilities": "Fight: Each other player may gain two Wounds. [Demolish] each of those players who does not."
+      },
+      {
+        "name": "Creative Assassin",
+        "isEpic": false,
+        "abilities": "Fight: You get [Versatile 3]."
+      },
+      {
+        "name": "Insane Clown Has a Posse",
+        "isEpic": false,
+        "abilities": "Fight: Each other player may KO a Wrecking Crew Villain from their Victory Pile. [Demolish] each of those players who does not."
+      },
+      {
+        "name": "Jester of a Twisted Opera",
+        "isEpic": false,
+        "abilities": "Fight: Each other player may KO a card from their discard pile that costs 1 or more. [Demolish] each of those players who does not."
+      }
+    ]
+  },
+  {
+    "id": "authoritarian-iron-man-13-31",
+    "name": "Authoritarian Iron Man",
+    "setId": 13,
+    "vAttack": "12",
+    "vAttackNumeric": 12,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Authoritarian Iron Man",
+        "isEpic": false,
+        "abilities": "Always Leads: Superhuman Registration Act\nMaster Strike: Authoritarian Iron Man [fortifies] the next city space to his right, starting with the Bridge. You can't fight him while there's a Villain in that space. Villains in that space get +3[Attack]."
+      },
+      {
+        "name": "Armada of Armors",
+        "isEpic": false,
+        "abilities": "Fight: You get +6[Recruit] usable only to recruit [Ranged] and/or [Tech] Heroes."
+      },
+      {
+        "name": "Freeze Domestic Assets",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards all their cards with [Recruit] icons."
+      },
+      {
+        "name": "Man the Fortifications",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top card of the Villain Deck. If it's a Villain, it enters the city space that Authoritarian Iron Man is fortifying."
+      },
+      {
+        "name": "Recall to Service",
+        "isEpic": false,
+        "abilities": "Fight: The Villain with the highest printed [Attack] in the Escape Pile enters the city space that Authoritarian Iron Man is fortifying."
+      }
+    ]
+  },
+  {
+    "id": "baron-helmut-zemo-13-32",
+    "name": "Baron Helmut Zemo",
+    "setId": 13,
+    "vAttack": "16",
+    "vAttackNumeric": 16,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Baron Helmut Zemo",
+        "isEpic": false,
+        "abilities": "Baron Zemo gets -1[Attack] for each Villain in your Victory Pile.\nAlways Leads: Thunderbolts\nMaster Strike: Each player KOs a Villain from their Victory Pile. Any player who cannot do so gains a Wound."
+      },
+      {
+        "name": "Blasted Henchmen!",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Hero or KOs a Villain from their Victory Pile."
+      },
+      {
+        "name": "Cursed Dynasty",
+        "isEpic": false,
+        "abilities": "Fight: When you draw a new hand of cards at the end of this turn, draw two extra cards."
+      },
+      {
+        "name": "Endless Minions",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Hero or chooses a Villain from their Victory Pile and it enters the city."
+      },
+      {
+        "name": "Revenge for My Father",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand. Each player who revealed an [Avengers] Hero gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "maria-hill-director-of-s-h-i-e-l-d-13-33",
+    "name": "Maria Hill, Director of S.H.I.E.L.D.",
+    "setId": 13,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Maria Hill, Director of S.H.I.E.L.D.",
+        "isEpic": false,
+        "abilities": "[Double S.H.I.E.L.D. Clearance]. You can't fight Maria Hill while there are any S.H.I.E.L.D. Elite or Officers in the city.\nAlways Leads: S.H.I.E.L.D. Elite\nMaster Strike: Two S.H.I.E.L.D. Officers enter the city as 3[Attack] Villains. When you fight them, gain them as Heroes."
+      },
+      {
+        "name": "Crash the Helicarrier",
+        "isEpic": false,
+        "abilities": "Fight: KO any number of your [S.H.I.E.L.D.] Heroes."
+      },
+      {
+        "name": "Declare Martial Law",
+        "isEpic": false,
+        "abilities": "Fight: Put a S.H.I.E.L.D. Officer into each empty city space as 3[Attack] Villains. When you fight them, gain them as Heroes."
+      },
+      {
+        "name": "Evacuation Code Epsilon",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards a [S.H.I.E.L.D.] card."
+      },
+      {
+        "name": "Rapid Response Team",
+        "isEpic": false,
+        "abilities": "Fight: Two S.H.I.E.L.D. Officers enter the city as 3[Attack] Villains. When you fight them, gain them as Heroes."
+      }
+    ]
+  },
+  {
+    "id": "misty-knight-13-34",
+    "name": "Misty Knight",
+    "setId": 13,
+    "vAttack": "14",
+    "vAttackNumeric": 14,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Misty Knight",
+        "isEpic": false,
+        "abilities": "[Bribe]\nAlways Leads: Heroes for Hire\nMaster Strike: Each player reveals 4 cards with [Recruit] icons or gains a Wound."
+      },
+      {
+        "name": "Bionic Repulsor Field",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Marvel Knights] Hero or puts two cards from their hand on top of the deck."
+      },
+      {
+        "name": "Cyborg Detective",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top three cards of the Villain Deck. Put them back in any order."
+      },
+      {
+        "name": "Trusted Bodyguard",
+        "isEpic": false,
+        "abilities": "Fight: Going clockwise, the first other player with Colleen Wing in their Victory Pile rescues 5 Bystanders and returns Colleen Wing to play [fortifying] Misty Knight."
+      },
+      {
+        "name": "Vibranium Cyber Arm",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Marvel Knights] Hero or gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "ragnarok-13-35",
+    "name": "Ragnarok",
+    "setId": 13,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ragnarok",
+        "isEpic": false,
+        "abilities": "Ragnarok gets +2[Attack] for each Hero Class among Heroes in the HQ.\nAlways Leads: Registration Enforcers\nMaster Strike: Each player says “zero“ or “not zero.“ Then, each player discards all their cards with that cost."
+      },
+      {
+        "name": "Electrical Charge",
+        "isEpic": false,
+        "abilities": "Fight: Count how many [Ranged] Heroes you have. Draw that many cards."
+      },
+      {
+        "name": "God of Cyborg Thunder",
+        "isEpic": false,
+        "abilities": "Fight: You can spend [Recruit] as [Attack] this turn."
+      },
+      {
+        "name": "Hammer Goliath",
+        "isEpic": false,
+        "abilities": "Fight: KO each Hero from the HQ that costs 7 or more."
+      },
+      {
+        "name": "Unnatural Storm Clouds",
+        "isEpic": false,
+        "abilities": "Fight: Put all Heroes from the HQ on the bottom of the Hero Deck in random order."
+      }
+    ]
+  },
+  {
+    "id": "dr-doom-1-1",
+    "name": "Dr. Doom",
+    "setId": 1,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Dr. Doom",
+        "isEpic": false,
+        "abilities": "Always Leads: Doombot Legion\nMaster Strike: Each player with exactly 6 cards in hand reveals a [Tech] Hero or puts 2 cards from their hand on top of their deck."
+      },
+      {
+        "name": "Dark Technology",
+        "isEpic": false,
+        "abilities": "Fight: You may recruit a [Tech] or [Ranged] Hero from the HQ for free."
+      },
+      {
+        "name": "Monarch's Decree",
+        "isEpic": false,
+        "abilities": "Fight: Choose one: each other player draws a card or each other player discards a card."
+      },
+      {
+        "name": "Secrets of Time Travel",
+        "isEpic": false,
+        "abilities": "Fight: Take another turn after this one."
+      },
+      {
+        "name": "Treasures of Latveria",
+        "isEpic": false,
+        "abilities": "Fight: When you draw a new hand of cards at the end of this turn, draw three extra cards."
+      }
+    ]
+  },
+  {
+    "id": "loki-1-2",
+    "name": "Loki",
+    "setId": [
+      1,
+      20
+    ],
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Loki",
+        "isEpic": false,
+        "abilities": "Always Leads: Enemies of Asgard\nMaster Strike: Each player reveals a [Strength] Hero or gains a Wound."
+      },
+      {
+        "name": "Cruel Ruler",
+        "isEpic": false,
+        "abilities": "Fight: Defeat a Villain in the City for free."
+      },
+      {
+        "name": "Maniacal Tyrant",
+        "isEpic": false,
+        "abilities": "Fight: KO up to four cards from your discard pile."
+      },
+      {
+        "name": "Vanishing Illusions",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs a Villain from their Victory Pile."
+      },
+      {
+        "name": "Whispers and Lies",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs two Bystanders from their Victory Pile."
+      }
+    ]
+  },
+  {
+    "id": "magneto-1-3",
+    "name": "Magneto",
+    "setId": 1,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Magneto",
+        "isEpic": false,
+        "abilities": "Always Leads: Brotherhood\nMaster Strike: Each player reveals an [X-Men] Hero or discards down to four cards."
+      },
+      {
+        "name": "Bitter Captor",
+        "isEpic": false,
+        "abilities": "Fight: Recruit an [X-Men] Hero from the HQ for free."
+      },
+      {
+        "name": "Crushing Shockwave",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals an [X-Men] Hero or gains two Wounds."
+      },
+      {
+        "name": "Electromagnetic Bubble",
+        "isEpic": false,
+        "abilities": "Fight: Choose one of your [X-Men] Heroes. When you draw a new hand of cards at the end of this turn, add that Hero to your hand as a seventh card."
+      },
+      {
+        "name": "Xavier's Nemesis",
+        "isEpic": false,
+        "abilities": "Fight: For each of your [X-Men] Heroes, rescue a Bystander."
+      }
+    ]
+  },
+  {
+    "id": "red-skull-1-4",
+    "name": "Red Skull",
+    "setId": [
+      1,
+      20
+    ],
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Red Skull",
+        "isEpic": false,
+        "abilities": "Always Leads: HYDRA\nMaster Strike: Each player KOs a Hero from their hand."
+      },
+      {
+        "name": "Endless Resources",
+        "isEpic": false,
+        "abilities": "Fight: You get +4[Recruit]."
+      },
+      {
+        "name": "HYDRA Conspiracy",
+        "isEpic": false,
+        "abilities": "Fight: Draw two cards. Then draw another card for each HYDRA Villain in your Victory Pile."
+      },
+      {
+        "name": "Negablast Grenades",
+        "isEpic": false,
+        "abilities": "Fight: You get +3[Attack]."
+      },
+      {
+        "name": "Ruthless Dictator",
+        "isEpic": false,
+        "abilities": "Fight: Look at the top three cards of your deck. KO one, discard one and put one back on top of your deck."
+      }
+    ]
+  },
+  {
+    "id": "red-skull-hydra-overlord-42-105",
+    "name": "Red Skull, Hydra Overlord",
+    "setId": 42,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Red Skull, Hydra Overlord",
+        "isEpic": false,
+        "abilities": "Red Skull gets +1[Attack] for each Hydra Villain in the city and/or Escape Pile.\nAlways Leads: Any “Hydra“ Villain Group\nMaster Strike: Each player reveals a [Tech] Hero or discards down to 4 cards."
+      },
+      {
+        "name": "Epic Red Skull, Hydra Overlord",
+        "isEpic": true,
+        "abilities": "Red Skull gets +2[Attack] for each Hydra Villain in the city and/or Escape Pile.\nAlways Leads: Any “Hydra“ Villain Group\nMaster Strike: Each player reveals a [Tech] Hero or discards down to 3 cards."
+      },
+      {
+        "name": "Dust of Death",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs a non-grey Hero from their discard pile."
+      },
+      {
+        "name": "Ruthless Command",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top three cards of your deck. KO one, discard one, and put one back on top."
+      },
+      {
+        "name": "Two More Shall Take Its Place",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic: Shuffle two cards from the Bystander Deck into the Villain Deck, then play two cards from the Villain Deck."
+      },
+      {
+        "name": "Vast Resources",
+        "isEpic": false,
+        "abilities": "Fight: You get +4[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "magneto-42-106",
+    "name": "Magneto",
+    "setId": 42,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Magneto",
+        "isEpic": false,
+        "abilities": "Magneto gets +1[Attack] for each [Tech] Hero you played this turn.\nAlways Leads: Any “Brotherhood“ or “X-Men“ Villain Group\nMaster Strike: Each player discards an [X-Men] Hero or gains a Wound."
+      },
+      {
+        "name": "Epic Magneto",
+        "isEpic": true,
+        "abilities": "Magneto gets +1[Attack]  for each Hero you played this turn that's [Tech] and/or [Ranged].\nAlways Leads: Any “Brotherhood“ or “X-Men“ Villain Group\nMaster Strike: Each player KOs one of their [X-Men] Heroes or gains a Wound."
+      },
+      {
+        "name": "Bitter Captor",
+        "isEpic": false,
+        "abilities": "Fight: Gain an [X-Men] Hero from the HQ or gain a [Sidekick]."
+      },
+      {
+        "name": "Crush In Steel",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs one of their non-grey Heroes."
+      },
+      {
+        "name": "Electromagnetic Shockwave",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards an [X-Men] Hero or discards down to three cards."
+      },
+      {
+        "name": "Imprisoning Sphere",
+        "isEpic": false,
+        "abilities": "Fight: You may set aside one of your [X-Men] or [S.H.I.E.L.D.] Heroes. When you draw a new hand this turn, add that Hero to your hand as an extra card."
+      }
+    ]
+  },
+  {
+    "id": "doctor-doom-42-107",
+    "name": "Doctor Doom",
+    "setId": 42,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Doctor Doom",
+        "isEpic": false,
+        "abilities": "If there is at least one Omen of Doom, all Doombot Legions get +1[Attack]. If there are at least four Omens, then instead Doctor Doom and all Doombot Legions get +2[Attack].\nAlways Leads: Doombot Legions\nMaster Strike: Stack this Strike next to Doctor Doom as an “Omen of Doom.“ Then each player discards cards equal to the number of Omens or gains a Wound."
+      },
+      {
+        "name": "Epic Doctor Doom",
+        "isEpic": true,
+        "abilities": "All Doombot Legions get +2[Attack]. If there are at least four Omens of Doom, then instead Doctor Doom and all Doombot Legions get +4[Attack].\nAlways Leads: Doombot Legions\nMaster Strike: Stack this Strike next to Doctor Doom as an “Omen of Doom.“ Then each player discards cards equal to one plus the number of Omens or gains a Wound."
+      },
+      {
+        "name": "Dark Technology",
+        "isEpic": false,
+        "abilities": "Fight: You may recruit a [Tech] or [Ranged] Hero from the HQ for free."
+      },
+      {
+        "name": "Monarch's Decree",
+        "isEpic": false,
+        "abilities": "Fight: Choose one:\n- Each other player draws a card, or\n- Each other player discards a card."
+      },
+      {
+        "name": "Secrets of Time Travel",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic: Take another turn after this one."
+      },
+      {
+        "name": "Treasures of Latveria",
+        "isEpic": false,
+        "abilities": "Fight: When you draw a new hand this turn, draw three extra cards."
+      }
+    ]
+  },
+  {
+    "id": "loki-42-108",
+    "name": "Loki",
+    "setId": 42,
+    "vAttack": "11",
+    "vAttackNumeric": 11,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Loki",
+        "isEpic": false,
+        "abilities": "Loki gets +1[Attack] for each Hero Class among his “Hypno-Thralls.“\nAlways Leads: Enemies of Asgard\nMaster Strike: Each player discards a [Strength] Hero or stacks a non-grey Hero from their hand next to Loki as a Hypno-Thrall."
+      },
+      {
+        "name": "Epic Loki",
+        "isEpic": true,
+        "abilities": "Loki gets +2[Attack] for each Hero Class among his “Hypno-Thralls.“\nAlways Leads: Enemies of Asgard\nMaster Strike: Stack the top card of the Hero Deck next to Loki as a Hypno-Thrall. Each player KOs one of their [Strength] Heroes or stacks a non-grey Hero from their hand next to Loki as a Hypno-Thrall."
+      },
+      {
+        "name": "Broken Illusions",
+        "isEpic": false,
+        "abilities": "Fight: Either KO one of Loki's Hypno-Thralls or choose a player to gain it."
+      },
+      {
+        "name": "Cruel Manipulations",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards all cards that have the same card names as any cards in Loki's Hypno-Thralls."
+      },
+      {
+        "name": "Scion of the Frost Giants",
+        "isEpic": false,
+        "abilities": "Fight: KO up to three grey Heroes from your discard pile."
+      },
+      {
+        "name": "Whispers and Lies",
+        "isEpic": false,
+        "abilities": "Fight: Put all Heroes that cost 5 or more from the HQ into Loki's Hypno-Thralls. Then refill all those HQ spaces."
+      }
+    ]
+  },
+  {
+    "id": "doctor-octopus-42-109",
+    "name": "Doctor Octopus",
+    "setId": 42,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 8,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Doctor Octopus",
+        "isEpic": false,
+        "abilities": "Doctor Octopus gets +4[Attack] unless you played at least 8 cards or a Hero that costs 8 this turn.\nAlways Leads: Any “Sinister“ Villain Group\nMaster Strike: Each player may discard a [Spider Friends] Hero. Any player who doesn't must reveal the top 8 cards of their deck, discard all non-Grey Heroes revealed, and put the rest back in random order."
+      },
+      {
+        "name": "Epic Doctor Octopus",
+        "isEpic": true,
+        "abilities": "Doctor Octopus gets +4[Attack] unless you played at least 8 cards this turn and gets +4[Attack] unless you played a Hero that costs 8 this turn.\nAlways Leads: Any “Sinister“ Villain Group\nMaster Strike: Each player may KO one of their [Spider Friends] Heroes. Any player who doesn't must reveal the top 8 cards of their deck, KO a non-grey Hero revealed, discard all other non-grey Heroes revealed, and put the rest back in random order."
+      },
+      {
+        "name": "Absolute Octarchy",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a card that costs 8 or gains a Wound."
+      },
+      {
+        "name": "High Octane",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top 8 cards of the Hero Deck. You may gain one of them that costs 8. Shuffle the rest back into the Hero Deck."
+      },
+      {
+        "name": "Octal Octyls",
+        "isEpic": false,
+        "abilities": "Fight: Look at the top 8 cards of your deck. Draw one and discard the rest."
+      },
+      {
+        "name": "Octet of Valence Electrons",
+        "isEpic": false,
+        "abilities": "Fight: When you draw a new hand this turn, draw 8 cards instead of 6."
+      }
+    ]
+  },
+  {
+    "id": "apocalypse-3-5",
+    "name": "Apocalypse",
+    "setId": 3,
+    "vAttack": "12",
+    "vAttackNumeric": 12,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Apocalypse",
+        "isEpic": false,
+        "abilities": "Always Leads: Four Horsemen\nFour Horsemen Villains get +2[Attack].\nApocalypse Wins: When Famine, Pestilence, War, and Death have escaped.\nMaster Strike: Each player reveals their hand and puts all their Heroes that cost 1[Cost] or more on top of their deck."
+      },
+      {
+        "name": "Apocalyptic Destruction",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs two Heroes from their discard pile that each cost 1[Cost] or more."
+      },
+      {
+        "name": "The End of All Things",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals the top three cards of their deck, KOs each one of those cards that cost 1 [Cost] or more, and puts the rest back in any order."
+      },
+      {
+        "name": "Horsemen Are Drawing Nearer",
+        "isEpic": false,
+        "abilities": "Fight: Each other player plays a Four Horsemen Villain from their Victory Pile as if playing it from the Villain Deck."
+      },
+      {
+        "name": "Immortal and Undefeated",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, rescue six Bystanders and shuffle this Tactic back into the other Tactics."
+      }
+    ]
+  },
+  {
+    "id": "kingpin-3-6",
+    "name": "Kingpin",
+    "setId": 3,
+    "vAttack": "13",
+    "vAttackNumeric": 13,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Kingpin",
+        "isEpic": false,
+        "abilities": "[Bribe]\nAlways Leads: Streets of New York\nMaster Strike: Each player reveals a [Marvel Knights] Hero or discards their hand and draws 5 cards."
+      },
+      {
+        "name": "Call a Hit",
+        "isEpic": false,
+        "abilities": "Fight: Choose a Hero from each player's discard pile and KO it."
+      },
+      {
+        "name": "Criminal Empire",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, reveal the top three cards of the Villain Deck. Play all the Villains you revealed. Put the rest back in random order."
+      },
+      {
+        "name": "Dirty Cops",
+        "isEpic": false,
+        "abilities": "Fight: Put a 0 [Cost] Hero from the KO pile on top of each other player's deck."
+      },
+      {
+        "name": "Mob War",
+        "isEpic": false,
+        "abilities": "Fight: Each other player plays a Henchman Villain from their Victory Pile as if playing it from the Villain Deck."
+      }
+    ]
+  },
+  {
+    "id": "mephisto-3-7",
+    "name": "Mephisto",
+    "setId": 3,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mephisto",
+        "isEpic": false,
+        "abilities": "Whenever a player gains a Wound, put it on top of that player's deck.\nAlways Leads: Underworld\nMaster Strike: Each player reveals a [Marvel Knights] Hero or gains a Wound."
+      },
+      {
+        "name": "Damned If You Do...",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs a Bystander from their Victory Pile or gains a Wound."
+      },
+      {
+        "name": "Devilish Torment",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts all 0 [Cost] cards from their discard pile on top of their deck in any order."
+      },
+      {
+        "name": "Pain Begets Pain",
+        "isEpic": false,
+        "abilities": "Fight: Choose any number of Wounds from your hand and discard pile. The player to your right gains them."
+      },
+      {
+        "name": "The Price of Failure",
+        "isEpic": false,
+        "abilities": "Fight: Each other player without a Mastermind Tactic in their Victory Pile gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "mr-sinister-3-8",
+    "name": "Mr. Sinister",
+    "setId": 3,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mr. Sinister",
+        "isEpic": false,
+        "abilities": "Mr. Sinister gets +1[Attack] for each Bystander he has.\nAlways Leads: Marauders\nMaster Strike: Mr. Sinister captures a Bystander. Then each player with exactly 6 cards reveals a [Covert] Hero or discards cards equal to the number of Bystanders Mr. Sinister has."
+      },
+      {
+        "name": "Human Experimentation",
+        "isEpic": false,
+        "abilities": "Fight: Mr. Sinister captures Bystanders equal to the number of Villains in the city."
+      },
+      {
+        "name": "Master Geneticist",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top seven cards of the Villain Deck. Mr. Sinister captures all of the Bystanders you revealed. Put the rest back in random order."
+      },
+      {
+        "name": "Plans Within Plans",
+        "isEpic": false,
+        "abilities": "Fight: Mr. Sinister captures a Bystander for each Mr. Sinister Tactic in players' Victory Piles, including this Tactic."
+      },
+      {
+        "name": "Telepathic Manipulation",
+        "isEpic": false,
+        "abilities": "Fight: Mr. Sinister captures a Bystander from each other player's Victory Pile."
+      }
+    ]
+  },
+  {
+    "id": "stryfe-3-9",
+    "name": "Stryfe",
+    "setId": 3,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Stryfe",
+        "isEpic": false,
+        "abilities": "Always Leads: MLF\nMaster Strike: Stack this Master Strike next to Stryfe. Stryfe gets +1[Attack] for each Master Strike stacked next to him. Each player reveals a [X-Force] Hero or discards a card at random."
+      },
+      {
+        "name": "Furious Wrath",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top six cards of the Villain Deck. Play all the Master Strikes you revealed. Put the rest back in random order."
+      },
+      {
+        "name": "Psychic Torment",
+        "isEpic": false,
+        "abilities": "Fight: Look at the top five cards of your deck. Put one into your hand and discard the rest."
+      },
+      {
+        "name": "Swift Vengeance",
+        "isEpic": false,
+        "abilities": "Fight: A Wound from the Wound Stack becomes a Master Strike that takes effect immediately."
+      },
+      {
+        "name": "Tide of Retribution",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals an [X-Force] Hero or gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "evil-deadpool-14-36",
+    "name": "Evil Deadpool",
+    "setId": 14,
+    "vAttack": "11",
+    "vAttackNumeric": 11,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Evil Deadpool",
+        "isEpic": false,
+        "abilities": "[Revenge for Mastermind Tactics]\nAlways Leads: Evil Deadpool Corpse\nMaster Strike: Without talking, each player simultaneously discards a card. Whoever discards the lowest-costing card (or tied for lowest) gains a Wound."
+      },
+      {
+        "name": "Evil Even Oddball",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand. Whoever has the fewest cards with odd-numbered costs (or tied for fewest) gains a Wound."
+      },
+      {
+        "name": "Hyper-Insane Healing Factor",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, you get +6[Recruit] and shuffle this Tactic back into the other Tactics."
+      },
+      {
+        "name": "Of Course it's Corpse",
+        "isEpic": false,
+        "abilities": "Fight: The other player with the fewest Evil Deadpool Corpse Villains in their Victory Pile (or tied for fewest) gains a Wound."
+      },
+      {
+        "name": "Stitched from Dead (Pool) Parts",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards the top card of their deck. Whoever discards the lowest-costing card (or tied for lowest) gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "macho-gomez-14-37",
+    "name": "Macho Gomez",
+    "setId": 14,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Macho Gomez",
+        "isEpic": false,
+        "abilities": "[Revenge for Deadpool's “Friends“]\nAlways Leads: Deadpool's “Friends“\nMaster Strike: Put this Strike in front of you as a “Bounty on Your Head.“ Then, each player gains a Wound for each Bounty on them. Any number of times during your turn, you may pay 1[Recruit] to move a Bounty from you to the player on your left."
+      },
+      {
+        "name": "Bounty Payout",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each “Bounty on Your Head“ on other players."
+      },
+      {
+        "name": "Interstellar Assassin",
+        "isEpic": false,
+        "abilities": "Fight: Each other player with at least one “Bounty on Your Head“ discards down to 4 cards."
+      },
+      {
+        "name": "Renegotiate the Contract",
+        "isEpic": false,
+        "abilities": "Fight: Redistribute the “Bounty on Your Head“ cards among any number of players."
+      },
+      {
+        "name": "Super Macho Man",
+        "isEpic": false,
+        "abilities": "Fight: Rescue a Bystander for each “Bounty on Your Head“ on other players."
+      }
+    ]
+  },
+  {
+    "id": "j-jonah-jameson-23-61",
+    "name": "J. Jonah Jameson",
+    "setId": 23,
+    "vAttack": "4",
+    "vAttackNumeric": 4,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "J. Jonah Jameson",
+        "isEpic": false,
+        "abilities": "Start of Game: Put 2 S.H.I.E.L.D. Officers per player into a face down “Angry Mobs“ stack.\nSpecial Rules: You can spend 4[Attack] to reveal a random Angry Mob and put it into any player's discard pile. You can't fight J. Jonah Jameson while he has Angry Mobs.\nAlways Leads: Spider-Slayers\nMaster Strike: Each player [Investigates] their deck for a card and puts it into the Angry Mobs stack."
+      },
+      {
+        "name": "Epic J. Jonah Jameson",
+        "isEpic": true,
+        "abilities": "Start of Game: Put 3 S.H.I.E.L.D. Officers per player into a face down “Angry Mobs“ stack.\nSpecial Rules: You can spend 5[Attack] to reveal a random Angry Mob and put it into any player's discard pile. You can't fight J. Jonah Jameson while he has Angry Mobs.\nAlways Leads: Spider-Slayers\nMaster Strike: Each player [Investigates] their deck for a card and puts it into the Angry Mobs stack. If that card cost 0, that player gains a Wound."
+      },
+      {
+        "name": "Incite Violent Riots",
+        "isEpic": false,
+        "abilities": "Fight: Each player puts a Wound from the Wound Stack into the Angry Mobs stack."
+      },
+      {
+        "name": "Promote Spider-Slayer Security",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts a Spider-Slayer from their Victory Pile into the Angry Mobs stack. When a Spider-Slayer is revealed from the Angry Mobs, it enters the city."
+      },
+      {
+        "name": "Slanderous Editorial",
+        "isEpic": false,
+        "abilities": "Fight: Each other player [Investigates] their deck for a non-grey Hero and puts it into the Angry Mobs stack. Players reveal all the cards they investigated."
+      },
+      {
+        "name": "That Menace Spider-Man!",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discard a [Spider Friends] Hero. Any player who cannot must instead put a non-grey card from their hand into the Angry Mobs stack."
+      }
+    ]
+  },
+  {
+    "id": "nightmare-32-81",
+    "name": "Nightmare",
+    "setId": 32,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Nightmare",
+        "isEpic": false,
+        "abilities": "When you fight Nightmare in the [Astral Plane], instead of revealing a Tactic, KO one of your Heroes and Nightmare moves to the Mastermind Space.\nAlways Leads: Fear Lords\nMaster Strike: Nightmare enters the [Astral Plane]. If he was already there, each player discards a random card.\nEscape: Each player KOs one of their non-grey Heroes. Nightmare moves to the Mastermind space."
+      },
+      {
+        "name": "Epic Nightmare",
+        "isEpic": true,
+        "abilities": "When you fight Nightmare in the [Astral Plane], instead of revealing a Tactic, KO one of your Heroes and Nightmare moves to the Mastermind Space.\nAlways Leads: Fear Lords\nMaster Strike: Nightmare enters the [Astral Plane]. If he was already there, each player discards two random cards.\nEscape: Each player KOs one of their non-grey Heroes. Nightmare moves to the Mastermind space."
+      },
+      {
+        "name": "Don't Fall Asleep",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards two cards with [Recruit] icons. Nightmare enters the [Astral Plane]."
+      },
+      {
+        "name": "Dream Weaver",
+        "isEpic": false,
+        "abilities": "Fight: For each of your [Ranged] Heroes, rescue a Bystander. Nightmare enters the [Astral Plane]."
+      },
+      {
+        "name": "Night Terrors",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Covert] Hero or gains a Wound. Nightmare enters the [Astral Plane]."
+      },
+      {
+        "name": "Deadly Waking Nightmares",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs one of their non-grey Heroes. Each player who KO'd a Hero this way draws a card. Nightmare enters the [Astral Plane]."
+      }
+    ]
+  },
+  {
+    "id": "dormammu-32-82",
+    "name": "Dormammu",
+    "setId": 32,
+    "vAttack": "11",
+    "vAttackNumeric": 11,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Dormammu",
+        "isEpic": false,
+        "abilities": "Always Leads: Lords of the Netherworld\nMaster Strike: Each player makes a [Demonic Bargain] with Dormammu to discard down to four cards."
+      },
+      {
+        "name": "Epic Dormammu",
+        "isEpic": true,
+        "abilities": "Always Leads: Lords of the Netherworld\nMaster Strike: Each player reveals the top card of their deck and discards it if it costs 0. Then each player makes a [Demonic Bargain] with Dormammu to discard down to three cards."
+      },
+      {
+        "name": "Demonic Hellfire",
+        "isEpic": false,
+        "abilities": "Fight: Each other player makes a [Demonic Bargain] with Dormammu to KO a non-grey Hero from their discard pile."
+      },
+      {
+        "name": "Flames of Regency",
+        "isEpic": false,
+        "abilities": "Fight: Each other player makes a [Demonic Bargain] with Dormammu to discard a card with an [Attack] icon."
+      },
+      {
+        "name": "Barter for Souls",
+        "isEpic": false,
+        "abilities": "Fight: Choose a player to make a [Demonic Bargain] with Dormammu to gain a Hero from the HQ that costs 6 or less."
+      },
+      {
+        "name": "Torments of the Dark Dimension",
+        "isEpic": false,
+        "abilities": "Fight: Each other player makes a [Demonic Bargain] with Dormammu to gain a 0-cost Hero from the KO pile."
+      }
+    ]
+  },
+  {
+    "id": "uru-enchanted-iron-man-8-20",
+    "name": "Uru-Enchanted Iron Man",
+    "setId": 8,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Uru-Enchanted Iron Man",
+        "isEpic": false,
+        "abilities": "Always Leads: The Mighty\nCommand Strike: [Demolish] each player. Then stack this Strike next to Iron Man. Uru-Enchanted Iron Man has an [Uru-Enchanted Weapon] for each Strike stacked here."
+      },
+      {
+        "name": "Armor of the Destroyer",
+        "isEpic": false,
+        "abilities": "Fight: For each [Tech] Ally you have, [demolish] each other player."
+      },
+      {
+        "name": "Pepper Potts in Rescue Armor",
+        "isEpic": false,
+        "abilities": "Fight: A Bystander from the Bystander Stack becomes a Command Strike that takes effect immediately."
+      },
+      {
+        "name": "Quantum Inventions",
+        "isEpic": false,
+        "abilities": "Fight: Draw two cards. Then, if you reveal a [Tech] card, draw two more cards."
+      },
+      {
+        "name": "Repulsor Coils",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Ally or gains a Bindings."
+      }
+    ]
+  },
+  {
+    "id": "galactus-4-10",
+    "name": "Galactus",
+    "setId": 4,
+    "vAttack": "20",
+    "vAttackNumeric": 20,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Galactus",
+        "isEpic": false,
+        "abilities": "[Cosmic Threat]: [Strength][Instinct][Covert][Tech][Ranged]\nAlways Leads: Heralds of Galactus\nMaster Strike: Destroy the city space closest to Galactus. Any Villain there escapes. Put this Master Strike there.\nGalactus Wins: When the city is destroyed."
+      },
+      {
+        "name": "Cosmic Entity",
+        "isEpic": false,
+        "abilities": "Fight: Choose [Strength], [Instinct], [Covert], [Tech] or [Ranged]. Each player reveals any number of cards of that class, then draws that many cards."
+      },
+      {
+        "name": "Force of Eternity",
+        "isEpic": false,
+        "abilities": "Fight: When you draw a new hand of cards at the end of this turn, draw six extra cards, then discard six cards."
+      },
+      {
+        "name": "Panicked Mobs",
+        "isEpic": false,
+        "abilities": "Fight: Choose [Strength], [Instinct], [Covert], [Tech] or [Ranged]. Each player reveals any number of cards of that class, then rescues that many Bystanders."
+      },
+      {
+        "name": "Sunder the Earth",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs all Heroes from their discard pile with the same card name as a Hero in the HQ."
+      }
+    ]
+  },
+  {
+    "id": "mole-man-4-11",
+    "name": "Mole Man",
+    "setId": 4,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mole Man",
+        "isEpic": false,
+        "abilities": "Mole Man gets +1[Attack] for each Subterranea Villain that has escaped.\nAlways Leads: Subterranea\nMaster Strike: All Subterranea Villains in the city escape. If any Villains escaped this way, each player gains a Wound."
+      },
+      {
+        "name": "Dig to Freedom",
+        "isEpic": false,
+        "abilities": "Fight: Each other player chooses a Subterranea Villain in their Victory Pile and puts it into the Escaped Villains pile."
+      },
+      {
+        "name": "Master of Monsters",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, reveal the top six cards of the Villain Deck. Play all the Subterranea Villains you revealed. Put the rest on the bottom of the Villain Deck in random order."
+      },
+      {
+        "name": "Secret Tunnel",
+        "isEpic": false,
+        "abilities": "Fight: You get +6[Attack] usable only against Villains in the Streets."
+      },
+      {
+        "name": "Underground Riches",
+        "isEpic": false,
+        "abilities": "Fight: You get +6[Recruit] usable only to recruit Heroes in the HQ space under the Streets."
+      }
+    ]
+  },
+  {
+    "id": "supreme-intelligence-of-the-kree-7-18",
+    "name": "Supreme Intelligence of the Kree",
+    "setId": 7,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Supreme Intelligence of the Kree",
+        "isEpic": false,
+        "abilities": "Always Leads: Kree Starforce\nMaster Strike: The Supreme Intelligence gains a [Shard]. Then each player reveals their hand and discards each with cost equal to, and cost one higher than, the number of Shards on the Supreme Intelligence."
+      },
+      {
+        "name": "Combined Knowledge of All Kree",
+        "isEpic": false,
+        "abilities": "Fight: The Supreme Intelligence gains a [Shard] for each Kree Villain in the city and/or the Escape Pile."
+      },
+      {
+        "name": "Cosmic Omniscience",
+        "isEpic": false,
+        "abilities": "Fight: The Supreme Intelligence gains a [Shard] for each Master Strike in the KO pile."
+      },
+      {
+        "name": "Countermeasure Protocols",
+        "isEpic": false,
+        "abilities": "Fight: The Supreme Intelligence gains a [Shard] for each Mastermind Tactic (including this one) in any player's Victory Pile."
+      },
+      {
+        "name": "Guide Kree Evolution",
+        "isEpic": false,
+        "abilities": "Fight: The Supreme Intelligence and Kree Villains in the city each gain a [Shard]."
+      }
+    ]
+  },
+  {
+    "id": "thanos-7-19",
+    "name": "Thanos",
+    "setId": 7,
+    "vAttack": "24",
+    "vAttackNumeric": 24,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Thanos",
+        "isEpic": false,
+        "abilities": "Always Leads: Infinity Gems\nThanos gets -2[Attack] for each Infinity Gem Artifact card controlled by any player.\nMaster Strike: Each player reveals their hand and puts one of their non-grey Heroes next to Thanos in a “Bound Souls“ pile."
+      },
+      {
+        "name": "Centuries of Envy",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards an Infinity Gem Artifact card they control."
+      },
+      {
+        "name": "God of Death",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and gains a Wound for each card that player has with the same card name as any card in Thanos' Bound Souls pile."
+      },
+      {
+        "name": "Keeper of Souls",
+        "isEpic": false,
+        "abilities": "Fight: Gain a Hero from Thanos' Bound Souls pile. Then each other player puts a non-grey Hero from their discard pile into Thanos' Bound Souls pile."
+      },
+      {
+        "name": "The Mad Titan",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards all cards with the same card name as any card in Thanos' Bound Souls pile."
+      }
+    ]
+  },
+  {
+    "id": "hela-goddess-of-death-26-67",
+    "name": "Hela, Goddess of Death",
+    "setId": 26,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Hela, Goddess of Death",
+        "isEpic": false,
+        "abilities": "[Bridge Conqueror 5, Streets Conqueror 5]\nAlways Leads: Omens of Ragnarok\nMaster Strike: This Strike enters the city as a 5[Attack] “Army of the Dead“ Villain worth 3VP. Then choose a Villain worth 3VP or more from your Victory Pile (including an Army of the Dead) to enter the city. If you didn't have any, each player gains a Wound."
+      },
+      {
+        "name": "Epic Hela, Goddess of Death",
+        "isEpic": true,
+        "abilities": "[Bridge Conqueror 6, Streets Conqueror 6, Rooftops Conqueror 6]\nAlways Leads: Omens of Ragnarok\nMaster Strike: This Strike enters the city as a 6[Attack] “Army of the Dead“ Villain worth 4VP. Then choose a Villain worth 4VP or more from your Victory Pile (including an Army of the Dead) to enter the city. If you didn't have any, each player gains a Wound."
+      },
+      {
+        "name": "Hela's Cloak",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. Hela captures this card as a [Villainous Weapon].\n | \n[Artifact] - Once during each player's turn, if you would gain a Wound, you may draw a card instead."
+      },
+      {
+        "name": "The Nightsword",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. Hela captures this card as a [Villainous Weapon].\n | \n[Thrown Artifact] - When you throw this, you get [Bridge Conqueror 3]."
+      },
+      {
+        "name": "Seize Bifrost, The Rainbow Bridge",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top card of the Villain Deck. If it's a Villain, that Villain enters the Bridge or Streets, if one of those spaces is empty."
+      },
+      {
+        "name": "Naglfar, Longship of Fingernails",
+        "isEpic": false,
+        "abilities": "Fight: The player on your right reveals the Villain from their Victory Pile that's worth the most VP. That Villain enters the Bridge or Streets, if one of those spaces is empty."
+      }
+    ]
+  },
+  {
+    "id": "malekith-the-accursed-26-68",
+    "name": "Malekith the Accursed",
+    "setId": 26,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Malekith the Accursed",
+        "isEpic": false,
+        "abilities": "Always Leads: Dark Council\nMaster Strike: Malekith captures a [Villainous Weapon] from the city or from any player's control or discard pile. Then this Master Strike enters the city as a [Villainous Weapon] called “Darkspear“ that gives +2[Attack]. When you gain a Darkspear, it becomes a [Thrown Artifact] that gives +2[Attack] when thrown."
+      },
+      {
+        "name": "Epic Malekith the Accursed",
+        "isEpic": true,
+        "abilities": "Always Leads: Dark Council\nMaster Strike: Malekith captures a [Villainous Weapon] from the city, then captures one from any player's control or discard pile. Then this Master Strike enters the city as a [Villainous Weapon] called “Darkspear“ that gives +3[Attack]. When you gain a Darkspear, it becomes a [Thrown Artifact] that gives +2[Attack] when thrown."
+      },
+      {
+        "name": "Black Hammer of the Accursed",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. Malekith captures a [Villainous Weapon] from the city or from any player's control or discard pile. The this Tactic enters the city as a [Villainous Weapon].\n | \n[Artifact] - Once per turn, you may KO a Hero from your discard pile."
+      },
+      {
+        "name": "Dagger of Living Abyss",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. Malekith captures a [Villainous Weapon] from the city or from any player's control or discard pile. The this Tactic enters the city as a [Villainous Weapon].\n | \n[Artifact] - Once per turn, you may defeat a Villain worth 2VP or less."
+      },
+      {
+        "name": "The Hunting Horn of Faerie",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. Malekith captures a [Villainous Weapon] from the city or from any player's control or discard pile. The this Tactic enters the city as a [Villainous Weapon].\n | \n[Artifact] - Once per turn, draw a card."
+      },
+      {
+        "name": "Vulnerable to Cold Iron",
+        "isEpic": false,
+        "abilities": "Fight: You get +2[Recruit] for each [Tech] Hero you have."
+      }
+    ]
+  },
+  {
+    "id": "beyonder-the-28-71",
+    "name": "Beyonder, The",
+    "setId": 28,
+    "vAttack": "21",
+    "vAttackNumeric": 21,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "The Beyonder",
+        "isEpic": false,
+        "abilities": "[Cosmic Threat] for cards that cost 5 or more.\nAlways Leads: From Beyond\nMaster Strike: Each player reveals a card that costs 5 or more or gains a Wound. Then put this Strike under an HQ space (that doesn't already have a Strike), pulling that space into a Pocket Dimension. To recruit a card from a Pocket Dimension, you must also pay 1[Attack] for each Pocket Dimension in play."
+      },
+      {
+        "name": "Epic Beyonder",
+        "isEpic": true,
+        "abilities": "[Cosmic Threat] for cards that cost 6 or more.\nAlways Leads: From Beyond\nMaster Strike: Each player reveals a card that costs 6 or more or gains a Wound. Then put this Strike under an HQ space (that doesn't already have a Strike), pulling that space into a Pocket Dimension. To recruit a card from a Pocket Dimension, you must also pay 1[Attack] for each Pocket Dimension in play."
+      },
+      {
+        "name": "Playthings of a Petulant God",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and KOs a card from their hand or discard pile with the same card name as any card in a Pocket Dimension."
+      },
+      {
+        "name": "Dimensional Collapse",
+        "isEpic": false,
+        "abilities": "Fight: Destroy an HQ space that's in a Pocket Dimension. (That space doesn't refill.) To mark this, turn the Hero there face down. The Pocket Dimension card stays in play."
+      },
+      {
+        "name": "Pull Earth Into The Beyond",
+        "isEpic": false,
+        "abilities": "Fight: Rescue four Bystanders. Put this card above the Sewers, pulling it into a Pocket Dimension. To fight a Villain there, you must also pay 1[Attack] for each Pocket Dimension in play."
+      },
+      {
+        "name": "Create the Secret Wars",
+        "isEpic": false,
+        "abilities": "Fight: Choose a team (e.g. [S.H.I.E.L.D.],[Avengers],[X-Men],[Guardians of the Galaxy], etc.). [Contest of Champions] for that team icon, with Evil selecting from 4 cards from the Hero Deck. Each other player that loses gains a Wound. If you win, the player of your choice gains a Hero from a Pocket Dimension."
+      }
+    ]
+  },
+  {
+    "id": "grandmaster-the-28-72",
+    "name": "Grandmaster, The",
+    "setId": 28,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "The Grandmaster",
+        "isEpic": false,
+        "abilities": "Always Leads: Elders of the Universe\nMaster Strike: Reveal the top card of the Hero Deck then put it back. [Contest of Champions] for that card's color(s). Each player that loses gains a Wound. If the Grandmaster wins, he gains a [Shard]."
+      },
+      {
+        "name": "Epic Grandmaster",
+        "isEpic": true,
+        "abilities": "Evil adds +2 to its final total in every [Contest of Champions] caused by any card.\nAlways Leads: Elders of the Universe\nMaster Strike: Reveal the top card of the Hero Deck then put it back. [Contest of Champions] for that card's color(s). Each player that loses gains a Wound. If the Grandmaster wins, he gains 2 [Shards]."
+      },
+      {
+        "name": "Deal With Death",
+        "isEpic": false,
+        "abilities": "Fight: [Contest of Champions] [Covert], with Evil selecting from 4 cards from the Hero Deck. Each other player that loses must KO a non-grey Hero from their discard pile. If you win, you may gain a non-grey Hero from the KO pile. If the Grandmaster wins, he gains a [Shard]."
+      },
+      {
+        "name": "Galactic Marathon",
+        "isEpic": false,
+        "abilities": "Fight: [Contest of Champions] [Instinct], with Evil selecting from 4 cards from the Hero Deck. Each other player that loses must discard down to four cards. If you win, draw two cards. If the Grandmaster wins, he gains 2 [Shards]."
+      },
+      {
+        "name": "Cheat Against Thanos",
+        "isEpic": false,
+        "abilities": "Fight: [Contest of Champions] [Ranged], with Evil selecting from 4 cards from the Hero Deck. Each other player that loses must KO half the Bystanders (round up) from their Victory Pile. If you win, rescue three Bystanders. If the Grandmaster Wins, he gains 3 [Shards]."
+      },
+      {
+        "name": "Match Offenders vs. Defenders",
+        "isEpic": false,
+        "abilities": "Fight: [Contest of Champions] [Strength], with Evil selecting from 4 cards from the Hero Deck. Each other player that loses must gain a 0-cost card from the KO pile. If you win, reveal the top four cards of your deck, KO any number of them, and put the rest back in any order. If the Grandmaster wins, he gains 4 [Shards]."
+      }
+    ]
+  },
+  {
+    "id": "magus-28-73",
+    "name": "Magus",
+    "setId": 28,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Magus",
+        "isEpic": false,
+        "abilities": "Magus gets +1[Attack] for each Villain in the city that has any [Shards].\nAlways Leads: Universal Church of Truth\nMaster Strike: If there are already any Villains with [Shards] in the city, each player gains a Wound. Then this Strike enters the city as a “Cosmic Wraith“ Villain with 4[Attack] worth 4VP. Then put a [Shard] on each Villain in the city."
+      },
+      {
+        "name": "Epic Magus",
+        "isEpic": true,
+        "abilities": "Magus gets +2[Attack] for each Villain in the city that has any [Shards].\nAlways Leads: Universal Church of Truth\nMaster Strike: If there are already any Villains in the city with [Shards], each player gains a Wound to the top of their deck. Then this Strike enters the city as a “Cosmic Wraith“ Villain with 6[Attack] worth 6VP. Then put a [Shard] on each Villain in the city."
+      },
+      {
+        "name": "Dark Side of Adam Warlock",
+        "isEpic": false,
+        "abilities": "Fight: Magus gains a [Shard]. Then Magus takes a [Shard] from each other player that does not reveal a [Covert] Hero."
+      },
+      {
+        "name": "Seize Cosmic Power",
+        "isEpic": false,
+        "abilities": "Fight: Magus takes a [Shard] from each Villain in the city. Then the Villain with the highest [Attack] gains a [Shard]."
+      },
+      {
+        "name": "Conjured Shade of Thanos",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. This Tactic enters the city as a Villain. Then each Villain in the city gains a [Shard]. (You win when the Mastermind has no more Tactics stacked under it.)"
+      },
+      {
+        "name": "Resurrected as the Child Magus",
+        "isEpic": false,
+        "abilities": "Fight: Until the start of your next turn, Magus can only be fought with [Recruit] instead of [Attack]."
+      }
+    ]
+  },
+  {
+    "id": "iron-monger-20-56",
+    "name": "Iron Monger",
+    "setId": 20,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Iron Monger",
+        "isEpic": false,
+        "abilities": "[Bank Conqueror 4]\nAlways Leads: Iron Foes\nMaster Strike: If there is a Villain in the Bank, each player gains a Wound. Otherwise, put this Master Strike into the Bank as a 6[Attack] “StaneTech Weaponry” Villain worth 4VP."
+      },
+      {
+        "name": "Hostile Takeover",
+        "isEpic": false,
+        "abilities": "Fight: If there are no Villains in the bank, reveal the top card of the Villain Deck. If it’s a Villain, it enters the Bank."
+      },
+      {
+        "name": "Overloaded Arsenal",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Hero or gains a Wound. Then each other player reveals a [Ranged] Hero or gains a Wound."
+      },
+      {
+        "name": "Sonic Stunner",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Hero or discards down to 4 cards."
+      },
+      {
+        "name": "Unexpected Betrayal",
+        "isEpic": false,
+        "abilities": "Fight: If the Bank is empty, the player on your right chooses a Villain from their Victory Pile. That Villain enters the Bank."
+      }
+    ]
+  },
+  {
+    "id": "loki-20--1",
+    "name": "Loki",
+    "setId": 20,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Loki",
+        "isEpic": false,
+        "abilities": "Always Leads: Enemies of Asgard\nMaster Strike: Each player reveals a [Strength] Hero or gains a Wound."
+      },
+      {
+        "name": "Cruel Ruler",
+        "isEpic": false,
+        "abilities": "Fight: Defeat a Villain in the City for free."
+      },
+      {
+        "name": "Maniacal Tyrant",
+        "isEpic": false,
+        "abilities": "Fight: KO up to four cards from your discard pile."
+      },
+      {
+        "name": "Vanishing Illusions",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs a Villain from their Victory Pile."
+      },
+      {
+        "name": "Whispers and Lies",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs two Bystanders from their Victory Pile."
+      }
+    ]
+  },
+  {
+    "id": "red-skull-20--1",
+    "name": "Red Skull",
+    "setId": 20,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Red Skull",
+        "isEpic": false,
+        "abilities": "Always Leads: HYDRA\nMaster Strike: Each player KOs a Hero from their hand."
+      },
+      {
+        "name": "Endless Resources",
+        "isEpic": false,
+        "abilities": "Fight: You get +4[Recruit]."
+      },
+      {
+        "name": "HYDRA Conspiracy",
+        "isEpic": false,
+        "abilities": "Fight: Draw two cards. Then draw another card for each HYDRA Villain in your Victory Pile."
+      },
+      {
+        "name": "Negablast Grenades",
+        "isEpic": false,
+        "abilities": "Fight: You get +3[Attack]."
+      },
+      {
+        "name": "Ruthless Dictator",
+        "isEpic": false,
+        "abilities": "Fight: Look at the top three cards of your deck. KO one, discard one and put one back on top of your deck."
+      }
+    ]
+  },
+  {
+    "id": "lady-deathstrike-31-78",
+    "name": "Lady Deathstrike",
+    "setId": 31,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Lady Deathstrike",
+        "isEpic": false,
+        "abilities": "Always Leads: Reavers\nMaster Strike: If she is [Preying] on a player, [Finish the Prey]. Otherwise, [Prey] on the fewest [Instinct].\n[Finish the Prey]: That player gains two Wounds. Each other player discards two cards. (1-player game: Instead, gain a Wound and discard a card.)"
+      },
+      {
+        "name": "Epic Lady Deathstrike",
+        "isEpic": true,
+        "abilities": "Always Leads: Reavers\nMaster Strike: If she is [Preying] on a player, [Finish the Prey]. Then, whether she was preying or not, [Prey] on the fewest [Instinct].\n[Finish the Prey]: That player gains Wounds to the top and bottom of their deck. Each other player discards down to three cards. (1-player game: Instead, gain a Wound and discard two cards.)"
+      },
+      {
+        "name": "Cybernetic Healing Factor",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, and if Lady Deathstrike was not [Preying] on a player: KO up to two of your Heroes, rescue 4 Bystanders, and shuffle this Tactic back into her remaining Tactics."
+      },
+      {
+        "name": "Prey on the Weak",
+        "isEpic": false,
+        "abilities": "Fight: Each Villain that's [Preying] on a player [Finishes the Prey]. After those have all entered the city, then each Villain in the city with a “[Prey]“ Ambush does that Ambush, starting from the Sewers."
+      },
+      {
+        "name": "Relentless Assassin",
+        "isEpic": false,
+        "abilities": "Fight: If Lady Deathstrike was not [Preying] on a player, each other player reveals their hand. She [Preys] on the one of those players with the fewest non-grey Heroes."
+      },
+      {
+        "name": "Stretching Adamantium Claws",
+        "isEpic": false,
+        "abilities": "Fight: You may KO one of your Heroes. If you have a [Instinct] Hero, you may instead KO up to two of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "bastion-fused-sentinel-31-79",
+    "name": "Bastion, Fused Sentinel",
+    "setId": 31,
+    "vAttack": "4+",
+    "vAttackNumeric": 4,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Bastion, Fused Sentinel",
+        "isEpic": false,
+        "abilities": "All Sentinel Masterminds get +1[Attack] for each Master Strike in the KO pile, even after Bastion is defeated.\nAlways Leads: Purifiers and any Sentinel Henchmen Group.\nMaster Strike: A card from the Bystander Stack ascends to become a 3[Attack] [“Prime Sentinel“ Mastermind] with “Fight: Rescue this. Master Strike: Each player reveals the top card of their deck and discards it if it costs 1 or more.“"
+      },
+      {
+        "name": "Epic Bastion, Fused Sentinel",
+        "isEpic": true,
+        "abilities": "All Sentinel enemies get +1[Attack] for each Master Strike in the KO pile, even after Bastion is defeated.\nAlways Leads: Purifiers and any Sentinel Henchmen Group.\nMaster Strike: A card from the Bystander Stack ascends to become a 4[Attack] [“Prime Sentinel“ Mastermind] with “Fight: Rescue this. Master Strike: Each player reveals the top card of their deck and KOs it if it costs 1 or more.“"
+      },
+      {
+        "name": "Master Mold, Sentinel Factory",
+        "isEpic": false,
+        "abilities": "Fight: Rescue three Bystanders. KO one of your Heroes. Master Mold ascends to become an [additional Mastermind] whose only ability is:\n | \nMaster Strike: A Sentinel Henchmen from the Villain Deck enters the city. Shuffle the Villain Deck."
+      },
+      {
+        "name": "Template, Infected Sentinel",
+        "isEpic": false,
+        "abilities": "Fight: Rescue three Bystanders. KO one of your Heroes. Template ascends to become an [additional Mastermind] whose only ability is:\n | \nMaster Strike: Each player reveals a [Covert] Hero or discards one of their non-grey Heroes."
+      },
+      {
+        "name": "Nimrod, Future Sentinel",
+        "isEpic": false,
+        "abilities": "Fight: Rescue three Bystanders. KO one of your Heroes. Nimrod ascends to become an [additional Mastermind] whose only abilities are:\n | \nMaster Strike: Choose [Recruit] or [Attack]. Each player discards a card with the chosen icon."
+      },
+      {
+        "name": "Machine Man, Sentinel Supereme",
+        "isEpic": false,
+        "abilities": "Fight: Rescue three Bystanders. KO one of your Heroes. Machine Man ascends to become an [additional Mastermind] whose only ability is:\n | \nMaster Strike: Each player reveals a [Tech] Hero or gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "exodus-31-80",
+    "name": "Exodus",
+    "setId": 31,
+    "vAttack": "32",
+    "vAttackNumeric": 32,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Exodus",
+        "isEpic": false,
+        "abilities": "You may pay 3[Recruit] any number of times to [Shatter] Exodus.\nAlways Leads: Acolytes\nMaster Strike: Choose [X-Men], [X-Force], [X-Factor Investigations], or [Brotherhood]. Each player discards one of those Heroes or gains a Wound."
+      },
+      {
+        "name": "Epic Exodus",
+        "isEpic": true,
+        "abilities": "Any number of times, you may [Shatter] Exodus by spending  2[Recruit] plus 1[Recruit] for each Immortality stacked here.\nAlways Leads: Acolytes\nMaster Strike: Stack this Strike next to Exodus as an “Immortality.“ Choose [X-Men], [X-Force], [X-Factor Investigations], or [Brotherhood]. Each player KOs one of those Heroes or gains a Wound to the top of their deck."
+      },
+      {
+        "name": "Unite All Mutantkind",
+        "isEpic": false,
+        "abilities": "Fight: Each other player chooses one of their [X-Men], [X-Force], [X-Factor Investigations], or [Brotherhood] Heroes to enter the city as a Villain with [Attack] equal to its cost and “Fight: Gain this as a Hero.“ If no card enters the city this way, then each player gains a Wound."
+      },
+      {
+        "name": "Omega-Level Mutant",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand, discards all their cards that cost 1 or more, then draws that many cards."
+      },
+      {
+        "name": "Avalon, Asteroid Haven",
+        "isEpic": false,
+        "abilities": "Fight: You may gain a [X-Men], [X-Force], [X-Factor Investigations], or [Brotherhood] Hero from the HQ. Each other player discards two cards that aren't any of those teams."
+      },
+      {
+        "name": "Resurrect the Dead",
+        "isEpic": false,
+        "abilities": "Fight: Choose a player. That player gains a [X-Men], [X-Force], [X-Factor Investigations], or [Brotherhood] Hero from the KO pile, then chooses a Non-Henchmen Villain from their Victory Pile to enter the city."
+      }
+    ]
+  },
+  {
+    "id": "lilith-mother-of-demons-37-91",
+    "name": "Lilith, Mother of Demons",
+    "setId": 37,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Lilith, Mother of Demons",
+        "isEpic": false,
+        "abilities": "Lilith gets +1[Attack] for each Bystander in the KO pile.\nAlways Leads: Lilin\nMaster Strike: Lilith [Hunts for Victims]. If she KOs a Bystander this way, each player gains a Wound."
+      },
+      {
+        "name": "Epic Lilith",
+        "isEpic": true,
+        "abilities": "Lilith gets +2[Attack] for each Bystander in the KO pile.\nAlways Leads: Lilin\nMaster Strike: Lilith [Hunts for Victims]. If she KOs a Bystander this way, each player gains a Wound to the top of their deck."
+      },
+      {
+        "name": "Connoisseur of Souls",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each Bystander in the KO pile.\nThen Lilith [Hunts for Victims]."
+      },
+      {
+        "name": "Offer of Corruption",
+        "isEpic": false,
+        "abilities": "Fight: Choose one:\n- Gain a Wound and each other player KOs one of their Heroes, or\n- KO one of your Heroes and each other player gains a Wound.\nThen Lilith [Hunts for Victims]."
+      },
+      {
+        "name": "Mesopotamian Demon Goddess",
+        "isEpic": false,
+        "abilities": "Fight: Each other player may discard a card for each Bystander in the KO pile. Each of those players who didn't must gain a Wound instead.\nThen Lilith [Hunts for Victims]."
+      },
+      {
+        "name": "Respawn Demonic Offspring",
+        "isEpic": false,
+        "abilities": "Fight: The highest VP Lilin Villain from among all Victory Piles reenters the city. The player who had that Villain rescues three Bystanders.\nThen Lilith [Hunts for Victims].\n(Don't do any Escape or Ambush effects until after you've done all the other affects on this card.)"
+      }
+    ]
+  },
+  {
+    "id": "zarathos-37-92",
+    "name": "Zarathos",
+    "setId": 37,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Zarathos",
+        "isEpic": false,
+        "abilities": "Always Leads: The Fallen\nMaster Strike: If any Heroes in the HQ are haunted, each player gains a Wound. Then if Zarathos is not already haunting, he [Haunts] the highest-cost unhaunted Hero in the HQ."
+      },
+      {
+        "name": "Epic Zarathos",
+        "isEpic": true,
+        "abilities": "Always Leads: The Fallen\nMaster Strike: If any Heroes in the HQ are haunted, each player gains a Wound. Then if Zarathos is not already haunting, he [Haunts] the highest-cost unhaunted Hero in the HQ. Then reveal the top card of the Villain Deck. If it's a Villain, it Haunts the highest cost unhaunted Hero in the HQ."
+      },
+      {
+        "name": "Eruption of Hellfire",
+        "isEpic": false,
+        "abilities": "Fight: Zarathos [Haunts] the highest-cost unhaunted [Covert] and/or [Ranged] Hero in the HQ.\nEach other player discards a [Covert] or [Ranged] Hero or gains a Wound."
+      },
+      {
+        "name": "Corrupted Spirit of Vengeance",
+        "isEpic": false,
+        "abilities": "Fight: Zarathos [Haunts] the highest-cost unhaunted [Instinct] and/or [Covert] Hero in the HQ.\nEach other player discards a [Instinct] or [Covert] Hero or discards down to 3 cards."
+      },
+      {
+        "name": "Imprison in the Soul Crystal",
+        "isEpic": false,
+        "abilities": "Fight: Zarathos [Haunts] the highest-cost unhaunted [Strength] and/or [Instinct] Hero in the HQ.\nIf you have a [Strength] or [Instinct] Hero, you may KO a Villain from your Victory Pile. If you do, draw cards equal to that Villain's VP."
+      },
+      {
+        "name": "Demonic Essence of Ghost Rider",
+        "isEpic": false,
+        "abilities": "Fight: Zarathos [Haunts] the highest-cost unhaunted [Ranged] and/or [Strength] Hero in the HQ.\nIf you have a [Ranged] Hero, you may KO one of your Heroes.\nIf you have a [Strength] Hero, you may KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "darren-cross-39-97",
+    "name": "Darren Cross",
+    "setId": 39,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Darren Cross",
+        "isEpic": false,
+        "abilities": "[Bank Conqueror 6]\nAlways Leads: Cross Technologies\nMaster Strike: Darren Cross [Double-Crosses] each player. Then he [Transforms]."
+      },
+      {
+        "name": "Yellowjacket",
+        "isEpic": false,
+        "abilities": "[Microscopic Size-Changing] [Tech][Tech]\nMaster Strike: Each player discards a [Instinct] Hero or [Size-Changing] Hero or gains a Wound. Yellowjacket [Transforms]."
+      },
+      {
+        "name": "Corporate Raider",
+        "isEpic": false,
+        "abilities": "Fight: KO one of your Heroes with a [Recruit] icon. If the Bank is empty, move a Villain to the Bank.\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Protect My Investments",
+        "isEpic": false,
+        "abilities": "Fight: If the Bank is empty, each other player chooses a Villain worth 2[Victory Points] or more from their Victory Pile. You choose one of those Villains to enter the Bank.\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Shrinking Research Budget",
+        "isEpic": false,
+        "abilities": "Fight: Each Hero currently in the HQ that has no [Size-Changing] abilities gains [Size-Changing] for one of its Hero Classes.\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Steal Pym Particles",
+        "isEpic": false,
+        "abilities": "Fight: Each other player shuffles a [Covert], [Tech], or [Size-Changing] card from their hand or discard pile into the Hero Deck.\nThis Mastermind [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "ghost-master-thief-39-98",
+    "name": "Ghost, Master Thief",
+    "setId": 39,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ghost, Master Thief",
+        "isEpic": false,
+        "abilities": "Ghost gets +1[Attack] for each different cost among her “Kidnapped Victimis.“ While this side is face up, you may recruit cards from her Kidnapped Victims (in any order), spending 2[Recruit] extra for each.\nAlways Leads: Ghost Chasers\nMaster Strike: Each player reveals a [Instinct] Hero or discards two cards with [Recruit] icons. Ghost [Transforms]."
+      },
+      {
+        "name": "Ghost, Intangible",
+        "isEpic": false,
+        "abilities": "You can't fight Ghost unless you made at least 6[Recruit] this turn.\nMaster Strike: Each player discards a [Covert] Hero or puts a non-grey Hero from their hand or discard pile next to Ghost as a “Kidnapped Victim.“ Ghost [Transforms]."
+      },
+      {
+        "name": "Elaborate Rescue Plan",
+        "isEpic": false,
+        "abilities": "Fight: You may choose a player to gain one of Ghost's Kidnapped Victims.\nGhost [Transforms]."
+      },
+      {
+        "name": "Nightmarish Wraith",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts a non-grey Hero from their discard pile next to Ghost as a Kidnapped Victim.\nGhost [Transforms]."
+      },
+      {
+        "name": "Shadowy Abduction",
+        "isEpic": false,
+        "abilities": "Fight: Put the highest cost Hero from the HQ next to Ghost as a Kidnapped Victim.\nGhost [Transforms]."
+      },
+      {
+        "name": "Draining Quantum Energy Chamber",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and KOs one of their cards that shares a Hero Class with any of Ghost's Kidnapped Victims.\nGhost [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "kang-quantum-conqueror-39-99",
+    "name": "Kang, Quantum Conqueror",
+    "setId": 39,
+    "vAttack": "11",
+    "vAttackNumeric": 11,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Kang, Quantum Conqueror",
+        "isEpic": false,
+        "abilities": "[Rooftops Conqueror 3, Streets Conqueror 3, Bridge Conqueror 3]\nAlways Leads: Armada of Kang. Set aside the Villains from an extra Villain Group as “Timeline Variants.“\nMaster Strike: Each player discards a [Strength] Hero or gains a Wound. Put a random Timeline Variant Villain face up in the “Multiverse“ space. Kang [Transforms]."
+      },
+      {
+        "name": "Kang, Multiverse Conqueror",
+        "isEpic": false,
+        "abilities": "[Multiverse Conqueror 8]\nWhile either side of Kang is face up, the “Multiverse“ is a space to his left that can hold multiple Villains. You can fight them (in any order) only while this side is face up.\nMaster Strike: If there are any Villains in the Multiverse, each player gains a Wound. Then a Villain from the Multiverse enters an empty space among the Rooftops, Streets or Bridge. Kang [Transforms]."
+      },
+      {
+        "name": "Conqueror's Wrath",
+        "isEpic": false,
+        "abilities": "Fight: If there are any Villains in the Rooftops, Streets, and/or Bridge, each player gains a Wound. If there are any Villains in the Multiverse, each player gains a Wound.\nKang [Transforms]."
+      },
+      {
+        "name": "Kang's Defiance",
+        "isEpic": false,
+        "abilities": "Fight: If any of the Rooftops, Streets, or Bridge are empty, reveal the top card of the Villain Deck. If it's a Villain, it enters one of those spaces.\nPut a random Timeline Variant Villain face up in the “Multiverse“ space.\nKang [Transforms]."
+      },
+      {
+        "name": "Multiversal Engine Core",
+        "isEpic": false,
+        "abilities": "Fight: Kang [Double-Crosses] each other player.\nPut a random Timeline Variant Villain face up in the “Multiverse“ space.\nKang [Transforms]."
+      },
+      {
+        "name": "The Time Sphere",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts two cards from their hand on the bottom of their deck. You draw two cards.\nKang [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "ronan-the-accuser-33-83",
+    "name": "Ronan the Accuser",
+    "setId": 33,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": null,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ronan the Accuser",
+        "isEpic": false,
+        "abilities": "Always Leads: Followers of Ronan\nMaster Strike: Each player discards a card at random. Ronan captures this Strike as a “Necrocraft Ship“ [Villainous Weapon] that gives +1[Attack]. When you gain a Necrocraft Ship, it becomes a [Triggered Artifact] that says “Whenever a Master Strike is completed, draw a card.“"
+      },
+      {
+        "name": "Epic Ronan the Accuser",
+        "isEpic": true,
+        "abilities": "Always Leads: Followers of Ronan\nMaster Strike: Each player with six or more cards in hand discards two cards at random. Ronan captures this Strike as a “Necrocraft Ship“ [Villainous Weapon] that gives +2[Attack]. When you gain a Necrocraft Ship, it becomes a [Triggered Artifact] that says “Whenever a Master Strike is completed, draw a card.“"
+      },
+      {
+        "name": "Ronan's Throne",
+        "isEpic": false,
+        "abilities": "Fight: KO one of your Heroes. Rescue 2 Bystanders. Ronan captures this card as a [Villainous Weapon].\n | \n[Triggered Artifact] — Whenever a Scheme Twist is completed, draw two cards."
+      },
+      {
+        "name": "Hood of the Accuser",
+        "isEpic": false,
+        "abilities": "Fight: KO one of your Heroes. Rescue 2 Bystanders. Ronan captures this card as a [Villainous Weapon].\n | \n[Triggered Artifact] — Whenever a Master Strike is completed, you may KO one of your cards."
+      },
+      {
+        "name": "Ancient Kree Armor",
+        "isEpic": false,
+        "abilities": "Fight: KO one of your Heroes. Rescue 2 Bystanders. Ronan captures this card as a [Villainous Weapon].\n | \n[Triggered Artifact] — Whenever you gain your first Wound in any turn, you may KO it."
+      },
+      {
+        "name": "The Cosmi-Rod Warhammer",
+        "isEpic": false,
+        "abilities": "Fight: KO one of your Heroes. Rescue 2 Bystanders. Ronan captures this card as a [Villainous Weapon].\n | \n[Triggered Artifact] — Whenever you recruit a Hero from the HQ, you get +2[Attack]."
+      }
+    ]
+  },
+  {
+    "id": "ego-the-living-planet-33-84",
+    "name": "Ego, the Living Planet",
+    "setId": 33,
+    "vAttack": "3+",
+    "vAttackNumeric": 3,
+    "vp": null,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ego, the Living Planet",
+        "isEpic": false,
+        "abilities": "Ego gets +1[Attack] for each city space. When there are no more city spaces, Good Wins.\nAlways Leads: Any Villain Group, plus add an additional Villain Group (even for 1 player).\nMaster Strike: Create an extra city space on the left side of the city. If there are at least 3 Villains in the city, each player gains a Wound. Play another card from the Villain Deck."
+      },
+      {
+        "name": "Epic Ego, the Living Planet",
+        "isEpic": true,
+        "abilities": "Ego gets +2[Attack] for each city space. When there are no more city spaces, Good Wins.\nAlways Leads: Any Villain Group, plus add two additional Villain Groups (even for 1 player).\nMaster Strike: This Strike becomes an extra city space to the left side of the city. If there are at least 2 Villains in the city, each player gains a Wound. Play two cards from the Villain Deck."
+      },
+      {
+        "name": "I'm a Celestial, Sweetheart",
+        "isEpic": false,
+        "abilities": "Fight: When you draw a new hand of cards at the end of this turn, draw two extra cards.\nDestroy the leftmost city space. Any Villain there escapes. Shuffle this Tactic back into Ego's Tactics."
+      },
+      {
+        "name": "Cover All That Exists",
+        "isEpic": false,
+        "abilities": "Fight: You may KO one of your Heroes. Choose a Henchman from any Victory Pile to enter the city.\nDestroy the leftmost city space. Any Villain there escapes. Shuffle this Tactic back into Ego's Tactics."
+      },
+      {
+        "name": "The Expansion is My Purpose",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each empty city space.\nDestroy the leftmost city space. Any Villain there escapes. Shuffle this Tactic back into Ego's Tactics."
+      },
+      {
+        "name": "Until Everything is... Me!",
+        "isEpic": false,
+        "abilities": "Fight: Rescue three Bystanders.\nDestroy the leftmost city space. Any Villain there escapes. Shuffle this Tactic back into Ego's Tactics."
+      }
+    ]
+  },
+  {
+    "id": "thanos-36-89",
+    "name": "Thanos",
+    "setId": 36,
+    "vAttack": "11",
+    "vAttackNumeric": 11,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Thanos",
+        "isEpic": false,
+        "abilities": "Thanos get +1[Attack] for each Infinity Stone in the city and/or Escape Pile.\nAlways Leads: Infinity Stones\nMaster Strike: The leftmost Infinity Stone in the city escapes. Then an Infinity Stone worth 4VP or more enters the city from your Victory Pile. If you didn't have any, each player gains a Wound.\nThanos Wins: When 6 Infinity Stones escape."
+      },
+      {
+        "name": "Epic Thanos",
+        "isEpic": true,
+        "abilities": "Thanos get +2[Attack] for each Infinity Stone in the city and/or Escape Pile.\nAlways Leads: Infinity Stones\nMaster Strike: The lowest [Attack] Infinity Stone in the city escapes. Then an Infinity Stone worth 4VP or more enters the city from your Victory Pile. Each player that didn't have any gains a Wound.\nThanos Wins: When 6 Infinity Stones escape."
+      },
+      {
+        "name": "The Snap",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards half of their cards. Destroy half of the HQ spaces. (Round down the losses.) Turn the Heroes there face down to mark the destroyed spaces. Don't refill those spaces."
+      },
+      {
+        "name": "Destiny Arrives All the Same",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a Hero that costs 7 or more or gains a Wound."
+      },
+      {
+        "name": "Price to Pay",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards cards equal to the number of Infinity Stones in the city and/or Escape Pile or gains a Wound."
+      },
+      {
+        "name": "You Should Have Gone for the Head",
+        "isEpic": false,
+        "abilities": "Fight: KO one of your Heroes.\nIf this is the last Mastermind Tactic: You do not win the game. Players must fight Thanos one more time to put the Mastermind card in their Victory Pile and win the game."
+      }
+    ]
+  },
+  {
+    "id": "ebony-maw-36-90",
+    "name": "Ebony Maw",
+    "setId": 36,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ebony Maw",
+        "isEpic": false,
+        "abilities": "[Endgame]: +4[Attack]\nAlways Leads: Children of Thanos\nMaster Strike: It is the [Endgame] this turn. Each player reveals their hand and discards their highest-cost Hero. If it was already the [Endgame], KO those Heroes."
+      },
+      {
+        "name": "Epic Ebony Maw",
+        "isEpic": true,
+        "abilities": "[Endgame]: +5[Attack]\nAlways Leads: Children of Thanos\nMaster Strike: It is the [Endgame] this turn. Each player reveals their hand and KOs their highest-cost Hero. If it was already the [Endgame], play another card from the Villain Deck."
+      },
+      {
+        "name": "Your Powers are Quaint",
+        "isEpic": false,
+        "abilities": "Fight: Each other player chooses a Hero Class, then reveals their hand and discards all non-grey Heroes that aren't that Hero Class.\n[Endgame]: Then they also discard all grey Heroes."
+      },
+      {
+        "name": "Hear Me and Rejoice",
+        "isEpic": false,
+        "abilities": "Fight: When you draw a new hand of cards at the end of this turn, draw two extra cards.\n[Endgame]: Same effect, but three cards instead."
+      },
+      {
+        "name": "Smile...Even in Death",
+        "isEpic": false,
+        "abilities": "Fight: KO up to two of your Heroes.\n[Endgame]: Then KO up to one Hero from your discard pile."
+      },
+      {
+        "name": "You May Think This is Suffering",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Covert] Hero or gains a Wound.\n[Endgame]: Then each other player reveals a [Ranged] Hero or gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "hank-pym-yellowjacket-38-93",
+    "name": "Hank Pym, Yellowjacket",
+    "setId": 38,
+    "vAttack": "4",
+    "vAttackNumeric": 4,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Hank Pym, Yellowjacket",
+        "isEpic": false,
+        "abilities": "Before each time you fight Hank Pym, you must “track him down“ by discarding the top 6 cards of your deck, they paying 2[Attack] for each card you discarded that costs 0. If you don't pay this total, gain a Wound and your turn ends.\nAlways Leads: Any Villain Group\nMaster Strike: Each player puts three 0-cost cards from their discard pile on top of their deck."
+      },
+      {
+        "name": "Epic Hank Pym, Yellowjacket",
+        "isEpic": true,
+        "abilities": "Before each time you fight Hank Pym, you must “track him down“ by discarding the top 6 cards of your deck, they paying 3[Attack] for each card you discarded that costs 0. If you don't pay this total, gain a Wound and your turn ends.\nAlways Leads: Any Villain Group\nMaster Strike: Each player puts six 0-cost cards from their discard pile on top of their deck."
+      },
+      {
+        "name": "Microscopic Research",
+        "isEpic": false,
+        "abilities": "Fight: You may gain a Hero from the HQ that costs 2 or less."
+      },
+      {
+        "name": "Revenge for Ancient Grievance",
+        "isEpic": false,
+        "abilities": "Fight: The player with the most Villains in their Victory Pile (and/or tied for most) gains a Wound."
+      },
+      {
+        "name": "Save from Assassination",
+        "isEpic": false,
+        "abilities": "Fight: Choose a card from your discard pile that was discarded from your deck this turn. You may put that card into your hand."
+      },
+      {
+        "name": "Vengeful Sting",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals the top three cards of their deck, discards all those cards that cost 1 or more, and puts the rest back in any order."
+      }
+    ]
+  },
+  {
+    "id": "zombie-scarlet-witch-38-94",
+    "name": "Zombie Scarlet Witch",
+    "setId": 38,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Zombie Scarlet Witch",
+        "isEpic": false,
+        "abilities": "Zombie Scarlet Witch gets +1[Attack] for each Hero with an odd-numbered cost you played this turn.\nAlways Leads: Zombie Avengers (in solo mode, if using another Villain Group, add “Zombie“ to their card names and they all get Ambush: [Rise of The Living Dead].)\nMaster Strike: [Cross-Dimensional Zombie Rampage]. Then [Rise of The Living Dead]."
+      },
+      {
+        "name": "Epic Zombie Scarlet Witch",
+        "isEpic": true,
+        "abilities": "Zombie Scarlet Witch gets +1[Attack] for each Hero with an odd-numbered cost you played this turn.\nAlways Leads: Zombie Avengers (in solo mode, if using another Villain Group, add “Zombie“ to their card names and they all get Ambush: [Rise of The Living Dead].)\nMaster Strike: [Cross-Dimensional Zombie Rampage]. Then each player must [Soulbind] the topmost card of their Victory Pile that isn't a villain with “Rise of the Living Dead.“ Then [Rise of The Living Dead]."
+      },
+      {
+        "name": "Chaos Hex",
+        "isEpic": false,
+        "abilities": "Fight: Before putting this Tactic in your Victory Pile, [Rise of The Living Dead]. (This ability never makes Mastermind Tactics return.)\nEach other player discards a card with an odd-numbered cost or gains a Wound."
+      },
+      {
+        "name": "Even the Odds",
+        "isEpic": false,
+        "abilities": "Fight: Before putting this Tactic in your Victory Pile, [Rise of The Living Dead]. (This ability never makes Mastermind Tactics return.)\nEach other player reveals the top six cards of their deck, discards all those cards that cost 2,4,6, or 8 and puts the rest back in any order."
+      },
+      {
+        "name": "Refuse to Accept Death",
+        "isEpic": false,
+        "abilities": "Fight: Before putting this Tactic in your Victory Pile, [Rise of The Living Dead]. (This ability never makes Mastermind Tactics return.)\nYou may gain a Hero from the KO pile."
+      },
+      {
+        "name": "Wistful Illusion",
+        "isEpic": false,
+        "abilities": "Fight: Before putting this Tactic in your Victory Pile, [Rise of The Living Dead]. (This ability never makes Mastermind Tactics return.)\nReveal the top card of the Hero Deck then put it on the bottom of the Hero Deck. You may play a copy of that card this turn."
+      }
+    ]
+  },
+  {
+    "id": "killmonger-the-betrayer-38-95",
+    "name": "Killmonger, The Betrayer",
+    "setId": 38,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Killmonger, The Betrayer",
+        "isEpic": false,
+        "abilities": "Always Include: Killmonger as one of the Heroes\nAlways Leads: Vibranium Liberator Drones\nMaster Strike: If there are any Killmonger cards in the city or HQ, each player gains a Wound. Choose a Killmonger Hero from your hand, any player's discard pile, or the HQ to enter the city as a Villain with [Attack] equal to its cost +3 and “Fight: KO this or choose a player to gain it.“"
+      },
+      {
+        "name": "Epic Killmonger, The Betrayer",
+        "isEpic": true,
+        "abilities": "Always Include: Killmonger as one of the Heroes\nAlways Leads: Vibranium Liberator Drones\nMaster Strike: If there are any Killmonger cards in the city or HQ, each player gains a Wound. Each player chooses a Killmonger Hero from their hand, any player's discard pile, or the HQ to enter the city as a Villain with [Attack] equal to its cost +4 and “Fight: KO this or choose a player to gain it.“"
+      },
+      {
+        "name": "Change in Loyalties",
+        "isEpic": false,
+        "abilities": "Fight: Gain a Killmonger card from the city, HQ, or another player's discard pile."
+      },
+      {
+        "name": "Pulling the Strings",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each different Villain Group in your Victory Pile."
+      },
+      {
+        "name": "See You on the Flip Side",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards a Killmonger card."
+      },
+      {
+        "name": "Sunset Over Wakanda",
+        "isEpic": false,
+        "abilities": "Fight: From left to right, each Killmonger Hero in the HQ enters the city as a Villain as described on the Mastermind card. Then refill all the empty HQ spaces."
+      }
+    ]
+  },
+  {
+    "id": "ultron-infinity-38-96",
+    "name": "Ultron Infinity",
+    "setId": 38,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ultron Infinity",
+        "isEpic": false,
+        "abilities": "Ultron Infinity has all the [Empowered] abilities of all Ultron Sentries in the city, the Escape Pile, and stacked next to him.\nAlways Leads: Ultron Sentries (even in solo mode)\nMaster Strike: [Cross-Dimensional Ultron Rampage]. Then each player stacks an Ultron Sentry from their Victory Pile next to Ultron. Put this Strike next to Ultron as an “Infinity Stone.“ When Ultron has gained five Infinity Stones (plus this card as the Mind Stone), he gets +∞[Attack] (Solo mode: Also stack a random unused Ultron Sentry next to Ultron.)"
+      },
+      {
+        "name": "Epic Ultron Infinity",
+        "isEpic": true,
+        "abilities": "Ultron Infinity has all the [Empowered] abilities of all Ultron Sentries in the city, the Escape Pile, and stacked next to him.\nAlways Leads: Ultron Sentries (even in solo mode)\nMaster Strike: [Cross-Dimensional Ultron Rampage]. Then each player stacks two Ultron Sentries from their Victory Pile next to Ultron. Put this Strike next to Ultron as an “Infinity Stone.“ (Solo mode: Also stack a random unused Ultron Sentry next to Ultron.)\nUltron Wins: When he has gained five Infinity Stones."
+      },
+      {
+        "name": "Infinity of Minions",
+        "isEpic": false,
+        "abilities": "Fight: Stack an Ultron Sentry from the city next to Ultron. Then each other player chooses an Ultron Sentry from their Victory Pile to enter the city."
+      },
+      {
+        "name": "Struggle for the Infinity Stones",
+        "isEpic": false,
+        "abilities": "Fight: Gain a Hero from the HQ that has one of the Hero Classes that is [Empowering] Ultron."
+      },
+      {
+        "name": "Transcend Mortality",
+        "isEpic": false,
+        "abilities": "Fight: Search the Villain Deck and stack the first Ultron Sentry you find next to Ultron. Shuffle the Villain Deck."
+      },
+      {
+        "name": "Unfettered Annihilation",
+        "isEpic": false,
+        "abilities": "Fight: For each Ultron Sentry in your Victory Pile, you may KO a Hero from your hand or discard pile."
+      }
+    ]
+  },
+  {
+    "id": "belasco-demon-lord-of-limbo-27-69",
+    "name": "Belasco, Demon Lord of Limbo",
+    "setId": 27,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Belasco, Demon Lord of Limbo",
+        "isEpic": false,
+        "abilities": "Belasco gets +[Attack] equal to the number of non-grey Heroes in the KO pile, divided by the number of players (round down).\nAlways Leads: Demons of Limbo\nMaster Strike: [Sunlight]: Each player KOs a non-grey Hero from their discard pile. [Moonlight]: Each player has a [Waking Nightmare]. KO Heroes discarded this way."
+      },
+      {
+        "name": "Epic Belasco",
+        "isEpic": true,
+        "abilities": "Belasco gets +[Attack] equal to the number of non-grey Heroes in the KO pile, divided by the number of players (round down).\nAlways Leads: Demons of Limbo\nMaster Strike: [Sunlight]: Each player KOs two non-grey Hero from their discard pile. [Moonlight]: Each player has two [Waking Nightmare]. KO Heroes discarded this way."
+      },
+      {
+        "name": "A Demon's Mercy",
+        "isEpic": false,
+        "abilities": "Fight: Each other player KOs a non-grey Hero from their hand or discard pile."
+      },
+      {
+        "name": "Bargain for Souls",
+        "isEpic": false,
+        "abilities": "Fight: Reveal cards from the Hero Deck equal to the number of players. Gain one of them and KO the rest."
+      },
+      {
+        "name": "Rescue from Limbo",
+        "isEpic": false,
+        "abilities": "Fight: You may KO one of your non-grey Heroes or a non-grey Hero from your discard pile. If you do, gain a Hero from the KO pile."
+      },
+      {
+        "name": "Cleaving Demonblade",
+        "isEpic": false,
+        "abilities": "Fight: Each player chooses a different card in the HQ. Then KO all chosen cards."
+      }
+    ]
+  },
+  {
+    "id": "emma-frost-the-white-queen-27-70",
+    "name": "Emma Frost, The White Queen",
+    "setId": 27,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Emma Frost, The White Queen",
+        "isEpic": false,
+        "abilities": "During your turn, Emma Frost gets +1[Attack] for each grey Hero you have.\nAlways Leads: Hellions\nMaster Strike: Stack this Strike next to Emma Frost. Then each player has a [Waking Nightmare] for each Strike stacked here."
+      },
+      {
+        "name": "Epic Emma Frost",
+        "isEpic": true,
+        "abilities": "During your turn, Emma Frost gets +2[Attack] for each grey Hero you have.\nAlways Leads: Hellions\nMaster Strike: Stack this Strike next to Emma Frost. Then each player has a [Waking Nightmare] for each Strike stacked here, then one more [Waking Nightmare]."
+      },
+      {
+        "name": "Tempting Bargain",
+        "isEpic": false,
+        "abilities": "Fight: You may play the top card of the Villain Deck. If you do, you get +5[Recruit]."
+      },
+      {
+        "name": "Psychic X-Men Link",
+        "isEpic": false,
+        "abilities": "Fight: Each other player has a [Waking Nightmare]. Each of those players who did not discard an [X-Men] Hero this way gains a Wound."
+      },
+      {
+        "name": "Assume Diamond Form",
+        "isEpic": false,
+        "abilities": "Fight: Emma Frost cannot be fought again until the start of your next turn."
+      },
+      {
+        "name": "Contempt for Weaklings",
+        "isEpic": false,
+        "abilities": "Fight: Put a 0-cost Hero from the KO pile on top of each other player's deck."
+      }
+    ]
+  },
+  {
+    "id": "charles-xavier-professor-of-crime-15-38",
+    "name": "Charles Xavier, Professor of Crime",
+    "setId": 15,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Charles Xavier, Professor of Crime",
+        "isEpic": false,
+        "abilities": "Charles Xavier gets +1[Attack] for each Bystander in the HQ and city.\nAlways Leads: X-Men Noir\nMaster Strike: Four Heroes in the HQ capture [Hidden Witness]."
+      },
+      {
+        "name": "Commit to the Asylum",
+        "isEpic": false,
+        "abilities": "Fight: Each other player [Investigates] their deck for a card with an [Attack] icon and KOs it. Players reveal all the cards they [Investigated]."
+      },
+      {
+        "name": "Master Manipulator",
+        "isEpic": false,
+        "abilities": "Fight: [Investigate] the Hero Deck for an [X-Men] card and put it into your discard pile."
+      },
+      {
+        "name": "Corrupt Weak Minds",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts a random Bystander from their Victory Pile onto a Hero in the HQ as a [Hidden Witness]."
+      },
+      {
+        "name": "X-Con Men",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals an [X-Men] Hero or gains a Wound."
+      }
+    ]
+  },
+  {
+    "id": "the-goblin-underworld-boss-15-39",
+    "name": "The Goblin, Underworld Boss",
+    "setId": 15,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "The Goblin, Underworld Boss",
+        "isEpic": false,
+        "abilities": "Start of Game: The Goblin captures 2 [Hidden Witness].\nAlways Leads: Goblin's Freak Show\nMaster Strike: Two random Bystanders from each player's Victory Pile become [Hidden Witness] held by The Goblin. Any player who didn't have two Bystanders gains a Wound instead."
+      },
+      {
+        "name": "Sinister Dreams",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Sinister Six] or [Spider Friends] Hero or gains a Wound."
+      },
+      {
+        "name": "Blackmail the Judges",
+        "isEpic": false,
+        "abilities": "Fight: For each Goblin's Freak Show Villain in the city, The Goblin captures 2 [Hidden Witness]."
+      },
+      {
+        "name": "Carnival of Carnage",
+        "isEpic": false,
+        "abilities": "Fight: For each Goblin's Freak Show Villain in the city, each other player discards a card."
+      },
+      {
+        "name": "Blind Loyalty",
+        "isEpic": false,
+        "abilities": "Fight: [Investigate] the Villain Deck for a Goblin's Freak Show Villain and put it into your Victory Pile."
+      }
+    ]
+  },
+  {
+    "id": "carnage-5-12",
+    "name": "Carnage",
+    "setId": 5,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Carnage",
+        "isEpic": false,
+        "abilities": "Always Leads: Maximum Carnage\nMaster Strike: [Feast] on each player. Whenever this Master Strike feasts on a player's 0-cost Hero, that player gains a Wound."
+      },
+      {
+        "name": "Drooling Jaws",
+        "isEpic": false,
+        "abilities": "Fight: Each player reveals the top card of their deck. Then Carnage [feasts] on the player of your choice."
+      },
+      {
+        "name": "Endless Hunger",
+        "isEpic": false,
+        "abilities": "[Feast]\nIf Carnage feasts on a 0-cost Hero this way, repeat this process."
+      },
+      {
+        "name": "Feed Me",
+        "isEpic": false,
+        "abilities": "[Feast]\nYou get +[Recruit] equal to the [Cost]  of the card Carnage feasts on."
+      },
+      {
+        "name": "Om Nom Nom",
+        "isEpic": false,
+        "abilities": "[Feast]\nIf Carnage feasts on a 0-cost Hero this way, each other player KOs a Bystander from their Victory Pile."
+      }
+    ]
+  },
+  {
+    "id": "mysterio-5-13",
+    "name": "Mysterio",
+    "setId": 5,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mysterio",
+        "isEpic": false,
+        "abilities": "Always Leads: Sinister Six\nMaster Strike: Shuffle this Master Strike into Mysterio's face down Mastermind Tactics. That card becomes a Mastermind Tactic worth 6[Victory Points]."
+      },
+      {
+        "name": "Blurring Images",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each Mastermind Tactic Mysterio has left after this one."
+      },
+      {
+        "name": "Captive Audience",
+        "isEpic": false,
+        "abilities": "Fight: Rescue a Bystander for each Mastermind Tactic Mysterio has left after this one."
+      },
+      {
+        "name": "Master of Illusions",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, shuffle a Master Strike Tactic from each other player's Victory Pile back into Mysterio's Mastermind Tactics."
+      },
+      {
+        "name": "Mists of Deception",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, reveal the top five cards of the Villain Deck. Play all the Master Strikes you revealed. Put the rest on the bottom of that deck in random order."
+      }
+    ]
+  },
+  {
+    "id": "maximus-the-mad-29-74",
+    "name": "Maximus the Mad",
+    "setId": 29,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Maximus the Mad",
+        "isEpic": false,
+        "abilities": "[Highest Abomination]\nAlways Leads: Inhuman Rebellion\nMaster Strike: Reveal one of Maximus' remaining Mastermind Tactics at random. Use its Fight effect, then shuffle it back into those Tactics."
+      },
+      {
+        "name": "Epic Maximus the Mad",
+        "isEpic": true,
+        "abilities": "[Double Highest Abomination]\nAlways Leads: Inhuman Rebellion\nMaster Strike: Reveal two different Tactics at random from Maximus' remaining Mastrmind Tactics. Then use each of those fight effects in the order that you revealed them. Then shuffle them back into those Tactics."
+      },
+      {
+        "name": "Echo-Tech Chorus Sentries",
+        "isEpic": false,
+        "abilities": "Fight: Each player KOs one of their [Tech] or [Inhumans] Heroes or gains a Wound."
+      },
+      {
+        "name": "Sieve of Secrets",
+        "isEpic": false,
+        "abilities": "Fight: Each player reveals the top 6 cards of their deck, discards all the non-grey Heroes revealed, and puts the rest back in any order."
+      },
+      {
+        "name": "Seize the Inhuman Throne",
+        "isEpic": false,
+        "abilities": "Fight: Each player discards down to 4 cards. Maximus gains the [Throne's Favor]. If he already has it, he spends it and each player discards down to 3 cards."
+      },
+      {
+        "name": "Terrigen Bomb",
+        "isEpic": false,
+        "abilities": "Fight: Put each Hero from the HQ that doesn't have a printed [Attack] of 2 or more on the bottom of the Hero Deck. Maximus gains the [Throne's Favor]. If he already had it, he spends it and each player KOs one of their non-grey Heroes with an [Attack] icon."
+      }
+    ]
+  },
+  {
+    "id": "emperor-vulcan-of-the-shi-ar-29-75",
+    "name": "Emperor Vulcan of the Shi'ar",
+    "setId": 29,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Emperor Vulcan of the Shi'ar",
+        "isEpic": false,
+        "abilities": "Vulcan gets +3[Attack] while he has the [Throne's Favor].\nAlways Leads: Shi'ar Imperial Elite\nMaster Strike: Each player that doesn't have the [Throne's Favor] gains a Wound. Then Vulcan gains the [Throne's Favor]."
+      },
+      {
+        "name": "Epic Emperor Vulcan",
+        "isEpic": true,
+        "abilities": "Vulcan gets +5[Attack] while he has the [Throne's Favor]. He starts with the [Throne's Favor].\nAlways Leads: Shi'ar Imperial Elite\nMaster Strike: Each player that doesn't have the [Throne's Favor] gains a Wound to the top of their deck. Then Vulcan gains the [Throne's Favor]."
+      },
+      {
+        "name": "Blast Every Form of Energy",
+        "isEpic": false,
+        "abilities": "Fight: If you have the [Throne's Favor], you may KO a card you played this turn, and you may KO a card from your discard pile.\nThen Vulcan gains the [Throne's Favor]."
+      },
+      {
+        "name": "Vast Wealth of the Shi'ar",
+        "isEpic": false,
+        "abilities": "Fight: If you have the [Throne's Favor], you get +4[Recruit].\nThen Vulcan gains the [Throne's Favor]."
+      },
+      {
+        "name": "Contempt for Weakness",
+        "isEpic": false,
+        "abilities": "Fight: If Vulcan has the [Throne's Favor], each other player discards each of their cards that costs 2 or less.\nThen you gain the [Throne's Favor]."
+      },
+      {
+        "name": "Solar Cage",
+        "isEpic": false,
+        "abilities": "Fight: If Vulcan has the [Throne's Favor], each other player shuffles a Wound from the Wound Stack and a non-grey Hero from their hand into their deck.\nThen you gain the [Throne's Favor]."
+      }
+    ]
+  },
+  {
+    "id": "grim-reaper-24-62",
+    "name": "Grim Reaper",
+    "setId": 24,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Grim Reaper",
+        "isEpic": false,
+        "abilities": "Grim Reaper gets +1[Attack] for each [Location] card in the city.\nAlways Leads: Lethal Legion\nMaster Strike: This Strike enters the city as a 7[Attack] “Graveyard“ [Location] that says “This gets +2[Attack] while there's a Villain here.“ It's Worth 5VP."
+      },
+      {
+        "name": "Epic Grim Reaper",
+        "isEpic": true,
+        "abilities": "Grim Reaper gets +2[Attack] for each [Location] card in the city.\nAlways Leads: Lethal Legion\nMaster Strike: This Strike enters the city as an 8[Attack] “Graveyard“ [Location] that says “This gets +3[Attack] while there's a Villain here.“ It's worth 6VP. Then, if there are at least three Location cards in the city, each player gains a Wound."
+      },
+      {
+        "name": "Carnival of Concussions",
+        "isEpic": false,
+        "abilities": "Fight: If this was not already a [Location], draw three cards, and this card enters the city as a Location with this ability:\n | \nWhenever you fight a Villain here, each other player KOs a Bystander from their Victory Pile."
+      },
+      {
+        "name": "Cult of Skulls",
+        "isEpic": false,
+        "abilities": "Fight: If this was not already a [Location], KO up to two cards from your discard pile, and this card enters the city as a Location with this ability:\n | \nWhenever you fight a Villain here, each other player reveals their hand and discards a non-grey card."
+      },
+      {
+        "name": "Maze of Bones",
+        "isEpic": false,
+        "abilities": "Fight: If this was not already a [Location], look at the top four cards of your deck, KO any number of them, and put the rest back in any order. Then this card enters the city as a Location with this ability:\n | \nWhenever you fight a Villain here, each other player gains a Wound."
+      },
+      {
+        "name": "Prison of Coffins",
+        "isEpic": false,
+        "abilities": "Fight: If this was not already a [Location], you get +5[Recruit], and this card enters the city as a Location with this ability:\n | \nWhenever you fight a Villain here, each other player puts a Villain from their Victory Pile into the Escape Pile."
+      }
+    ]
+  },
+  {
+    "id": "hood-the-24-63",
+    "name": "Hood, The",
+    "setId": 24,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "The Hood",
+        "isEpic": false,
+        "abilities": "[Dark Memories]\nAlways Leads: Hood's Gang\nMaster Strike: Each player reveals the top 6 cards of their deck, discards all the non-grey Heroes revealed, and puts the rest back in any order."
+      },
+      {
+        "name": "Epic Hood",
+        "isEpic": true,
+        "abilities": "[Double Dark Memories]\nAlways Leads: Hood's Gang\nMaster Strike: Each player discards their deck, then shuffles 6 random grey cards from their discard pile to form their new deck."
+      },
+      {
+        "name": "Demonic Revelation",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards a non-grey Hero."
+      },
+      {
+        "name": "Focus Magic Through Guns",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Covert] Hero or discards a card.\nThen each other player reveals a [Tech] Hero or gains a Wound."
+      },
+      {
+        "name": "Paean to Dormammu",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards their deck."
+      },
+      {
+        "name": "The Hood's Warehouse",
+        "isEpic": false,
+        "abilities": "Fight: If this was not already a [Location], rescue 4 Bystanders, and this card enters the city as a Location with this ability:\n | \nWhen you fight a Villain here, play another card from the Villain Deck."
+      }
+    ]
+  },
+  {
+    "id": "mandarin-24-64",
+    "name": "Mandarin",
+    "setId": 24,
+    "vAttack": "16",
+    "vAttackNumeric": 16,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mandarin",
+        "isEpic": false,
+        "abilities": "All Mandarin's Rings get +1[Attack].\nMandarin gets -1[Attack] for each Mandarin's Ring among all players' Victory Piles. (-3[Attack] for each in solo.)\nAlways Leads: Mandarin's Rings\nMaster Strike: Each player chooses a Mandarin's Ring from their Victory Pile to enter the city. Any player who didn't have a Ring gains a Wound instead."
+      },
+      {
+        "name": "Epic Mandarin",
+        "isEpic": true,
+        "abilities": "All Mandarin's Rings get +2[Attack].\nMandarin gets -2[Attack] for each Mandarin's Ring among all players' Victory Piles. (-6[Attack] for each in solo.)\nAlways Leads: Mandarin's Rings\nMaster Strike: Each player chooses a Mandarin's Ring from their Victory Pile to enter the city. Any player who didn't have a Ring gains a Wound to the top of their deck instead."
+      },
+      {
+        "name": "Circles Unbroken",
+        "isEpic": false,
+        "abilities": "Fight: Draw a card for each Mandarin's Ring in your Victory Pile."
+      },
+      {
+        "name": "Dragon of Heaven Spaceship",
+        "isEpic": false,
+        "abilities": "Fight: If this was not already a [Location], KO up to two of your Heroes, and this card enters the city as a Location with this ability:\n | \nWhenever you fight a Villain here, each other player reveals their hand and KOs one of their non-grey Heroes.\nFight: KO up to two of your Heroes."
+      },
+      {
+        "name": "Intertwining Powers",
+        "isEpic": false,
+        "abilities": "Fight: Each other player without at least two Mandarin's Rings in their Victory Pile gains a Wound."
+      },
+      {
+        "name": "Rings Seek Their True Hand",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Hero or puts a Mandarin's Ring from their Victory Pile into the Escape Pile."
+      }
+    ]
+  },
+  {
+    "id": "hydra-high-council-25-65",
+    "name": "Hydra High Council",
+    "setId": 25,
+    "vAttack": null,
+    "vAttackNumeric": null,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Red Skull",
+        "isEpic": false,
+        "abilities": "Red Skull gets +1[Attack] for each two [Hydra Levels].\nAlways Leads: Hydra Elite\nStart Game: [Adapt].\nMaster Strike: Each player KOs one of their non-grey Heroes. [Adapt].\nFight: KO one of your grey Heroes. [Adapt]."
+      },
+      {
+        "name": "Viper",
+        "isEpic": false,
+        "abilities": "Viper gets +1[Attack] for each Hydra Villain in the city.\nMaster Strike: If there are any Hydra Villains in the city, each player gains a Wound. [Adapt].\nFight: Discard any number of cards, then draw that many cards. [Adapt]."
+      },
+      {
+        "name": "Arnim Zola",
+        "isEpic": false,
+        "abilities": "Arnim Zola gets +[Attack] equal to the total printed [Attack] of all heroes in the HQ.\nMaster Strike: Each player discards two Heroes with [Attack] icons. [Adapt].\nFight: You may gain a Hero from the HQ with an [Attack] icon. [Adapt]."
+      },
+      {
+        "name": "Baron Helmut Zemo",
+        "isEpic": false,
+        "abilities": "Baron Helmut Zemo gets -1[Attack] for each Villain in your Victory Pile.\nMaster Strike: Each player KOs a Hydra Villain from their Victory Pile or gains a Wound. [Adapt].\nFight: Each other player KOs a Hydra Villain from their Victory Pile or gains a Wound. [Adapt]."
+      }
+    ]
+  },
+  {
+    "id": "hydra-super-adaptoid-25-66",
+    "name": "Hydra Super-Adaptoid",
+    "setId": 25,
+    "vAttack": null,
+    "vAttackNumeric": null,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Black Widow's Bite",
+        "isEpic": false,
+        "abilities": "Always Leads: A.I.M., Hydra Offshoot\nStart Game: [Adapt].\nMaster Strike: Each player KOs two Bystanders from their Victory Pile or gains a Wound. [Adapt].\nFight: For each of your [Covert] Heroes, rescue a Bystander. [Adapt]."
+      },
+      {
+        "name": "Captain America's Shield",
+        "isEpic": false,
+        "abilities": "Master Strike: Each player reveals an [Instinct] Hero or discards their hand and draws four cards. [Adapt].\nFight: You get +1[Recruit] for each color of Hero you have (including grey). [Adapt]."
+      },
+      {
+        "name": "Iron Man's Armor",
+        "isEpic": false,
+        "abilities": "Master Strike: Each player reveals a [Tech] Hero or discards down to 3 cards. [Adapt].\nFight: Count you [Tech] Heroes, then draw that many cards. [Adapt]."
+      },
+      {
+        "name": "Thor's Hammer",
+        "isEpic": false,
+        "abilities": "Master Strike: Each player reveals a [Ranged] Hero or gains a Wound. [Adapt].\nFight: For each of your [Strength] Heroes, KO one of your Heroes. [Adapt]."
+      }
+    ]
+  },
+  {
+    "id": "adrian-toomes-17-46",
+    "name": "Adrian Toomes",
+    "setId": 17,
+    "vAttack": "5",
+    "vAttackNumeric": 5,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Adrian Toomes",
+        "isEpic": false,
+        "abilities": "[Double Striker]\nAlways Leads: Salvagers\nMaster Strike: Starting from the Sewers, each Villain in the city uses its “Escape“ ability."
+      },
+      {
+        "name": "Epic Adrian Toomes",
+        "isEpic": true,
+        "abilities": "[Triple Striker]\nAlways Leads: Salvagers\nMaster Strike: Starting from the Sewers, each Villain in the city uses its “Ambush“ ability, then its “Escape“ ability."
+      },
+      {
+        "name": "Don't Interfere",
+        "isEpic": false,
+        "abilities": "Fight: [Danger Sense 4]. If this revealed any Bystanders, rescue them."
+      },
+      {
+        "name": "More Harm than Good",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards a [Spider Friends] Hero or gains a Wound."
+      },
+      {
+        "name": "Take Everything",
+        "isEpic": false,
+        "abilities": "Fight: You may put a card from your discard pile on top of your deck."
+      },
+      {
+        "name": "The World's Changed",
+        "isEpic": false,
+        "abilities": "Fight: [Danger Sense 3]. Put all Henchmen Villains revealed this way into your Victory Pile, then do their “Fight“ abilities."
+      }
+    ]
+  },
+  {
+    "id": "vulture-17-47",
+    "name": "Vulture",
+    "setId": 17,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Vulture",
+        "isEpic": false,
+        "abilities": "[Striker]\nAlways Leads: Vulture Tech\nMaster Strike: Put a Wound from the Wound Stack below each HQ space as a “Winged Assault.“ Whenever a player gains or KOs a Hero from the HQ, the player on their right gains one of the Wounds below that HQ space."
+      },
+      {
+        "name": "Epic Vulture",
+        "isEpic": true,
+        "abilities": "[Striker]\nAlways Leads: Vulture Tech\nMaster Strike: Put a Wound from the Wound Stack or KO pile below each HQ space as a “Winged Assault.“ Whenever a player gains or KOs a Hero from the HQ, the player on their right gains one of the Wounds below that HQ space, putting it on top of their deck."
+      },
+      {
+        "name": "Bird of Prey",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards a [Spider Friends] Hero or discards two cards."
+      },
+      {
+        "name": "Lurking Shadow",
+        "isEpic": false,
+        "abilities": "Fight: [Danger Sense 2]. If the Rooftops are empty, a Villain you revealed enters the Rooftops."
+      },
+      {
+        "name": "Mid Air Heist",
+        "isEpic": false,
+        "abilities": "Fight: You get +5[Recruit] usable only to recruit [Tech] Heroes."
+      },
+      {
+        "name": "Winged Assault",
+        "isEpic": false,
+        "abilities": "Fight: Put two “Winged Assault“ Wounds from under the HQ into each other player's discard pile."
+      }
+    ]
+  },
+  {
+    "id": "madelyne-pryor-goblin-queen-10-21",
+    "name": "Madelyne Pryor, Goblin Queen",
+    "setId": 10,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Madelyne Pryor, Goblin Queen",
+        "isEpic": false,
+        "abilities": "Bystanders captured by Madelyne are “Demon Goblin“ Villains with 2[Attack]. You can fight them to rescue them as Bystanders. You can't fight her while she has any Demon Goblins.\nAlways Leads: Limbo\nMaster Strike: Madelyne captures 4 Bystanders. If she already had any Bystanders before that, then each player gains a Wound."
+      },
+      {
+        "name": "City of Demon Goblins",
+        "isEpic": false,
+        "abilities": "Fight: Madelyne captures five Bystanders."
+      },
+      {
+        "name": "Corrupted Clone of Jean Grey",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals an [X-Men] Hero or gains a Wound."
+      },
+      {
+        "name": "Everyone's a Demon on the Inside",
+        "isEpic": false,
+        "abilities": "Fight: Madelyne captures a Bystander from each other player's Victory Pile."
+      },
+      {
+        "name": "Gather the Harvest",
+        "isEpic": false,
+        "abilities": "Fight: For each Limbo Villain in the city and/or Escape Pile, Madelyne captures a Bystander."
+      }
+    ]
+  },
+  {
+    "id": "nimrod-super-sentinel-10-22",
+    "name": "Nimrod, Super Sentinel",
+    "setId": 10,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Nimrod, Super Sentinel",
+        "isEpic": false,
+        "abilities": "You can't fight Nimrod unless you made at least 6[Recruit] this turn.\nAlways Leads: Sentinel Territories\nMaster Strike: Each player who does not reveal a [Tech] Hero must choose [Recruit] or [Attack], then discard all their cards with that icon."
+      },
+      {
+        "name": "Adapt and Destroy",
+        "isEpic": false,
+        "abilities": "Fight:  Choose [Recruit] or [Attack]. Each other player reveals their hand and discards a card with that icon."
+      },
+      {
+        "name": "Detect Mutation",
+        "isEpic": false,
+        "abilities": "Fight:  Choose [Recruit] or [Attack]. Then, reveal the top card of your deck. If that card has that icon, draw it and repeat this process."
+      },
+      {
+        "name": "Scatter the Mutants",
+        "isEpic": false,
+        "abilities": "Fight:  Choose [Recruit] or [Attack]. Put all Heroes from the HQ with that icon on the bottom of the Hero Deck."
+      },
+      {
+        "name": "Teleport and Incarcerate",
+        "isEpic": false,
+        "abilities": "Fight:  Choose [Recruit] or [Attack]. Then, reveal the top card of that Hero Deck. If that card has that icon, gain that card, and [Teleport] it."
+      }
+    ]
+  },
+  {
+    "id": "wasteland-hulk-10-23",
+    "name": "Wasteland Hulk",
+    "setId": 10,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Wasteland Hulk",
+        "isEpic": false,
+        "abilities": "Wasteland Hulk gets +3[Attack] for each of his Mastermind Tactics among all players' Victory Piles.\nAlways Leads: Wasteland\nMaster Strike: [Cross-Dimensional Hulk Rampage]"
+      },
+      {
+        "name": "Brutal Beating",
+        "isEpic": false,
+        "abilities": "Fight: Each other player counts the number of Wounds in their discard pile, then discards that many cards."
+      },
+      {
+        "name": "Memories of Pain",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts two Wounds from their discard pile on top of their deck."
+      },
+      {
+        "name": "Radioactive Regeneration",
+        "isEpic": false,
+        "abilities": "Fight: KO up to two Wounds from your hand and/or discard pile."
+      },
+      {
+        "name": "Revert to Bruce Banner",
+        "isEpic": false,
+        "abilities": "Fight: You gain a [Tech]Hero from the HQ for free."
+      }
+    ]
+  },
+  {
+    "id": "zombie-green-goblin-10-24",
+    "name": "Zombie Green Goblin",
+    "setId": 10,
+    "vAttack": "11",
+    "vAttackNumeric": 11,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Zombie Green Goblin",
+        "isEpic": false,
+        "abilities": "Zombie Green Goblin gets +1[Attack] for each Hero in the KO pile that costs 7 or more.\nAlways Leads: The Deadlands\nMaster Strike: [Rise of The Living Dead]. KO each Hero in the HQ that costs 7 or more. Then, each player discards a card for each Hero in the KO pile that costs 7 or more."
+      },
+      {
+        "name": "Army of Cadavers",
+        "isEpic": false,
+        "abilities": "Fight: [Rise of The Living Dead] (this effect never makes Mastermind Tactics return.) Then, each other player discards a card for each Villain in the city that has “[Rise of The Living Dead].“"
+      },
+      {
+        "name": "The Hungry Dead",
+        "isEpic": false,
+        "abilities": "Fight: [Rise of The Living Dead] (this effect never makes Mastermind Tactics return.) Then, each other player gains a Wound if there are any Villains in the city with “[Rise of The Living Dead].“"
+      },
+      {
+        "name": "Love to Have You for Dinner",
+        "isEpic": false,
+        "abilities": "Fight: [Rise of The Living Dead] (this effect never makes Mastermind Tactics return.) Then, reveal the top 5 cards of the Hero Deck. KO all those Heroes that cost 7 or more. Put the rest on the bottom of the Hero Deck in random order."
+      },
+      {
+        "name": "Reign of Terror",
+        "isEpic": false,
+        "abilities": "Fight: [Rise of The Living Dead] (this effect never makes Mastermind Tactics return.) Then, put all Heroes from the HQ that cost 6 or less on the bottom of the Hero Deck."
+      }
+    ]
+  },
+  {
+    "id": "immortal-emperor-zheng-zhu-11-25",
+    "name": "Immortal Emperor Zheng-Zhu",
+    "setId": 11,
+    "vAttack": "7+",
+    "vAttackNumeric": 7,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Immortal Emperor Zheng-Zhu",
+        "isEpic": false,
+        "abilities": "[7th Circle of Kung-Fu]\nAlways Leads: K'un-Lun\nMaster Strike: Each player reveals a Hero that costs 7 or more, or they discard down to 3 cards."
+      },
+      {
+        "name": "Ultimate Kung-Fu Mastery",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a card with “[Circle of Kung-Fu]“ from their Victory Pile or gains a Wound."
+      },
+      {
+        "name": "Emperor's Justice",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Marvel Knights] Hero or gains a Wound."
+      },
+      {
+        "name": "Humble the Pretenders",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Marvel Knights] Hero or discards a card that costs less than 7."
+      },
+      {
+        "name": "Imperial Edict",
+        "isEpic": false,
+        "abilities": "Fight: Choose any number of Heroes from the HQ. Put them on the bottom of the Hero Deck in random order."
+      }
+    ]
+  },
+  {
+    "id": "king-hyperion-11-26",
+    "name": "King Hyperion",
+    "setId": 11,
+    "vAttack": "12",
+    "vAttackNumeric": 12,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "King Hyperion",
+        "isEpic": false,
+        "abilities": "Always Leads: Utopolis\nMaster Strike: King Hyperion enters the city if he was not already there. Then, he [charges] three spaces.\nEscape: Each player gains a wound. Put King Hyperion on the Mastermind space."
+      },
+      {
+        "name": "Worshipped by Millions",
+        "isEpic": false,
+        "abilities": "Fight: If King Hyperion is in the city, put him back on the Mastermind space and shuffle this Tactic back into his Tactics. If you do, rescue six Bystanders."
+      },
+      {
+        "name": "Royal Treasury",
+        "isEpic": false,
+        "abilities": "Fight: If King Hyperion is in the city, put him back on the Mastermind space and shuffle this Tactic back into his Tactics. If you do, you get +5[Recruit]."
+      },
+      {
+        "name": "Monarch of Utopolis",
+        "isEpic": false,
+        "abilities": "Fight: If King Hyperion is in the city, put him back on the Mastermind space and shuffle this Tactic back into his Tactics. If you do, when you drew a new hand of cards at the end of this turn, draw three extra cards."
+      },
+      {
+        "name": "Rule with an Iron Fist",
+        "isEpic": false,
+        "abilities": "Fight: If King Hyperion is in the city, put him back on the Mastermind space and shuffle this Tactic back into his Tactics. If you do, you may defeat a Villain in the city for free."
+      }
+    ]
+  },
+  {
+    "id": "shiklah-the-demon-bride-11-27",
+    "name": "Shiklah, the Demon Bride",
+    "setId": 11,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Shiklah, the Demon Bride",
+        "isEpic": false,
+        "abilities": "Always Leads: Monster Metropolis\nMaster Strike: Reveal the top three cards of the Villain Deck. Put all the Scheme Twists you revealed on top of the Villain Deck. Put the rest on the bottom of that deck in random order."
+      },
+      {
+        "name": "Shiklah's Husband, Deadpool",
+        "isEpic": false,
+        "abilities": "Fight: Gain this as a Hero.\n | \nYou get +1[Attack] for each Hero with an odd-numbered cost you played this turn. (0 is even.)"
+      },
+      {
+        "name": "Enslavement Beam",
+        "isEpic": false,
+        "abilities": "Fight: [Fateful Resurrection]. If she resurrects, rescue four bystanders."
+      },
+      {
+        "name": "Drain Life",
+        "isEpic": false,
+        "abilities": "Fight: [Fateful Resurrection]. If she resurrects, defeat a Villain in the city for free."
+      },
+      {
+        "name": "Infernal Power",
+        "isEpic": false,
+        "abilities": "Fight: [Fateful Resurrection]. If she resurrects, draw two cards."
+      }
+    ]
+  },
+  {
+    "id": "spider-queen-11-28",
+    "name": "Spider-Queen",
+    "setId": 11,
+    "vAttack": "8+",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Spider-Queen",
+        "isEpic": false,
+        "abilities": "Spider-Queen gets +1[Attack] for each Bystander in the Escape pile.\nAlways Leads: Spider-Infected\nMaster Strike: Each player puts a Spider-Infected from their Victory Pile into an empty city space. Any player who cannot do so gains a Wound."
+      },
+      {
+        "name": "Sonic Scream",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top eight cards of the Villain Deck. Put all the Bystanders you revealed into the Escape pile. Put the rest on the bottom of the Villain Deck in random orders."
+      },
+      {
+        "name": "Infect the Entire City",
+        "isEpic": false,
+        "abilities": "Fight: Put a Bystander from the Bystander Deck into the Escape Pile. Then, each Spider-Infected in the city captures a Bystander."
+      },
+      {
+        "name": "Control Arachnid Genes",
+        "isEpic": false,
+        "abilities": "Fight: You may gain a [Spider Friends] Hero from the HQ."
+      },
+      {
+        "name": "Web the Skyscrapers",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Spider Friends] Hero or puts a Bystander from their Victory Pile into the Escape pile."
+      }
+    ]
+  },
+  {
+    "id": "hybrid-22-59",
+    "name": "Hybrid",
+    "setId": 22,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Hybrid",
+        "isEpic": false,
+        "abilities": "If you fight Hybrid while he's bonded to a Villain, defeat that Villain and rescue three Bystanders instead of taking a Tactic.\nAlways Leads: Life Foundation\nMaster Strike: A Villain from the city [Symbiote Bonds] with Hybrid, If Hybrid was already bonded, then each player gains a Wound instead."
+      },
+      {
+        "name": "Epic Hybrid",
+        "isEpic": true,
+        "abilities": "If you fight Hybrid while he's bonded to a Villain, defeat that Villain and rescue three Bystanders instead of taking a Tactic.\nAlways Leads: Life Foundation\nMaster Strike: The highest [Attack] unbonded Villain from the city and/or Escape Pile [Symbiote Bonds] with Hybrid. If no new bond could occur, then each player gains a Wound instead."
+      },
+      {
+        "name": "Alien Awakening",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final tactic, a Henchman Villain from any Victory Pile [Symbiote Bonds] with Hybrid."
+      },
+      {
+        "name": "Escaped Monstrosity",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, a Villain from the city or Escape Pile [Symbiote Bonds] with Hybrid."
+      },
+      {
+        "name": "Life Foundation Research",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each Life Foundation Villain in your Victory Pile."
+      },
+      {
+        "name": "Symbiotic Call",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, reveal the top four cards of the Villain Deck. A Henchman Villain you revealed [Symbiote Bonds] with Hybrid. Put the rest back in any order."
+      }
+    ]
+  },
+  {
+    "id": "poison-thanos-22-60",
+    "name": "Poison Thanos",
+    "setId": 22,
+    "vAttack": "12",
+    "vAttackNumeric": 12,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Poison Thanos",
+        "isEpic": false,
+        "abilities": "Poison Thanos gets +1[Attack] for each different cost among cards in his “Poisoned Souls“ pile.\nAlways Leads: Poisons\nMaster Strike: Each player reveals their hand and puts one of their non-grey Heroes next to Thanos in a “Poisoned Souls“ pile."
+      },
+      {
+        "name": "Epic Poison Thanos",
+        "isEpic": true,
+        "abilities": "Poison Thanos gets +2[Attack] for each different cost among cards in his “Poisoned Souls“ pile.\nAlways Leads: Poisons\nMaster Strike: Each player reveals their hand and puts half (round up) of their non-grey Heroes next to Thanos in a “Poisoned Souls“ pile. Each player that lost no Heroes this way gains a Wound."
+      },
+      {
+        "name": "Desperate Rescue",
+        "isEpic": false,
+        "abilities": "Fight: You may gain a Hero from Poison Thanos' “Poisoned Souls“ pile."
+      },
+      {
+        "name": "Poisoned Loyalties",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts a Poisons card from their discard pile into Poison Thanos' “Poisoned Souls“ pile."
+      },
+      {
+        "name": "Searing Poisons",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards a Poisons card from their hand or gains a Wound."
+      },
+      {
+        "name": "Soul Seize",
+        "isEpic": false,
+        "abilities": "Fight: Put all Heroes that cost 5 or more from the HQ into Poison Thanos' “Poisoned Souls“ pile."
+      }
+    ]
+  },
+  {
+    "id": "dr-strange-6-14",
+    "name": "Dr. Strange",
+    "setId": 6,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Dr. Strange",
+        "isEpic": false,
+        "abilities": "Always Leads: Defenders\nCommand Strike: Reveal the top three cards of the Adversary Deck. Put the Adversary you revealed with the highest printed [Attack] on top of that deck. Then play a Plot Twist from among the cards you revealed. Then put the rest of those cards on the bottom of that deck in random order."
+      },
+      {
+        "name": "Book of the Vishanti",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Covert] Ally or discards all the cards in their hand, then draws as many cards as they discarded."
+      },
+      {
+        "name": "Crimson Bands of Cyttorak",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand, then gains a Bindings for each non-grey Ally that player has."
+      },
+      {
+        "name": "Eye of Agamotto",
+        "isEpic": false,
+        "abilities": "Fight: Reveal cards from the Ally Deck equal to the number of players. Put one of those cards into each player's discard pile."
+      },
+      {
+        "name": "Winds of Watoomb",
+        "isEpic": false,
+        "abilities": "Fight: After you draw a new hand of cards at the end of this turn, each player simultaneously passes a non-grey Ally from their hand to the hand of the player on their left."
+      }
+    ]
+  },
+  {
+    "id": "nick-fury-6-15",
+    "name": "Nick Fury",
+    "setId": 6,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Nick Fury",
+        "isEpic": false,
+        "abilities": "Always Leads: Avengers\nCommand Strike: Stack this Strike next to Nick Fury. Then [demolish] each player once for each Strike stacked here."
+      },
+      {
+        "name": "Bounty on Fury's Head",
+        "isEpic": false,
+        "abilities": "Fight: KO any number of your [HYDRA] Allies. For each Ally you KO'd this way, you may gain a Madame HYDRA."
+      },
+      {
+        "name": "Purge Hydra",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards two [HYDRA] Allies."
+      },
+      {
+        "name": "The Avengers Initiative",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Tech] Ally or chooses an Avengers Adversary from their Victory Pile and it enters the Bridge."
+      },
+      {
+        "name": "Total Fury",
+        "isEpic": false,
+        "abilities": "Fight: Defeat an Adversary whose [Attack] is less than the number of [HYDRA] Allies in the KO pile."
+      }
+    ]
+  },
+  {
+    "id": "odin-6-16",
+    "name": "Odin",
+    "setId": 6,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Odin",
+        "isEpic": false,
+        "abilities": "Always Leads: Asgardian Warriors\nOdin gets +1[Attack] for each Asgardian Warrior in the city and in the Overrun Pile.\nCommand Strike: Each player puts an Asgardian Warrior from their Victory Pile into an empty city space. Any player who cannot do so gains a Bindings."
+      },
+      {
+        "name": "Divine Justice",
+        "isEpic": false,
+        "abilities": "Fight: Each other player with a Bindings in their discard pile gains another Bindings."
+      },
+      {
+        "name": "Might of Valhalla",
+        "isEpic": false,
+        "abilities": "Fight: Draw a card for each Asgardian Warrior in your Victory Pile."
+      },
+      {
+        "name": "Riches of Asgard",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each Asgardian Warrior in your Victory Pile."
+      },
+      {
+        "name": "Ride of the Valkyries",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Foes of Asgard] Ally or discards a card for each Asgardian Warrior in the Overrun Pile."
+      }
+    ]
+  },
+  {
+    "id": "professor-x-6-17",
+    "name": "Professor X",
+    "setId": 6,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Professor X",
+        "isEpic": false,
+        "abilities": "Always Leads: X-men First Class\nCommand Strike: Choose the two highest-cost Allies in the Lair. Stack them next to Professor X as “Telepathic Pawns.“ Professor X gets +1[Attack] for each Ally stacked next to him. Players can recrut the top Ally in the stack next to Professor X."
+      },
+      {
+        "name": "Cerebro Device",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top three cards of the Adversary Deck. Play any Adversaries you revealed that have “[X-Treme Attack]“. Put the rest back in random order."
+      },
+      {
+        "name": "Mental Dominance",
+        "isEpic": false,
+        "abilities": "Fight: Stack the top three cards of the Ally Deck next to Professor X in random order as “Telepathic Pawns.“"
+      },
+      {
+        "name": "Mightiest Mutant Mind",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Brotherhood] Ally or stacks a non-grey Ally from their hand next to Professor X as a “Telepathic Pawn.“"
+      },
+      {
+        "name": "Telepathic Imprisonment",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Brotherhood] Ally or gains a Bindings."
+      }
+    ]
+  },
+  {
+    "id": "omega-red-41-102",
+    "name": "Omega Red",
+    "setId": 41,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Omega Red",
+        "isEpic": false,
+        "abilities": "Omega Red gets +2[Attack] while you have any Wounds and +2[Attack] while there are any Wounds in your discard pile.\nWhen you KO any Wounds for the first time in a turn, put them on the bottom of the Wound Deck and gain a Wound to the bottom of your deck.\nAlways Leads: Any Villain Group\nMaster Strike: Each player discards one of their [Covert] Heroes or gains a Wound."
+      },
+      {
+        "name": "Epic Omega Red",
+        "isEpic": true,
+        "abilities": "Omega Red gets +3[Attack] while you have any Wounds and +3[Attack] while there are any Wounds in your discard pile.\nWhenever you KO any Wounds, put them on the bottom of the Wound Deck and gain a Wound to the bottom of your deck.\nAlways Leads: Any Villain Group\nMaster Strike: Each player KOs one of their [Covert] Heroes or gains a Wound."
+      },
+      {
+        "name": "Carbonadium Tentacles",
+        "isEpic": false,
+        "abilities": "Fight: After you draw a new hand of cards at the end of this turn, each player discards down to three cards or gains a Wound."
+      },
+      {
+        "name": "The Carbonadium Synthesizer",
+        "isEpic": false,
+        "abilities": "Fight: You may return a Wound from your hand or any player's discard pile to the bottom of the Wound Deck. If you do, draw a card."
+      },
+      {
+        "name": "Death Pheromones",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards a [Tech] Hero or gains a Wound."
+      },
+      {
+        "name": "Drain Life Force",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, and if you have at least two Wounds in your hand and/or discard pile, return all of them to the bottom of the Wound Deck and shuffle this Tactic back into Omega Red's other Tactics."
+      }
+    ]
+  },
+  {
+    "id": "romulus-41-103",
+    "name": "Romulus",
+    "setId": 41,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Romulus",
+        "isEpic": false,
+        "abilities": "[Weapon X Sequence]\nAlways Leads: Weapon Plus\nMaster Strike: Each player reveals that they have a greater [Weapon X Sequence] than Romulus or gains a Wound. Then if this is the fifth Strike this game, this Strike becomes a Scheme Twist that takes effect immediately. (Once per game)"
+      },
+      {
+        "name": "Epic Romulus",
+        "isEpic": true,
+        "abilities": "[Doubled Weapon X Sequence]\nAlways Leads: Weapon Plus\nMaster Strike: Each player reveals that they have a greater [Weapon X Sequence] than Romulus (don't double his Sequence for this) or gains a Wound to the top of their deck. Then if this is the third Strike this game, this Strike becomes a Scheme Twist that takes effect immediately. (Once per game)"
+      },
+      {
+        "name": "Anoint an Heir to Take My Place",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the last Tactic, a Hero from the HQ that costs 6 or more Ascends to become an additional Mastermind with [Attack] equal to its printed cost and only these abilities: “Fight: Choose a player to gain this as a Hero.\nMaster Strike: Each player discards a card of this Hero Class or gains a Wound.“"
+      },
+      {
+        "name": "Bite of the Muramasa Blade",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals three cards with different, adjacent costs (e.g. 2,3,4) or gains a Wound."
+      },
+      {
+        "name": "Master of Schemes",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the last Tactic, reveal the top 2 cards of the Villain Deck. Play a Master Strike or Scheme Twist from among them, putting the rest back in any order."
+      },
+      {
+        "name": "Take Over the Weapon X Program",
+        "isEpic": false,
+        "abilities": "Fight: You get +[Recruit] equal to the [Attack] Romulus is gaining from [Weapon X Sequence]."
+      }
+    ]
+  },
+  {
+    "id": "sabretooth-41-104",
+    "name": "Sabretooth",
+    "setId": 41,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Sabretooth",
+        "isEpic": false,
+        "abilities": "Sabretooth [Berserks] once for each Savagery stacked here.\nAlways Leads: Berserkers\nMaster Strike: Stack this Strike next to Sabretooth as a “Savagery.“ Each player KOs one of their Heroes that costs more than the number of Savageries. Any player that cannot do so gains a Wound instead.\n[Fail]: KO a non-grey Hero discarded by Sabretooth's Berserking."
+      },
+      {
+        "name": "Epic Sabretooth",
+        "isEpic": true,
+        "abilities": "Sabretooth [Berserks] once for each Savagery stacked here, plus two more times.\nAlways Leads: Berserkers\nMaster Strike: Stack this Strike next to Sabretooth as a “Savagery.“ Each player KOs one of their Heroes that costs at least 2 more than the number of Savageries. Any player that cannot do so gains a Wound instead.\n[Fail]: KO a non-grey Hero discarded by Sabretooth's Berserking."
+      },
+      {
+        "name": "Adamantium-Laced Claws",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Instinct] Hero or gains a Wound."
+      },
+      {
+        "name": "Lethal Fangs",
+        "isEpic": false,
+        "abilities": "Fight: KO a grey Hero discarded by Sabretooth's Berserking. (You can't KO cards you shuffled into your deck during the Berserking.)"
+      },
+      {
+        "name": "Salivating Prowl",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top three cards of your deck. Draw one of them, discard one, and put the other back on top of your deck."
+      },
+      {
+        "name": "Sudden Savagery",
+        "isEpic": false,
+        "abilities": "Fight: Stack a card from the Wound Deck next to Sabretooth as a “Savagery.“"
+      }
+    ]
+  },
+  {
+    "id": "general-thunderbolt-ross-19-50",
+    "name": "General “Thunderbolt” Ross",
+    "setId": 19,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "General “Thunderbolt” Ross",
+        "isEpic": false,
+        "abilities": "Start of Game: Stack 8 Bystanders next to General Ross as “Helicopter“ Villains with 2[Attack]. You can fight them to rescue them as Bystanders. You can't fight General Ross while he has any Helicopters.\nAlways Leads: Code Red\nMaster Strike: General Ross [Transforms], then [Cross-Dimensional Hulk Rampage]."
+      },
+      {
+        "name": "Red Hulk",
+        "isEpic": false,
+        "abilities": "[Wounded Fury]\nYou can't fight Helicopters, and they don't stop you from fighting Red Hulk.\nMaster Strike: Red Hulk [Transforms], then stack a random Bystander from each player's Victory Pile next to this as a Helicopter. Each player who didn't have a Bystander gains a Wound instead."
+      },
+      {
+        "name": "Bust You Down to Private",
+        "isEpic": false,
+        "abilities": "Fight: Each other player puts a non-grey Hero from their hand on the bottom of the Hero Deck, then puts a 0-cost Hero from the KO pile into their hand.\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Call Out the Army",
+        "isEpic": false,
+        "abilities": "Fight: Put 3 Bystanders from the Bystander Stack next to this Mastermind as “Helicopters.“\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Personal Arsenal",
+        "isEpic": false,
+        "abilities": "Fight: For each Master Strike in the KO pile, put a Bystander from the Bystander Stack next to the Mastermind as a “Helicopter.“\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Urban Warfare",
+        "isEpic": false,
+        "abilities": "Fight: Put a random Bystander next to the Mastermind as a “Helicopter“ from each of these places: The Bystander Stack, the Escape Pile, each city space, and each other player's Victory Pile.\nThis Mastermind [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "illuminati-secret-society-19-51",
+    "name": "Illuminati, Secret Society",
+    "setId": 19,
+    "vAttack": "11",
+    "vAttackNumeric": 11,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Illuminati, Secret Society",
+        "isEpic": false,
+        "abilities": "This Mastermind gets +4[Attack] unless you [Outwit] them.\nAlways Leads: Illuminati\nMaster Strike: Each player reveals their hand and discards two cards that each cost between 1 and 4. The Illuminati [Transform]."
+      },
+      {
+        "name": "Illuminati, Open Warfare",
+        "isEpic": false,
+        "abilities": "Whenever a card effect causes a player to draw any number of cards, that player must then also discard a card.\nMaster Strike: Each player reveals their hand and discards two cards that each cost between 5 and 8. The Illuminati [Transform]."
+      },
+      {
+        "name": "Black Bolt's Omni-Shout",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards two cards with no rules text.\nThe Illuminati [Transform]."
+      },
+      {
+        "name": "Dr. Strange's Orb of Agamotto",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards a [Ranged] or [Instinct] Hero.\nThe Illuminati [Transform]."
+      },
+      {
+        "name": "Hulkbuster's Hammer Fist",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and KOs a [Tech] or [Strength] Hero from their hand or discard pile.\nThe Illuminati [Transform]."
+      },
+      {
+        "name": "Zom's Manacles of Living Bondage",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Covert] Hero or gains a Wound.\nThe Illuminati [Transform]."
+      }
+    ]
+  },
+  {
+    "id": "king-hulk-sakaarson-19-52",
+    "name": "King Hulk, Sakaarson",
+    "setId": 19,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "King Hulk, Sakaarson",
+        "isEpic": false,
+        "abilities": "King Hulk gets +1[Attack] for each Warbound Villain in the city and in the Escape Pile.\nAlways Leads: Warbound\nMaster Strike: Each player KO's a Warbound Villain from their Victory Pile or gains a Wound. King Hulk [Transforms]."
+      },
+      {
+        "name": "King Hulk, Worldbreaker",
+        "isEpic": false,
+        "abilities": "[Wounded Fury]\nMaster Strike: Each player reveals their hand, then KO's a card from their hand or discard pile that has the same card name as a card in the HQ. King Hulk [Transforms]."
+      },
+      {
+        "name": "Fury of the Green Scar",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards a Hero that isn't grey and isn't [Strength].\nKing Hulk [Transforms]."
+      },
+      {
+        "name": "Oath of the Warbound",
+        "isEpic": false,
+        "abilities": "Fight: The Villain in the Escape Pile with the highest printed [Attack] enters the Sewers.\nKing Hulk [Transforms]."
+      },
+      {
+        "name": "Revenge from the Stars",
+        "isEpic": false,
+        "abilities": "Fight: After you put this in your Victory Pile, [Cross-Dimensional Hulk Rampage].\nKing Hulk [Transforms]."
+      },
+      {
+        "name": "Rule By the Strongest",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each of your [Strength] Heroes.\nKing Hulk [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "m-o-d-o-k-19-53",
+    "name": "M.O.D.O.K.",
+    "setId": 19,
+    "vAttack": "9",
+    "vAttackNumeric": 9,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "M.O.D.O.K.",
+        "isEpic": false,
+        "abilities": "All cards' [Outwit] abilities require four different costs instead of three.\nAlways Leads: Intelligencia\nMaster Strike: Each player who can't [Outwit] M.O.D.O.K. gains a Wound, then M.O.D.O.K. [Transforms]."
+      },
+      {
+        "name": "M.O.D.O.K., Network Nightmare",
+        "isEpic": false,
+        "abilities": "You can only fight M.O.D.O.K. with [Recruit], not [Attack].\nMaster Strike: Each player who can't [Outwit] M.O.D.O.K. KO's a non-grey Hero from their discard pile. M.O.D.O.K. [Transforms]."
+      },
+      {
+        "name": "Brain Scramble",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards their hand, then draws as many cards as they discarded.\nM.O.D.O.K. [Transforms]."
+      },
+      {
+        "name": "Designed Only For...K.O.ING",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top three cards of your deck. KO one of them, draw one, and discard one.\nM.O.D.O.K. [Transforms]."
+      },
+      {
+        "name": "Don't Get a Big head About It",
+        "isEpic": false,
+        "abilities": "Fight: Draw a card for each Intelligencia Villain in your Victory Pile.\nM.O.D.O.K. [Transforms]."
+      },
+      {
+        "name": "Redundancy Algorithim",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discards two cards that hand the same cost.\nM.O.D.O.K. [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "red-king-the-19-54",
+    "name": "Red King, The",
+    "setId": 19,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "The Red King",
+        "isEpic": false,
+        "abilities": "You can't fight the Red King while any Villains are in the city.\nAlways Leads: Sakaar Imperial Guard\nMaster Strike: The Red King [Transforms], then each player reveals a [Tech] card or gains a Wound."
+      },
+      {
+        "name": "The Red King, Power Armored",
+        "isEpic": false,
+        "abilities": "Master Strike: The Red King [Transforms], then play another card from the Villain Deck."
+      },
+      {
+        "name": "Haughty Spite",
+        "isEpic": false,
+        "abilities": "Fight: Each other player without a Red King Tactic in their Victory Pile gains a Wound.\nThe Red King [Transforms]."
+      },
+      {
+        "name": "Royal Bodyguard",
+        "isEpic": false,
+        "abilities": "Fight: Reveal cards from the Villain Deck until you reveal a Sakaar Imperial Guard. If you find one, play it. Either way, shuffle all the other revealed cards back into the Villain Deck.\nThe Red King [Transforms]."
+      },
+      {
+        "name": "Treasury of Sakaar",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each Sakaar Imperial Guard and Red King Tactic in your Victory Pile, including this one.\nThe Red King [Transforms]."
+      },
+      {
+        "name": "Vast Armies of Sakaar",
+        "isEpic": false,
+        "abilities": "Fight: If this is not the final Tactic, reveal the top three cards of the Villain Deck. Play all the Villains you revealed. Put the rest back in random order.\nThe Red King [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "sentry-the-19-55",
+    "name": "Sentry, The",
+    "setId": 19,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "The Sentry",
+        "isEpic": false,
+        "abilities": "Start of Game: Shuffle 2 Wounds into each player's deck before drawing starting hands.\nAlways Leads: Aspects of the Void\nMaster Strike: The Sentry [Transforms], then [Cross-Dimensional Void Rampage]."
+      },
+      {
+        "name": "The Void",
+        "isEpic": false,
+        "abilities": "[Wounded Fury]\nMaster Strike: [Feast] on each player. If this feasts on a player's grey Hero, that player gains a Wound. The Void [Transforms]."
+      },
+      {
+        "name": "Pacifying Light",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and discard two cards with [Recruit] icons.\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Power of a Million Exploding Suns",
+        "isEpic": false,
+        "abilities": "Fight: Put all Heroes from the HQ on the bottom of the Hero Deck. Each other player reveals their hand and discards each card with the same card name as any of those cards.\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Reflexive Teleportation",
+        "isEpic": false,
+        "abilities": "Fight: Choose one of your Heroes that costs 5 or less. When you draw a new hand of cards at the end of this turn, add that Hero to your hand as an extra card.\nThis Mastermind [Transforms]."
+      },
+      {
+        "name": "Repressed Darkness",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals a [Ranged] Hero or plays an Aspects of the Void Villain from their Victory Pile as if playing it from the Villain Deck.\nThis Mastermind [Transforms]."
+      }
+    ]
+  },
+  {
+    "id": "arcade-16-40",
+    "name": "Arcade",
+    "setId": 16,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Arcade",
+        "isEpic": false,
+        "abilities": "Start of Game: Arcade captures 5 [Human Shields].\nAlways Leads: Murderworld\nMaster Strike: Arcade captures a random Bystander from each player's Victory Pile as a [Human Shield]. Each player who didn't have a Bystander gains a Wound instead."
+      },
+      {
+        "name": "Epic Arcade",
+        "isEpic": true,
+        "abilities": "Start of Game: Arcade captures 8 [Human Shields]. Play a random Horror.\nAlways Leads: Murderworld\nMaster Strike: Arcade captures two random Bystander from each player's Victory Pile as a [Human Shield]. Each player who didn't have two Bystanders gains a Wound instead."
+      },
+      {
+        "name": "I Love a Parade!",
+        "isEpic": false,
+        "abilities": "Fight: Arcade captures two [Human Shields]. Play an extra card from the Villain Deck next turn."
+      },
+      {
+        "name": "I Need an Audience",
+        "isEpic": false,
+        "abilities": "Fight: Arcade captures [Human Shields] equal to the number of Villains in the city."
+      },
+      {
+        "name": "Roulette Wheel of Death",
+        "isEpic": false,
+        "abilities": "Fight: Arcade captures a random Bystander as a [Human Shield] from each of these places: The Bystander Stack, the Escape Pile, each city space, and each other player's Victory Pile."
+      },
+      {
+        "name": "Welcome to my Theme Park!",
+        "isEpic": false,
+        "abilities": "Fight: Arcade and each Murderworld Villain in the city capture two [Human Shields]."
+      }
+    ]
+  },
+  {
+    "id": "dark-phoenix-16-41",
+    "name": "Dark Phoenix",
+    "setId": 16,
+    "vAttack": "13",
+    "vAttackNumeric": 13,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Dark Phoenix",
+        "isEpic": false,
+        "abilities": "Always Leads: Hellfire Club\nMaster Strike: KO the top card of the Hero Deck and each card in the Hero Deck that shares a color with it. Shuffle the Hero Deck.\nDark Phoenix Wins: When the Hero Deck is empty."
+      },
+      {
+        "name": "Epic Dark Phoenix",
+        "isEpic": true,
+        "abilities": "Always Leads: Hellfire Club\nMaster Strike: KO the top card of the Hero Deck and each card in the Hero Deck that shares a color with it. Shuffle the Hero Deck. Then, each player plays a Hellfire Club card from their Victory Pile. Next, play a random Horror.\nDark Phoenix Wins: When the Hero Deck is empty."
+      },
+      {
+        "name": "Burn the World to Ashes",
+        "isEpic": false,
+        "abilities": "Fight: Each other player discards each card from their hand that has the same name as any card in the KO pile."
+      },
+      {
+        "name": "Consume an Entire Galaxy",
+        "isEpic": false,
+        "abilities": "Fight: Each other player chooses a card from their discard pile that costs 1 or more and KOs it."
+      },
+      {
+        "name": "Fiery Reincarnation",
+        "isEpic": false,
+        "abilities": "Fight: Gain a Hero from the KO pile that costs 7 or more."
+      },
+      {
+        "name": "Worship Me as a God",
+        "isEpic": false,
+        "abilities": "Fight: Each other player gains two 0-cost cards from the KO pile."
+      }
+    ]
+  },
+  {
+    "id": "deathbird-16-42",
+    "name": "Deathbird",
+    "setId": 16,
+    "vAttack": "8",
+    "vAttackNumeric": 8,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Deathbird",
+        "isEpic": false,
+        "abilities": "Deathbird gets +1[Attack] for each Shi'ar Villain in the city and Escape Pile.\nAlways Leads: Shi'ar Imperial Guard and a Shi'ar Henchmen Group.\nMaster Strike: If there are already any Shi'ar Villains in the city, each player gains a Wound. Then this strike enters the city as a “Shi'ar Battlecruiser“ [Token Card] Villain with 7[Attack] worth 5 [Victory Points]."
+      },
+      {
+        "name": "Epic Deathbird",
+        "isEpic": true,
+        "abilities": "Deathbird gets +2[Attack] for each Shi'ar Villain in the city and Escape Pile.\nAlways Leads: Shi'ar Imperial Guard and a Shi'ar Henchmen Group.\nMaster Strike: If there are already any Shi'ar Villains in the city, play a random Horror. Then this strike enters the city as a “Shi'ar Battleship“ [Token Card] Villain with 9[Attack] worth 6 [Victory Points]."
+      },
+      {
+        "name": "Shi'ar Elite Bodyguards",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. This Tactic enters the city as a Villain whose only ability is “Escape: Shuffle this card back into Deathbird's Mastermind Tactics as another Tactic.“"
+      },
+      {
+        "name": "Shi'ar Extermination Legion",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. This Tactic enters the city as a Villain whose only ability is “Escape: Each player discards two cards.“"
+      },
+      {
+        "name": "Shi'ar Hovertake Battalion",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. This Tactic enters the city as a Villain whose only ability is “Escape: Each player gains a Wound.“"
+      },
+      {
+        "name": "Shi'ar Master Spies",
+        "isEpic": false,
+        "abilities": "Fight: Rescue 4 Bystanders. This Tactic enters the city as a Villain whose only ability is “Escape: This card becomes a Scheme Twist that takes effect immediately.“"
+      }
+    ]
+  },
+  {
+    "id": "mojo-16-43",
+    "name": "Mojo",
+    "setId": 16,
+    "vAttack": "6",
+    "vAttackNumeric": 6,
+    "vp": 5,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mojo",
+        "isEpic": false,
+        "abilities": "Start of Game: Mojo captures 3 [Human Shields].\nAll Bystanders in Victory Piles are worth 3 [Victory Points].\nAlways Leads: Mojoverse\nMaster Strike: Mojo captures a [Human Shield]. Each player reveals a [Tech] Hero or discards a card at random."
+      },
+      {
+        "name": "Epic Mojo",
+        "isEpic": true,
+        "abilities": "Start of Game: Mojo captures 6 [Human Shields]. Play a random Horror.\nAll Bystanders in Victory Piles are worth 4 [Victory Points].\nAlways Leads: Mojoverse\nMaster Strike: Mojo and each Mojoverse Villain capture a [Human Shield]. Each player reveals a [Tech] Hero or discards down to 4 cards."
+      },
+      {
+        "name": "Billions of TV Viewers",
+        "isEpic": false,
+        "abilities": "Fight: Each player reveals a [Tech] Hero or chooses a random Bystander from their Victory Pile. Mojo captures those Bystanders as [Human Shields]."
+      },
+      {
+        "name": "Brain-Melting TV Marathon",
+        "isEpic": false,
+        "abilities": "Fight: Each other player without a Mojo Tactic in their Victory Pile gains a Wound."
+      },
+      {
+        "name": "Cross-Dimensional Marketing",
+        "isEpic": false,
+        "abilities": "Fight: You get +1[Recruit] for each Bystander in your Victory Pile. Mojo captures a [Human Shield]."
+      },
+      {
+        "name": "Mojo Branding Opportunity",
+        "isEpic": false,
+        "abilities": "Fight: Draw a card for each Mojoverse Villain in your Victory Pile. Mojo captures a [Human Shield]."
+      }
+    ]
+  },
+  {
+    "id": "onslaught-16-44",
+    "name": "Onslaught",
+    "setId": 16,
+    "vAttack": "10",
+    "vAttackNumeric": 10,
+    "vp": 7,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Onslaught",
+        "isEpic": false,
+        "abilities": "Each player's hand size is 1 less.\nAlways Leads: Dark Descendants\nMaster Strike: KO all Heroes [Dominated] by Onslaught. Then each player reveals their hand and chooses one of their non-grey Heroes. Onslaught [Dominates] those Heroes."
+      },
+      {
+        "name": "Epic Onslaught",
+        "isEpic": true,
+        "abilities": "Each player's hand size is 1 less.\nAlways Leads: Dark Descendants\nMaster Strike: KO all Heroes [Dominated] by Onslaught. Then each player reveals their hand and chooses two of their non-grey Heroes. Onslaught [Dominates] those Heroes. Then play a random Horror."
+      },
+      {
+        "name": "Godlike Psionic Entity",
+        "isEpic": false,
+        "abilities": "Fight: Onslaught [Dominates] all five Heroes from the HQ."
+      },
+      {
+        "name": "Sins of X-Men Past",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals the top six cards of their deck and chooses an [X-Men] Hero revealed this way. Onslaught [Dominates] those Heroes. Put the rest back in random order."
+      },
+      {
+        "name": "Xavier and Magneto Combined",
+        "isEpic": false,
+        "abilities": "Fight: Reveal the top three cards of the Hero Deck. Onslaught [Dominates] all the [X-Men] and [Brotherhood] Heroes you revealed. Put the rest back in random order."
+      },
+      {
+        "name": "Worldwide Mental Control",
+        "isEpic": false,
+        "abilities": "Fight: Onslaught [Dominates] four 0-cost Heroes from the KO pile. The next time a player fights Onslaught, KO those 0-cost Heroes."
+      }
+    ]
+  },
+  {
+    "id": "shadow-king-16-45",
+    "name": "Shadow King",
+    "setId": 16,
+    "vAttack": "7",
+    "vAttackNumeric": 7,
+    "vp": 6,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Shadow King",
+        "isEpic": false,
+        "abilities": "Always Leads: Shadow-X\nMaster Strike: KO all Heroes [Dominated] by Shadow King. Then each player chooses a non-grey Hero from their discard pile. Shadow King [Dominates] those Heroes."
+      },
+      {
+        "name": "Epic Shadow King",
+        "isEpic": true,
+        "abilities": "Start of Game: Play two random Horrors.\nAlways Leads: Shadow-X\nMaster Strike: KO all Heroes [Dominated] by Shadow King. Then each player chooses two non-grey Hero from their discard pile. Shadow King [Dominates] those Heroes."
+      },
+      {
+        "name": "Fiend of the Astral Plane",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and shuffles two cards with [Recruit] icons from their hand back into their deck."
+      },
+      {
+        "name": "Poison their Minds",
+        "isEpic": false,
+        "abilities": "Fight: Each other player reveals their hand and chooses one of their non-grey Heroes. Shadow King [Dominates] those Heroes."
+      },
+      {
+        "name": "Psychic Seduction",
+        "isEpic": false,
+        "abilities": "Fight: Shadow King [Dominates] each Hero that costs 5 or less from the HQ."
+      },
+      {
+        "name": "Telepathic Betrayal",
+        "isEpic": false,
+        "abilities": "Fight: If the “Betrayal of the Shadow“ Trap is in any Victory Pile or the KO pile, put it on top of the Villain Deck."
+      }
+    ]
+  }
+]

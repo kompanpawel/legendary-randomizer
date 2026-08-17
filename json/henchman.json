@@ -1,0 +1,976 @@
+[
+  {
+    "id": "circus-of-crime-9-11",
+    "name": "Circus of Crime",
+    "setId": [
+      9,
+      23
+    ],
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Circus of Crime",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal the top card of your deck. If it costs 0[Cost], KO it. Otherwise, draw it."
+      }
+    ]
+  },
+  {
+    "id": "spider-slayer-9-12",
+    "name": "Spider-Slayer",
+    "setId": [
+      9,
+      23
+    ],
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Spider-Slayer",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal the top two cards of your deck. Put any that cost 2[Cost] or less into your hand. Put the rest back in any order."
+      }
+    ]
+  },
+  {
+    "id": "mandroid-13-19",
+    "name": "Mandroid",
+    "setId": 13,
+    "vAttack": "2+",
+    "vAttackNumeric": 2,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mandroid",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "This gets +1[Attack] for each other Mandroid in your Victory Pile.\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "cape-killers-13-20",
+    "name": "Cape-Killers",
+    "setId": 13,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Cape-Killers",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[S.H.I.E.L.D. Clearance]\nFight: KO a card from your discard pile."
+      }
+    ]
+  },
+  {
+    "id": "doombot-legion-1-1",
+    "name": "Doombot Legion",
+    "setId": 1,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Doombot Legion",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Look at the top two cards of your deck. KO one of them and put the other back."
+      }
+    ]
+  },
+  {
+    "id": "hand-ninjas-1-2",
+    "name": "Hand Ninjas",
+    "setId": 1,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Hand Ninjas",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: You get +1[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "savage-land-mutates-1-3",
+    "name": "Savage Land Mutates",
+    "setId": 1,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Savage Land Mutates",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: When you draw a new hand of cards at the end of this turn, draw an extra card."
+      }
+    ]
+  },
+  {
+    "id": "sentinel-1-4",
+    "name": "Sentinel",
+    "setId": [
+      1,
+      42
+    ],
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Sentinel",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "doombot-legion-42-45",
+    "name": "Doombot Legion",
+    "setId": 42,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Doombot Legion",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Look at the top three cards of your deck. KO one of them. Put the rest back in any order."
+      }
+    ]
+  },
+  {
+    "id": "hand-ninjas-42-46",
+    "name": "Hand Ninjas",
+    "setId": 42,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Hand Ninjas",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: If you fight Hand Ninjas in the Sewers or Rooftops, KO one of your Heroes. Otherwise, you get +1[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "savage-land-mutates-42-47",
+    "name": "Savage Land Mutates",
+    "setId": 42,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Savage Land Mutates",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal the top card of your deck. If it's grey, KO it. If it's [Strength] or [Instinct], draw it."
+      }
+    ]
+  },
+  {
+    "id": "maggia-goons-3-5",
+    "name": "Maggia Goons",
+    "setId": 3,
+    "vAttack": "4",
+    "vAttackNumeric": 4,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Maggia Goons",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Bribe]\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "phalanx-3-6",
+    "name": "Phalanx",
+    "setId": 3,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Phalanx",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal a [Tech] Hero or KO one of your Heroes with a [Attack] icon."
+      }
+    ]
+  },
+  {
+    "id": "sidera-maris-bridge-builders-28-35",
+    "name": "Sidera Maris, Bridge Builders",
+    "setId": 28,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Sidera Maris, Bridge Builders",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: (After this enters the city) If there's a Villain on the Bridge, that Villain and this Henchman each gain a [Shard]. Otherwise, move this to the Bridge.\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "universal-church-of-truth-28-36",
+    "name": "Universal Church of Truth",
+    "setId": 28,
+    "vAttack": "2",
+    "vAttackNumeric": 2,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Universal Church of Truth",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: Each Henchman Villain in the city gains a [Shard]. If Magus is the Mastermind, one Cosmic Wraith also gains a [Shard].\nFight: [Burn 2 Shards]: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "hammer-drone-army-20-29",
+    "name": "Hammer Drone Army",
+    "setId": 20,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Hammer Drone Army",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Look at the top two cards of your deck. KO one of them and put the other back."
+      }
+    ]
+  },
+  {
+    "id": "hydra-pilots-20-30",
+    "name": "HYDRA Pilots",
+    "setId": 20,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "HYDRA Pilots",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: You get +1[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "hydra-spies-20-31",
+    "name": "HYDRA Spies",
+    "setId": 20,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "HYDRA Spies",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: When you draw a new hand of cards at the end of this turn, draw an extra card."
+      }
+    ]
+  },
+  {
+    "id": "ten-rings-fanatics-20-32",
+    "name": "Ten Rings Fanatics",
+    "setId": 20,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ten Rings Fanatics",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "mr-sinister-clones-31-37",
+    "name": "Mr. Sinister Clones",
+    "setId": 31,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Mr. Sinister Clones",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: [Clone]. When the cloned copy enters the city, shuffle a Bystander into the Villain Deck.\nFight: [Clone] the next Hero you recruit this turn that has printed cost 4 or less."
+      }
+    ]
+  },
+  {
+    "id": "sentinel-squad-o-n-e-31-44",
+    "name": "Sentinel Squad O∗N∗E∗",
+    "setId": 31,
+    "vAttack": "2",
+    "vAttackNumeric": 2,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Sentinel Squad O∗N∗E∗",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: If there are no other Sentinel Squad O∗N∗E∗s in the city, [Clone].\nFight: If there are no other Sentinel Squad O∗N∗E∗s in the city, KO one of your Heroes and put this Villain on the bottom of the Villain Deck."
+      }
+    ]
+  },
+  {
+    "id": "quantumnauts-39-41",
+    "name": "Quantumnauts",
+    "setId": 39,
+    "vAttack": "2+",
+    "vAttackNumeric": 2,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Quantumnauts",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Rooftops Conqueror 1]\n[Streets Conqueror 1]\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "quantum-hound-39-42",
+    "name": "Quantum Hound",
+    "setId": 39,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Quantum Hound",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Choose [Recruit] or [Attack]. Then [Explore]. If the Found Hero has the icon you chose, KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "tardigrade-39-43",
+    "name": "Tardigrade",
+    "setId": 39,
+    "vAttack": "4",
+    "vAttackNumeric": 4,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Tardigrade (Covert)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Microscopic Size-Changing] [Covert][Covert][Covert]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Tardigrade (Instinct)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Microscopic Size-Changing] [Instinct][Instinct][Instinct]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Tardigrade (Ranged)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Microscopic Size-Changing] [Ranged][Ranged][Ranged]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Tardigrade (Strength)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Microscopic Size-Changing] [Strength][Strength][Strength]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Tardigrade (Tech)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Microscopic Size-Changing] [Tech][Tech][Tech]\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "giants-of-jotunheim-38-38",
+    "name": "Giants of Jotunheim",
+    "setId": 38,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Giants of Jotunheim",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: Each player discards the top three cards of their deck.\nFight: You may KO a grey Hero from your discard pile."
+      }
+    ]
+  },
+  {
+    "id": "vibranium-liberator-drones-38-39",
+    "name": "Vibranium Liberator Drones",
+    "setId": 38,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Vibranium Liberator Drones",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: Another Villain captures a Bystander. \nFight: [Liberate 3]. The next time you rescue a Bystander this turn (Including from this Henchmen), KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "ultron-sentries-38-40",
+    "name": "Ultron Sentries",
+    "setId": 38,
+    "vAttack": "2+",
+    "vAttackNumeric": 2,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ultron Sentries (Covert)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Empowered] by [Covert]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Ultron Sentries (Instinct)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Empowered] by [Instinct]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Ultron Sentries (Ranged)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Empowered] by [Ranged]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Ultron Sentries (Strength)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Empowered] by [Strength]\nFight: KO one of your Heroes."
+      },
+      {
+        "name": "Ultron Sentries (Tech)",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "[Empowered] by [Tech]\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "hydra-base-24-33",
+    "name": "HYDRA Base",
+    "setId": 24,
+    "vAttack": "2+",
+    "vAttackNumeric": 2,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "HYDRA Base",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "HYDRA Base gets +2[Attack] while there's a Villain here.\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "mandarin-s-rings-24-34",
+    "name": "Mandarin's Rings",
+    "setId": 24,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Daimonic, The White Light",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Draw a card."
+      },
+      {
+        "name": "Incandescence, The Flame Blast",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: You may KO a card from your discard pile."
+      },
+      {
+        "name": "Influence, The Impact Beam",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: You get +1[Recruit]."
+      },
+      {
+        "name": "Liar, The Mento-Intensifier",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Look at the top card of another player's deck. Say it is “Good“ or “Bad.“ That player chooses to put it in your discard pile or their discard pile."
+      },
+      {
+        "name": "Lightning, The Electro-Blast",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal the top card of your deck. You may KO it."
+      },
+      {
+        "name": "Nightbringer, The Black Light",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal the top three cards of the Villain Deck. You may defeat a Villain you revealed worth 2VP or less. (Do its Fight effect.) Put the rest back in any order."
+      },
+      {
+        "name": "Remaker, The Matter Rearranger",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: You may choose a card from your hand or discard pile. The player on your right puts it in their hand."
+      },
+      {
+        "name": "Spectral, The Disintegration Beam",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: KO one of your Heroes."
+      },
+      {
+        "name": "Spin, The Vortex Beam",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal the top six cards of your deck. Discard all of them that cost 0, then put the rest back in any order."
+      },
+      {
+        "name": "Zero, The Ice Blast",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Choose a card you played this turn that costs 0. When you draw a new hand of cards at the end of this turn, add that card to your hand as an extra card."
+      }
+    ]
+  },
+  {
+    "id": "ghost-racers-10-13",
+    "name": "Ghost Racers",
+    "setId": 10,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Ghost Racers",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: [Rise of The Living Dead]\nFight: Reveal a [Covert] Hero or KO one of your Heroes with an [Attack] icon."
+      }
+    ]
+  },
+  {
+    "id": "m-o-d-o-k-s-10-14",
+    "name": "M.O.D.O.K.s",
+    "setId": 10,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "M.O.D.O.K.s",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: KO a Hero from your discard pile or the HQ. If that Hero has a [Recruit] icon, you get +1[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "thor-corps-10-15",
+    "name": "Thor Corps",
+    "setId": 10,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Thor Corps",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Gain this as a Hero.\n | \n[Strength][Ranged]: You get +1[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "khonshu-guardians-11-16",
+    "name": "Khonshu Guardians",
+    "setId": 11,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Khonshu Guardians",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "While in the Sewers, Rooftops or Bridge, this is in “wolf form“ and gets +2[Attack].\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "magma-men-11-17",
+    "name": "Magma Men",
+    "setId": 11,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Magma Men",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: KO one of your Heroes.\n[Fateful Resurrection]"
+      }
+    ]
+  },
+  {
+    "id": "spider-infected-11-18",
+    "name": "Spider-Infected",
+    "setId": 11,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Spider-Infected",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: This captures a Bystander.\nFight: The next Hero you gain this turn has [Wall-Crawl]."
+      }
+    ]
+  },
+  {
+    "id": "asgardian-warriors-6-7",
+    "name": "Asgardian Warriors",
+    "setId": 6,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Asgardian Warriors",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Draw a card."
+      }
+    ]
+  },
+  {
+    "id": "cops-6-8",
+    "name": "Cops",
+    "setId": 6,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Cops",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Gain a [New Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "multiple-man-6-9",
+    "name": "Multiple Man",
+    "setId": 6,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Multiple Man",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: KO one of your Allies for each other Multiple Man in your Victory Pile."
+      }
+    ]
+  },
+  {
+    "id": "s-h-i-e-l-d-assault-squad-6-10",
+    "name": "S.H.I.E.L.D. Assault Squad",
+    "setId": 6,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "S.H.I.E.L.D. Assault Squad",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Discard the top card of your deck. Then KO an Ally from your discard pile."
+      }
+    ]
+  },
+  {
+    "id": "cytoplasm-spikes-19-26",
+    "name": "Cytoplasm Spikes",
+    "setId": 19,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Cytoplasm Spikes",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: [Feast]. If Cytoplasm Spikes feasts on a non-grey Hero, you get +2[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "death-s-heads-19-27",
+    "name": "Death's Heads",
+    "setId": 19,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Death's Heads",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: If you [Outwit] these Death's Heads, KO one of your cards that costs 0."
+      }
+    ]
+  },
+  {
+    "id": "sakaaran-hivelings-19-28",
+    "name": "Sakaaran Hivelings",
+    "setId": 19,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Sakaaran Hivelings",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Look at the top card of your deck. Put it back on the top or bottom. Then [Feast]."
+      }
+    ]
+  },
+  {
+    "id": "brood-the-16-21",
+    "name": "Brood, The",
+    "setId": 16,
+    "vAttack": "1+",
+    "vAttackNumeric": 1,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Brood, The",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "This Villain gets +1[Attack] for each Bystander in the KO pile.\nFight: KO one of your Heroes. Then KO a Bystander from the Bystander Stack."
+      }
+    ]
+  },
+  {
+    "id": "hellfire-cult-16-22",
+    "name": "Hellfire Cult",
+    "setId": 16,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Hellfire Cult",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: Reveal the top card of your deck. If it costs 0, KO it. Otherwise, you get +1[Recruit]."
+      }
+    ]
+  },
+  {
+    "id": "sapien-league-16-23",
+    "name": "Sapien League",
+    "setId": 16,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Sapien League",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: KO one of your Heroes. Then, reveal the top card of the Villain Deck. If it's a Henchman Villain, play it."
+      }
+    ]
+  },
+  {
+    "id": "shi-ar-death-commandos-16-24",
+    "name": "Shi'ar Death Commandos",
+    "setId": 16,
+    "vAttack": "2",
+    "vAttackNumeric": 2,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Shi'ar Death Commandos",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Ambush: This Villain captures a [Human Shield].\nFight: KO one of your Heroes."
+      }
+    ]
+  },
+  {
+    "id": "shi-ar-patrol-craft-16-25",
+    "name": "Shi'ar Patrol Craft",
+    "setId": 16,
+    "vAttack": "3",
+    "vAttackNumeric": 3,
+    "vp": 1,
+    "vpRaw": null,
+    "cards": [
+      {
+        "name": "Shi'ar Patrol Craft",
+        "qtd": null,
+        "vAttack": null,
+        "vAttackNumeric": null,
+        "abilities": "Fight: The next Hero you recruit this turn has [Soaring Flight]."
+      }
+    ]
+  }
+]
