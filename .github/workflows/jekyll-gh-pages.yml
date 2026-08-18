@@ -1,4 +1,4 @@
-name: Deploy Jekyll to GitHub Pages
+name: Deploy app to GitHub Pages
 
 on:
   push:
@@ -25,22 +25,30 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          ruby-version: "3.3"
-          bundler-cache: true
+          node-version: "22"
+          cache: "npm"
 
-      - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
+      - name: Install npm dependencies
+        run: npm ci
 
-      - name: Build with Jekyll
-        run: bundle exec jekyll build --destination _site --baseurl "${{ steps.pages.outputs.base_path }}"
+      - name: Build app
+        shell: bash
+        run: |
+          BASE_PATH="${{ steps.pages.outputs.base_path }}"
+          if [ "$BASE_PATH" = "/" ]; then
+            BASE_ARG="/"
+          else
+            BASE_ARG="${BASE_PATH}/"
+          fi
+          npm run build -- --base "$BASE_ARG"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: ./dist
 
   deploy:
     needs: build
