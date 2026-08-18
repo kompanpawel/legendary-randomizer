@@ -1,15 +1,18 @@
 import { NavLink } from 'react-router-dom';
 import { Shuffle, BarChart2, Database, Settings } from 'lucide-react';
-import { cn } from '../../utils/cn';
-
-const NAV_ITEMS = [
-  { to: '/', icon: Shuffle, label: 'Setup' },
-  { to: '/stats', icon: BarChart2, label: 'Stats' },
-  { to: '/database', icon: Database, label: 'Database' },
-  { to: '/settings', icon: Settings, label: 'Settings' },
-] as const;
+import { useTranslation } from 'react-i18next';
+import { cn } from '@/utils/cn.ts';
 
 export function BottomNav() {
+  const { t } = useTranslation();
+
+  const NAV_ITEMS = [
+    { to: '/', icon: Shuffle, label: t('nav.setup') },
+    { to: '/stats', icon: BarChart2, label: t('nav.stats') },
+    { to: '/database', icon: Database, label: t('nav.database') },
+    { to: '/settings', icon: Settings, label: t('nav.settings') },
+  ] as const;
+
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 bg-zinc-950/95 backdrop-blur-lg border-t border-zinc-800 safe-bottom">
       <div className="flex">

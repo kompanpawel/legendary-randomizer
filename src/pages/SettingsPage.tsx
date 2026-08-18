@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Button } from '../components/ui/Button';
 import { Modal } from '../components/ui/Modal';
@@ -8,6 +10,8 @@ import { resetAllHeroStats } from '../db/hooks/useHeroStats';
 import { clearMatchLog } from '../db/hooks/useMatchLog';
 
 export default function SettingsPage() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const { alpha, setAlpha, playerCount, setPlayerCount } = useAppStore();
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [resetting, setResetting] = useState(false);
@@ -18,11 +22,11 @@ export default function SettingsPage() {
     try {
       await resetAllHeroStats();
       await clearMatchLog();
-      setToast('✅ Statistics have been reset');
+      setToast(t('settings.toast.success'));
       setConfirmOpen(false);
       setTimeout(() => setToast(''), 3000);
     } catch (err) {
-      setToast(`❌ Error: ${String(err)}`);
+      setToast(t('settings.toast.error', { error: String(err) }));
     } finally {
       setResetting(false);
     }
@@ -30,7 +34,7 @@ export default function SettingsPage() {
 
   return (
     <div className="pb-nav">
-      <PageHeader title="Settings" />
+      <PageHeader title={t('settings.title')} />
 
       {toast && (
         <div className="mx-4 mb-4 p-3 rounded-xl bg-zinc-800 border border-zinc-700 text-sm text-zinc-300">
@@ -42,10 +46,10 @@ export default function SettingsPage() {
         {/* Alpha */}
         <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-4">
           <h2 className="text-sm font-semibold text-white mb-1">
-            α Coefficient (Alpha)
+            {t('settings.alpha.heading')}
           </h2>
           <p className="text-xs text-zinc-500 mb-4">
-            Higher value = stronger penalty for frequently played heroes.
+            {t('settings.alpha.description')}
           </p>
           <div className="flex items-center gap-4">
             <input
@@ -62,14 +66,14 @@ export default function SettingsPage() {
             </span>
           </div>
           <div className="flex justify-between text-xs text-zinc-600 mt-1">
-            <span>0.5 (lenient)</span>
-            <span>2.0 (strict)</span>
+            <span>{t('settings.alpha.lenient')}</span>
+            <span>{t('settings.alpha.strict')}</span>
           </div>
         </div>
 
         {/* Player Count */}
         <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-4">
-          <h2 className="text-sm font-semibold text-white mb-3">Default Player Count</h2>
+          <h2 className="text-sm font-semibold text-white mb-3">{t('settings.playerCount.heading')}</h2>
           <select
             value={playerCount}
             onChange={(e) => setPlayerCount(parseInt(e.target.value, 10))}
@@ -77,46 +81,59 @@ export default function SettingsPage() {
           >
             {[1, 2, 3, 4, 5].map((n) => (
               <option key={n} value={n}>
-                {n} {n === 1 ? 'player (solo)' : 'players'}
+                {n === 1 ? t('settings.playerCount.solo', { n }) : t('settings.playerCount.multi', { n })}
               </option>
             ))}
           </select>
           <p className="text-xs text-zinc-500 mt-2">
-            Number of heroes, villains and henchmen groups are set automatically based on player count.
+            {t('settings.playerCount.description')}
           </p>
         </div>
 
         {/* Danger Zone */}
         <div className="bg-zinc-900 rounded-2xl border border-red-900/40 p-4">
-          <h2 className="text-sm font-semibold text-red-400 mb-1">Danger Zone</h2>
+          <h2 className="text-sm font-semibold text-red-400 mb-1">{t('settings.dangerZone.heading')}</h2>
           <p className="text-xs text-zinc-500 mb-3">
-            Deleting statistics is irreversible.
+            {t('settings.dangerZone.description')}
           </p>
           <Button
             variant="danger"
             className="w-full"
             onClick={() => setConfirmOpen(true)}
           >
-            Reset All Statistics
+            {t('settings.dangerZone.resetButton')}
           </Button>
+        </div>
+
+        {/* Legal */}
+        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-4">
+          <h2 className="text-sm font-semibold text-white mb-1">{t('settings.legal.heading')}</h2>
+          <p className="text-xs text-zinc-500 mb-3">{t('settings.legal.description')}</p>
+          <button
+            onClick={() => navigate('/legal')}
+            className="w-full flex items-center justify-between px-4 py-3 bg-zinc-800 rounded-xl text-sm text-zinc-300 hover:text-white hover:bg-zinc-700 transition-colors"
+          >
+            <span>{t('settings.legal.button')}</span>
+            <ChevronRight size={16} className="text-zinc-500" />
+          </button>
         </div>
       </div>
 
       {/* Confirm modal */}
-      <Modal open={confirmOpen} onClose={() => setConfirmOpen(false)} title="Confirm Reset">
+      <Modal open={confirmOpen} onClose={() => setConfirmOpen(false)} title={t('settings.confirmReset.title')}>
         <div className="space-y-4">
           <div className="flex items-center gap-3 p-4 bg-red-900/20 rounded-xl border border-red-800/40">
             <AlertTriangle size={20} className="text-red-400 flex-shrink-0" />
             <p className="text-sm text-red-300">
-              All hero statistics and match history will be deleted. This action cannot be undone.
+              {t('settings.confirmReset.warning')}
             </p>
           </div>
           <div className="flex gap-3">
             <Button variant="ghost" className="flex-1" onClick={() => setConfirmOpen(false)}>
-              Cancel
+              {t('settings.confirmReset.cancelButton')}
             </Button>
             <Button variant="danger" className="flex-1" onClick={handleReset} loading={resetting}>
-              Delete Everything
+              {t('settings.confirmReset.deleteButton')}
             </Button>
           </div>
         </div>

@@ -164,12 +164,15 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   });
   const balanceGap = computeBalanceGap(heroBlendedPowers, threatScore);
 
+  const sortByName = <T extends { name: string }>(arr: T[]): T[] =>
+    [...arr].sort((a, b) => a.name.localeCompare(b.name));
+
   return {
     mastermind,
     scheme,
-    heroes: selectedHeroes,
-    villains: selectedVillains,
-    henchmen: selectedHenchmen,
+    heroes: sortByName(selectedHeroes),
+    villains: sortByName(selectedVillains),
+    henchmen: sortByName(selectedHenchmen),
     bystanders,
     isEpicMastermind,
     schemeHeroMod: effectiveHeroMod,

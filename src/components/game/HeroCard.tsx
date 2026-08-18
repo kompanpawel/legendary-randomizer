@@ -1,9 +1,10 @@
 import { RefreshCw, Star } from 'lucide-react';
-import { cn } from '../../utils/cn';
-import type { Hero } from '../../types/cards';
-import type { HeroStats } from '../../types/stats';
+import { useTranslation } from 'react-i18next';
+import { cn } from '@/utils/cn.ts';
+import type { Hero } from '@/types/cards.ts';
+import type { HeroStats } from '@/types/stats.ts';
 import { Badge } from '../ui/Badge';
-import { computeStrength } from '../../utils/computeStrength';
+import { computeStrength } from '@/utils/computeStrength.ts';
 
 const classColorMap: Record<string, string> = {
   Covert: 'from-purple-900/50 to-purple-800/20 border-purple-700/50',
@@ -31,6 +32,7 @@ interface HeroCardProps {
 }
 
 export function HeroCard({ hero, stats, onReroll, className, badge }: HeroCardProps) {
+  const { t } = useTranslation();
   const primaryClass = hero.primaryClasses[0];
   const gradientClass = primaryClass ? classColorMap[primaryClass] : classColorMap['Tech'];
 
@@ -51,7 +53,7 @@ export function HeroCard({ hero, stats, onReroll, className, badge }: HeroCardPr
         <button
           onClick={onReroll}
           className="absolute top-3 right-3 p-1.5 rounded-lg bg-black/30 hover:bg-black/50 text-zinc-400 hover:text-white transition-colors"
-          title="Wylosuj ponownie"
+          title={t('cards.hero.rerollTitle')}
         >
           <RefreshCw size={14} />
         </button>
@@ -71,7 +73,7 @@ export function HeroCard({ hero, stats, onReroll, className, badge }: HeroCardPr
 
       <div className="flex items-center gap-2 mt-3 flex-wrap">
         {/* Power level – dynamiczny na podstawie historii rozgrywek */}
-        <div className="flex gap-0.5" title={isStaticDefault ? 'Brak danych – wartość neutralna' : `Siła: ${effectivePowerLevel}/5`}>
+        <div className="flex gap-0.5" title={isStaticDefault ? t('cards.hero.tooltip.noData') : t('cards.hero.tooltip.withData', { value: effectivePowerLevel })}>
           {Array.from({ length: 5 }, (_, i) => (
             <Star
               key={i}

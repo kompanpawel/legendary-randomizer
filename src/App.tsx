@@ -8,6 +8,7 @@ const SetupPage = lazy(() => import('./pages/SetupPage'));
 const StatsPage = lazy(() => import('./pages/StatsPage'));
 const DatabasePage = lazy(() => import('./pages/DatabasePage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const LegalPage = lazy(() => import('./pages/LegalPage'));
 
 function PageSuspense({ children }: { children: React.ReactNode }) {
   return (
@@ -58,6 +59,14 @@ export default function App() {
               element={
                 <PageSuspense>
                   <SettingsPage />
+                </PageSuspense>
+              }
+            />
+            <Route
+              path="/legal"
+              element={
+                <PageSuspense>
+                  <LegalPage />
                 </PageSuspense>
               }
             />

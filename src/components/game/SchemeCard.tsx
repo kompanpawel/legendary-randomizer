@@ -1,8 +1,9 @@
 import { Scroll, Star, Users, Info } from 'lucide-react';
-import { cn } from '../../utils/cn';
-import type { Scheme } from '../../types/cards';
-import type { SchemeStats } from '../../types/stats';
-import { computeStrength } from '../../utils/computeStrength';
+import { useTranslation } from 'react-i18next';
+import { cn } from '@/utils/cn.ts';
+import type { Scheme } from '@/types/cards.ts';
+import type { SchemeStats } from '@/types/stats.ts';
+import { computeStrength } from '@/utils/computeStrength.ts';
 
 interface SchemeCardProps {
   scheme: Scheme;
@@ -15,6 +16,7 @@ interface SchemeCardProps {
 }
 
 export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMod }: SchemeCardProps) {
+  const { t } = useTranslation();
   // Dynamiczna trudność: ile razy schemat pokonał graczy; jeśli brak danych – 3 (neutralna)
   const effectiveDifficulty = computeStrength(stats?.playCount ?? 0, stats?.wins ?? 0);
   const isStaticDefault = (stats?.playCount ?? 0) === 0;
@@ -41,19 +43,19 @@ export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMo
           <Scroll size={18} className="text-amber-400" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-xs text-amber-400 font-medium uppercase tracking-wide mb-0.5">Schemat</p>
+          <p className="text-xs text-amber-400 font-medium uppercase tracking-wide mb-0.5">{t('cards.scheme.label')}</p>
           <h3 className="font-bold text-white text-sm leading-snug">{scheme.name}</h3>
           {stats && (
             <div className="mt-1 flex gap-3 text-xs text-zinc-500 font-mono">
               <span>▶ {stats.playCount}x</span>
-              <span className="text-red-600">Wygrał: {stats.wins}</span>
-              <span className="text-green-600">Pokonany: {stats.losses}</span>
+              <span className="text-red-600">{t('cards.scheme.stats.won')} {stats.wins}</span>
+              <span className="text-green-600">{t('cards.scheme.stats.defeated')} {stats.losses}</span>
             </div>
           )}
         </div>
         <div
           className="flex gap-0.5 flex-shrink-0"
-          title={isStaticDefault ? 'Brak danych – wartość neutralna' : `Trudność: ${effectiveDifficulty}/5`}
+          title={isStaticDefault ? t('cards.scheme.tooltip.noData') : t('cards.scheme.tooltip.withData', { value: effectiveDifficulty })}
         >
           {Array.from({ length: 5 }, (_, i) => (
             <Star
@@ -82,8 +84,10 @@ export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMo
           <Users size={12} className="flex-shrink-0" />
           <span>
             {isModConditional && !isModActive
-              ? `+${heroMod} Extra Hero (tylko ≥${modMinPlayers} graczy – nieaktywne)`
-              : `+${heroMod} Extra Hero${heroMod > 1 ? 's' : ''} do setup`}
+              ? t('cards.scheme.extraHeroConditional', { count: heroMod, min: modMinPlayers })
+              : heroMod > 1
+                ? t('cards.scheme.extraHeroPlural', { count: heroMod })
+                : t('cards.scheme.extraHero', { count: heroMod })}
           </span>
         </div>
       )}

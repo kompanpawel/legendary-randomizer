@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Shuffle, ChevronDown, ChevronUp, Zap, Lock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import cardsData from '../assets/cards.json';
 import type { CardsDatabase } from '../types/cards';
 import { useAppStore } from '../store/useAppStore';
@@ -20,21 +21,23 @@ import { SaveMatchModal } from '../components/game/SaveMatchModal';
 
 const db = cardsData as unknown as CardsDatabase;
 
-const MODE_OPTIONS = [
-  { value: 'smart' as const, label: '\u26a1 Smart', desc: 'Balances plays' },
-  { value: 'dustOff' as const, label: '\ud83c\udfd9\ufe0f Shelf', desc: 'Least played' },
-  { value: 'synergy' as const, label: '\ud83d\udd17 Synergy', desc: 'Synergy with scheme' },
-];
-
-function getBalanceInfo(gap: number) {
-  if (gap > 3)  return { color: 'border-red-700/60 bg-red-950/40 text-red-300',         icon: '\ud83d\udc80', label: 'Bardzo trudne',  hint: 'Zagro\u017cenie znacznie silniejsze od dru\u017cyny' };
-  if (gap > 1)  return { color: 'border-orange-700/60 bg-orange-950/40 text-orange-300', icon: '\u2694\ufe0f', label: 'Wymagaj\u0105ce', hint: 'Zagro\u017cenie mocniejsze od dru\u017cyny' };
-  if (gap > -1) return { color: 'border-zinc-700/60 bg-zinc-800/40 text-zinc-300',      icon: '\u2696\ufe0f', label: 'Wyr\u00f3wnane',    hint: 'Si\u0142a dru\u017cyny i zagro\u017cenia s\u0105 zbli\u017cone' };
-  if (gap > -3) return { color: 'border-blue-700/60 bg-blue-950/40 text-blue-300',      icon: '\u2705',        label: '\u0141atwiejsze',  hint: 'Dru\u017cyna nieco silniejsza od zagro\u017cenia' };
-  return          { color: 'border-green-700/60 bg-green-950/40 text-green-300',         icon: '\ud83d\ude0e', label: '\u0141atwe',        hint: 'Dru\u017cyna wyraza\u0301nie silniejsza od zagro\u017cenia' };
+function getBalanceInfo(gap: number, t: (key: string) => string) {
+  if (gap > 3)  return { color: 'border-red-700/60 bg-red-950/40 text-red-300',         icon: '💀', label: t('setup.balance.veryHard.label'),    hint: t('setup.balance.veryHard.hint') };
+  if (gap > 1)  return { color: 'border-orange-700/60 bg-orange-950/40 text-orange-300', icon: '⚔️', label: t('setup.balance.challenging.label'), hint: t('setup.balance.challenging.hint') };
+  if (gap > -1) return { color: 'border-zinc-700/60 bg-zinc-800/40 text-zinc-300',       icon: '⚖️', label: t('setup.balance.balanced.label'),    hint: t('setup.balance.balanced.hint') };
+  if (gap > -3) return { color: 'border-blue-700/60 bg-blue-950/40 text-blue-300',       icon: '✅', label: t('setup.balance.easier.label'),      hint: t('setup.balance.easier.hint') };
+  return          { color: 'border-green-700/60 bg-green-950/40 text-green-300',          icon: '😎', label: t('setup.balance.easy.label'),        hint: t('setup.balance.easy.hint') };
 }
 
 export default function SetupPage() {
+  const { t } = useTranslation();
+
+  const MODE_OPTIONS = [
+    { value: 'smart' as const,    label: t('setup.modes.smart.label'),   desc: t('setup.modes.smart.desc') },
+    { value: 'dustOff' as const,  label: t('setup.modes.dustOff.label'), desc: t('setup.modes.dustOff.desc') },
+    { value: 'synergy' as const,  label: t('setup.modes.synergy.label'), desc: t('setup.modes.synergy.desc') },
+  ];
+
   const {
     selectedExpansionIds, toggleExpansion,
     randomizationMode, setMode,
@@ -157,7 +160,7 @@ export default function SetupPage() {
 
   return (
     <div className="pb-nav">
-      <PageHeader title="Legendary Randomizer" subtitle="Generate your setup" />
+      <PageHeader title={t('setup.title')} subtitle={t('setup.subtitle')} />
 
       <div className="px-4 space-y-4">
         {/* Expansions */}
@@ -167,11 +170,11 @@ export default function SetupPage() {
             className="w-full flex items-center justify-between p-4 text-left"
           >
             <div>
-              <p className="text-sm font-medium text-white">Expansions</p>
+              <p className="text-sm font-medium text-white">{t('setup.expansions.heading')}</p>
               <p className="text-xs text-zinc-500">
                 {selectedExpansionIds.length === 0
-                  ? 'All active'
-                  : `${selectedExpansionIds.length} of ${db.expansions.length}`}
+                  ? t('setup.expansions.allActive')
+                  : t('setup.expansions.countOf', { count: selectedExpansionIds.length, total: db.expansions.length })}
               </p>
             </div>
             {expansionsOpen
@@ -195,7 +198,7 @@ export default function SetupPage() {
                 onClick={() => useAppStore.getState().setExpansions([])}
                 className="mt-2 text-xs text-zinc-500 hover:text-zinc-300"
               >
-                Clear (use all)
+                {t('setup.expansions.clearButton')}
               </button>
             </div>
           )}
@@ -210,14 +213,14 @@ export default function SetupPage() {
             <div className="flex items-center gap-2">
               <Lock size={15} className={pinnedMastermind || pinnedScheme ? 'text-marvel-red' : 'text-zinc-500'} />
               <div>
-                <p className="text-sm font-medium text-white">Manual pick</p>
+                <p className="text-sm font-medium text-white">{t('setup.manualPick.heading')}</p>
                 <p className="text-xs text-zinc-500">
                   {pinnedMastermind || pinnedScheme
                     ? [
                         pinnedMastermind ? pinnedMastermind.name : null,
                         pinnedScheme ? pinnedScheme.name : null,
                       ].filter(Boolean).join(' · ')
-                    : 'Both random'}
+                    : t('setup.manualPick.bothRandom')}
                 </p>
               </div>
             </div>
@@ -229,13 +232,13 @@ export default function SetupPage() {
             <div className="px-4 pb-4 space-y-3">
               {/* Mastermind dropdown */}
               <div>
-                <label className="block text-xs font-medium text-zinc-400 mb-1">Mastermind</label>
+                <label className="block text-xs font-medium text-zinc-400 mb-1">{t('setup.manualPick.mastermindLabel')}</label>
                 <select
                   value={pinnedMastermindId ?? ''}
                   onChange={(e) => setPinnedMastermindId(e.target.value || null)}
                   className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-marvel-red appearance-none"
                 >
-                  <option value="">🎲 Random</option>
+                  <option value="">{t('setup.manualPick.randomOption')}</option>
                   {availableMasterminds.map((m) => (
                     <option key={m.id} value={m.id}>
                       {m.cards.some(c => c.isEpic) ? `⚡ ${m.name}` : m.name}
@@ -245,13 +248,13 @@ export default function SetupPage() {
               </div>
               {/* Scheme dropdown */}
               <div>
-                <label className="block text-xs font-medium text-zinc-400 mb-1">Scheme</label>
+                <label className="block text-xs font-medium text-zinc-400 mb-1">{t('setup.manualPick.schemeLabel')}</label>
                 <select
                   value={pinnedSchemeId ?? ''}
                   onChange={(e) => setPinnedSchemeId(e.target.value || null)}
                   className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-marvel-red appearance-none"
                 >
-                  <option value="">🎲 Random</option>
+                  <option value="">{t('setup.manualPick.randomOption')}</option>
                   {availableSchemes.map((s) => (
                     <option key={s.id} value={s.id}>{s.name}</option>
                   ))}
@@ -259,10 +262,9 @@ export default function SetupPage() {
               </div>
               {(pinnedMastermind || pinnedScheme) && (
                 <p className="text-xs text-zinc-500 leading-relaxed">
-                  🔒 Villains, henchmen &amp; heroes losowane z{' '}
                   {restrictedExpansionIds.length === 1
-                    ? `ekspansji: ${db.expansions.find((e) => e.id === restrictedExpansionIds[0])?.label ?? restrictedExpansionIds[0]}`
-                    : `${restrictedExpansionIds.length} ekspansji`}
+                    ? t('setup.manualPick.lockedInfo_one', { name: db.expansions.find((e) => e.id === restrictedExpansionIds[0])?.label ?? String(restrictedExpansionIds[0]) })
+                    : t('setup.manualPick.lockedInfo_other', { count: restrictedExpansionIds.length })}
                 </p>
               )}
               {(pinnedMastermind || pinnedScheme) && (
@@ -270,7 +272,7 @@ export default function SetupPage() {
                   onClick={() => { setPinnedMastermindId(null); setPinnedSchemeId(null); }}
                   className="text-xs text-zinc-500 hover:text-zinc-300"
                 >
-                  Clear (both random)
+                  {t('setup.manualPick.clearButton')}
                 </button>
               )}
             </div>
@@ -298,7 +300,7 @@ export default function SetupPage() {
         {/* Player count */}
         <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-4">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold text-white">Players</h2>
+            <h2 className="text-sm font-semibold text-white">{t('setup.players.heading')}</h2>
             <span className="text-xs text-zinc-500">
               {(() => {
                 const activeHeroMod = currentSetup?.schemeHeroMod ?? 0;
@@ -345,11 +347,11 @@ export default function SetupPage() {
             <div className="flex items-center gap-3">
               <Zap size={18} className={isEpicMastermind ? 'text-orange-400 fill-current' : 'text-zinc-500'} />
               <div className="text-left">
-                <p className="text-sm font-semibold">Epic Mastermind</p>
+                <p className="text-sm font-semibold">{t('setup.epicToggle.label')}</p>
                 <p className="text-xs text-zinc-500 mt-0.5">
                   {isEpicMastermind
-                    ? 'U\u017cywasz epickich kart \u2014 trudno\u015b\u0107 +1, osobne statystyki'
-                    : 'Prze\u0142\u0105cz, je\u015bli chcesz zagra\u0107 w trybie Epic'}
+                    ? t('setup.epicToggle.descOn')
+                    : t('setup.epicToggle.descOff')}
                 </p>
               </div>
             </div>
@@ -371,7 +373,7 @@ export default function SetupPage() {
           className={`w-full ${generating ? 'animate-pulse' : ''}`}
         >
           <Shuffle size={18} className="mr-2 inline" />
-          Generate Setup
+          {t('setup.generateButton')}
         </Button>
 
         {/* Results */}
@@ -380,7 +382,7 @@ export default function SetupPage() {
 
             {/* ── Threat Level banner ─────────────────────────────────────── */}
             {(() => {
-              const info = getBalanceInfo(currentSetup.balanceGap);
+              const info = getBalanceInfo(currentSetup.balanceGap, t);
               const cc   = currentSetup.counterCoverage;
               const pct  = Math.round(cc.coverageRatio * 100);
               const hasCounters = cc.neededCounters.length > 0;
@@ -397,8 +399,8 @@ export default function SetupPage() {
                       </div>
                     </div>
                     <div className="text-right text-xs font-mono opacity-70">
-                      <p>Threat {currentSetup.threatScore.toFixed(1)}/10</p>
-                      <p>Gap {currentSetup.balanceGap > 0 ? '+' : ''}{currentSetup.balanceGap}</p>
+                     <p>{t('setup.threat')} {currentSetup.threatScore.toFixed(1)}/10</p>
+                     <p>{t('setup.gap')} {currentSetup.balanceGap > 0 ? '+' : ''}{currentSetup.balanceGap}</p>
                     </div>
                   </div>
 
@@ -406,7 +408,7 @@ export default function SetupPage() {
                   {hasCounters && (
                     <div className="px-4 pb-3 space-y-1.5 border-t border-current/10">
                       <div className="flex items-center justify-between text-xs mt-2">
-                        <span className="opacity-70">Counter coverage</span>
+                        <span className="opacity-70">{t('setup.counterCoverage')}</span>
                         <span className="font-mono font-semibold">
                           {cc.coveredCounters.length}/{cc.neededCounters.length} ({pct}%)
                         </span>
@@ -438,21 +440,21 @@ export default function SetupPage() {
             />
 
             <div className="space-y-2">
-              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">Villains</p>
+              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">{t('setup.sections.villains')}</p>
               {currentSetup.villains.map((v) => (
                 <VillainCard key={v.id} villain={v} />
               ))}
             </div>
 
             <div className="space-y-2">
-              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">Henchmen</p>
+              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">{t('setup.sections.henchmen')}</p>
               {currentSetup.henchmen.map((h) => (
                 <HenchmanCard key={h.id} henchman={h} />
               ))}
             </div>
 
             <div className="space-y-2">
-              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">Heroes</p>
+              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">{t('setup.sections.heroes')}</p>
               {currentSetup.heroes.map((hero, idx) => {
                 const isExtra = currentSetup.schemeHeroMod > 0 && idx >= currentSetup.heroes.length - currentSetup.schemeHeroMod;
                 return (
@@ -468,14 +470,14 @@ export default function SetupPage() {
             </div>
 
             <Button variant="secondary" size="lg" className="w-full" onClick={() => setSaveModalOpen(true)}>
-              {'📝'} Save match result
+              {t('setup.saveMatchButton')}
             </Button>
 
             <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700">
               <span className="text-xl">{'🧑‍🤝‍🧑'}</span>
               <div>
-                <p className="text-xs font-semibold text-zinc-300">Bystanders in villain deck</p>
-                <p className="text-sm font-bold text-marvel-gold">{currentSetup.bystanders} cards</p>
+                <p className="text-xs font-semibold text-zinc-300">{t('setup.bystanders')}</p>
+                <p className="text-sm font-bold text-marvel-gold">{t('setup.bystanders_cards', { count: currentSetup.bystanders })}</p>
               </div>
             </div>
           </div>

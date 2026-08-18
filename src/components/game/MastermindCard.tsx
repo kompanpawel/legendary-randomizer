@@ -1,8 +1,9 @@
 import { Skull, Star, Zap } from 'lucide-react';
-import { cn } from '../../utils/cn';
-import type { Mastermind } from '../../types/cards';
-import type { MastermindStats } from '../../types/stats';
-import { blendedStrength } from '../../utils/blendedStrength';
+import { useTranslation } from 'react-i18next';
+import { cn } from '@/utils/cn.ts';
+import type { Mastermind } from '@/types/cards.ts';
+import type { MastermindStats } from '@/types/stats.ts';
+import { blendedStrength } from '@/utils/blendedStrength.ts';
 
 interface MastermindCardProps {
   mastermind: Mastermind;
@@ -12,6 +13,7 @@ interface MastermindCardProps {
 }
 
 export function MastermindCard({ mastermind, stats, isEpic = false, className }: MastermindCardProps) {
+  const { t } = useTranslation();
   // W trybie Epic używamy epickich statystyk i dodajemy +1 do bazy
   const playCount = isEpic ? (stats?.epicPlayCount ?? 0) : (stats?.playCount ?? 0);
   const wins      = isEpic ? (stats?.epicWins ?? 0)      : (stats?.wins ?? 0);
@@ -47,38 +49,38 @@ export function MastermindCard({ mastermind, stats, isEpic = false, className }:
               'text-xs font-medium uppercase tracking-wide',
               isEpic ? 'text-orange-400' : 'text-red-400'
             )}>
-              Mastermind
+                {t('cards.mastermind.label')}
             </p>
             {isEpic && (
               <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-bold">
                 <Zap size={10} className="fill-current" />
-                EPIC
+                {t('cards.mastermind.epic')}
               </span>
             )}
             {!isEpic && hasEpicCards && (
-              <span className="text-xs text-zinc-600 font-mono">(Epic available)</span>
+              <span className="text-xs text-zinc-600 font-mono">{t('cards.mastermind.epicAvailable')}</span>
             )}
           </div>
           <h3 className="font-bold text-white text-sm">{mastermind.name}</h3>
           {mastermind.alwaysLeads && (
             <p className="text-zinc-500 text-xs mt-1 truncate">
-              Prowadzi: {mastermind.alwaysLeads}
+              {t('cards.mastermind.alwaysLeads', { name: mastermind.alwaysLeads })}
             </p>
           )}
           {stats && (
             <div className="mt-1 flex gap-3 text-xs text-zinc-500 font-mono flex-wrap">
               <span>▶ {stats.playCount}x</span>
-              <span className="text-red-600">Wygrał: {stats.wins}</span>
-              <span className="text-green-600">Pokonany: {stats.losses}</span>
+              <span className="text-red-600">{t('cards.mastermind.stats.won')} {stats.wins}</span>
+              <span className="text-green-600">{t('cards.mastermind.stats.defeated')} {stats.losses}</span>
               {isEpic && stats.epicPlayCount > 0 && (
-                <span className="text-orange-500">Epic: {stats.epicPlayCount}x ({stats.epicWins}W/{stats.epicLosses}L)</span>
+                <span className="text-orange-500">{t('cards.mastermind.stats.epic')} {stats.epicPlayCount}x ({stats.epicWins}W/{stats.epicLosses}L)</span>
               )}
             </div>
           )}
         </div>
         <div
           className="flex gap-0.5 flex-shrink-0"
-          title={isStaticDefault ? 'Brak danych – wartość neutralna' : `Trudność: ${effectiveDifficulty}/5${isEpic ? ' (Epic)' : ''}`}
+          title={isStaticDefault ? t('cards.mastermind.tooltip.noData') : t('cards.mastermind.tooltip.withData', { value: effectiveDifficulty, epicSuffix: isEpic ? ' (Epic)' : '' })}
         >
           {Array.from({ length: 5 }, (_, i) => (
             <Star

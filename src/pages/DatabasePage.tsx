@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Download, Upload, Database as DbIcon, CheckCircle, AlertCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Button } from '../components/ui/Button';
 import { exportStats, importStats, validateCardsJson } from '../utils/importExport';
@@ -12,6 +13,7 @@ interface Toast {
 }
 
 export default function DatabasePage() {
+  const { t } = useTranslation();
   const statsFileRef = useRef<HTMLInputElement>(null);
   const cardsFileRef = useRef<HTMLInputElement>(null);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -25,9 +27,9 @@ export default function DatabasePage() {
   const handleExport = async () => {
     try {
       await exportStats();
-      showToast('success', 'Export complete – file saved');
+      showToast('success', t('database.toast.exportSuccess'));
     } catch (err) {
-      showToast('error', `Export error: ${String(err)}`);
+      showToast('error', t('database.toast.exportError', { error: String(err) }));
     }
   };
 
@@ -37,9 +39,9 @@ export default function DatabasePage() {
     setLoading(true);
     try {
       const { imported } = await importStats(file);
-      showToast('success', `Imported ${imported} records`);
+      showToast('success', t('database.toast.importSuccess', { count: imported }));
     } catch (err) {
-      showToast('error', `Import error: ${String(err)}`);
+      showToast('error', t('database.toast.importError', { error: String(err) }));
     } finally {
       setLoading(false);
       if (statsFileRef.current) statsFileRef.current.value = '';
@@ -55,12 +57,12 @@ export default function DatabasePage() {
       const json: unknown = JSON.parse(text);
       const { valid, error } = validateCardsJson(json);
       if (!valid) {
-        showToast('error', `Invalid format: ${error}`);
+        showToast('error', t('database.toast.invalidFormat', { error }));
       } else {
-        showToast('success', 'cards.json is valid (static data – requires rebuild)');
+        showToast('success', t('database.toast.validationSuccess'));
       }
     } catch (err) {
-      showToast('error', `Error: ${String(err)}`);
+      showToast('error', t('database.toast.validationError', { error: String(err) }));
     } finally {
       setLoading(false);
       if (cardsFileRef.current) cardsFileRef.current.value = '';
@@ -69,7 +71,7 @@ export default function DatabasePage() {
 
   return (
     <div className="pb-nav">
-      <PageHeader title="Database" subtitle="Import / Export" />
+      <PageHeader title={t('database.title')} subtitle={t('database.subtitle')} />
 
       {/* Toast */}
       {toast && (
@@ -93,12 +95,12 @@ export default function DatabasePage() {
               <Download size={18} className="text-blue-400" />
             </div>
             <div>
-              <h2 className="text-sm font-semibold text-white">Export Stats</h2>
-              <p className="text-xs text-zinc-500">Download backup as JSON</p>
+              <h2 className="text-sm font-semibold text-white">{t('database.export.heading')}</h2>
+              <p className="text-xs text-zinc-500">{t('database.export.description')}</p>
             </div>
           </div>
           <Button variant="secondary" className="w-full" onClick={handleExport} loading={loading}>
-            Export Stats
+            {t('database.export.button')}
           </Button>
         </div>
 
@@ -109,8 +111,8 @@ export default function DatabasePage() {
               <Upload size={18} className="text-green-400" />
             </div>
             <div>
-              <h2 className="text-sm font-semibold text-white">Import Stats</h2>
-              <p className="text-xs text-zinc-500">Restore from backup</p>
+              <h2 className="text-sm font-semibold text-white">{t('database.import.heading')}</h2>
+              <p className="text-xs text-zinc-500">{t('database.import.description')}</p>
             </div>
           </div>
           <Button
@@ -119,7 +121,7 @@ export default function DatabasePage() {
             onClick={() => statsFileRef.current?.click()}
             loading={loading}
           >
-            Choose backup file
+            {t('database.import.button')}
           </Button>
           <input
             ref={statsFileRef}
@@ -137,8 +139,8 @@ export default function DatabasePage() {
               <DbIcon size={18} className="text-amber-400" />
             </div>
             <div>
-              <h2 className="text-sm font-semibold text-white">Card Database Validation</h2>
-              <p className="text-xs text-zinc-500">Check cards.json integrity</p>
+              <h2 className="text-sm font-semibold text-white">{t('database.validation.heading')}</h2>
+              <p className="text-xs text-zinc-500">{t('database.validation.description')}</p>
             </div>
           </div>
           <Button
@@ -147,7 +149,7 @@ export default function DatabasePage() {
             onClick={() => cardsFileRef.current?.click()}
             loading={loading}
           >
-            Choose cards.json file
+            {t('database.validation.button')}
           </Button>
           <input
             ref={cardsFileRef}
@@ -160,9 +162,9 @@ export default function DatabasePage() {
 
         {/* Info */}
         <div className="bg-zinc-900/50 rounded-xl border border-zinc-800 p-4 text-xs text-zinc-500 space-y-1">
-          <p>📦 Card data is bundled into the app (static)</p>
-          <p>📊 Statistics are stored locally in IndexedDB</p>
-          <p>✈️ App works 100% offline</p>
+          <p>{t('database.info.bundled')}</p>
+          <p>{t('database.info.indexeddb')}</p>
+          <p>{t('database.info.offline')}</p>
         </div>
       </div>
     </div>

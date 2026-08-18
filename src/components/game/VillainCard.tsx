@@ -1,6 +1,7 @@
 import { Users, Shield } from 'lucide-react';
-import { cn } from '../../utils/cn';
-import type { VillainGroup, Henchman } from '../../types/cards';
+import { useTranslation } from 'react-i18next';
+import { cn } from '@/utils/cn.ts';
+import type { VillainGroup, Henchman } from '@/types/cards.ts';
 
 interface VillainCardProps {
   villain: VillainGroup;
@@ -8,6 +9,7 @@ interface VillainCardProps {
 }
 
 export function VillainCard({ villain, className }: VillainCardProps) {
+  const { t } = useTranslation();
   return (
     <div
       className={cn(
@@ -19,7 +21,7 @@ export function VillainCard({ villain, className }: VillainCardProps) {
         <Users size={14} className="text-zinc-300" />
       </div>
       <div>
-        <p className="text-xs text-zinc-500 uppercase tracking-wide">Łotry</p>
+        <p className="text-xs text-zinc-500 uppercase tracking-wide">{t('cards.villain.label')}</p>
         <p className="text-white text-sm font-medium">{villain.name}</p>
       </div>
     </div>
@@ -32,6 +34,7 @@ interface HenchmanCardProps {
 }
 
 export function HenchmanCard({ henchman, className }: HenchmanCardProps) {
+  const { t } = useTranslation();
   return (
     <div
       className={cn(
@@ -43,7 +46,7 @@ export function HenchmanCard({ henchman, className }: HenchmanCardProps) {
         <Shield size={14} className="text-zinc-400" />
       </div>
       <div>
-        <p className="text-xs text-zinc-500 uppercase tracking-wide">Słudzy</p>
+        <p className="text-xs text-zinc-500 uppercase tracking-wide">{t('cards.henchman.label')}</p>
         <p className="text-white text-sm font-medium">{henchman.name}</p>
       </div>
     </div>
