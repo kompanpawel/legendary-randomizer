@@ -1,0 +1,266 @@
+{
+  "nav": {
+    "setup": "Setup",
+    "stats": "Stats",
+    "database": "Database",
+    "settings": "Settings"
+  },
+  "setup": {
+    "title": "Legendary Randomizer",
+    "subtitle": "Generate your setup",
+    "expansions": {
+      "heading": "Expansions",
+      "allActive": "All active",
+      "countOf": "{{count}} of {{total}}",
+      "clearButton": "Clear (use all)"
+    },
+    "manualPick": {
+      "heading": "Manual pick",
+      "bothRandom": "Both random",
+      "mastermindLabel": "Mastermind",
+      "schemeLabel": "Scheme",
+      "randomOption": "🎲 Random",
+      "lockedInfo_one": "🔒 Villains, henchmen & heroes drawn from expansion: {{name}}",
+      "lockedInfo_other": "🔒 Villains, henchmen & heroes drawn from {{count}} expansions",
+      "clearButton": "Clear (both random)"
+    },
+    "modes": {
+      "smart": {
+        "label": "⚡ Smart",
+        "desc": "Balances plays"
+      },
+      "dustOff": {
+        "label": "🏚️ Shelf",
+        "desc": "Least played"
+      },
+      "synergy": {
+        "label": "🔗 Synergy",
+        "desc": "Synergy with scheme"
+      }
+    },
+    "players": {
+      "heading": "Players",
+      "solo": "{{n}} player (solo)",
+      "multi": "{{n}} players"
+    },
+    "epicToggle": {
+      "label": "Epic Mastermind",
+      "descOff": "Toggle if you want to play in Epic mode",
+      "descOn": "Using epic cards — difficulty +1, separate statistics"
+    },
+    "generateButton": "Generate Setup",
+    "balance": {
+      "veryHard": {
+        "label": "💀 Very Hard",
+        "hint": "Threat significantly stronger than the team"
+      },
+      "challenging": {
+        "label": "⚔️ Challenging",
+        "hint": "Threat stronger than the team"
+      },
+      "balanced": {
+        "label": "⚖️ Balanced",
+        "hint": "Team and threat strength are similar"
+      },
+      "easier": {
+        "label": "✅ Easier",
+        "hint": "Team slightly stronger than threat"
+      },
+      "easy": {
+        "label": "😎 Easy",
+        "hint": "Team clearly stronger than threat"
+      }
+    },
+    "threat": "Threat",
+    "gap": "Gap",
+    "counterCoverage": "Counter coverage",
+    "sections": {
+      "villains": "Villains",
+      "henchmen": "Henchmen",
+      "heroes": "Heroes"
+    },
+    "saveMatchButton": "📝 Save match result",
+    "bystanders": "Bystanders in villain deck",
+    "bystanders_cards": "{{count}} cards"
+  },
+  "settings": {
+    "title": "Settings",
+    "alpha": {
+      "heading": "α Coefficient (Alpha)",
+      "description": "Higher value = stronger penalty for frequently played heroes.",
+      "lenient": "0.5 (lenient)",
+      "strict": "2.0 (strict)"
+    },
+    "playerCount": {
+      "heading": "Default Player Count",
+      "solo": "{{n}} player (solo)",
+      "multi": "{{n}} players",
+      "description": "Number of heroes, villains and henchmen groups are set automatically based on player count."
+    },
+    "dangerZone": {
+      "heading": "Danger Zone",
+      "description": "Deleting statistics is irreversible.",
+      "resetButton": "Reset All Statistics"
+    },
+    "confirmReset": {
+      "title": "Confirm Reset",
+      "warning": "All hero statistics and match history will be deleted. This action cannot be undone.",
+      "cancelButton": "Cancel",
+      "deleteButton": "Delete Everything"
+    },
+    "toast": {
+      "success": "✅ Statistics have been reset",
+      "error": "❌ Error: {{error}}"
+    },
+    "legal": {
+      "heading": "Legal",
+      "description": "Disclaimer, Privacy Policy & Terms of Use",
+      "button": "View Legal Info"
+    }
+  },
+  "stats": {
+    "title": "Statistics",
+    "totalMatches": "{{count}} total matches",
+    "overallResults": {
+      "heading": "Overall Results",
+      "wins": "Wins",
+      "losses": "Losses",
+      "winRate": "{{percentage}}% win rate"
+    },
+    "mostPlayed": "🏆 Most Played",
+    "shelfOfShame": "🏚️ Shelf of Shame",
+    "recentMatches": "📜 Recent Matches",
+    "noHistory": "No match history. Play and save a result!"
+  },
+  "database": {
+    "title": "Database",
+    "subtitle": "Import / Export",
+    "export": {
+      "heading": "Export Stats",
+      "description": "Download backup as JSON",
+      "button": "Export Stats"
+    },
+    "import": {
+      "heading": "Import Stats",
+      "description": "Restore from backup",
+      "button": "Choose backup file"
+    },
+    "validation": {
+      "heading": "Card Database Validation",
+      "description": "Check cards.json integrity",
+      "button": "Choose cards.json file"
+    },
+    "info": {
+      "bundled": "📦 Card data is bundled into the app (static)",
+      "indexeddb": "📊 Statistics are stored locally in IndexedDB",
+      "offline": "✈️ App works 100% offline"
+    },
+    "toast": {
+      "exportSuccess": "Export complete – file saved",
+      "exportError": "Export error: {{error}}",
+      "importSuccess": "Imported {{count}} records",
+      "importError": "Import error: {{error}}",
+      "invalidFormat": "Invalid format: {{error}}",
+      "validationSuccess": "cards.json is valid (static data – requires rebuild)",
+      "validationError": "Error: {{error}}"
+    }
+  },
+  "cards": {
+    "mastermind": {
+      "label": "Mastermind",
+      "epic": "EPIC",
+      "epicAvailable": "(Epic available)",
+      "alwaysLeads": "Leads: {{name}}",
+      "stats": {
+        "won": "Won:",
+        "defeated": "Defeated:",
+        "epic": "Epic:"
+      },
+      "tooltip": {
+        "noData": "No data – neutral value",
+        "withData": "Difficulty: {{value}}/5{{epicSuffix}}"
+      }
+    },
+    "scheme": {
+      "label": "Scheme",
+      "stats": {
+        "won": "Won:",
+        "defeated": "Defeated:"
+      },
+      "extraHero": "+{{count}} Extra Hero do setup",
+      "extraHeroPlural": "+{{count}} Extra Heroes do setup",
+      "extraHeroConditional": "+{{count}} Extra Hero (only ≥{{min}} players – inactive)",
+      "tooltip": {
+        "noData": "No data – neutral value",
+        "withData": "Difficulty: {{value}}/5"
+      }
+    },
+    "hero": {
+      "rerollTitle": "Reroll",
+      "tooltip": {
+        "noData": "No data – neutral value",
+        "withData": "Strength: {{value}}/5"
+      }
+    },
+    "villain": {
+      "label": "Villains"
+    },
+    "henchman": {
+      "label": "Henchmen"
+    }
+  },
+  "saveMatch": {
+    "title": "Save match – step {{step}}/3",
+    "step1": {
+      "question": "How did it go?",
+      "victory": "VICTORY!",
+      "defeat": "DEFEAT"
+    },
+    "step2": {
+      "label": "VP Points (optional)",
+      "placeholder": "e.g. 42",
+      "back": "Back",
+      "next": "Next"
+    },
+    "step3": {
+      "summary": "Summary",
+      "result": "Result",
+      "score": "Score",
+      "mastermind": "Mastermind",
+      "scheme": "Scheme",
+      "heroes": "Heroes",
+      "difficulty": "Difficulty",
+      "threatScore": "Threat Score",
+      "back": "Back",
+      "save": "Save",
+      "win": "🏆 Victory",
+      "loss": "💀 Defeat",
+      "balance": {
+        "hard": "💀 Hard",
+        "challenging": "⚔️ Challenging",
+        "easy": "😎 Easy",
+        "easier": "✅ Easier",
+        "balanced": "⚖️ Balanced"
+      }
+    }
+  },
+  "updatePrompt": {
+    "message": "🔄 New version available",
+    "button": "Update"
+  },
+  "legal": {
+    "title": "Legal",
+    "disclaimer": {
+      "heading": "Disclaimer",
+      "body": "This project is an unofficial fan-made tool for Legendary: A Marvel Deck Building Game. It is not affiliated with, endorsed by, sponsored by, or associated with Marvel, Upper Deck, or any official publisher or distributor of the game.\n\nAll game names, trademarks, logos, and related content are the property of their respective owners. This application is intended for personal, non-commercial use and is provided for entertainment and convenience purposes only."
+    },
+    "privacy": {
+      "heading": "Privacy Policy",
+      "body": "This application does not collect any personal data. No account creation is required.\n\nAll data — including preferences, settings, hero statistics, and match history — is stored exclusively in your browser's local storage (IndexedDB) on your device. This data is never transmitted to any server and remains fully under your control.\n\nThis app does not use analytics, crash reporting tools, advertising networks, or any third-party tracking services.\n\nYou can delete all stored data at any time from the Settings page.\n\nIf you have questions about privacy, please reach out via the project repository."
+    },
+    "terms": {
+      "heading": "Terms of Use",
+      "body": "By using this application, you agree to the following:\n\n• The app is provided for personal, non-commercial use.\n• The app is a fan-made utility and is not an official game product.\n• You agree not to use this app to misrepresent official content, trademarks, or game materials.\n• You may not copy, redistribute, or republish game assets, official art, or proprietary content without permission from the rights holder.\n• We do not guarantee that the app is free from errors, interruptions, or compatibility issues.\n• The app is provided \"as is\" without warranties of any kind, express or implied.\n• We are not responsible for any loss, damage, or inconvenience arising from the use of this app.\n• We may update, modify, or discontinue the app at any time without notice.\n\nThe user is responsible for complying with all applicable laws and regulations in their jurisdiction."
+    }
+  }
+}
