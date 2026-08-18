@@ -26,7 +26,7 @@ function PageSuspense({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-marvel-dark text-white">
         <main className="max-w-lg mx-auto">
           <Routes>
@@ -79,4 +79,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
