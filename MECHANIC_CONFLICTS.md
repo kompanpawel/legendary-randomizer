@@ -214,10 +214,41 @@ takich Schematów.
 - Test: `src/engine/__tests__/multipleMasterminds.test.ts` (12 przypadków — weryfikacja danych,
   secondMastermind w GameSetup, setupNotes dla każdego ze 3 schematów i brak false-positive).
 
-## 8. Cross-Dimensional Rampage — zależność nazewnicza kart
-Wymaga obecności konkretnie nazwanych bohaterów (np. „Hulk” w nazwie). Jeśli losowanie Heroes nie
+## 8. Cross-Dimensional Rampage — zależność nazewnicza kart ✅ NAPRAWIONE
+Wymaga obecności konkretnie nazwanych bohaterów (np. „Hulk" w nazwie). Jeśli losowanie Heroes nie
 gwarantuje żadnej karty pasującej do tematu Rampage, efekt zawsze kończy się Wound — nie psuje
 gry, ale obniża zamierzoną szansę na kontrę.
+
+**Status:** Naprawione. Zidentyfikowano wszystkie typy Cross-Dimensional Rampage w bazie danych
+(Hulk, Wolverine, Thor, Party, Deadpool, Ultron, Zombie, Void, Demon, Illuminati) oraz encje
+je wywołujące (10 villain groups, 6 mastermindów, 1 schemat).
+- Dodano stałą `RAMPAGE_COUNTER_MAP` oraz funkcje `addRampageCounters()` i
+  `deriveHeroNameCounters()` w `src/utils/jsonMigration.ts`. Trzy funkcje derive
+  (`deriveMastermindCounters`, `deriveVillainGroupCounters`, `deriveSchemeCounters`) wywołują
+  teraz `addRampageCounters()` — przyszłe regeneracje `cards.json` automatycznie dodadzą tagi.
+  Wywołanie `deriveCounters(h.cards)` zastąpiono
+  `[...new Set([...deriveCounters(h.cards), ...deriveHeroNameCounters(h.name)])].sort()`
+  by uwzględnić imię bohatera przy obliczaniu `countersProvided`.
+- Ręcznie naniesiono **45 dodań tagów** do `src/assets/cards.json` (minimalne zmiany, bez
+  uruchamiania `migrate`):
+  - **Heroes** (28 encji): tagi `hulk-name` dla 11 bohaterów z „Hulk" w imieniu (incl. Maestro
+    jako wyjątek), `wolverine-name` dla 6 bohaterów (Wolverine, Weapon X, Old Man Logan,
+    Colossus & Wolverine), `thor-name` dla 5 (w tym Lady Thor, Party Thor), `party-name` dla
+    Party Thor, `deadpool-name` dla 2 Deadpoolów, `ultron-name` dla Ultrona.
+  - **Villain Groups** (10 encji): `hulk-name` → Wasteland, Illuminati; `wolverine-name` →
+    Domain of Apocalypse, Sentinel Territories, X-Men '92; `thor-name` → Manhattan Earth-1610;
+    `deadpool-name` → Monster Metropolis; `party-name` → Intergalactic Party Animals;
+    `zombie-name` → Zombie Avengers; `demon-name` → Strange's Demons;
+    `illuminati-name` → Illuminati.
+  - **Masterminds** (6 encji): `hulk-name` → Wasteland Hulk, General Ross, King Hulk;
+    `zombie-name` → Zombie Scarlet Witch; `ultron-name` → Ultron Infinity; `void-name` →
+    The Sentry.
+  - **Schemes** (1 encja): `hulk-name` → Fall of the Hulks.
+- Tagi bez bohaterów (`zombie-name`, `void-name`, `demon-name`, `illuminati-name`) poprawnie
+  sygnalizują niepokryte zagrożenie — `synergyEngine` rejestruje brak pokrycia bez błędu.
+- Test: `src/engine/__tests__/crossDimensionalRampage.test.ts` (25 przypadków: weryfikacja
+  danych dla heroes/villains/masterminds/schemes oraz potwierdzenie że `synergyEngineMode`
+  faworyzuje bohaterów z `hulk-name` gdy mastermind go wymaga).
 
 ## 9. „Add an extra Villain Group" — 18 schematów bez żadnego pokrycia
 Co najmniej 18 z 199 schematów (np. *Change the Outcome of WWII*, *Predict Future Crime*,

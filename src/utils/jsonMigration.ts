@@ -254,6 +254,62 @@ function deriveCounters(cards: RawHeroCard[]): string[] {
   return [...counters].sort();
 }
 
+// ─── Mapa typów Cross-Dimensional Rampage → tagi counters ───────────────────
+/**
+ * Mapowanie nazwy bohatera/villaina z tekstu "Cross-Dimensional X Rampage" na tag counters.
+ * Tagi z prefiksem "-name" sygnalizują, że do skontrowania rampageu potrzeba bohatera
+ * o pasującym słowie kluczowym w imieniu (np. hulk-name → Hero z "Hulk" w nazwie).
+ * Typy bez heroów w bazie (zombie, void, demon, illuminati) trafiają do countersNeeded jako
+ * nieosłonięte zagrożenie — silnik poprawnie rejestruje brak pokrycia.
+ */
+const RAMPAGE_COUNTER_MAP: Record<string, string> = {
+  hulk: 'hulk-name',
+  wolverine: 'wolverine-name',
+  thor: 'thor-name',
+  party: 'party-name',
+  deadpool: 'deadpool-name',
+  ultron: 'ultron-name',
+  colossus: 'colossus-name',
+  zombie: 'zombie-name',
+  void: 'void-name',
+  demon: 'demon-name',
+  illuminati: 'illuminati-name',
+};
+
+/**
+ * Dodaje tagi name-synergy dla efektów Cross-Dimensional Rampage znalezionych w tekście kart.
+ * Obsługuje zarówno "Cross-Dimensional" jak i "Cross-Dimension" (skrócona forma w niektórych setach).
+ */
+function addRampageCounters(text: string, counters: Set<string>): void {
+  const rampageRe = /Cross-Dimension(?:al)? (\w+) Rampage/gi;
+  for (const m of text.matchAll(rampageRe)) {
+    const tag = RAMPAGE_COUNTER_MAP[m[1].toLowerCase()];
+    if (tag) counters.add(tag);
+  }
+}
+
+/**
+ * Dodaje tagi name-synergy do countersProvided bohatera na podstawie jego imienia.
+ * Reguły zgodne z keywords.json (Cross-Dimensional Rampage):
+ * – "Hulk" lub "Maestro" w imieniu → hulk-name (Maestro = wyjątek per rulesbook)
+ * – "Wolverine", "Weapon X" lub "Old Man Logan" → wolverine-name
+ * – "Thor" → thor-name
+ * – "Party" → party-name
+ * – "Deadpool" → deadpool-name
+ * – "Ultron" → ultron-name
+ */
+function deriveHeroNameCounters(heroName: string): string[] {
+  const tags: string[] = [];
+  const nl = heroName.toLowerCase();
+  if (nl.includes('hulk') || nl.includes('maestro')) tags.push('hulk-name');
+  if (nl.includes('wolverine') || nl.includes('weapon x') || nl.includes('old man logan')) tags.push('wolverine-name');
+  if (nl.includes('thor')) tags.push('thor-name');
+  if (nl.includes('party')) tags.push('party-name');
+  if (nl.includes('deadpool')) tags.push('deadpool-name');
+  if (nl.includes('ultron')) tags.push('ultron-name');
+  return tags;
+}
+
 // ─── Derywacja countersNeeded dla Schematu ───────────────────────────────────
 /**
  * Na podstawie tekstu karty schematu (Twist-ów, Special Rules, warunków zwycięstwa)
@@ -720,6 +776,9 @@ function deriveSchemeCounters(cards: RawSchemeCard[]): string[] {
     counters.add('recruit-boost');
   }
 
+  // ── Cross-Dimensional Rampage effects → name-based counters ──────────────
+  addRampageCounters(all, counters);
+
   return [...counters].sort();
 }
 
@@ -837,6 +896,9 @@ function deriveMastermindCounters(cards: RawMastermindCard[]): string[] {
 
   // ── Fallback ──────────────────────────────────────────────────────────────
   if (counters.size === 0 && maxAttack >= 5) counters.add('heavy-hitter');
+
+  // ── Cross-Dimensional Rampage effects → name-based counters ──────────────
+  addRampageCounters(all, counters);
 
   return [...counters].sort();
 }
@@ -1121,6 +1183,9 @@ function deriveVillainGroupCounters(cards: RawVillainCard[]): string[] {
     counters.add('villain-control');
   }
 
+  // ── Cross-Dimensional Rampage effects → name-based counters ──────────────
+  addRampageCounters(all, counters);
+
   return [...counters].sort();
 }
 
@@ -1340,7 +1405,7 @@ function migrate(): CardsDatabase {
     primaryClasses: derivePrimaryClasses(h.cards),
     keywords: deriveKeywords(h.cards),
     powerLevel: 3 as const,
-    countersProvided: deriveCounters(h.cards),
+    countersProvided: [...new Set([...deriveCounters(h.cards), ...deriveHeroNameCounters(h.name)])].sort(),
     cards: h.cards.map(c => ({
       name: c.name,
       quantity: c.quantity,

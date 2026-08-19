@@ -750,6 +750,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "hulk-name",
         "recruit-boost",
         "undercover",
         "wound-removal",
@@ -2679,6 +2680,7 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "hulk-name",
         "recruit-boost",
         "size-changing"
       ],
@@ -3203,6 +3205,7 @@
       ],
       "powerLevel": 3,
       "countersProvided": [
+        "hulk-name",
         "size-changing",
         "wound-removal"
       ],
@@ -4045,6 +4048,7 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
+        "deadpool-name",
         "heavy-hitter",
         "recruit-boost"
       ],
@@ -4269,6 +4273,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "hulk-name",
         "wound-removal"
       ],
       "cards": [
@@ -4601,7 +4606,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "recruit-boost"
+        "recruit-boost",
+        "thor-name"
       ],
       "cards": [
         {
@@ -4654,6 +4660,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "extra-draws",
+        "wolverine-name",
         "wound-removal"
       ],
       "cards": [
@@ -5036,6 +5043,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "hulk-name",
         "wound-removal"
       ],
       "cards": [
@@ -5416,7 +5424,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "deck-thinning",
-        "recruit-boost"
+        "recruit-boost",
+        "thor-name"
       ],
       "cards": [
         {
@@ -5470,6 +5479,7 @@
       "countersProvided": [
         "extra-draws",
         "recruit-boost",
+        "wolverine-name",
         "wound-removal"
       ],
       "cards": [
@@ -6408,7 +6418,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "deck-thinning",
-        "extra-draws"
+        "extra-draws",
+        "wolverine-name"
       ],
       "cards": [
         {
@@ -6518,6 +6529,7 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
+        "deadpool-name",
         "deck-thinning",
         "heavy-hitter",
         "time-travel"
@@ -8212,7 +8224,8 @@
         "aoe",
         "artifact-synergy",
         "heavy-hitter",
-        "recruit-boost"
+        "recruit-boost",
+        "thor-name"
       ],
       "cards": [
         {
@@ -9036,6 +9049,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "hulk-name",
         "wound-removal"
       ],
       "cards": [
@@ -9195,7 +9209,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "recruit-boost"
+        "recruit-boost",
+        "thor-name"
       ],
       "cards": [
         {
@@ -11585,7 +11600,9 @@
       "powerLevel": 3,
       "countersProvided": [
         "deck-thinning",
+        "party-name",
         "recruit-boost",
+        "thor-name",
         "top-deck-control"
       ],
       "cards": [
@@ -14402,7 +14419,8 @@
       "countersProvided": [
         "extra-draws",
         "multi-class",
-        "recruit-boost"
+        "recruit-boost",
+        "thor-name"
       ],
       "cards": [
         {
@@ -14631,6 +14649,7 @@
         "extra-draws",
         "heavy-hitter",
         "shield-synergy",
+        "wolverine-name",
         "wound-removal"
       ],
       "cards": [
@@ -16819,7 +16838,8 @@
       "countersProvided": [
         "dodge-offense",
         "heavy-hitter",
-        "recruit-boost"
+        "recruit-boost",
+        "ultron-name"
       ],
       "cards": [
         {
@@ -17089,6 +17109,7 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
+        "wolverine-name",
         "wound-removal",
         "wound-synergy"
       ],
@@ -17357,6 +17378,7 @@
       "countersProvided": [
         "extra-draws",
         "heavy-hitter",
+        "hulk-name",
         "transform",
         "wound-synergy"
       ],
@@ -17490,6 +17512,7 @@
       "countersProvided": [
         "extra-draws",
         "heavy-hitter",
+        "hulk-name",
         "multi-class",
         "transform",
         "trap-handling",
@@ -17559,6 +17582,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "hulk-name",
         "recruit-boost",
         "transform",
         "wound-synergy"
@@ -18062,6 +18086,7 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "hulk-name",
         "multi-class",
         "recruit-boost",
         "top-deck-control",
@@ -18134,6 +18159,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "hulk-name",
         "transform",
         "wound-synergy"
       ],
@@ -18424,6 +18450,7 @@
       "countersProvided": [
         "deck-thinning",
         "extra-draws",
+        "wolverine-name",
         "wound-synergy"
       ],
       "cards": [
@@ -21948,7 +21975,8 @@
       "vp": 6,
       "countersNeeded": [
         "ambush",
-        "wound-removal"
+        "wound-removal",
+        "zombie-name"
       ],
       "cards": [
         {
@@ -22041,6 +22069,7 @@
       "countersNeeded": [
         "deck-thinning",
         "empowered",
+        "ultron-name",
         "villain-control"
       ],
       "cards": [
@@ -22825,6 +22854,7 @@
       "vp": 6,
       "countersNeeded": [
         "extra-draws",
+        "hulk-name",
         "wound-removal"
       ],
       "cards": [
@@ -23462,6 +23492,7 @@
       "countersNeeded": [
         "bystander-control",
         "bystander-rescue",
+        "hulk-name",
         "wound-removal"
       ],
       "cards": [
@@ -23555,6 +23586,7 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "hulk-name",
         "villain-control",
         "wound-removal"
       ],
@@ -23692,6 +23724,7 @@
       "countersNeeded": [
         "recruit-boost",
         "top-deck-control",
+        "void-name",
         "wound-removal"
       ],
       "cards": [
@@ -26722,7 +26755,10 @@
         "multi-class",
         "villain-control"
       ],
-      "overrides": { "multipleMasterminds": true, "requiresSecondMastermind": true },
+      "overrides": {
+        "multipleMasterminds": true,
+        "requiresSecondMastermind": true
+      },
       "cards": [
         {
           "name": "Dark Alliance",
@@ -26821,7 +26857,9 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": { "multipleMasterminds": true },
+      "overrides": {
+        "multipleMasterminds": true
+      },
       "cards": [
         {
           "name": "Enthrone the Barons of Battleworld",
@@ -26855,7 +26893,9 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": { "multipleMasterminds": true },
+      "overrides": {
+        "multipleMasterminds": true
+      },
       "cards": [
         {
           "name": "God-Emperor of Battleworld, The",
@@ -27229,6 +27269,7 @@
       "expansionId": 19,
       "difficulty": 3,
       "countersNeeded": [
+        "hulk-name",
         "wound-removal"
       ],
       "overrides": {},
@@ -31632,7 +31673,7 @@
         "size-changing",
         "wound-removal"
       ],
-            "hasAmbushScheme": true,
+      "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Hydra Arms Dealer",
@@ -31697,7 +31738,7 @@
         "heavy-hitter",
         "size-changing"
       ],
-            "hasAmbushScheme": true,
+      "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Sonny Burch's Goons",
@@ -31797,7 +31838,7 @@
         "villain-control",
         "wound-removal"
       ],
-            "hasAmbushScheme": true,
+      "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Quantumnaut Elite",
@@ -31893,7 +31934,7 @@
         "recruit-boost",
         "size-changing"
       ],
-            "hasAmbushScheme": true,
+      "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Axian Bartender",
@@ -32376,6 +32417,7 @@
         "extra-draws",
         "heavy-hitter",
         "multi-class",
+        "party-name",
         "recruit-boost",
         "wound-removal"
       ],
@@ -32629,7 +32671,8 @@
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
-        "wound-removal"
+        "wound-removal",
+        "zombie-name"
       ],
       "cards": [
         {
@@ -32702,6 +32745,7 @@
       "countersNeeded": [
         "ambush",
         "deck-thinning",
+        "demon-name",
         "extra-draws",
         "heavy-hitter",
         "recruit-boost"
@@ -33983,7 +34027,8 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
-        "recruit-boost"
+        "recruit-boost",
+        "wolverine-name"
       ],
       "cards": [
         {
@@ -34089,7 +34134,8 @@
       "expansionId": 10,
       "theme": "",
       "countersNeeded": [
-        "heavy-hitter"
+        "heavy-hitter",
+        "thor-name"
       ],
       "cards": [
         {
@@ -34140,7 +34186,8 @@
       "expansionId": 10,
       "theme": "",
       "countersNeeded": [
-        "heavy-hitter"
+        "heavy-hitter",
+        "wolverine-name"
       ],
       "cards": [
         {
@@ -34196,6 +34243,7 @@
         "bystander-rescue",
         "extra-draws",
         "heavy-hitter",
+        "hulk-name",
         "multi-class",
         "recruit-boost",
         "wound-removal"
@@ -34425,7 +34473,8 @@
       "theme": "",
       "countersNeeded": [
         "ambush",
-        "bystander-rescue"
+        "bystander-rescue",
+        "deadpool-name"
       ],
       "cards": [
         {
@@ -34533,7 +34582,8 @@
       "theme": "",
       "countersNeeded": [
         "ambush",
-        "heavy-hitter"
+        "heavy-hitter",
+        "wolverine-name"
       ],
       "cards": [
         {
@@ -35437,6 +35487,8 @@
         "bystander-rescue",
         "extra-draws",
         "heavy-hitter",
+        "hulk-name",
+        "illuminati-name",
         "recruit-boost"
       ],
       "cards": [
