@@ -24487,7 +24487,10 @@
         "multi-class",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountOverride": 7,
+        "requiresAllHeroClasses": true
+      },
       "cards": [
         {
           "name": "Divide and Conquer",
@@ -24538,7 +24541,10 @@
       "countersNeeded": [
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountOverride": 6,
+        "heroFactionSplit": { "teamSize": 3 }
+      },
       "cards": [
         {
           "name": "Avengers vs. X-Men",
@@ -25175,7 +25181,9 @@
         "villain-control",
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredHeroFaction": "Mercs for Money"
+      },
       "cards": [
         {
           "name": "Everybody Hates Deadpool",
@@ -26566,7 +26574,10 @@
       "countersNeeded": [
         "transform"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountOverride": 6,
+        "requiredFactionCount": { "faction": "X-Men", "count": 4, "excludeFromRemainder": true }
+      },
       "cards": [
         {
           "name": "House of M",
@@ -26715,7 +26726,9 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredHeroFaction": "Spider Friends"
+      },
       "cards": [
         {
           "name": "Distract the Hero",
@@ -27366,7 +27379,9 @@
         "hulk-name",
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredHeroNameSubstring": { "substring": "Hulk", "exactCount": 2 }
+      },
       "cards": [
         {
           "name": "Fall of the Hulks",

@@ -423,14 +423,69 @@ Nexus naprawiono realny błąd z za małą liczbą villain groups przy 1-2 gracz
   dla wszystkich 4 schematów, testy silnika dla minVillainCount przy każdym playerCount,
   setup notes, brak false-positive).
 
-## 14. Wymóg konkretnego Hero/keywordu Hero z poziomu Schematu
+## 14. Wymóg konkretnego Hero/keywordu Hero z poziomu Schematu ✅ NAPRAWIONE
 *Everybody Hates Deadpool* — „Use at least 1 [Mercs for Money] Hero" wymaga obecności bohatera
 z konkretnym keywordem w puli Heroes. Podobnie jak p. 8 w oryginalnej analizie (Cross-Dimensional
 Rampage), silnik losujący Heroes (`smartEqualizerMode`/`dustOffMode`/`synergyEngineMode`) nie ma
 mechanizmu wymuszania obecności konkretnego keywordu — traktuje to jako zwykłą, niegwarantowaną
 szansę.
 
-## 15. Dobór Heroes wg drużyny (`faction`) lub imienia — 4 schematy, zero pokrycia i zero adnotacji w danych
+**Status:** Naprawione. Zidentyfikowano 2 schematy z tym wymogiem (oba używają `Hero.faction`,
+nie słowa kluczowego — `[X]` w tekście kart to symbol teamowy = pole faction):
+
+- Dodano pole `requiredHeroFaction?: string` do `Scheme.overrides` w `src/types/cards.ts`.
+- `generateSetup()` w `SmartRandomizerEngine.ts`: gdy `scheme.overrides.requiredHeroFaction`
+  jest ustawione, silnik losuje 1 bohatera z tej frakcji z dostępnej puli i pre-selekcjonuje go
+  (analogicznie do `requiredHeroes` z kroku 10). Pre-wybrany bohater liczy się w heroCount,
+  reszta jest losowana normalnie przez wybrany tryb. Jeśli żaden bohater frakcji nie jest
+  dostępny w aktywnych dodatkach, dodawana jest nota ostrzegawcza.
+- Naniesiono overrides w `src/assets/cards.json`:
+  - Everybody Hates Deadpool: `"requiredHeroFaction": "Mercs for Money"`
+  - Distract the Hero: `"requiredHeroFaction": "Spider Friends"`
+- Dodano `deriveRequiredHeroFaction()` w `src/utils/jsonMigration.ts` (wykrywa wzorzec
+  `Use at least N[X] Hero`).
+- UI: `SchemeCard.tsx` wyświetla zielony badge „Requires ≥1 [X] Hero" (ikona Shield) gdy
+  `requiredHeroFaction` jest ustawione. Nowy klucz i18n: `cards.scheme.requiredHeroFaction`.
+- Setup notes: `setup.notes.schemeRequiredHeroFaction` (z nazwą pre-wybranego bohatera) lub
+  `setup.notes.schemeRequiredHeroFactionMissing` (gdy frakcja niedostępna).
+- Test: `src/engine/__tests__/requiredHeroFaction.test.ts` (14 przypadków: weryfikacja danych,
+  testy silnika dla obu schematów przy różnych playerCount, test braku dostępnej frakcji).
+
+## 15. Dobór Heroes wg drużyny (`faction`) lub imienia — 4 schematy, zero pokrycia i zero adnotacji w danych ✅ NAPRAWIONE
+Cztery schematy narzucają twardy skład Hero Decku inny niż „N losowych Heroes", a żaden z nich
+nie ma niczego w `overrides` (`{}` — puste, bez `specialSetup`, bez `heroCountMod`). To gorsza
+odmiana luk z pkt. 9-14: tu nawet UI (`SchemeCard.tsx`) nie pokazuje ostrzeżenia graczowi, bo
+`specialSetup` jest puste.
+
+**Status:** Naprawione. Wszystkie 4 schematy mają pełne overrides i silnik respektuje ich
+specjalne wymagania.
+
+- Dodano 5 nowych pól do `Scheme.overrides` w `src/types/cards.ts`:
+  - `heroCountOverride?: number` — stała liczba hero niezależna od playerCount
+  - `heroFactionSplit?: { teamSize: number }` — 2 losowe frakcje po teamSize bohaterów (zastępuje normalny tryb)
+  - `requiredFactionCount?: { faction: string; count: number; excludeFromRemainder?: boolean }` — N bohaterów z frakcji
+  - `requiredHeroNameSubstring?: { substring: string; exactCount: number }` — dokładnie N hero z substring w nazwie
+  - `requiresAllHeroClasses?: boolean` — co najmniej 1 bohater każdej z 5 klas
+- Kompletny refactor sekcji hero selection w `SmartRandomizerEngine.ts`:
+  - **Avengers vs. X-Men** (`heroCountOverride: 6, heroFactionSplit: {teamSize: 3}`): silnik
+    losuje 2 frakcje z ≥3 bohaterami i wybiera po 3 z każdej. Niezależne od playerCount,
+    całkowicie zastępuje normalny tryb. Setup note podaje obie wylosowane frakcje.
+  - **House of M** (`heroCountOverride: 6, requiredFactionCount: {faction:"X-Men",count:4,excludeFromRemainder:true}`):
+    Pre-selekcja 4 X-Menów, pozostałe 2 sloty z puli wykluczonej X-Menów. Setup note wymienia
+    wylosowanych X-Menów.
+  - **Fall of the Hulks** (`requiredHeroNameSubstring: {substring:"Hulk",exactCount:2}`):
+    Pre-selekcja dokładnie 2 bohaterów z „Hulk" w nazwie, pula dla reszty wyklucza Hulków.
+    heroCount z normalnych zasad playerCount. Setup note wymienia wylosowanych Hulków.
+  - **Divide and Conquer** (`heroCountOverride: 7, requiresAllHeroClasses: true`):
+    Zawsze 7 bohaterów, silnik najpierw zapewnia po 1 bohaterze każdej z 5 klas, resztę losuje
+    normalnym trybem. Setup note informuje o wymogu sortowania klas.
+- Dodano 5 funkcji derive w `src/utils/jsonMigration.ts`.
+- Naniesiono overrides do 4 schematów w `src/assets/cards.json`.
+- `SchemeCard.tsx`: 5 nowych badge'y (fioletowe) + import Layers/Shield/Split/BookOpen.
+- Nowe klucze i18n: `heroCountOverride`, `heroFactionSplitBadge`, `requiredFactionCountBadge`,
+  `requiredHeroNameSubstringBadge`, `requiresAllHeroClassesBadge` + 4 setup note keys.
+- Test: `src/engine/__tests__/heroSpecialSetup.test.ts` (31 przypadków: dane, silnik dla
+  każdego schematu przy różnych playerCount, setup notes, brak false-positive).
 Cztery schematy narzucają twardy skład Hero Decku inny niż „N losowych Heroes“, a żaden z nich
 nie ma niczego w `overrides` (`{}` — puste, bez `specialSetup`, bez `heroCountMod`). To gorsza
 odmiana luk z pkt. 9-14: tu nawet UI (`SchemeCard.tsx`) nie pokazuje ostrzeżenia graczowi, bo
@@ -447,7 +502,7 @@ odmiana luk z pkt. 9-14: tu nawet UI (`SchemeCard.tsx`) nie pokazuje ostrzeżeni
   („exactly"), a nie tylko bonus przy trafieniu.
 - **Divide and Conquer**: „Sort the Hero Deck by Hero Class: [Strength],[Instinct],[Covert],
   [Tech],[Ranged]... Put these 5 smaller, shuffled Hero Decks beneath the 5 HQ Spaces." —
-  miękki wymóg zróżnicowania klas: przy niefortunnym losowaniu (np. wszystkie 7 Heroes tej samej
+  miękki wymóg zróżnicowania klas: przy niefortunnym losowaniu (np. wszystkie Heroes tej samej
   klasy) część z 5 mini-decków HQ będzie pusta od startu, co łamie zamierzoną mechanikę.
 
 **Wspólny rdzeń problemu:** pole `Hero.faction` istnieje w typie i w danych (23 unikalne wartości:

@@ -1,4 +1,4 @@
-import { Scroll, Star, Users, Info, Swords, UserMinus, Layers } from 'lucide-react';
+import { Scroll, Star, Users, Info, Swords, UserMinus, Layers, Shield, Split, BookOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/utils/cn.ts';
 import type { Scheme } from '@/types/cards.ts';
@@ -149,6 +149,60 @@ export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMo
         <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-indigo-500/10 border-indigo-500/30 text-indigo-300">
           <Layers size={12} className="flex-shrink-0" />
           <span>{t('cards.scheme.multiDeckBadge')}</span>
+        </div>
+      )}
+
+      {/* Required Hero Faction badge */}
+      {scheme.overrides.requiredHeroFaction && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-emerald-500/10 border-emerald-500/30 text-emerald-300">
+          <Shield size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.requiredHeroFaction', { faction: scheme.overrides.requiredHeroFaction })}</span>
+        </div>
+      )}
+
+      {/* heroCountOverride badge */}
+      {scheme.overrides.heroCountOverride !== undefined && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-violet-500/10 border-violet-500/30 text-violet-300">
+          <Users size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.heroCountOverride', { count: scheme.overrides.heroCountOverride })}</span>
+        </div>
+      )}
+
+      {/* heroFactionSplit badge */}
+      {scheme.overrides.heroFactionSplit && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-violet-500/10 border-violet-500/30 text-violet-300">
+          <Split size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.heroFactionSplitBadge')}</span>
+        </div>
+      )}
+
+      {/* requiredFactionCount badge */}
+      {scheme.overrides.requiredFactionCount && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-violet-500/10 border-violet-500/30 text-violet-300">
+          <Shield size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.requiredFactionCountBadge', {
+            count: scheme.overrides.requiredFactionCount.count,
+            faction: scheme.overrides.requiredFactionCount.faction,
+          })}</span>
+        </div>
+      )}
+
+      {/* requiredHeroNameSubstring badge */}
+      {scheme.overrides.requiredHeroNameSubstring && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-violet-500/10 border-violet-500/30 text-violet-300">
+          <BookOpen size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.requiredHeroNameSubstringBadge', {
+            count: scheme.overrides.requiredHeroNameSubstring.exactCount,
+            substring: scheme.overrides.requiredHeroNameSubstring.substring,
+          })}</span>
+        </div>
+      )}
+
+      {/* requiresAllHeroClasses badge */}
+      {scheme.overrides.requiresAllHeroClasses && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-violet-500/10 border-violet-500/30 text-violet-300">
+          <Layers size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.requiresAllHeroClassesBadge')}</span>
         </div>
       )}
 

@@ -1,4 +1,4 @@
-import type { Hero, Mastermind, Scheme, VillainGroup, Henchman } from '../types/cards';
+import type { Hero, Mastermind, Scheme, VillainGroup, Henchman, HeroClass } from '../types/cards';
 import type { HeroStats, MastermindStats, SchemeStats, RandomizationMode } from '../types/stats';
 import { uniformSample } from './utils/weightedSample';
 import { smartEqualizerMode } from './modes/smartEqualizer';
@@ -263,30 +263,189 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   // ── Required heroes from scheme (krok 10) ─────────────────────────────────
   // Pre-select named heroes before running the hero selection mode for the rest.
   const schemeRequiredHeroes = schemeRes.forcedHeroes;
-  const heroPoolForMode = heroes.filter(h => !schemeRequiredHeroes.some(rh => rh.id === h.id));
-  const remainingHeroCount = Math.max(0, heroCount - schemeRequiredHeroes.length);
 
-  // ── Pick heroes based on mode ──────────────────────────────────────────────
-  let additionalHeroes: Hero[];
-
-  switch (mode) {
-    case 'smart':
-      additionalHeroes = smartEqualizerMode(heroPoolForMode, heroStats, totalMatches, remainingHeroCount, alpha, preSelectionThreat);
-      break;
-    case 'dustOff':
-      additionalHeroes = dustOffMode(heroPoolForMode, heroStats, remainingHeroCount);
-      break;
-    case 'synergy':
-      additionalHeroes = synergyEngineMode(
-        heroPoolForMode, heroStats, scheme, mastermind, totalMatches, remainingHeroCount, alpha,
-        selectedVillains, selectedHenchmen, preSelectionThreat
+  // ── Required hero faction from scheme (krok 14) ────────────────────────────
+  // "Use at least 1 [X] Hero" — losujemy 1 bohatera z wymaganej frakcji.
+  // Pomijamy jeśli wymagany bohater z kroku 10 już spełnia warunek frakcji.
+  const requiredFaction = scheme.overrides.requiredHeroFaction;
+  const schemeFactionHero: Hero[] = [];
+  if (requiredFaction) {
+    const alreadySatisfied = schemeRequiredHeroes.some(h => h.faction === requiredFaction);
+    if (!alreadySatisfied) {
+      const factionPool = heroes.filter(
+        h => h.faction === requiredFaction && !schemeRequiredHeroes.some(rh => rh.id === h.id)
       );
-      break;
-    default:
-      additionalHeroes = uniformSample(heroPoolForMode, remainingHeroCount);
+      if (factionPool.length > 0) {
+        schemeFactionHero.push(uniformSample(factionPool, 1)[0]);
+      }
+    }
   }
 
-  const selectedHeroes: Hero[] = [...schemeRequiredHeroes, ...additionalHeroes];
+  // ── Hero Deck Special Rules (krok 15) ─────────────────────────────────────
+  // heroCountOverride: całkowicie zastępuje heroCount (rules.heroCount + effectiveHeroMod)
+  const finalHeroCount = scheme.overrides.heroCountOverride !== undefined
+    ? scheme.overrides.heroCountOverride
+    : heroCount;
+
+  // 15a: heroFactionSplit — 2 drużyny × teamSize (np. Avengers vs. X-Men: 3+3=6)
+  // Całkowicie zastępuje normalny tryb wyboru bohaterów.
+  let heroFactionSplitFaction1 = '';
+  let heroFactionSplitFaction2 = '';
+  let heroFactionSplitTeam1: Hero[] = [];
+  let heroFactionSplitTeam2: Hero[] = [];
+  const useFactionSplit = !!scheme.overrides.heroFactionSplit;
+
+  if (useFactionSplit) {
+    const { teamSize } = scheme.overrides.heroFactionSplit!;
+    const factionMap = new Map<string, Hero[]>();
+    for (const h of heroes) {
+      if (!factionMap.has(h.faction)) factionMap.set(h.faction, []);
+      factionMap.get(h.faction)!.push(h);
+    }
+    const eligibleFactions = [...factionMap.entries()]
+      .filter(([, fh]) => fh.length >= teamSize)
+      .map(([f]) => f);
+    if (eligibleFactions.length >= 2) {
+      [heroFactionSplitFaction1, heroFactionSplitFaction2] = uniformSample(eligibleFactions, 2) as [string, string];
+      heroFactionSplitTeam1 = uniformSample(factionMap.get(heroFactionSplitFaction1)!, teamSize);
+      heroFactionSplitTeam2 = uniformSample(factionMap.get(heroFactionSplitFaction2)!, teamSize);
+    } else {
+      // Fallback: nie ma ≥2 frakcji z wystarczającą pulą — losuj normalnie
+      heroFactionSplitTeam1 = uniformSample(heroes, Math.min(teamSize, heroes.length));
+      heroFactionSplitTeam2 = uniformSample(
+        heroes.filter(h => !heroFactionSplitTeam1.some(t => t.id === h.id)),
+        Math.min(teamSize, heroes.length - heroFactionSplitTeam1.length)
+      );
+    }
+  }
+
+  // 15b/c: Pre-selekcja przez requiredFactionCount i requiredHeroNameSubstring
+  const factionCountHeroes: Hero[] = [];
+  const nameSubstringHeroes: Hero[] = [];
+
+  if (!useFactionSplit) {
+    // 15b: requiredFactionCount (np. 4 X-Men dla House of M)
+    if (scheme.overrides.requiredFactionCount) {
+      const { faction, count } = scheme.overrides.requiredFactionCount;
+      const pool = heroes.filter(
+        h => h.faction === faction &&
+             !schemeRequiredHeroes.some(p => p.id === h.id) &&
+             !schemeFactionHero.some(p => p.id === h.id)
+      );
+      factionCountHeroes.push(...uniformSample(pool, Math.min(count, pool.length)));
+    }
+
+    // 15c: requiredHeroNameSubstring (np. dokładnie 2 Hulk dla Fall of the Hulks)
+    if (scheme.overrides.requiredHeroNameSubstring) {
+      const { substring, exactCount } = scheme.overrides.requiredHeroNameSubstring;
+      const substringLower = substring.toLowerCase();
+      const alreadyCount = [...schemeRequiredHeroes, ...schemeFactionHero, ...factionCountHeroes]
+        .filter(h => h.name.toLowerCase().includes(substringLower)).length;
+      const needed = Math.max(0, exactCount - alreadyCount);
+      if (needed > 0) {
+        const pool = heroes.filter(
+          h => h.name.toLowerCase().includes(substringLower) &&
+               !schemeRequiredHeroes.some(p => p.id === h.id) &&
+               !schemeFactionHero.some(p => p.id === h.id) &&
+               !factionCountHeroes.some(p => p.id === h.id)
+        );
+        nameSubstringHeroes.push(...uniformSample(pool, Math.min(needed, pool.length)));
+      }
+    }
+  }
+
+  // Kompletna lista pre-wybranych bohaterów
+  const allPreSelectedHeroes: Hero[] = [
+    ...schemeRequiredHeroes,
+    ...schemeFactionHero,
+    ...factionCountHeroes,
+    ...nameSubstringHeroes,
+  ];
+
+  // ── Pick heroes based on mode ──────────────────────────────────────────────
+  let selectedHeroes: Hero[];
+
+  if (useFactionSplit) {
+    // Faction split całkowicie determinuje skład (np. Avengers vs. X-Men)
+    selectedHeroes = [...heroFactionSplitTeam1, ...heroFactionSplitTeam2];
+  } else {
+    // Zbuduj pulę wykluczając pre-wybranych
+    let heroPool = heroes.filter(h => !allPreSelectedHeroes.some(p => p.id === h.id));
+
+    // excludeFromRemainder: po requiredFactionCount wyklucz tę frakcję z reszty
+    if (scheme.overrides.requiredFactionCount?.excludeFromRemainder) {
+      const exFaction = scheme.overrides.requiredFactionCount.faction;
+      heroPool = heroPool.filter(h => h.faction !== exFaction);
+    }
+
+    // requiredHeroNameSubstring exactCount: wyklucz pozostałe z tym podciągiem
+    if (scheme.overrides.requiredHeroNameSubstring) {
+      const substringLower = scheme.overrides.requiredHeroNameSubstring.substring.toLowerCase();
+      heroPool = heroPool.filter(h => !h.name.toLowerCase().includes(substringLower));
+    }
+
+    const remainingHeroCount = Math.max(0, finalHeroCount - allPreSelectedHeroes.length);
+    let additionalHeroes: Hero[];
+
+    if (scheme.overrides.requiresAllHeroClasses) {
+      // Zapewnij pokrycie wszystkich 5 klas (Divide and Conquer)
+      const ALL_CLASSES: HeroClass[] = ['Strength', 'Instinct', 'Covert', 'Tech', 'Ranged'];
+      const coveredClasses = new Set(allPreSelectedHeroes.flatMap(h => h.primaryClasses));
+      const classPickedHeroes: Hero[] = [];
+      let classPool = [...heroPool];
+
+      for (const cls of ALL_CLASSES) {
+        if (coveredClasses.has(cls)) continue;
+        if (classPickedHeroes.length >= remainingHeroCount) break;
+        const eligible = classPool.filter(h => h.primaryClasses.includes(cls));
+        if (eligible.length > 0) {
+          const [picked] = uniformSample(eligible, 1);
+          classPickedHeroes.push(picked);
+          classPool = classPool.filter(h => h.id !== picked.id);
+          coveredClasses.add(cls);
+        }
+      }
+
+      const afterClassCount = remainingHeroCount - classPickedHeroes.length;
+      let restHeroes: Hero[] = [];
+      if (afterClassCount > 0) {
+        switch (mode) {
+          case 'smart':
+            restHeroes = smartEqualizerMode(classPool, heroStats, totalMatches, afterClassCount, alpha, preSelectionThreat);
+            break;
+          case 'dustOff':
+            restHeroes = dustOffMode(classPool, heroStats, afterClassCount);
+            break;
+          case 'synergy':
+            restHeroes = synergyEngineMode(classPool, heroStats, scheme, mastermind, totalMatches, afterClassCount, alpha, selectedVillains, selectedHenchmen, preSelectionThreat);
+            break;
+          default:
+            restHeroes = uniformSample(classPool, afterClassCount);
+        }
+      }
+      additionalHeroes = [...classPickedHeroes, ...restHeroes];
+    } else {
+      // Normal mode selection
+      switch (mode) {
+        case 'smart':
+          additionalHeroes = smartEqualizerMode(heroPool, heroStats, totalMatches, remainingHeroCount, alpha, preSelectionThreat);
+          break;
+        case 'dustOff':
+          additionalHeroes = dustOffMode(heroPool, heroStats, remainingHeroCount);
+          break;
+        case 'synergy':
+          additionalHeroes = synergyEngineMode(
+            heroPool, heroStats, scheme, mastermind, totalMatches, remainingHeroCount, alpha,
+            selectedVillains, selectedHenchmen, preSelectionThreat
+          );
+          break;
+        default:
+          additionalHeroes = uniformSample(heroPool, remainingHeroCount);
+      }
+    }
+
+    selectedHeroes = [...allPreSelectedHeroes, ...additionalHeroes];
+  }
 
   // ── POST-SELECTION threat score (counter-gap dominant, 30% power + 70% counter) ──
   const { threatScore, counterCoverage } = computeFullThreatScore(
@@ -374,6 +533,55 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   if (schemeRes.forcedHeroes.length > 0) {
     const names = schemeRes.forcedHeroes.map(h => h.name).join(', ');
     setupNotes.push({ key: 'setup.notes.schemeRequiredHeroes', params: { names } });
+  }
+
+  // Nota 6: Scheme-required hero faction (krok 14)
+  if (schemeFactionHero.length > 0 && requiredFaction) {
+    setupNotes.push({
+      key: 'setup.notes.schemeRequiredHeroFaction',
+      params: { faction: requiredFaction, hero: schemeFactionHero[0].name },
+    });
+  } else if (requiredFaction && schemeFactionHero.length === 0) {
+    // Frakcja wymagana, ale brak dostępnych bohaterów w aktywnych dodatkach
+    setupNotes.push({
+      key: 'setup.notes.schemeRequiredHeroFactionMissing',
+      params: { faction: requiredFaction },
+    });
+  }
+
+  // Nota 7: heroFactionSplit (krok 15 — Avengers vs. X-Men)
+  if (useFactionSplit && heroFactionSplitFaction1 && heroFactionSplitFaction2) {
+    setupNotes.push({
+      key: 'setup.notes.heroFactionSplit',
+      params: { faction1: heroFactionSplitFaction1, faction2: heroFactionSplitFaction2 },
+    });
+  }
+
+  // Nota 8: requiredFactionCount (krok 15 — House of M)
+  if (factionCountHeroes.length > 0 && scheme.overrides.requiredFactionCount) {
+    const names = factionCountHeroes.map(h => h.name).join(', ');
+    setupNotes.push({
+      key: 'setup.notes.requiredFactionCount',
+      params: { faction: scheme.overrides.requiredFactionCount.faction, heroes: names },
+    });
+  }
+
+  // Nota 9: requiredHeroNameSubstring (krok 15 — Fall of the Hulks)
+  if (nameSubstringHeroes.length > 0 && scheme.overrides.requiredHeroNameSubstring) {
+    const names = nameSubstringHeroes.map(h => h.name).join(', ');
+    setupNotes.push({
+      key: 'setup.notes.requiredHeroNameSubstring',
+      params: {
+        substring: scheme.overrides.requiredHeroNameSubstring.substring,
+        count: String(scheme.overrides.requiredHeroNameSubstring.exactCount),
+        heroes: names,
+      },
+    });
+  }
+
+  // Nota 10: requiresAllHeroClasses (krok 15 — Divide and Conquer)
+  if (scheme.overrides.requiresAllHeroClasses) {
+    setupNotes.push({ key: 'setup.notes.requiresAllHeroClasses' });
   }
 
   const sortByName = <T extends { name: string }>(arr: T[]): T[] =>

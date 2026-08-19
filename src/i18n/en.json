@@ -90,6 +90,12 @@
       "schemeRequiredVillainKeyword": "This scheme requires one Villain Group with [{{keyword}}]. Included: {{selected}}.",
       "schemeRequiredHenchmen": "Required henchmen by this scheme: {{names}} (already included in the setup).",
       "schemeRequiredHeroes": "This scheme requires: {{names}} (already included in the hero lineup).",
+      "schemeRequiredHeroFaction": "This scheme requires at least 1 [{{faction}}] hero. Pre-selected: {{hero}}.",
+      "schemeRequiredHeroFactionMissing": "This scheme requires at least 1 [{{faction}}] hero, but none are available in the active expansions.",
+      "heroFactionSplit": "Avengers vs. X-Men: Hero Deck split 3+3 — Team 1: [{{faction1}}], Team 2: [{{faction2}}]. Heroes of both teams already included.",
+      "requiredFactionCount": "This scheme requires {{faction}} heroes in the lineup. Pre-selected: {{heroes}}.",
+      "requiredHeroNameSubstring": "This scheme requires exactly {{count}} heroes with \"{{substring}}\" in their name. Pre-selected: {{heroes}}.",
+      "requiresAllHeroClasses": "Divide and Conquer: Heroes selected to cover all 5 classes (Strength, Instinct, Covert, Tech, Ranged). Sort the Hero Deck by class before play.",
       "symbioticAbsorptionDrained": "Symbiotic Absorption: Set aside \"{{name}}\" as the Drained Mastermind (out of play). Its 4 Tactics shuffle into the main Mastermind on Twists 1–4. Its Always Leads Villain Group ({{villain}}) is included in this setup.",
       "multiDeck": "This scheme splits the Villain Deck into multiple parallel decks (one per Reality / player / city). Place Villain Groups in separate decks as described in the rulebook."
     }
@@ -210,6 +216,12 @@
       "bystandersNone": "No Bystanders in Villain Deck",
       "bystandersMod": "+{{count}} extra Bystanders in Villain Deck",
       "multiDeckBadge": "Multi-Deck Setup",
+      "requiredHeroFaction": "Requires ≥1 [{{faction}}] Hero",
+      "heroCountOverride": "Fixed {{count}} Heroes",
+      "heroFactionSplitBadge": "3+3 Faction Split",
+      "requiredFactionCountBadge": "{{count}}× [{{faction}}] Heroes",
+      "requiredHeroNameSubstringBadge": "Exactly {{count}}× Hero with \"{{substring}}\"",
+      "requiresAllHeroClassesBadge": "All 5 Classes Required",
       "tooltip": {
         "noData": "No data – neutral value",
         "withData": "Difficulty: {{value}}/5"

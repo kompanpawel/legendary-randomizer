@@ -1239,6 +1239,69 @@ function deriveRequiresDrainedMastermind(cards: RawSchemeCard[]): boolean {
 }
 
 /**
+ * Nadpisuje całkowitą liczbę bohaterów (heroCountOverride).
+ * Wykrywa "N Heroes." w linii Setup, jeśli N jest sensowne (5–10).
+ * Np. "7 Heroes." dla Divide and Conquer.
+ * UWAGA: nie wykrywa Avengers vs. X-Men / House of M (tam override jest ręczny).
+ */
+function deriveHeroCountOverride(cards: RawSchemeCard[]): number | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const m = all.match(/Setup:.*?\b(\d+)\s+Heroes?\b/i);
+  if (m) {
+    const n = parseInt(m[1], 10);
+    if (n >= 5 && n <= 10) return n;
+  }
+  return null;
+}
+
+/**
+ * Wykrywa podział Hero Deck na 2 równe drużyny (heroFactionSplit).
+ * Wzorzec: "N Heroes of one Team and N Heroes of another Team"
+ */
+function deriveHeroFactionSplit(cards: RawSchemeCard[]): { teamSize: number } | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const m = all.match(/(\d+)\s+Heroes? of one Team and \d+ Heroes? of another Team/i);
+  if (m) return { teamSize: parseInt(m[1], 10) };
+  return null;
+}
+
+/**
+ * Wykrywa wymóg N bohaterów konkretnej frakcji (requiredFactionCount).
+ * Wzorzec: "Hero Deck is N[X] Heroes and M non-[X] Heroes"
+ */
+function deriveRequiredFactionCount(
+  cards: RawSchemeCard[]
+): { faction: string; count: number; excludeFromRemainder: boolean } | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const m = all.match(/Hero Deck is (\d+)\[([^\]]+)\]\s*Heroes? and \d+ non-\[/i);
+  if (m) return { faction: m[2].trim(), count: parseInt(m[1], 10), excludeFromRemainder: true };
+  return null;
+}
+
+/**
+ * Wykrywa wymóg dokładnie N bohaterów z podciągiem w nazwie (requiredHeroNameSubstring).
+ * Wzorzec: 'Use exactly N Heroes with "X" in their Hero Names'
+ */
+function deriveRequiredHeroNameSubstring(
+  cards: RawSchemeCard[]
+): { substring: string; exactCount: number } | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  // Cudzysłów prosty lub typograficzny
+  const m = all.match(/Use exactly (\d+)\s+Heroes? with [\u201c"']([^"'\u201d\u201c]+)[\u201d"']/i);
+  if (m) return { substring: m[2].trim(), exactCount: parseInt(m[1], 10) };
+  return null;
+}
+
+/**
+ * Wykrywa wymóg pokrycia wszystkich klas (requiresAllHeroClasses).
+ * Wzorzec: "Sort the Hero Deck by Hero Class"
+ */
+function deriveRequiresAllHeroClasses(cards: RawSchemeCard[]): boolean {
+  const all = cards.map(c => c.abilities).join('\n');
+  return /Sort the Hero Deck by Hero Class/i.test(all);
+}
+
+/**
  * Minimalna łączna liczba Villain Groups w setupie — nadpisuje villainCount „od dołu".
  * Wykrywa wzorzec: „N-M players: Use K Villain Groups" → minVillainCount = K.
  * Np. „1-2 players: Use 3 Villain Groups" dla Breach the Nexus of All Realities → 3.
@@ -1427,6 +1490,19 @@ function deriveRequiredHeroes(cards: RawSchemeCard[]): string[] {
   const m = all.match(/Always include (?:the )?(.+?) Hero(?:\s+and|\s*\.|\s*$)/i);
   if (m) return [m[1].trim()];
   return [];
+}
+
+/**
+ * Frakcja bohatera (Hero.faction), z której co najmniej 1 bohater musi trafić do Hero Decku.
+ * Wzorzec: „Use at least 1[X] Hero" lub „Use at least 1 [X] Hero"
+ * Np. „Use at least 1[Mercs for Money] Hero" → "Mercs for Money"
+ *     „Use at least 1[Spider Friends] Hero"  → "Spider Friends"
+ */
+function deriveRequiredHeroFaction(cards: RawSchemeCard[]): string | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const m = all.match(/Use at least \d+\s*\[([^\]]+)\]\s*Hero/i);
+  if (m) return m[1].trim();
+  return null;
 }
 
 // ─── Derive countersNeeded for Henchman Group ────────────────────────────────
@@ -1646,6 +1722,15 @@ function migrate(): CardsDatabase {
       ...(deriveIsMultiDeck(s.cards) ? { isMultiDeck: true } : {}),
       ...(deriveMinVillainCount(s.cards) != null
         ? { minVillainCount: deriveMinVillainCount(s.cards)! } : {}),
+      ...(deriveHeroFactionSplit(s.cards) != null
+        ? { heroFactionSplit: deriveHeroFactionSplit(s.cards)! } : {}),
+      ...(deriveHeroCountOverride(s.cards) != null
+        ? { heroCountOverride: deriveHeroCountOverride(s.cards)! } : {}),
+      ...(deriveRequiredFactionCount(s.cards) != null
+        ? { requiredFactionCount: deriveRequiredFactionCount(s.cards)! } : {}),
+      ...(deriveRequiredHeroNameSubstring(s.cards) != null
+        ? { requiredHeroNameSubstring: deriveRequiredHeroNameSubstring(s.cards)! } : {}),
+      ...(deriveRequiresAllHeroClasses(s.cards) ? { requiresAllHeroClasses: true } : {}),
       ...(deriveExtraVillains(s.cards) > 0 ? { extraVillains: deriveExtraVillains(s.cards) } : {}),
       ...(deriveExtraVillainsMinPlayers(s.cards) != null
         ? { extraVillainsMinPlayers: deriveExtraVillainsMinPlayers(s.cards)! } : {}),
@@ -1663,6 +1748,8 @@ function migrate(): CardsDatabase {
         ? { requiredVillainKeyword: deriveRequiredVillainKeyword(s.cards)! } : {}),
       ...(deriveRequiredHeroes(s.cards).length > 0
         ? { requiredHeroes: deriveRequiredHeroes(s.cards) } : {}),
+      ...(deriveRequiredHeroFaction(s.cards) != null
+        ? { requiredHeroFaction: deriveRequiredHeroFaction(s.cards)! } : {}),
       // requiredHenchmanGroups: nie wykrywane automatycznie (wymaga dostępu do puli henchmenów).
       // Adnotowane ręcznie w cards.json (patrz krok 10, The Mark of Khonshu).
     },

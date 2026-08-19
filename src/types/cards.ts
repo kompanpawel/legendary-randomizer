@@ -149,6 +149,44 @@ export interface Scheme {
      */
     requiredHeroes?: string[];
     /**
+     * Nadpisuje całkowitą liczbę bohaterów niezależnie od playerCount i heroCountMod.
+     * Używane gdy schemat z definicji ma stały skład decku Hero.
+     * Np. 6 dla Avengers vs. X-Men / House of M, 7 dla Divide and Conquer.
+     */
+    heroCountOverride?: number;
+    /**
+     * Podziel Hero Deck na 2 drużyny (frakcje) po teamSize bohaterów z każdej.
+     * Silnik losuje 2 frakcje z wystarczającą pulą bohaterów i wybiera po teamSize z każdej.
+     * Całkowicie zastępuje normalny tryb losowania bohaterów.
+     * Np. { teamSize: 3 } dla Avengers vs. X-Men (3+3=6).
+     */
+    heroFactionSplit?: { teamSize: number };
+    /**
+     * Wymagana liczba bohaterów z konkretnej frakcji (pre-selekcja).
+     * excludeFromRemainder=true: pozostałe sloty nie mogą zawierać bohaterów tej frakcji.
+     * Np. { faction: "X-Men", count: 4, excludeFromRemainder: true } dla House of M.
+     */
+    requiredFactionCount?: { faction: string; count: number; excludeFromRemainder?: boolean };
+    /**
+     * Wymagana dokładna liczba bohaterów z podciągiem w nazwie.
+     * Po pre-selekcji exactCount bohaterów z substring, reszta puli wyklucza ten substring.
+     * Np. { substring: "Hulk", exactCount: 2 } dla Fall of the Hulks.
+     */
+    requiredHeroNameSubstring?: { substring: string; exactCount: number };
+    /**
+     * Silnik zapewnia co najmniej 1 bohatera każdej klasy (Strength/Instinct/Covert/Tech/Ranged).
+     * Najpierw wybiera brakujące klasy, potem resztę normalnym trybem.
+     * Używane dla Divide and Conquer (5 talii klas = 5 miejsc HQ).
+     */
+    requiresAllHeroClasses?: boolean;
+    /**
+     * Frakcja (Hero.faction), z której co najmniej 1 bohater musi trafić do Hero Decku.
+     * Np. "Mercs for Money" dla Everybody Hates Deadpool,
+     *     "Spider Friends" dla Distract the Hero.
+     * Silnik losuje 1 bohatera z tej frakcji i pre-selekcjonuje go przed trybem losowania.
+     */
+    requiredHeroFaction?: string;
+    /**
      * Minimalna liczba graczy, od której extraVillains jest aktywne.
      * Np. 3 dla „3-5 players: Add a Villain Group" (Deadpool Wants a Chimichanga).
      */
