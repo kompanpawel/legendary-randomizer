@@ -24068,7 +24068,7 @@
       "overrides": {
         "heroCountMod": 1,
         "heroCountModMinPlayers": 4,
-        "specialSetup": "Tylko 4-5 graczy: dodaj Extra Hero do talii Hero"
+        "specialSetup": "Only 4-5 players: add an Extra Hero to the Hero deck"
       },
       "cards": [
         {
@@ -24122,7 +24122,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Wszystkie 14 kart Extra Hero trafia do talii Villain"
+        "specialSetup": "All 14 Extra Hero cards go to the Villain deck"
       },
       "cards": [
         {
@@ -24960,7 +24960,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Wszystkie 14 kart Extra Hero trafia do talii Villain"
+        "specialSetup": "All 14 Extra Hero cards go to the Villain deck"
       },
       "cards": [
         {
@@ -25595,7 +25595,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Extra Hero przetasowany jako zakryty stos Mutant Messiah"
+        "specialSetup": "Extra Hero shuffled into a face-down Mutant Messiah stack"
       },
       "cards": [
         {
@@ -25798,7 +25798,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Extra Hero (z kartami Size-Changing) odłożony jako Shrink Tech"
+        "specialSetup": "Extra Hero (with Size-Changing cards) set aside as Shrink Tech"
       },
       "cards": [
         {
@@ -26022,7 +26022,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "8 losowych kart Extra Hero trafia do talii Villain"
+        "specialSetup": "8 random Extra Hero cards go to the Villain deck"
       },
       "cards": [
         {
@@ -26279,7 +26279,7 @@
       ],
       "overrides": {
         "heroCountMod": 2,
-        "specialSetup": "Dwa Extra Heroes odłożone jako Wedding Heroes"
+        "specialSetup": "Two Extra Heroes set aside as Wedding Heroes"
       },
       "cards": [
         {
@@ -26497,7 +26497,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Wybierz 5 kart (koszt ≤5) z Extra Hero jako Dark Loyalty deck"
+        "specialSetup": "Choose 5 cards (cost ≤5) from an Extra Hero as the Dark Loyalty deck"
       },
       "cards": [
         {
@@ -26784,7 +26784,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Wszystkie 14 kart Extra Hero trafia do talii Villain"
+        "specialSetup": "All 14 Extra Hero cards go to the Villain deck"
       },
       "cards": [
         {
@@ -27074,7 +27074,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Nie używaj wielu Heroes o tej samej nazwie"
+        "specialSetup": "Do not use multiple Heroes with the same name"
       },
       "cards": [
         {
@@ -27176,7 +27176,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Extra Hero musi mieć \"Hulk\" w nazwie – 14 kart jako Mutation Pile"
+        "specialSetup": "Extra Hero must have \"Hulk\" in the name — 14 cards as the Mutation Pile"
       },
       "cards": [
         {
@@ -27196,7 +27196,7 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Extra Hero musi mieć \"Hulk\" w nazwie – 14 kart jako Hulk Deck"
+        "specialSetup": "Extra Hero must have \"Hulk\" in the name — 14 cards as the Hulk Deck"
       },
       "cards": [
         {
@@ -36970,3 +36970,7 @@
     }
   ]
 }
+
+
+
+

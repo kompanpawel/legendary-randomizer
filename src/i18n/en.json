@@ -187,8 +187,8 @@
         "won": "Won:",
         "defeated": "Defeated:"
       },
-      "extraHero": "+{{count}} Extra Hero do setup",
-      "extraHeroPlural": "+{{count}} Extra Heroes do setup",
+      "extraHero": "+{{count}} Extra Hero to setup",
+      "extraHeroPlural": "+{{count}} Extra Heroes to setup",
       "extraHeroConditional": "+{{count}} Extra Hero (only ≥{{min}} players – inactive)",
       "tooltip": {
         "noData": "No data – neutral value",
