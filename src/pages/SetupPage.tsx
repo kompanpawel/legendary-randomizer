@@ -59,9 +59,12 @@ export default function SetupPage() {
 
   const setupRules = getSetupRules(playerCount);
 
-  const activeIds = selectedExpansionIds.length > 0
-    ? selectedExpansionIds
-    : db.expansions.map((e) => e.id);
+  const activeIds = useMemo(
+    () => selectedExpansionIds.length > 0
+      ? selectedExpansionIds
+      : db.expansions.map((e) => e.id),
+    [selectedExpansionIds]
+  );
 
   // Wszystkie mastermindowie i schematy dostępne w aktywnych ekspansjach (do dropdownów)
   const availableMasterminds = useMemo(
@@ -78,30 +81,22 @@ export default function SetupPage() {
   );
 
   // Wybrany mastermind / schemat (z dropdown)
-  const pinnedMastermind = pinnedMastermindId
-    ? db.masterminds.find((m) => m.id === pinnedMastermindId) ?? null
-    : null;
-  const pinnedScheme = pinnedSchemeId
-    ? db.schemes.find((s) => s.id === pinnedSchemeId) ?? null
-    : null;
+  const pinnedMastermind = useMemo(
+    () => pinnedMastermindId ? db.masterminds.find((m) => m.id === pinnedMastermindId) ?? null : null,
+    [pinnedMastermindId]
+  );
+  const pinnedScheme = useMemo(
+    () => pinnedSchemeId ? db.schemes.find((s) => s.id === pinnedSchemeId) ?? null : null,
+    [pinnedSchemeId]
+  );
 
-  // Gdy coś jest przypięte – pula pozostałych kart pochodzi z ekspansji przypiętych kart
-  const restrictedExpansionIds = useMemo(() => {
-    const pinned: number[] = [];
-    if (pinnedMastermind) pinned.push(pinnedMastermind.expansionId);
-    if (pinnedScheme) pinned.push(pinnedScheme.expansionId);
-    // Unikalne id, ograniczone do aktywnych ekspansji
-    return pinned.length > 0
-      ? [...new Set(pinned)].filter((id) => activeIds.includes(id))
-      : activeIds;
-  }, [pinnedMastermind, pinnedScheme, activeIds]);
-
-  const filteredHeroes   = db.heroes.filter((h) => restrictedExpansionIds.includes(h.expansionId));
-  const filteredVillains = db.villains.filter((v) => restrictedExpansionIds.includes(v.expansionId));
-  const filteredHenchmen = db.henchmen.filter((h) => restrictedExpansionIds.includes(h.expansionId));
-  // Mastermindy i schematy – ograniczone do restricted (używane tylko gdy nie są przypięte)
-  const filteredMasterminds = db.masterminds.filter((m) => restrictedExpansionIds.includes(m.expansionId));
-  const filteredSchemes     = db.schemes.filter((s) => restrictedExpansionIds.includes(s.expansionId));
+  // Pule kart do losowania — zawsze ze wszystkich aktywnych ekspansji.
+  // Jedynym ograniczeniem doboru jest warunek alwaysLeads (obsługiwany w silniku).
+  const filteredHeroes      = useMemo(() => db.heroes.filter((h) => activeIds.includes(h.expansionId)),      [activeIds]);
+  const filteredVillains    = useMemo(() => db.villains.filter((v) => activeIds.includes(v.expansionId)),    [activeIds]);
+  const filteredHenchmen    = useMemo(() => db.henchmen.filter((h) => activeIds.includes(h.expansionId)),    [activeIds]);
+  const filteredMasterminds = useMemo(() => db.masterminds.filter((m) => activeIds.includes(m.expansionId)), [activeIds]);
+  const filteredSchemes     = useMemo(() => db.schemes.filter((s) => activeIds.includes(s.expansionId)),     [activeIds]);
 
   const currentMastermindHasEpic = currentSetup?.mastermind.cards.some(c => c.isEpic) ?? false;
   const pinnedMastermindHasEpic  = pinnedMastermind?.cards.some(c => c.isEpic) ?? false;
@@ -262,9 +257,7 @@ export default function SetupPage() {
               </div>
               {(pinnedMastermind || pinnedScheme) && (
                 <p className="text-xs text-zinc-500 leading-relaxed">
-                  {restrictedExpansionIds.length === 1
-                    ? t('setup.manualPick.lockedInfo_one', { name: db.expansions.find((e) => e.id === restrictedExpansionIds[0])?.label ?? String(restrictedExpansionIds[0]) })
-                    : t('setup.manualPick.lockedInfo_other', { count: restrictedExpansionIds.length })}
+                  🔒 {t('setup.manualPick.lockedInfo')}
                 </p>
               )}
               {(pinnedMastermind || pinnedScheme) && (

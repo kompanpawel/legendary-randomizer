@@ -20,8 +20,7 @@
       "mastermindLabel": "Mastermind",
       "schemeLabel": "Scheme",
       "randomOption": "🎲 Random",
-      "lockedInfo_one": "🔒 Villains, henchmen & heroes drawn from expansion: {{name}}",
-      "lockedInfo_other": "🔒 Villains, henchmen & heroes drawn from {{count}} expansions",
+      "lockedInfo": "Pinned card fixed. All other cards drawn from all active expansions.",
       "clearButton": "Clear (both random)"
     },
     "modes": {
