@@ -1,6 +1,6 @@
-import type { Hero, Mastermind, Scheme, VillainGroup, Henchman } from '../../types/cards';
-import type { MastermindStats, SchemeStats } from '../../types/stats';
-import { blendedStrength } from '../../utils/blendedStrength';
+import type { Hero, Mastermind, Scheme, VillainGroup, Henchman } from '@/types/cards.ts';
+import type { MastermindStats, SchemeStats } from '@/types/stats.ts';
+import { blendedStrength } from '@/utils/blendedStrength.ts';
 
 /** Wagi składowych finalnego ThreatScore */
 const POWER_WEIGHT   = 0.30;
