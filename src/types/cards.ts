@@ -9,6 +9,12 @@ export interface Expansion {
   value: string;
   initials: string;
   cardTypes: readonly number[];
+  /**
+   * Czy ten dodatek zawiera "Special Sidekicks" (Pet Avengers / X-Students / ogólne Sidekicks
+   * z Secret Wars Vol.1) dołączane do wspólnego Sidekick Stack. Gdy w grze aktywne są ≥2 takie
+   * sety, gracze muszą scalić ich stosy Sidekick w jeden przed rozgrywką.
+   */
+  hasSpecialSidekicks?: boolean;
 }
 
 export interface HeroCard {

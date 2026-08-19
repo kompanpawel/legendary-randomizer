@@ -106,10 +106,24 @@ Cross Technologies, Ghost Chasers, Armada of Kang, Quantum Realm.
   grywalną, tylko z efektem KO).
 - Test: `src/engine/__tests__/ambushSchemeOverlap.test.ts` (7 przypadków testowych).
 
-## 4. Special Sidekicks z różnych setów (Secret Wars / Civil War / Messiah Complex)
+## 4. Special Sidekicks z różnych setów (Secret Wars / Civil War / Messiah Complex) ✅ NAPRAWIONE (częściowo — nota silnikowa usunięta jako zbędna)
 Zasada każe scalić je w jeden stos, a nie traktować niezależnie. Jeśli silnik modeluje dodatki
 jako osobne pule bez świadomości tej reguły, może błędnie liczyć unikalność/rzadkość kart przy
 losowaniu.
+
+**Status:** Zweryfikowane i częściowo naprawione.
+- **Wpływ na trudność: brak.** Zawartość Sidekick Stack nie jest częścią modelu silnika
+  (nie wpływa na `threatScore`, `counterCoverage` ani balans losowania). Tag `sidekick` w
+  `countersNeeded`/`countersProvided` poprawnie modeluje encje mechanicznie oddziałujące na
+  Sidekick Stack — to nie ulega zmianie bez względu na to, ile setów dostarcza Sidekicks.
+- **Nota setupowa w silniku: celowo pominięta.** Gracze posiadający te dodatki fizycznie i tak
+  scalają stosy zgodnie z zasadami — dodatkowy komunikat byłby zbędnym szumem.
+- **Adnotacja danych zachowana:** Dodano pole `hasSpecialSidekicks?: boolean` do typu `Expansion`
+  w `src/types/cards.ts` i oznaczono 3 expansions w `src/assets/cards.json`
+  (Secret Wars Vol.1 / exp 10, Civil War / exp 13, Messiah Complex / exp 31). Logika w
+  `src/utils/jsonMigration.ts` zachowuje tę flagę przy przyszłych regeneracjach.
+  Metadane mogą być użyteczne dla UI (np. tooltip w liście dodatków).
+- Test: `src/engine/__tests__/specialSidekicks.test.ts` (3 przypadki — weryfikacja danych).
 
 ## 5. Grievous Wounds / Enraging Wounds — wspólny stos Wound
 Oba typy muszą trafić do jednego, połączonego stosu Wound, a nie być traktowane jako osobne

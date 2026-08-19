@@ -1295,6 +1295,10 @@ function migrate(): CardsDatabase {
     value: e.value,
     initials: e.initials,
     cardTypes: e.cardTypes,
+    // Dodatki zawierające Special Sidekicks (Pet Avengers, X-Students, ogólne Sidekicks):
+    // Secret Wars Vol.1 (10), Civil War (13), Messiah Complex (31).
+    // Gdy ≥2 z tych setów są aktywne, gracze muszą scalić stosy Sidekick w jeden.
+    ...(([10, 13, 31] as number[]).includes(e.id) ? { hasSpecialSidekicks: true } : {}),
   }));
 
   const heroes: Hero[] = rawHeroes.map(h => ({

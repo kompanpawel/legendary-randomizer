@@ -194,6 +194,8 @@ export function generateSetup(input: RandomizerInput): GameSetup {
 
   // ── Setup Notes ──────────────────────────────────────────────────────────
   const setupNotes: string[] = [];
+
+  // Nota 1: Redundantna karta Ambush Scheme (krok 3)
   const ambushSchemeGroups = selectedVillains.filter(v => v.hasAmbushScheme);
   if (ambushSchemeGroups.length >= 2) {
     const names = ambushSchemeGroups.map(v => v.name).join(', ');
