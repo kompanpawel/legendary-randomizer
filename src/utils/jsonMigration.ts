@@ -765,6 +765,9 @@ function deriveMastermindCounters(cards: RawMastermindCard[]): string[] {
     counters.add('multi-class');
   }
 
+  // ── S.H.I.E.L.D. Clearance (trzeba odrzucić Hero S.H.I.E.L.D./HYDRA, by walczyć) → shield-synergy
+  if (/S\.H\.I\.E\.L\.D\. Clearance/i.test(all)) counters.add('shield-synergy');
+
   // ── KO / deck-thinning effects ────────────────────────────────────────────
   if (/(Master Strike|Command Strike):.*KO(s|'?s)?/i.test(all) ||
       /Fight:.*KO(s)? (a |one |two |up to two )?(non-grey )?Hero(es)?/i.test(all) ||
@@ -923,6 +926,9 @@ function deriveVillainGroupCounters(cards: RawVillainCard[]): string[] {
     counters.add('empowered');
     counters.add('multi-class');
   }
+
+  // ── S.H.I.E.L.D. Clearance (trzeba odrzucić Hero S.H.I.E.L.D./HYDRA, by walczyć) → shield-synergy
+  if (/S\.H\.I\.E\.L\.D\. Clearance/i.test(all)) counters.add('shield-synergy');
 
   // ── "Reveals X Hero or gains Wound" → multi-class + wound-removal ─────────
   if (/reveal(s)? (a |an |one )?\[(Tech|Ranged|Strength|Instinct|Covert)\] Hero or/i.test(all)) {
@@ -1175,6 +1181,9 @@ function deriveHenchmanCounters(cards: RawHenchmanCard[], vAttackNumeric: number
     counters.add('empowered');
     counters.add('multi-class');
   }
+
+  // ── S.H.I.E.L.D. Clearance (trzeba odrzucić Hero S.H.I.E.L.D./HYDRA, by walczyć) → shield-synergy
+  if (/S\.H\.I\.E\.L\.D\. Clearance/i.test(all)) counters.add('shield-synergy');
 
   // ── Reveal X class Hero or KO → multi-class ──────────────────────────────
   if (/[Rr]eveal (a |an |one )?\[(Tech|Ranged|Strength|Instinct|Covert)\] Hero or/i.test(all)) {

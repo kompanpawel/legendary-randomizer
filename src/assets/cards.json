@@ -19757,6 +19757,7 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "shield-synergy",
         "villain-control"
       ],
       "cards": [
@@ -28530,6 +28531,7 @@
       "theme": "",
       "countersNeeded": [
         "heavy-hitter",
+        "shield-synergy",
         "villain-control",
         "wound-removal"
       ],
@@ -36058,7 +36060,8 @@
       "name": "Cape-Killers",
       "expansionId": 13,
       "countersNeeded": [
-        "deck-thinning"
+        "deck-thinning",
+        "shield-synergy"
       ],
       "cards": [
         {

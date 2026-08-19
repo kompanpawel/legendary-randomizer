@@ -6,6 +6,7 @@ import { dustOffMode } from './modes/dustOff';
 import { synergyEngineMode } from './modes/synergyEngine';
 import { getSetupRules } from './playerSetupRules';
 import { resolveAlwaysLeads } from './utils/resolveAlwaysLeads';
+import { isMastermindSchemeIncompatible } from './utils/mastermindSchemeConflicts';
 import { computeThreatScore, computeFullThreatScore, type CounterCoverage } from './utils/computeThreatScore';
 import { computeBalanceGap } from './utils/powerBiasMultiplier';
 import { blendedStrength } from '../utils/blendedStrength';
@@ -71,9 +72,30 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   const rules = getSetupRules(playerCount);
   const { villainCount, henchmanCount, bystanders } = rules;
 
-  // Pick Mastermind and Scheme (forced or random)
-  const mastermind = forcedMastermind ?? uniformSample(masterminds, 1)[0];
-  const scheme = forcedScheme ?? uniformSample(schemes, 1)[0];
+  // Pick Mastermind and Scheme (forced or random).
+  // Gdy tylko jedno z nich jest wymuszone, drugie losujemy z puli oczyszczonej
+  // z mechanicznie niegrywalnych kombinacji (np. Adapting Mastermind + schemat
+  // tasujący Mastermind Tactics do Villain Decku — patrz mastermindSchemeConflicts.ts).
+  // Jeśli oba są wymuszone ręcznie przez gracza, jego wybór nie jest filtrowany.
+  let mastermind: Mastermind;
+  let scheme: Scheme;
+
+  if (forcedMastermind && forcedScheme) {
+    mastermind = forcedMastermind;
+    scheme = forcedScheme;
+  } else if (forcedMastermind) {
+    mastermind = forcedMastermind;
+    const compatibleSchemes = schemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
+    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : schemes, 1)[0];
+  } else if (forcedScheme) {
+    scheme = forcedScheme;
+    const compatibleMasterminds = masterminds.filter(m => !isMastermindSchemeIncompatible(m, scheme));
+    mastermind = uniformSample(compatibleMasterminds.length > 0 ? compatibleMasterminds : masterminds, 1)[0];
+  } else {
+    mastermind = uniformSample(masterminds, 1)[0];
+    const compatibleSchemes = schemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
+    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : schemes, 1)[0];
+  }
 
   // Oblicz efektywną liczbę hero (base + modyfikator ze schematu)
   const schemeHeroMod = scheme.overrides.heroCountMod ?? 0;
