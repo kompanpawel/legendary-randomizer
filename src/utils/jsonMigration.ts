@@ -1124,6 +1124,18 @@ function deriveVillainGroupCounters(cards: RawVillainCard[]): string[] {
   return [...counters].sort();
 }
 
+/**
+ * Czy co najmniej jedna karta w grupie jest kartą „Ambush Scheme" — specjalną
+ * kartą dokładaną do Villain Decku, która po wyjściu z talii działa jak
+ * wtórny schemat (ma Twist effect i zawiera sposób jej pokonania).
+ * Wg zasad tylko jedna taka karta może być aktywna naraz; kolejna jest KO'wana.
+ */
+function deriveHasAmbushScheme(cards: RawVillainCard[]): boolean {
+  return cards.some(c =>
+    /\bTwist:/i.test(c.abilities) && /defeat this scheme/i.test(c.abilities)
+  );
+}
+
 // ─── Derive countersNeeded for Henchman Group ────────────────────────────────
 /**
  * Analyzes all cards in a henchman group and determines what hero abilities
@@ -1340,6 +1352,7 @@ function migrate(): CardsDatabase {
     expansionId: Array.isArray(v.setId) ? v.setId[0] : v.setId,
     theme: '',
     countersNeeded: deriveVillainGroupCounters(v.cards),
+    ...(deriveHasAmbushScheme(v.cards) ? { hasAmbushScheme: true } : {}),
     cards: v.cards.map(c => ({
       name: c.name,
       qtd: c.qtd ?? null,

@@ -33,6 +33,12 @@ export interface GameSetup {
   balanceGap: number;
   /** Szczegóły pokrycia kontrników — które zagrożenia są/nie są kontrowalne */
   counterCoverage: CounterCoverage;
+  /**
+   * Opcjonalne notatki setupowe — informacje o mechanikach wymagających
+   * uwagi gracza, które nie blokują gry, ale wpływają na przebieg sesji.
+   * Np. redundantne karty Ambush Scheme gdy kilka grup je zawiera.
+   */
+  setupNotes: string[];
 }
 
 export interface RandomizerInput {
@@ -186,6 +192,17 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   });
   const balanceGap = computeBalanceGap(heroBlendedPowers, threatScore);
 
+  // ── Setup Notes ──────────────────────────────────────────────────────────
+  const setupNotes: string[] = [];
+  const ambushSchemeGroups = selectedVillains.filter(v => v.hasAmbushScheme);
+  if (ambushSchemeGroups.length >= 2) {
+    const names = ambushSchemeGroups.map(v => v.name).join(', ');
+    setupNotes.push(
+      `Kilka wybranych grup (${names}) zawiera kartę Ambush Scheme. ` +
+      `Zgodnie z zasadami tylko jedna może być aktywna naraz — kolejne są KO'wane gdy wyjdą z talii.`
+    );
+  }
+
   const sortByName = <T extends { name: string }>(arr: T[]): T[] =>
     [...arr].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -201,6 +218,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     threatScore,
     balanceGap,
     counterCoverage,
+    setupNotes,
   };
 }
 

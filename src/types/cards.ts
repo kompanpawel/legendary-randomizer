@@ -90,6 +90,13 @@ export interface VillainGroup {
   expansionId: number;
   theme: string;
   countersNeeded: CounterTag[];
+  /**
+   * Czy ta grupa zawiera kartę „Ambush Scheme" — specjalną kartę dodawaną do
+   * Villain Decku, która po wyjściu z talii działa jak dodatkowy schemat
+   * (ma Twist effect i może być pokonana). Zgodnie z zasadami w grze może być
+   * aktywna tylko jedna taka karta naraz; nadmiarowe są KO'wane.
+   */
+  hasAmbushScheme?: boolean;
   cards: readonly VillainCard[];
 }
 

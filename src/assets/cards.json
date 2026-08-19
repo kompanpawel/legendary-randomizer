@@ -31627,6 +31627,7 @@
         "size-changing",
         "wound-removal"
       ],
+            "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Hydra Arms Dealer",
@@ -31691,6 +31692,7 @@
         "heavy-hitter",
         "size-changing"
       ],
+            "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Sonny Burch's Goons",
@@ -31790,6 +31792,7 @@
         "villain-control",
         "wound-removal"
       ],
+            "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Quantumnaut Elite",
@@ -31885,6 +31888,7 @@
         "recruit-boost",
         "size-changing"
       ],
+            "hasAmbushScheme": true,
       "cards": [
         {
           "name": "Axian Bartender",

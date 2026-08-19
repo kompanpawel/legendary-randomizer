@@ -88,10 +88,23 @@ weryfikacji, czy pokrywa akurat te dwa keywordy.
   - Test: `src/engine/__tests__/synergyEngine.shieldClearance.test.ts` potwierdza, że
     `synergyEngineMode` realnie faworyzuje bohaterów `shield-synergy`, gdy mastermind tego wymaga.
 
-## 3. Ambush Scheme — tylko jeden na raz
-„There can only be one Ambush Scheme in play at a time” — jeśli losowanie łączy kilka Villain
+## 3. Ambush Scheme — tylko jeden na raz ✅ NAPRAWIONE
+„There can only be one Ambush Scheme in play at a time" — jeśli losowanie łączy kilka Villain
 Groups, z których każda ma własną Ambush Scheme, nadmiarowe kopie są po prostu KO'wane.
-Nieszkodliwe dla balansu, ale silnik mógłby to inaczej liczyć przy szacowaniu „zawartości” grupy.
+Nieszkodliwe dla balansu, ale silnik mógłby to inaczej liczyć przy szacowaniu „zawartości" grupy.
+
+**Status:** Naprawione. Zidentyfikowano dokładnie 4 villain groups zawierające kartę Ambush Scheme
+(karta z `Twist:` i `defeat this Scheme` — funkcjonuje jako wtórny schemat w Villain Decku):
+Cross Technologies, Ghost Chasers, Armada of Kang, Quantum Realm.
+- Dodano pole `hasAmbushScheme?: boolean` do typu `VillainGroup` w `src/types/cards.ts`.
+- Oznaczono 4 grupy w `src/assets/cards.json` (`"hasAmbushScheme": true`).
+- Dodano funkcję `deriveHasAmbushScheme()` w `src/utils/jsonMigration.ts` (przyszłe regeneracje
+  `cards.json` automatycznie wykryją ten wzorzec).
+- Dodano pole `setupNotes: string[]` do `GameSetup` w `src/engine/SmartRandomizerEngine.ts`;
+  `generateSetup()` wypełnia je komunikatem gdy ≥2 wybrane grupy mają `hasAmbushScheme: true`
+  — gracz jest informowany o redundantnej karcie bez blokowania losowania (kombinacja jest
+  grywalną, tylko z efektem KO).
+- Test: `src/engine/__tests__/ambushSchemeOverlap.test.ts` (7 przypadków testowych).
 
 ## 4. Special Sidekicks z różnych setów (Secret Wars / Civil War / Messiah Complex)
 Zasada każe scalić je w jeden stos, a nie traktować niezależnie. Jeśli silnik modeluje dodatki
