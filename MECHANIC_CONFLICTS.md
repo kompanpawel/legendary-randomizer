@@ -12,6 +12,44 @@ wpływa na strukturę silnika losującego (`src/engine/`). Wnioski wstępne:
   (poza częściowym `countersNeeded` w `synergyEngine.ts`) i mogłyby stać się podstawą nowych
   reguł walidacji/wykluczeń przy losowaniu grup.
 
+## Uwagi metodologiczne / workflow dla dalszych napraw (ważne dla przyszłych modeli)
+
+- **Naprawiamy po jednym punkcie na raz**, w małych, w pełni przetestowanych inkrementach — nie
+  łączyć kilku punktów w jednym PR/commit, żeby łatwo było zweryfikować brak regresji.
+- **Komendy weryfikacyjne** (zweryfikowane, działają w tym repo na Windows/PowerShell):
+  - Testy: `npm test -- --run` (Vitest) — uruchom PRZED i PO zmianie, żeby potwierdzić brak regresji.
+  - Build/typecheck: `npm run build` (`tsc -b && vite build`) — jedyny sposób złapania błędów
+    typów, bo `npm run lint` **nie działa** w tym środowisku (eslint nie jest zainstalowany/
+    rozpoznawany — `'eslint' is not recognized`).
+  - Nowe testy jednostkowe/integracyjne dodawaj w `src/engine/__tests__/*.test.ts`.
+- **PUŁAPKA: `npm run migrate`** (`tsx src/utils/jsonMigration.ts`) regeneruje CAŁY
+  `src/assets/cards.json` na nowo z `json/*.json`. Uruchomienie go po dodaniu jednej reguły
+  detekcji w `jsonMigration.ts` wygeneruje dziesiątki/setki niepowiązanych różnic w całym pliku
+  (np. dodanie brakujących `"overrides": {}`, drobne różnice w innych tagach `countersNeeded`
+  wynikające z wcześniej niezauważonych niespójności) — **nie rób tego w ramach pojedynczej,
+  celowanej naprawy**. Zamiast tego:
+  1. Dodaj/zmień regułę detekcji w `jsonMigration.ts` (żeby przyszłe pełne regeneracje były
+     poprawne — to jest "źródło prawdy" dla generowania danych),
+  2. Ręcznie nanieś **dokładnie tę samą, minimalną zmianę** bezpośrednio w
+     `src/assets/cards.json` za pomocą `edit` (nie przez `migrate`),
+  3. Zweryfikuj `git diff src/assets/cards.json`, że zawiera WYŁĄCZNIE zamierzone linie.
+  4. Jeśli przypadkiem uruchomisz `migrate` i chcesz się cofnąć: `git checkout HEAD -- src/assets/cards.json`
+     przywraca plik do stanu z ostatniego commita (uwaga: to też odrzuci wcześniej wprowadzone,
+     jeszcze nie scommitowane zmiany w tym pliku — nanieś je ponownie ręcznie).
+- **Konwencja oznaczania napraw w tym pliku:** nagłówek punktu dostaje dopisek
+  `✅ NAPRAWIONE` (lub `✅ NAPRAWIONE (częściowo — ...)` gdy tylko część punktu wymagała akcji),
+  a bezpośrednio pod oryginalnym opisem problemu dodawany jest akapit **„Status:”** z konkretnymi
+  ścieżkami plików, które zmieniono, oraz nazwami plików testowych, które to pokrywają.
+- **Przydatny słownik tagów `countersNeeded` / `countersProvided`** (zebrany przez
+  `node -e "require('./src/assets/cards.json')..."` przy pkt. 1-2, przydatny przy kolejnych
+  punktach, żeby nie wymyślać nowych tagów, gdy pasujący już istnieje): `ambush`, `aoe`,
+  `artifact-synergy`, `bystander-control`, `bystander-rescue`, `city-control`, `conqueror`,
+  `dark-memories`, `deck-thinning`, `discard`, `discard-attack`, `dodge-offense`, `empowered`,
+  `extra-draws`, `focus`, `heavy-hitter`, `henchman-synergy`, `location-control`, `multi-class`,
+  `recruit-boost`, `savior`, `shield-synergy`, `sidekick`, `size-changing`, `time-travel`,
+  `top-deck-control`, `transform`, `trap-handling`, `undercover`, `villain-ally-synergy`,
+  `villain-control`, `wound-deal`, `wound-removal`, `wound-synergy`.
+
 ## 1. Adapting Masterminds vs schematy tasujące Tactics ✅ NAPRAWIONE
 `rules.json` wprost ostrzega: nie używać Adapting Masterminds (Hydra Super-Adaptoid,
 Sinister Six 2099) ze Schematami, które każą tasować Mastermind Tactics do innych talii kart
