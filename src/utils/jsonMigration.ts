@@ -1297,8 +1297,11 @@ function migrate(): CardsDatabase {
     cardTypes: e.cardTypes,
     // Dodatki zawierające Special Sidekicks (Pet Avengers, X-Students, ogólne Sidekicks):
     // Secret Wars Vol.1 (10), Civil War (13), Messiah Complex (31).
-    // Gdy ≥2 z tych setów są aktywne, gracze muszą scalić stosy Sidekick w jeden.
     ...(([10, 13, 31] as number[]).includes(e.id) ? { hasSpecialSidekicks: true } : {}),
+    // Civil War (13) zawiera Grievous Wounds (trudniejsze do uleczenia — wymagają 5 Recruit).
+    ...(e.id === 13 ? { hasGrievousWounds: true } : {}),
+    // Weapon X (41) zawiera Enraging Wounds (dają bonusy, ale trudniejsze do uleczenia).
+    ...(e.id === 41 ? { hasEnragingWounds: true } : {}),
   }));
 
   const heroes: Hero[] = rawHeroes.map(h => ({

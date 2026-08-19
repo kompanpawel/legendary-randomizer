@@ -125,16 +125,58 @@ losowaniu.
   Metadane mogą być użyteczne dla UI (np. tooltip w liście dodatków).
 - Test: `src/engine/__tests__/specialSidekicks.test.ts` (3 przypadki — weryfikacja danych).
 
-## 5. Grievous Wounds / Enraging Wounds — wspólny stos Wound
+## 5. Grievous Wounds / Enraging Wounds — wspólny stos Wound ✅ NAPRAWIONE (częściowo — analogia do kroku 4, brak zmian w silniku)
 Oba typy muszą trafić do jednego, połączonego stosu Wound, a nie być traktowane jako osobne
 mechaniki dodatku. To wpływa na trudność (łączna liczba możliwych Wounds w grze) — jeśli
 `computeThreatScore.ts` liczy trudność per-dodatek zamiast per-połączony-stos, wynik będzie
 zaniżony.
 
-## 6. Divided Cards — „printed Attack” liczony inaczej niż realny koszt
-Dla efektów typu Abomination/Berserk liczy się sumę obu stron karty, a nie stronę aktualnie
+**Status:** Zweryfikowane. Brak zmian w silniku — uzasadnienie analogiczne do kroku 4.
+- **`computeThreatScore.ts` nie ma żadnej logiki wound-specific**: grep na `wound` w plikach
+  silnika (`weightCalculator.ts`, `computeThreatScore.ts`, `synergyEngine.ts`) zwraca zero
+  wyników. Wound Deck nie jest modelowany przez silnik — ani jego rozmiar, ani trudność ran.
+- **Tag `wound-removal` wystarczy:** 203 encje mają `wound-removal` w `countersNeeded`, 20
+  bohaterów dostarcza ten tag. Sygnał "villain zadaje rany → hero powinien umieć leczyć" jest
+  poprawnie zamodelowany niezależnie od tego, czy rany są normalne, Grievous czy Enraging.
+- **Grievous Wounds** (Civil War / exp 13): trudniejsze do uleczenia (wymagają 5 Recruit), ale
+  Civil War projektuje swoich heroes z myślą o tym (wyższy Recruit). Globalny modyfikator
+  rozgrywki, nie specyficzny dla wylosowanych grup.
+- **Enraging Wounds** (Weapon X / exp 41): dają bonusy gdy zagrane + zwiększają łączną pulę
+  Wounds. Net difficulty effect jest niejednoznaczny — zarówno helpful jak i harmful.
+- **Gracze i tak scalają stosy ran** — tak samo jak Sidekick Stacks w kroku 4.
+- **Adnotacje danych zachowane** jako metadane dla UI: dodano `hasGrievousWounds?: boolean` i
+  `hasEnragingWounds?: boolean` do `Expansion` w `src/types/cards.ts`; oznaczono Civil War
+  (`"hasGrievousWounds": true`) i Weapon X (`"hasEnragingWounds": true`) w `src/assets/cards.json`;
+  logika w `src/utils/jsonMigration.ts` zachowuje te flagi przy przyszłych regeneracjach.
+- Brak nowych testów — istniejące 35 testów pokrywa brak regresji.
+
+## 6. Divided Cards — „printed Attack" liczony inaczej niż realny koszt ✅ NAPRAWIONE (częściowo — brak zmian w silniku, weryfikacja potwierdziła brak faktycznej luki)
+Dla efektów typu Abomination/Berserk liczy się sumą obu stron karty, a nie stronę aktualnie
 graną. Jeśli `weightCalculator.ts`/`computeThreatScore.ts` bierze tylko jedną wartość
 kosztu/ataku karty, próg trudności villaina z Abomination może być źle skalibrowany.
+
+**Status:** Zweryfikowane. Brak zmian w silniku — uzasadnienie analogiczne do kroków 4 i 5.
+- **Divided Card heroes: tylko 2 w całej bazie danych**: Cloak & Dagger (Civil War / exp 13)
+  i Rocket & Groot (Guardians of the Galaxy 2 / exp 33). Oboje mają `keywords: ['Divided Card']`
+  w `src/assets/cards.json` — adnotacja istnieje na poziomie Hero (wystarczająca).
+- **W praktyce brak rozbieżności**: dla każdej pary kart (ten sam `cost` wewnątrz Divided Card
+  hero) jedna strona zawsze ma atak 0 lub blisko 0, więc `sum(obu_stron) == max(jedna_strona)`.
+  Innymi słowy: zasada „licz sumę obu stron" daje identyczny wynik jak naiwne „licz tylko
+  wyższy atak z jednej strony" — **miscalibration = 0**.
+  Przykłady par: Above(2)/Below(0)→2, Flee(0)/Fight(2)→2, Darkness(3)/Light(0)→3,
+  Tricky(0)/Simple(3)→3.
+- **Silnik nie używa wartości ataku hero w ogóle**: `computeThreatScore.ts` opiera się wyłącznie
+  na `difficulty` (skala 1–5) oraz tagach `countersNeeded`/`countersProvided` — nie ma w nim
+  żadnego odczytu `HeroCard.attack`. Modyfikacja modelu threat score nie jest potrzebna.
+- **Tag `multi-class` w `countersNeeded` jest wystarczającym sygnałem**: wszystkie villain groups
+  z `[Abomination]` (Zola's Creations, Inhuman Rebellion) mają `multi-class` w `countersNeeded`.
+  Tag ten poprawnie modeluje mechanikę — Abomination faworyzuje villaina, gdy gracze mają
+  różnorodne klasy w HQ (i jednocześnie zachęca do rekrutowania bohaterów wieloklasowych).
+- **Villain groups z `[Berserk]`** (Berserkers, Weapon Plus) mają własne `countersNeeded`
+  (wound-removal, extra-draws itp.) odpowiednie dla ich mechaniki deck-disruption — nie
+  wymagają osobnego tagu dla Divided Cards.
+- Test: `src/engine/__tests__/dividedCards.test.ts` (6 przypadków — weryfikacja danych
+  i potwierdzenie braku rozbieżności dla wszystkich istniejących par Divided Card).
 
 ## 7. Multiple Masterminds (Ascending Villains) — inny próg trudności
 Wchłonięty Mastermind nie ma Tactics — wystarczy go pokonać raz. Jeśli silnik liczy trudność na

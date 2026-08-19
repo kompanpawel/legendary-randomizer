@@ -15,6 +15,19 @@ export interface Expansion {
    * sety, gracze muszą scalić ich stosy Sidekick w jeden przed rozgrywką.
    */
   hasSpecialSidekicks?: boolean;
+  /**
+   * Czy ten dodatek zawiera Grievous Wounds (trudniejsze do uleczenia — wymagają 5 Recruit)
+   * dołączane do wspólnego Wound Stack. Obecność tych ran nie zmienia logiki losowania ani
+   * obliczeń trudności silnika (tag wound-removal obsługuje zagrożenie poprawnie), ale jest
+   * przydatnym metadatanym dla UI.
+   */
+  hasGrievousWounds?: boolean;
+  /**
+   * Czy ten dodatek zawiera Enraging Wounds (dają bonusy gdy zagrane, ale trudniejsze do
+   * uleczenia i zwiększają łączną liczbę ran). Analogicznie do hasGrievousWounds — dane
+   * metadane, bez wpływu na logikę silnika.
+   */
+  hasEnragingWounds?: boolean;
 }
 
 export interface HeroCard {
