@@ -9,10 +9,12 @@ import { useTotalMatchCount } from '../db/hooks/useMatchLog';
 import { useAllMastermindStats } from '../db/hooks/useMastermindStats';
 import { useAllSchemeStats } from '../db/hooks/useSchemeStats';
 import { generateSetup, rerollHero } from '../engine/SmartRandomizerEngine';
+import { computeFullThreatScore } from '../engine/utils/computeThreatScore';
+import { computeBalanceGap } from '../engine/utils/powerBiasMultiplier';
+import { blendedStrength } from '../utils/blendedStrength';
 import { getSetupRules } from '../engine/playerSetupRules';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Button } from '../components/ui/Button';
-import { ToggleChip } from '../components/ui/ToggleChip';
 import { HeroCard } from '../components/game/HeroCard';
 import { MastermindCard } from '../components/game/MastermindCard';
 import { SchemeCard } from '../components/game/SchemeCard';
@@ -33,13 +35,14 @@ export default function SetupPage() {
   const { t } = useTranslation();
 
   const MODE_OPTIONS = [
-    { value: 'smart' as const,    label: t('setup.modes.smart.label'),   desc: t('setup.modes.smart.desc') },
-    { value: 'dustOff' as const,  label: t('setup.modes.dustOff.label'), desc: t('setup.modes.dustOff.desc') },
-    { value: 'synergy' as const,  label: t('setup.modes.synergy.label'), desc: t('setup.modes.synergy.desc') },
+    { value: 'smart' as const,    label: t('setup.modes.smart.label'),    desc: t('setup.modes.smart.desc'),    fullDesc: t('setup.modes.smart.fullDesc') },
+    { value: 'dustOff' as const,  label: t('setup.modes.dustOff.label'),  desc: t('setup.modes.dustOff.desc'),  fullDesc: t('setup.modes.dustOff.fullDesc') },
+    { value: 'synergy' as const,  label: t('setup.modes.synergy.label'),  desc: t('setup.modes.synergy.desc'),  fullDesc: t('setup.modes.synergy.fullDesc') },
   ];
 
   const {
     selectedExpansionIds, toggleExpansion,
+    expansionsEverSet,
     randomizationMode, setMode,
     alpha, playerCount, setPlayerCount,
     currentSetup, setSetup,
@@ -60,11 +63,16 @@ export default function SetupPage() {
 
   const setupRules = getSetupRules(playerCount);
 
+  // expansionsEverSet=false → użytkownik nigdy nie dotknął ekspansji → traktuj jako "wszystkie aktywne"
+  // expansionsEverSet=true  → klasyczna logika: tylko zaznaczone; [] = nic = generate wyłączony
+  const allExpansionIds = useMemo(() => db.expansions.map((e) => e.id), []);
+  const noneSelected = expansionsEverSet && selectedExpansionIds.length === 0;
+
   const activeIds = useMemo(
-    () => selectedExpansionIds.length > 0
-      ? selectedExpansionIds
-      : db.expansions.map((e) => e.id),
-    [selectedExpansionIds]
+    () => !expansionsEverSet || selectedExpansionIds.length === 0
+      ? allExpansionIds
+      : selectedExpansionIds,
+    [expansionsEverSet, selectedExpansionIds, allExpansionIds]
   );
 
   // Wszystkie mastermindowie i schematy dostępne w aktywnych ekspansjach (do dropdownów)
@@ -76,7 +84,7 @@ export default function SetupPage() {
   );
   const availableSchemes = useMemo(
     () => db.schemes
-      .filter((s) => activeIds.includes(s.expansionId))
+      .filter((s) => activeIds.includes(s.expansionId) && !s.overrides.isUnveiledScheme)
       .sort((a, b) => a.name.localeCompare(b.name)),
     [activeIds]
   );
@@ -147,12 +155,68 @@ export default function SetupPage() {
     );
     const newHeroes = [...currentSetup.heroes];
     newHeroes[heroIndex] = replacement;
-    setSetup({ ...currentSetup, heroes: newHeroes });
+    newHeroes.sort((a, b) => a.name.localeCompare(b.name));
+
+    const mmStats = mastermindStatsMap.get(currentSetup.mastermind.id);
+    const scStats = schemeStatsMap.get(currentSetup.scheme.id);
+    const { threatScore, counterCoverage } = computeFullThreatScore(
+      newHeroes,
+      currentSetup.mastermind,
+      mmStats,
+      currentSetup.isEpicMastermind,
+      currentSetup.scheme,
+      scStats,
+      currentSetup.villains,
+      currentSetup.henchmen
+    );
+
+    const heroBlendedPowers = newHeroes.map(hero => {
+      const stats = statsMap.get(hero.id);
+      return blendedStrength(hero.powerLevel, stats?.playCount ?? 0, stats?.wins ?? 0);
+    });
+    const balanceGap = computeBalanceGap(heroBlendedPowers, threatScore);
+
+    setSetup({ ...currentSetup, heroes: newHeroes, threatScore, counterCoverage, balanceGap });
   };
 
   const statsMap           = new Map(heroStats.map((s) => [s.heroId, s]));
   const mastermindStatsMap = new Map(mastermindStats.map((s) => [s.mastermindId, s]));
   const schemeStatsMap     = new Map(schemeStats.map((s) => [s.schemeId, s]));
+
+  const handleEpicToggle = () => {
+    const newEpicValue = !isEpicMastermind;
+    setIsEpicMastermind(newEpicValue);
+
+    if (currentSetup) {
+      const mmStats = mastermindStatsMap.get(currentSetup.mastermind.id);
+      const scStats = schemeStatsMap.get(currentSetup.scheme.id);
+
+      const { threatScore, counterCoverage } = computeFullThreatScore(
+        currentSetup.heroes,
+        currentSetup.mastermind,
+        mmStats,
+        newEpicValue,
+        currentSetup.scheme,
+        scStats,
+        currentSetup.villains,
+        currentSetup.henchmen
+      );
+
+      const heroBlendedPowers = currentSetup.heroes.map(hero => {
+        const stats = statsMap.get(hero.id);
+        return blendedStrength(hero.powerLevel, stats?.playCount ?? 0, stats?.wins ?? 0);
+      });
+      const balanceGap = computeBalanceGap(heroBlendedPowers, threatScore);
+
+      setSetup({
+        ...currentSetup,
+        isEpicMastermind: newEpicValue,
+        threatScore,
+        balanceGap,
+        counterCoverage,
+      });
+    }
+  };
 
   return (
     <div className="pb-nav">
@@ -168,8 +232,10 @@ export default function SetupPage() {
             <div>
               <p className="text-sm font-medium text-white">{t('setup.expansions.heading')}</p>
               <p className="text-xs text-zinc-500">
-                {selectedExpansionIds.length === 0
+                {selectedExpansionIds.length === 0 && !expansionsEverSet
                   ? t('setup.expansions.allActive')
+                  : noneSelected
+                  ? t('setup.expansions.noneSelected')
                   : t('setup.expansions.countOf', { count: selectedExpansionIds.length, total: db.expansions.length })}
               </p>
             </div>
@@ -179,23 +245,55 @@ export default function SetupPage() {
           </button>
           {expansionsOpen && (
             <div className="px-4 pb-4">
-              <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5">
-                {db.expansions.map((exp) => (
-                  <ToggleChip
-                    key={exp.id}
-                    label={exp.label}
-                    initials={exp.initials}
-                    selected={selectedExpansionIds.includes(exp.id)}
-                    onToggle={() => toggleExpansion(exp.id)}
-                  />
-                ))}
+              {/* Przyciski Select All / Deselect All */}
+              <div className="flex gap-2 mb-3">
+                <button
+                  onClick={() => useAppStore.getState().setExpansions(allExpansionIds)}
+                  className="text-xs px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-300 hover:border-marvel-red hover:text-white transition-colors"
+                >
+                  {t('setup.expansions.selectAllButton')}
+                </button>
+                <button
+                  onClick={() => useAppStore.getState().setExpansions([])}
+                  className="text-xs px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-500 hover:border-zinc-500 hover:text-zinc-300 transition-colors"
+                >
+                  {t('setup.expansions.clearButton')}
+                </button>
               </div>
-              <button
-                onClick={() => useAppStore.getState().setExpansions([])}
-                className="mt-2 text-xs text-zinc-500 hover:text-zinc-300"
-              >
-                {t('setup.expansions.clearButton')}
-              </button>
+              {/* Lista ekspansji z checkboxami */}
+              <div className="max-h-72 overflow-y-auto space-y-0.5 pr-1">
+                {db.expansions.map((exp) => {
+                  // Checked jeśli: nigdy nie konfigurowano (wszystkie domyślnie) LUB jawnie wybrany
+                  const checked =
+                    !expansionsEverSet ||
+                    selectedExpansionIds.includes(exp.id);
+                  return (
+                    <label
+                      key={exp.id}
+                      className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-zinc-800 cursor-pointer group"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => {
+                          if (!expansionsEverSet) {
+                            // Pierwsza interakcja: przejdź do trybu jawnego z wszystkimi poza tym jednym
+                            useAppStore.getState().setExpansions(
+                              allExpansionIds.filter((id) => id !== exp.id)
+                            );
+                          } else {
+                            toggleExpansion(exp.id);
+                          }
+                        }}
+                        className="w-4 h-4 rounded accent-marvel-red flex-shrink-0"
+                      />
+                      <span className={`text-sm leading-tight transition-colors ${checked ? 'text-zinc-200' : 'text-zinc-500'}`}>
+                        {exp.label}
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>
@@ -274,21 +372,34 @@ export default function SetupPage() {
         </div>
 
         {/* Randomization mode */}
-        <div className="grid grid-cols-3 gap-2">
-          {MODE_OPTIONS.map((m) => (
-            <button
-              key={m.value}
-              onClick={() => setMode(m.value)}
-              className={`p-3 rounded-xl border text-left transition-all ${
-                randomizationMode === m.value
-                  ? 'border-marvel-red bg-marvel-red/10 text-white'
-                  : 'border-zinc-700 bg-zinc-800/30 text-zinc-400 hover:border-zinc-600'
-              }`}
-            >
-              <p className="text-xs font-semibold">{m.label}</p>
-              <p className="text-xs text-zinc-500 mt-0.5">{m.desc}</p>
-            </button>
-          ))}
+        <div className="space-y-2">
+          <div className="grid grid-cols-3 gap-2">
+            {MODE_OPTIONS.map((m) => (
+              <button
+                key={m.value}
+                onClick={() => setMode(m.value)}
+                className={`p-3 rounded-xl border text-left transition-all ${
+                  randomizationMode === m.value
+                    ? 'border-marvel-red bg-marvel-red/10 text-white'
+                    : 'border-zinc-700 bg-zinc-800/30 text-zinc-400 hover:border-zinc-600'
+                }`}
+              >
+                <p className="text-xs font-semibold">{m.label}</p>
+                <p className="text-xs text-zinc-500 mt-0.5">{m.desc}</p>
+              </button>
+            ))}
+          </div>
+          {/* Active mode description */}
+          {(() => {
+            const active = MODE_OPTIONS.find(m => m.value === randomizationMode);
+            if (!active) return null;
+            return (
+              <div className="px-3 py-2.5 rounded-xl bg-zinc-800/50 border border-zinc-700/60">
+                <p className="text-xs font-semibold text-marvel-red mb-0.5">{active.label}</p>
+                <p className="text-xs text-zinc-400 leading-relaxed">{active.fullDesc}</p>
+              </div>
+            );
+          })()}
         </div>
 
         {/* Player count */}
@@ -331,7 +442,7 @@ export default function SetupPage() {
         {/* Epic toggle */}
         {showEpicToggle && (
           <button
-            onClick={() => setIsEpicMastermind(!isEpicMastermind)}
+          onClick={() => handleEpicToggle()}
             className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all ${
               isEpicMastermind
                 ? 'border-orange-600/60 bg-orange-950/40 text-orange-300'
@@ -363,11 +474,12 @@ export default function SetupPage() {
         <Button
           onClick={handleGenerate}
           loading={generating}
+          disabled={noneSelected}
           size="lg"
           className={`w-full ${generating ? 'animate-pulse' : ''}`}
         >
           <Shuffle size={18} className="mr-2 inline" />
-          {t('setup.generateButton')}
+          {noneSelected ? t('setup.generateButtonDisabled') : t('setup.generateButton')}
         </Button>
 
         {/* Results */}
@@ -503,6 +615,29 @@ export default function SetupPage() {
               </div>
             )}
 
+            {/* Setup Notes (np. Ambush Scheme overlap, Multiple Masterminds) */}
+            {currentSetup.setupNotes.length > 0 && (
+              <div className="space-y-2">
+                {currentSetup.setupNotes.map((note, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-2 px-3 py-2 rounded-xl text-xs border bg-amber-950/30 border-amber-700/50 text-amber-200"
+                  >
+                    <AlertTriangle size={13} className="flex-shrink-0 mt-0.5 text-amber-400" />
+                    <span>{t(note.key, note.params)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700">
+              <span className="text-xl">{'🧑‍🤝‍🧑'}</span>
+              <div>
+                <p className="text-xs font-semibold text-zinc-300">{t('setup.bystanders')}</p>
+                <p className="text-sm font-bold text-marvel-gold">{t('setup.bystanders_cards', { count: currentSetup.bystanders })}</p>
+              </div>
+            </div>
+
             <div className="space-y-2">
               <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">{t('setup.sections.villains')}</p>
               {currentSetup.villains.map((v) => (
@@ -536,29 +671,6 @@ export default function SetupPage() {
             <Button variant="secondary" size="lg" className="w-full" onClick={() => setSaveModalOpen(true)}>
               {t('setup.saveMatchButton')}
             </Button>
-
-            {/* Setup Notes (np. Ambush Scheme overlap, Multiple Masterminds) */}
-            {currentSetup.setupNotes.length > 0 && (
-              <div className="space-y-2">
-                {currentSetup.setupNotes.map((note, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-2 px-3 py-2 rounded-xl text-xs border bg-amber-950/30 border-amber-700/50 text-amber-200"
-                  >
-                    <AlertTriangle size={13} className="flex-shrink-0 mt-0.5 text-amber-400" />
-                    <span>{t(note.key, note.params)}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700">
-              <span className="text-xl">{'🧑‍🤝‍🧑'}</span>
-              <div>
-                <p className="text-xs font-semibold text-zinc-300">{t('setup.bystanders')}</p>
-                <p className="text-sm font-bold text-marvel-gold">{t('setup.bystanders_cards', { count: currentSetup.bystanders })}</p>
-              </div>
-            </div>
           </div>
         )}
       </div>

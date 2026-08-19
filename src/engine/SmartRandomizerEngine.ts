@@ -286,10 +286,17 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     ...uniformSample(henchmanPool, remainingHenchmanCount),
   ];
 
+  // ── Normalizacja flagi Epic ────────────────────────────────────────────────
+  // Tryb Epic jest aktywny TYLKO jeśli użytkownik go włączył ORAZ wylosowany
+  // mastermind faktycznie posiada kartę z isEpic=true.
+  // Dzięki temu kliknięcie togla przed generowaniem nie powoduje błędnych obliczeń
+  // dla masterminds bez wersji Epic.
+  const effectiveIsEpic = isEpicMastermind && mastermind.cards.some(c => c.isEpic);
+
   // ── PRE-SELECTION threat score (power-based) – używany do biasowania losowania ──
   const mmStats = mastermindStats.find(s => s.mastermindId === mastermind.id);
   const scStats = schemeStats.find(s => s.schemeId === scheme.id);
-  const preSelectionThreat = computeThreatScore(mastermind, mmStats, isEpicMastermind, scheme, scStats);
+  const preSelectionThreat = computeThreatScore(mastermind, mmStats, effectiveIsEpic, scheme, scStats);
 
   // ── Required heroes from scheme (krok 10) ─────────────────────────────────
   // Pre-select named heroes before running the hero selection mode for the rest.
@@ -445,7 +452,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
             restHeroes = smartEqualizerMode(classPool, heroStats, totalMatches, afterClassCount, alpha, preSelectionThreat);
             break;
           case 'dustOff':
-            restHeroes = dustOffMode(classPool, heroStats, afterClassCount);
+            restHeroes = dustOffMode(classPool, heroStats, afterClassCount, scheme, mastermind, selectedVillains, selectedHenchmen);
             break;
           case 'synergy':
             restHeroes = synergyEngineMode(classPool, heroStats, scheme, mastermind, totalMatches, afterClassCount, alpha, selectedVillains, selectedHenchmen, preSelectionThreat);
@@ -462,7 +469,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
           additionalHeroes = smartEqualizerMode(heroPool, heroStats, totalMatches, remainingHeroCount, alpha, preSelectionThreat);
           break;
         case 'dustOff':
-          additionalHeroes = dustOffMode(heroPool, heroStats, remainingHeroCount);
+          additionalHeroes = dustOffMode(heroPool, heroStats, remainingHeroCount, scheme, mastermind, selectedVillains, selectedHenchmen);
           break;
         case 'synergy':
           additionalHeroes = synergyEngineMode(
@@ -481,7 +488,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   // ── POST-SELECTION threat score (counter-gap dominant, 30% power + 70% counter) ──
   const { threatScore, counterCoverage } = computeFullThreatScore(
     selectedHeroes,
-    mastermind, mmStats, isEpicMastermind,
+    mastermind, mmStats, effectiveIsEpic,
     scheme, scStats,
     selectedVillains, selectedHenchmen
   );
@@ -646,7 +653,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     villains: sortByName(selectedVillains),
     henchmen: sortByName(selectedHenchmen),
     bystanders: effectiveBystanders,
-    isEpicMastermind,
+    isEpicMastermind: effectiveIsEpic,
     schemeHeroMod: effectiveHeroMod,
     schemeExtraVillainMod: effectiveExtraVillains,
     threatScore,

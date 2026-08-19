@@ -11,8 +11,10 @@
     "expansions": {
       "heading": "Expansions",
       "allActive": "All active",
+      "noneSelected": "None selected — choose at least one",
       "countOf": "{{count}} of {{total}}",
-      "clearButton": "Clear (use all)"
+      "selectAllButton": "Select All",
+      "clearButton": "Deselect All"
     },
     "manualPick": {
       "heading": "Manual pick",
@@ -26,15 +28,18 @@
     "modes": {
       "smart": {
         "label": "⚡ Smart",
-        "desc": "Balances plays"
+        "desc": "Balances play frequency",
+        "fullDesc": "Favors heroes who haven't been played in a while using a weighted formula (W = 1/(plays+1)^α × time). When the threat is high, stronger heroes get a slight boost. The α coefficient in Settings controls how aggressively underplayed heroes are prioritized."
       },
       "dustOff": {
         "label": "🏚️ Shelf",
-        "desc": "Least played"
+        "desc": "Dusts off neglected heroes",
+        "fullDesc": "Draws exclusively from the 30% least-played heroes — your shelf of shame. Within that pool, heroes whose abilities counter the active scheme, mastermind, and villains are slightly preferred (2× weight). If no counter match is found in the pool, selection is completely random."
       },
       "synergy": {
         "label": "🔗 Synergy",
-        "desc": "Synergy with scheme"
+        "desc": "Counter-focused lineup",
+        "fullDesc": "Builds a team specifically tailored to counter the active scheme, mastermind, villains, and henchmen (3× weight for heroes with matching counters). Also factors in threat level — stronger heroes are boosted in harder setups. Best for a more strategic, synergy-driven game."
       }
     },
     "players": {
@@ -48,6 +53,7 @@
       "descOn": "Using epic cards — difficulty +1, separate statistics"
     },
     "generateButton": "Generate Setup",
+    "generateButtonDisabled": "Select at least one expansion",
     "balance": {
       "veryHard": {
         "label": "💀 Very Hard",

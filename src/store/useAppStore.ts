@@ -45,6 +45,12 @@ export interface GameSetup {
 }
 interface AppState {
   selectedExpansionIds: number[];
+  /**
+   * true po pierwszej jawnej interakcji z ekspansjami (select/deselect/toggle).
+   * false = stan "nie skonfigurowano" = wszystkie ekspansje aktywne (backward-compatible).
+   * Gdy true i selectedExpansionIds.length === 0 → przycisk Generate jest wyłączony.
+   */
+  expansionsEverSet: boolean;
   randomizationMode: RandomizationMode;
   heroCount: number;
   playerCount: number;
@@ -71,6 +77,7 @@ export const useAppStore = create<AppState>()(
   persist(
     (set) => ({
       selectedExpansionIds: [],
+      expansionsEverSet: false,
       randomizationMode: "smart",
       heroCount: 5,
       playerCount: 2,
@@ -79,9 +86,10 @@ export const useAppStore = create<AppState>()(
       isEpicMastermind: false,
       pinnedMastermindId: null,
       pinnedSchemeId: null,
-      setExpansions: (ids) => set({ selectedExpansionIds: ids }),
+      setExpansions: (ids) => set({ selectedExpansionIds: ids, expansionsEverSet: true }),
       toggleExpansion: (id) =>
         set((state) => ({
+          expansionsEverSet: true,
           selectedExpansionIds: state.selectedExpansionIds.includes(id)
             ? state.selectedExpansionIds.filter((i) => i !== id)
             : [...state.selectedExpansionIds, id],
@@ -100,6 +108,7 @@ export const useAppStore = create<AppState>()(
       name: "legendary-app-settings",
       partialize: (state) => ({
         selectedExpansionIds: state.selectedExpansionIds,
+        expansionsEverSet: state.expansionsEverSet,
         randomizationMode: state.randomizationMode,
         heroCount: state.heroCount,
         playerCount: state.playerCount,
@@ -107,7 +116,6 @@ export const useAppStore = create<AppState>()(
         isEpicMastermind: state.isEpicMastermind,
         pinnedMastermindId: state.pinnedMastermindId,
         pinnedSchemeId: state.pinnedSchemeId,
-        // currentSetup NIE jest persistowany
       }),
     }
   )
