@@ -31,6 +31,13 @@ export interface GameSetup {
    */
   secondMastermind?: Mastermind;
   /**
+   * Losowo wybrany Unveiled Scheme będący "drugą fazą" aktywnego Veiled Scheme.
+   * Obecny tylko gdy `scheme.overrides.isVeiledScheme === true`.
+   * UI może go ukryć za przyciskiem spoilerowym — gracz zdecyduje czy chce wiedzieć
+   * jaki schemat go czeka po transformacji.
+   */
+  unveiledScheme?: Scheme;
+  /**
    * „Drained" Mastermind wylosowany dla schematu Symbiotic Absorption.
    * Odłożony poza grę; jego 4 Tactics trafiają do głównego Masterminda na Twistach 1–4.
    * Jego alwaysLeads Villain jest wymuszony jako dodatkowa Villain Group w setupie.
@@ -102,8 +109,13 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   if (schemes.length === 0 && !forcedScheme) throw new Error('No schemes in active expansions');
 
   const rules = getSetupRules(playerCount);
-  const { henchmanCount, bystanders } = rules;
-  // villainCount is finalized after scheme selection (scheme may add extraVillains)
+  const { henchmanCount: baseHenchmanCount, bystanders } = rules;
+  // villainCount and henchmanCount are finalized after scheme selection
+
+  // Unveiled Schemes (krok 16) NIE są losowane jako samodzielne schematy — tylko jako
+  // "druga faza" Veiled Scheme. Filtrujemy je z puli do automatycznego losowania.
+  // forcedScheme NIE jest filtrowany — gracz może ręcznie wybrać dowolny schemat.
+  const standaloneSchemes = schemes.filter(s => !s.overrides.isUnveiledScheme);
 
   // Pick Mastermind and Scheme (forced or random).
   // Gdy tylko jedno z nich jest wymuszone, drugie losujemy z puli oczyszczonej
@@ -118,16 +130,30 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     scheme = forcedScheme;
   } else if (forcedMastermind) {
     mastermind = forcedMastermind;
-    const compatibleSchemes = schemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
-    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : schemes, 1)[0];
+    const compatibleSchemes = standaloneSchemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
+    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : standaloneSchemes, 1)[0];
   } else if (forcedScheme) {
     scheme = forcedScheme;
     const compatibleMasterminds = masterminds.filter(m => !isMastermindSchemeIncompatible(m, scheme));
     mastermind = uniformSample(compatibleMasterminds.length > 0 ? compatibleMasterminds : masterminds, 1)[0];
   } else {
     mastermind = uniformSample(masterminds, 1)[0];
-    const compatibleSchemes = schemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
-    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : schemes, 1)[0];
+    const compatibleSchemes = standaloneSchemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
+    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : standaloneSchemes, 1)[0];
+  }
+
+  // ── Unveiled Scheme (krok 16 — Veiled/Unveiled) ────────────────────────────
+  // Gdy wylosowany schemat jest Veiled, pre-wybieramy losowo jeden z dostępnych
+  // Unveiled Schemes (tej samej expansji) jako "drugą fazę". Gracz zdecyduje
+  // w UI czy chce zobaczyć wynik (spoiler) przed grą.
+  let unveiledScheme: Scheme | undefined;
+  if (scheme.overrides.isVeiledScheme) {
+    const unveiledPool = schemes.filter(
+      s => s.overrides.isUnveiledScheme && s.expansionId === scheme.expansionId
+    );
+    if (unveiledPool.length > 0) {
+      [unveiledScheme] = uniformSample(unveiledPool, 1);
+    }
   }
 
   // Oblicz efektywną liczbę hero (base + modyfikator ze schematu)
@@ -144,6 +170,11 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   const isExtraVillainsActive = playerCount >= extraVillainsMinP && playerCount <= extraVillainsMaxP;
   const effectiveExtraVillains = isExtraVillainsActive ? schemeExtraVillains : 0;
   const villainCount = rules.villainCount + effectiveExtraVillains;
+
+  // Oblicz efektywną liczbę Henchman Groups (base + bonus ze schematu, krok 17)
+  // extraHenchmen: schematy dodające dodatkową grupę Henchman ponad standard.
+  const schemeExtraHenchmen = scheme.overrides.extraHenchmen ?? 0;
+  const henchmanCount = baseHenchmanCount + schemeExtraHenchmen;
 
   // Oblicz efektywną liczbę Bystanders (krok 11)
   // bystandersOverride → ustawia dokładną wartość; bystandersMod → addytywny; brak → wartość bazowa
@@ -584,6 +615,24 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     setupNotes.push({ key: 'setup.notes.requiresAllHeroClasses' });
   }
 
+  // Nota 11: Veiled Scheme (krok 16) — informacja o transformacji
+  if (scheme.overrides.isVeiledScheme) {
+    setupNotes.push({
+      key: 'setup.notes.veiledScheme',
+      params: {
+        twist: String(scheme.overrides.veilTransformsTwist ?? '?'),
+      },
+    });
+  }
+
+  // Nota 12: Extra Henchman group (krok 17) — dodatkowa grupa henchmenów z puli
+  if (schemeExtraHenchmen > 0) {
+    setupNotes.push({
+      key: 'setup.notes.schemeExtraHenchmen',
+      params: { count: String(schemeExtraHenchmen) },
+    });
+  }
+
   const sortByName = <T extends { name: string }>(arr: T[]): T[] =>
     [...arr].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -591,6 +640,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     mastermind,
     ...(secondMastermind ? { secondMastermind } : {}),
     ...(drainedMastermind ? { drainedMastermind } : {}),
+    ...(unveiledScheme ? { unveiledScheme } : {}),
     scheme,
     heroes: sortByName(selectedHeroes),
     villains: sortByName(selectedVillains),

@@ -1,4 +1,4 @@
-import { Scroll, Star, Users, Info, Swords, UserMinus, Layers, Shield, Split, BookOpen } from 'lucide-react';
+import { Scroll, Star, Users, Info, Swords, UserMinus, Layers, Shield, Split, BookOpen, Eye, ShieldAlert } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/utils/cn.ts';
 import type { Scheme } from '@/types/cards.ts';
@@ -206,8 +206,36 @@ export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMo
         </div>
       )}
 
+      {/* Veiled Scheme badge */}
+      {scheme.overrides.isVeiledScheme && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-orange-500/10 border-orange-500/30 text-orange-300">
+          <Eye size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.veiledBadge', { twist: scheme.overrides.veilTransformsTwist ?? '?' })}</span>
+        </div>
+      )}
+
+      {/* Unveiled Scheme badge */}
+      {scheme.overrides.isUnveiledScheme && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-orange-500/10 border-orange-500/30 text-orange-300">
+          <Eye size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.unveiledBadge')}</span>
+        </div>
+      )}
+
+      {/* Extra Henchman badge */}
+      {(scheme.overrides.extraHenchmen ?? 0) > 0 && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-red-500/10 border-red-500/30 text-red-300">
+          <ShieldAlert size={12} className="flex-shrink-0" />
+          <span>
+            {(scheme.overrides.extraHenchmen ?? 0) > 1
+              ? t('cards.scheme.extraHenchmanPlural', { count: scheme.overrides.extraHenchmen })
+              : t('cards.scheme.extraHenchman', { count: scheme.overrides.extraHenchmen })}
+          </span>
+        </div>
+      )}
+
       {/* Special setup note */}
-      {specialSetup && isModActive && (
+      {specialSetup && (
         <div className="mt-2 flex items-start gap-2 px-3 py-1.5 rounded-xl text-xs border bg-zinc-800/40 border-zinc-700 text-zinc-400">
           <Info size={12} className="flex-shrink-0 mt-0.5 text-zinc-500" />
           <span>{specialSetup}</span>

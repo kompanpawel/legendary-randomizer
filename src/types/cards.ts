@@ -187,11 +187,29 @@ export interface Scheme {
      */
     requiredHeroFaction?: string;
     /**
+     * Czy to jest Veiled Scheme — podczas gry (na `veilTransformsTwist` Twiście) transformuje
+     * w losowy Unveiled Scheme z tej samej ekspansji. Veiled Schemes są grywalne standalone.
+     * Podczas losowania silnik automatycznie pre-wybiera jeden z dostępnych Unveiled Schemes
+     * i zwraca go jako `GameSetup.unveiledScheme` (do opcjonalnego ujawnienia graczowi).
+     */
+    isVeiledScheme?: boolean;
+    /**
+     * Czy to jest Unveiled Scheme — "druga faza" Veiled Scheme, ujawniana losowo podczas gry.
+     * Unveiled Schemes NIE są losowane jako samodzielne schematy przez silnik; dostępne
+     * wyłącznie przez ręczny wybór (Manual Pick) lub jako partner Veiled Scheme w GameSetup.
+     */
+    isUnveiledScheme?: boolean;
+    /**
+     * Numer Twista, na którym Veiled Scheme transformuje w losowy Unveiled Scheme.
+     * Np. 6 dla "Hack Cerebro Servers To...", 4 dla "Raid Gene Banks To...".
+     * Wyłącznie dla schematów z `isVeiledScheme: true`.
+     */
+    veilTransformsTwist?: number;
+    /**
      * Minimalna liczba graczy, od której extraVillains jest aktywne.
      * Np. 3 dla „3-5 players: Add a Villain Group" (Deadpool Wants a Chimichanga).
      */
-    extraVillainsMinPlayers?: number;
-    /**
+    extraVillainsMinPlayers?: number;    /**
      * Maksymalna liczba graczy, do której extraVillains jest aktywne (włącznie).
      * Np. 1 dla „If playing solo, add an extra Villain Group" (Crush Them With My Bare Hands).
      */
@@ -200,12 +218,18 @@ export interface Scheme {
      * Addytywna modyfikacja liczby Bystanders w Villain Decku ponad wartość bazową z PLAYER_SETUP_RULES.
      * Np. 4 dla „Add 4 extra Bystanders" (Negative Zone Prison Breakout exp 42).
      */
-    bystandersMod?: number;
-    /**
+    bystandersMod?: number;    /**
      * Nadpisuje liczbę Bystanders dokładną wartością (niezależną od liczby graczy).
      * Np. 0 dla „No Bystanders in the Villain Deck" (Hypnotize Every Human).
      */
     bystandersOverride?: number;
+    /**
+     * Liczba dodatkowych grup Henchman losowanych z puli, ponad standard z playerSetupRules.
+     * Np. 1 dla „Add an extra Henchman group" (Negative Zone Prison Breakout exp 1,
+     * Asgard Under Siege, Invasion of the Venom Symbiotes).
+     * Działa analogicznie do extraVillains — zwiększa effectiveHenchmanCount.
+     */
+    extraHenchmen?: number;
   };
   cards: readonly SchemeCard[];
 }

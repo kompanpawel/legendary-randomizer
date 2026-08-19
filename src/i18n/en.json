@@ -81,6 +81,12 @@
     "saveMatchButton": "📝 Save match result",
     "bystanders": "Bystanders in villain deck",
     "bystanders_cards": "{{count}} cards",
+    "unveiledScheme": {
+      "revealButton": "🎲 Reveal Phase 2 (Unveiled Scheme — spoiler!)",
+      "hideButton": "🙈 Hide Unveiled Scheme",
+      "heading": "Phase 2: Unveiled Scheme",
+      "subheading": "Revealed at Twist {{twist}}"
+    },
     "notes": {
       "ambushSchemeOverlap": "Multiple selected villain groups ({{names}}) contain an Ambush Scheme card. Only one can be active at a time — additional ones are KO'd when drawn from the deck.",
       "darkAllianceSecondMastermind": "Dark Alliance: on Twist 1, a second Mastermind joins the game — \"{{name}}\" (starts with 1 Tactic, gains more on Twists 2–4). Prepare its cards before the game.",
@@ -97,7 +103,9 @@
       "requiredHeroNameSubstring": "This scheme requires exactly {{count}} heroes with \"{{substring}}\" in their name. Pre-selected: {{heroes}}.",
       "requiresAllHeroClasses": "Divide and Conquer: Heroes selected to cover all 5 classes (Strength, Instinct, Covert, Tech, Ranged). Sort the Hero Deck by class before play.",
       "symbioticAbsorptionDrained": "Symbiotic Absorption: Set aside \"{{name}}\" as the Drained Mastermind (out of play). Its 4 Tactics shuffle into the main Mastermind on Twists 1–4. Its Always Leads Villain Group ({{villain}}) is included in this setup.",
-      "multiDeck": "This scheme splits the Villain Deck into multiple parallel decks (one per Reality / player / city). Place Villain Groups in separate decks as described in the rulebook."
+      "multiDeck": "This scheme splits the Villain Deck into multiple parallel decks (one per Reality / player / city). Place Villain Groups in separate decks as described in the rulebook.",
+      "veiledScheme": "This is a Veiled Scheme — on Twist {{twist}} it transforms into a random Unveiled Scheme. The Unveiled Scheme (Phase 2) is pre-drawn below and can be revealed now or kept as a surprise.",
+      "schemeExtraHenchmen": "This scheme requires {{count}} extra Henchman Group(s) added to the Villain Deck beyond the standard count. Already included in the setup above."
     }
   },
   "settings": {
@@ -222,6 +230,10 @@
       "requiredFactionCountBadge": "{{count}}× [{{faction}}] Heroes",
       "requiredHeroNameSubstringBadge": "Exactly {{count}}× Hero with \"{{substring}}\"",
       "requiresAllHeroClassesBadge": "All 5 Classes Required",
+      "veiledBadge": "Veiled Scheme (transforms at Twist {{twist}})",
+      "unveiledBadge": "Unveiled Scheme (Phase 2)",
+      "extraHenchman": "+{{count}} Extra Henchman Group to setup",
+      "extraHenchmanPlural": "+{{count}} Extra Henchman Groups to setup",
       "tooltip": {
         "noData": "No data – neutral value",
         "withData": "Difficulty: {{value}}/5"

@@ -1505,6 +1505,58 @@ function deriveRequiredHeroFaction(cards: RawSchemeCard[]): string | null {
   return null;
 }
 
+/**
+ * Czy to jest Veiled Scheme — podczas gry transformuje w losowy Unveiled Scheme.
+ * Wzorzec: "[Transforms] into a random [Unveiled Scheme]" w tekście kart.
+ */
+function deriveIsVeiledScheme(cards: RawSchemeCard[]): boolean {
+  const all = cards.map(c => c.abilities).join('\n');
+  return /\[Transforms\] into a random \[Unveiled Scheme\]/i.test(all);
+}
+
+/**
+ * Czy to jest Unveiled Scheme — "druga faza" Veiled Scheme.
+ * Wykrywane po nazwie schematu zaczynającej się od "...".
+ */
+function deriveIsUnveiledScheme(name: string): boolean {
+  return name.startsWith('...');
+}
+
+/**
+ * Numer Twista, na którym Veiled Scheme transformuje w Unveiled Scheme.
+ * Np. "Twist 6: ... [Transforms] into a random [Unveiled Scheme]" → 6.
+ */
+function deriveVeilTransformsTwist(cards: RawSchemeCard[]): number | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const m = all.match(/Twist (\d+):.*\[Transforms\] into a random \[Unveiled Scheme\]/i);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+/**
+ * Liczba dodatkowych grup Henchman z puli, wymaganych przez schemat ponad standard.
+ * Wzorce (Setup sekcja): "Add an extra Henchman [Gg]roup"
+ * Wykluczone:
+ *   - Scheme-specific named groups (np. "Vampire Neonates", "Xerogen Experiments", "Smugglers")
+ *     — te grupy NIE są z puli, pochodzą z pudełka schematu.
+ *   - "Add 6 extra Henchmen from a single Henchman Group to the Hero Deck" (Invade Daily Bugle)
+ *     — henchmen trafiają do Hero Deck, nie Villain Deck; obsługiwane ręcznie.
+ *   - "double the normal number" — zbyt złożone do automatycznej detekcji.
+ * Wynik: liczba ≥ 1 gdy schemat wymaga extra henchman z puli.
+ */
+function deriveExtraHenchmen(cards: RawSchemeCard[]): number {
+  const setup = cards.map(c => c.abilities).join('\n');
+  // "Add an extra Henchman group to the Villain Deck" (generic, no custom name)
+  // Wyklucz wzorce z "of N cards as" (scheme-specific named groups)
+  if (/Add an extra Henchman[s]? [Gg]roup(?! of \d+ cards)/.test(setup) ||
+      /Add an extra Henchman [Gg]roup to the Villain Deck/i.test(setup)) {
+    // Sprawdź czy nie ma dedykowanej nazwy (custom scheme cards)
+    if (!/of \d+ cards as [""]/.test(setup) && !/of 10 cards as/i.test(setup)) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
 // ─── Derive countersNeeded for Henchman Group ────────────────────────────────
 /**
  * Analyzes all cards in a henchman group and determines what hero abilities
@@ -1750,6 +1802,11 @@ function migrate(): CardsDatabase {
         ? { requiredHeroes: deriveRequiredHeroes(s.cards) } : {}),
       ...(deriveRequiredHeroFaction(s.cards) != null
         ? { requiredHeroFaction: deriveRequiredHeroFaction(s.cards)! } : {}),
+      ...(deriveIsVeiledScheme(s.cards) ? { isVeiledScheme: true } : {}),
+      ...(deriveIsUnveiledScheme(s.name) ? { isUnveiledScheme: true } : {}),
+      ...(deriveVeilTransformsTwist(s.cards) != null
+        ? { veilTransformsTwist: deriveVeilTransformsTwist(s.cards)! } : {}),
+      ...(deriveExtraHenchmen(s.cards) > 0 ? { extraHenchmen: deriveExtraHenchmen(s.cards) } : {}),
       // requiredHenchmanGroups: nie wykrywane automatycznie (wymaga dostępu do puli henchmenów).
       // Adnotowane ręcznie w cards.json (patrz krok 10, The Mark of Khonshu).
     },

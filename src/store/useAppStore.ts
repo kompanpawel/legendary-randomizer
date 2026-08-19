@@ -14,6 +14,11 @@ export interface GameSetup {
    */
   secondMastermind?: Mastermind;
   /**
+   * Losowo wybrany Unveiled Scheme — "druga faza" aktywnego Veiled Scheme.
+   * Obecny tylko gdy scheme.overrides.isVeiledScheme === true.
+   */
+  unveiledScheme?: Scheme;
+  /**
    * „Drained" Mastermind wylosowany dla Symbiotic Absorption.
    * Odłożony poza grę; jego Tactics trafiają do głównego Masterminda na Twistach 1–4.
    * Obecny tylko gdy scheme.overrides.requiresDrainedMastermind === true.

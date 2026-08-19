@@ -520,7 +520,7 @@ gwarancji podziału na drużyny, bez gwarancji obecności bohaterów z „Hulk" 
 gwarancji zróżnicowania klas — a gracz nie dostaje żadnego ostrzeżenia, bo tekst specialSetup
 nigdy nie został wyekstrahowany do `overrides` dla tych czterech pozycji.
 
-## 16. Specjalne scheme z nazwą Veiled oraz Unveiled
+## 16. Specjalne scheme z nazwą Veiled oraz Unveiled ✅ NAPRAWIONE
 Istnieją schematy, które przez kilka pierwszych twistów mają inne mechaniki, a po odwróceniu (Unveiled) zmieniają
 się w zupełnie inne schematy. Silnik nie ma mechanizmu rozróżniania Veiled/Unveiled,
 więc nie może w pełni symulować rozgrywki. Pytanie, czy narzucić graczowi wylosowany Veiled i Unveiled scheme, czy
@@ -528,10 +528,89 @@ pozwolić na wylosowanie tylko Veiled a zostawić Unveiled do ręcznego wylosowa
 nie będzie można określić trudności takich rozgrywek. Może warto dodać pewien przełącznik w aplikacji, albo przycisk,
 który opcjonalnie wylosuje drugą część scenariusza
 
-## 17. Scheme Negative Zone Prison Breakout — wymaga dodatkowego Henchmana
+**Status:** Naprawione. Zidentyfikowano 4 Veiled Schemes i 4 Unveiled Schemes w ekspansji 31 (X-Force / Messiah Complex).
+
+- Dodano 3 pola do `Scheme.overrides` w `src/types/cards.ts`:
+  - `isVeiledScheme?: boolean` — Veiled Scheme (transformuje w losowy Unveiled na Twiście N)
+  - `isUnveiledScheme?: boolean` — Unveiled Scheme (nie losowany samodzielnie przez silnik)
+  - `veilTransformsTwist?: number` — numer Twista transformacji (6/7/5/4 dla kolejnych Veiled)
+- Oznaczono 4 Veiled Schemes w `src/assets/cards.json` (`isVeiledScheme: true, veilTransformsTwist: N`):
+  Hack Cerebro Servers To... (Twist 6), Drain Mutant Powers To... (Twist 7),
+  Hire Singularity Investigations To... (Twist 5), Raid Gene Banks To... (Twist 4).
+- Oznaczono 4 Unveiled Schemes (`isUnveiledScheme: true`):
+  ...Control the Mutant Messiah, ...Open Rifts to Future Timelines,
+  ...Reveal The Heroes' Evil Clones, ...Unleash an Anti-Mutant Bioweapon.
+- Dodano 3 funkcje derive w `src/utils/jsonMigration.ts`: `deriveIsVeiledScheme()`,
+  `deriveIsUnveiledScheme()`, `deriveVeilTransformsTwist()` — przyszłe regeneracje `cards.json`
+  automatycznie wykryją wzorzec `[Transforms] into a random [Unveiled Scheme]`.
+- **Silnik** (`SmartRandomizerEngine.ts`):
+  - Unveiled Schemes są **filtrowane z puli automatycznego losowania** — losowane wyłącznie
+    gdy gracz ręcznie je wymusi przez Manual Pick (forcedScheme).
+  - Gdy Veiled Scheme jest wylosowany, silnik automatycznie pre-wybiera losowy Unveiled Scheme
+    z tej samej ekspansji i zwraca go jako `GameSetup.unveiledScheme`.
+  - Dodano setup note `setup.notes.veiledScheme` z numerem Twista transformacji.
+- **UI** (`SetupPage.tsx`):
+  - Gdy `currentSetup.unveiledScheme` jest obecny, wyświetlany jest przycisk
+    „🎲 Reveal Phase 2 (Unveiled Scheme — spoiler!)" / „🙈 Hide Unveiled Scheme".
+  - Po kliknięciu ujawniany jest SchemeCard Unveiled Scheme z pomarańczowym obramowaniem
+    i nagłówkiem „Phase 2: Unveiled Scheme (Revealed at Twist N)".
+  - Stan spoilera (`unveiledVisible`) resetuje się przy każdym nowym losowaniu.
+- **`SchemeCard.tsx`**: pomarańczowy badge „Veiled Scheme (transforms at Twist N)"
+  dla Veiled Schemes oraz „Unveiled Scheme (Phase 2)" dla Unveiled Schemes.
+- Nowe klucze i18n w `src/i18n/en.json`:
+  `setup.notes.veiledScheme`, `cards.scheme.veiledBadge`, `cards.scheme.unveiledBadge`,
+  `setup.unveiledScheme.revealButton/hideButton/heading/subheading`.
+- Test: `src/engine/__tests__/veiledSchemes.test.ts` (21 przypadków: weryfikacja danych
+  dla wszystkich 8 schematów, filtrowanie z puli auto-losowania, obecność `unveiledScheme`
+  w GameSetup, losowość wyboru, setup notes, brak fałszywych pozytywów).
+
+## 17. Scheme Negative Zone Prison Breakout — wymaga dodatkowego Henchmana ✅ NAPRAWIONE
 Należy dodać warunek dodający grupę Henchman do setupu, jeśli wylosowany zostanie ten schemat. 
 W przeciwnym razie schemat nie będzie zgodny z instrukcją. Dodatkowo sprawdzamy, czy nie ma więcej
 takich schematów.
+
+**Status:** Naprawione. Przeskanowano wszystkie schematy w bazie — znaleziono łącznie 10 schematów
+z różnymi wymaganiami dotyczącymi dodatkowych grup Henchman. Podzielono je na 4 kategorie:
+
+**Typ A — Generic extra Henchman z puli (`extraHenchmen: 1`)**
+Dodano nowe pole `extraHenchmen?: number` do `Scheme.overrides` (`src/types/cards.ts`).
+`generateSetup()` w `SmartRandomizerEngine.ts` oblicza `effectiveHenchmanCount = baseHenchmanCount + extraHenchmen`
+i losuje odpowiednią liczbę grup. 4 schematy otrzymały `extraHenchmen: 1`:
+- Negative Zone Prison Breakout (exp 1): „Add an extra Henchman group to the Villain Deck"
+- Asgard Under Siege: „Add an extra Henchman group"
+- Invasion of the Venom Symbiotes: „Add an extra Henchman Group"
+- Invade the Daily Bugle News HQ: „Add 6 extra Henchmen from a single Henchman Group to the Hero Deck"
+  (+ `specialSetup` nota: 6 kart trafia do Hero Deck, nie Villain Deck)
+
+**Typ B — Wymagany konkretny Henchman z puli (`requiredHenchmanGroups`)**
+Mechanizm `requiredHenchmanGroups` był już zaimplementowany (krok 10). Naniesiono 2 adnotacje:
+- Organized Crime Wave: `requiredHenchmanGroups: ["Maggia Goons"]` (zajmuje normalny slot)
+- Mutant-Hunting Super Sentinels: `extraHenchmen: 1` + `requiredHenchmanGroups: ["Sentinel"]`
+  (dodatkowy slot, konkretna grupa)
+
+**Typ C — Scheme-specific custom Henchman (nie z puli, `specialSetup` nota)**
+Te grupy (10 custom kart) są dołączone do pudełka schematu, nie są losowane z puli:
+- Sire Vampires at the Blood Bank: "Vampire Neonates"
+- Devolve with Xerogen Crystals: "Xerogen Experiments"
+- Scavenge Alien Weaponry: "Smugglers"
+
+**Typ D — Specjalne/złożone mechaniki (`specialSetup` nota)**
+- Star-Lord's Awesome Mix Tape: „double the normal number of Villain and Henchman Groups,
+  use only half the cards" — zbyt złożone do modelowania w silniku; dodana nota setup.
+
+**Zmiany techniczne:**
+- Pole `extraHenchmen?: number` w `src/types/cards.ts`
+- `effectiveHenchmanCount = baseHenchmanCount + extraHenchmen` w `SmartRandomizerEngine.ts`
+- Setup note `setup.notes.schemeExtraHenchmen` (z liczbą grup)
+- Funkcja `deriveExtraHenchmen()` w `src/utils/jsonMigration.ts` (auto-detekcja wzorców
+  „Add an extra Henchman group" bez customowej nazwy)
+- Badge `+N Extra Henchman Group(s)` w `SchemeCard.tsx` (czerwone obramowanie, ikona ShieldAlert)
+- Fix: `specialSetup` w SchemeCard renderuje się teraz zawsze (nie tylko gdy `isModActive`)
+- Nowe klucze i18n: `cards.scheme.extraHenchman`, `cards.scheme.extraHenchmanPlural`,
+  `setup.notes.schemeExtraHenchmen`
+- Test: `src/engine/__tests__/extraHenchmen.test.ts` (19 przypadków: weryfikacja danych
+  dla wszystkich 10 schematów, testy silnika dla poprawnej liczby henchmenów przy każdym
+  playerCount, setup notes, brak fałszywych pozytywów).
 
 ---
 

@@ -24543,7 +24543,9 @@
       ],
       "overrides": {
         "heroCountOverride": 6,
-        "heroFactionSplit": { "teamSize": 3 }
+        "heroFactionSplit": {
+          "teamSize": 3
+        }
       },
       "cards": [
         {
@@ -24735,7 +24737,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraHenchmen": 1
+      },
       "cards": [
         {
           "name": "Negative Zone Prison Breakout",
@@ -25037,7 +25041,11 @@
         "ambush",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredHenchmanGroups": [
+          "Maggia Goons"
+        ]
+      },
       "cards": [
         {
           "name": "Organized Crime Wave",
@@ -25606,7 +25614,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraHenchmen": 1
+      },
       "cards": [
         {
           "name": "Asgard Under Siege",
@@ -25747,7 +25757,10 @@
         "recruit-boost",
         "transform"
       ],
-      "overrides": {},
+      "overrides": {
+        "isVeiledScheme": true,
+        "veilTransformsTwist": 6
+      },
       "cards": [
         {
           "name": "Hack Cerebro Servers To...",
@@ -25766,7 +25779,8 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "Extra Hero shuffled into a face-down Mutant Messiah stack"
+        "specialSetup": "Extra Hero shuffled into a face-down Mutant Messiah stack",
+        "isUnveiledScheme": true
       },
       "cards": [
         {
@@ -25785,7 +25799,10 @@
         "sidekick",
         "transform"
       ],
-      "overrides": {},
+      "overrides": {
+        "isVeiledScheme": true,
+        "veilTransformsTwist": 7
+      },
       "cards": [
         {
           "name": "Drain Mutant Powers To...",
@@ -25801,7 +25818,9 @@
       "countersNeeded": [
         "time-travel"
       ],
-      "overrides": {},
+      "overrides": {
+        "isUnveiledScheme": true
+      },
       "cards": [
         {
           "name": "...Open Rifts to Future Timelines",
@@ -25821,7 +25840,10 @@
         "top-deck-control",
         "transform"
       ],
-      "overrides": {},
+      "overrides": {
+        "isVeiledScheme": true,
+        "veilTransformsTwist": 5
+      },
       "cards": [
         {
           "name": "Hire Singularity Investigations To...",
@@ -25838,7 +25860,9 @@
         "deck-thinning",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "isUnveiledScheme": true
+      },
       "cards": [
         {
           "name": "...Reveal The Heroes' Evil Clones",
@@ -25855,7 +25879,10 @@
         "transform",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "isVeiledScheme": true,
+        "veilTransformsTwist": 4
+      },
       "cards": [
         {
           "name": "Raid Gene Banks To...",
@@ -25872,7 +25899,9 @@
         "deck-thinning",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "isUnveiledScheme": true
+      },
       "cards": [
         {
           "name": "...Unleash an Anti-Mutant Bioweapon",
@@ -25889,7 +25918,9 @@
         "bystander-rescue",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "specialSetup": "Add an extra Henchman Group of 10 'Vampire Neonates' (scheme-specific cards included with the expansion)"
+      },
       "cards": [
         {
           "name": "Sire Vampires at the Blood Bank",
@@ -26076,7 +26107,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "specialSetup": "Use double the normal number of Villain and Henchman Groups, but only half the cards from each (randomly and secretly)"
+      },
       "cards": [
         {
           "name": "Star-Lord's Awesome Mix Tape",
@@ -26422,7 +26455,10 @@
         "deck-thinning",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraHenchmen": 1,
+        "specialSetup": "Add 6 Henchmen from the extra group to the Hero Deck (not the Villain Deck)"
+      },
       "cards": [
         {
           "name": "Invade the Daily Bugle News HQ",
@@ -26533,7 +26569,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "specialSetup": "Add an extra Henchman Group of 10 'Xerogen Experiments' (scheme-specific cards included with the expansion)"
+      },
       "cards": [
         {
           "name": "Devolve with Xerogen Crystals",
@@ -26576,7 +26614,11 @@
       ],
       "overrides": {
         "heroCountOverride": 6,
-        "requiredFactionCount": { "faction": "X-Men", "count": 4, "excludeFromRemainder": true }
+        "requiredFactionCount": {
+          "faction": "X-Men",
+          "count": 4,
+          "excludeFromRemainder": true
+        }
       },
       "cards": [
         {
@@ -26776,7 +26818,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "specialSetup": "Add an extra Henchman Group of 10 'Smugglers' with [Striker] (scheme-specific cards included with the expansion)"
+      },
       "cards": [
         {
           "name": "Scavenge Alien Weaponry",
@@ -27088,7 +27132,9 @@
         "ambush",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraHenchmen": 1
+      },
       "cards": [
         {
           "name": "Invasion of the Venom Symbiotes",
@@ -27380,7 +27426,10 @@
         "wound-removal"
       ],
       "overrides": {
-        "requiredHeroNameSubstring": { "substring": "Hulk", "exactCount": 2 }
+        "requiredHeroNameSubstring": {
+          "substring": "Hulk",
+          "exactCount": 2
+        }
       },
       "cards": [
         {
@@ -27562,7 +27611,12 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraHenchmen": 1,
+        "requiredHenchmanGroups": [
+          "Sentinel"
+        ]
+      },
       "cards": [
         {
           "name": "Mutant-Hunting Super Sentinels",

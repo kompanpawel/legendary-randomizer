@@ -56,6 +56,7 @@ export default function SetupPage() {
   const [saveModalOpen, setSaveModalOpen] = useState(false);
   const [expansionsOpen, setExpansionsOpen] = useState(false);
   const [pickOpen, setPickOpen] = useState(false);
+  const [unveiledVisible, setUnveiledVisible] = useState(false);
 
   const setupRules = getSetupRules(playerCount);
 
@@ -79,7 +80,6 @@ export default function SetupPage() {
       .sort((a, b) => a.name.localeCompare(b.name)),
     [activeIds]
   );
-
   // Wybrany mastermind / schemat (z dropdown)
   const pinnedMastermind = useMemo(
     () => pinnedMastermindId ? db.masterminds.find((m) => m.id === pinnedMastermindId) ?? null : null,
@@ -124,6 +124,7 @@ export default function SetupPage() {
           forcedScheme: pinnedScheme ?? undefined,
         });
         setSetup(setup);
+        setUnveiledVisible(false); // reset spoiler przy nowym setupie
       } catch (err) {
         console.error(err);
       } finally {
@@ -462,6 +463,45 @@ export default function SetupPage() {
               schemeHeroMod={currentSetup.schemeHeroMod}
               schemeExtraVillainMod={currentSetup.schemeExtraVillainMod}
             />
+
+            {/* Unveiled Scheme (krok 16 — "druga faza" Veiled Scheme, opcjonalny spoiler) */}
+            {currentSetup.unveiledScheme && (
+              <div className="space-y-2">
+                <button
+                  onClick={() => setUnveiledVisible(v => !v)}
+                  className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl border border-orange-700/40 bg-orange-950/20 text-orange-300 text-xs font-medium hover:border-orange-600/60 transition-colors"
+                >
+                  <span>
+                    {unveiledVisible
+                      ? t('setup.unveiledScheme.hideButton')
+                      : t('setup.unveiledScheme.revealButton')}
+                  </span>
+                  <span className="text-orange-400/60 text-xs">
+                    {t('setup.unveiledScheme.subheading', {
+                      twist: currentSetup.scheme.overrides.veilTransformsTwist ?? '?',
+                    })}
+                  </span>
+                </button>
+                {unveiledVisible && (
+                  <div className="space-y-1">
+                    <p className="text-xs font-medium text-orange-400/80 uppercase tracking-wide px-1">
+                      {t('setup.unveiledScheme.heading')}
+                      <span className="normal-case text-orange-300/60 ml-1">
+                        ({t('setup.unveiledScheme.subheading', {
+                          twist: currentSetup.scheme.overrides.veilTransformsTwist ?? '?',
+                        })})
+                      </span>
+                    </p>
+                    <SchemeCard
+                      scheme={currentSetup.unveiledScheme}
+                      stats={schemeStatsMap.get(currentSetup.unveiledScheme.id)}
+                      playerCount={playerCount}
+                      className="border-orange-800/50 bg-gradient-to-br from-orange-950/30 to-zinc-900/60"
+                    />
+                  </div>
+                )}
+              </div>
+            )}
 
             <div className="space-y-2">
               <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">{t('setup.sections.villains')}</p>
