@@ -4,7 +4,7 @@ export function Spinner({ className = '' }: { className?: string }) {
     <div
       className={`inline-block border-2 border-marvel-red border-t-transparent rounded-full animate-spin ${className}`}
       role="status"
-      aria-label="Ładowanie..."
+      aria-label="Loading..."
     />
   );
 }

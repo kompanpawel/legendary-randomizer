@@ -88,6 +88,20 @@ export interface Scheme {
     extraVillains?: number;
     /** Opis specjalnych zasad setupu wynikających ze schematu */
     specialSetup?: string;
+    /**
+     * Czy ten schemat wymaga losowego drugiego Masterminda z pełnym zestawem Tactics
+     * (dodawanego do gry na Twist 1). Dotyczy wyłącznie Dark Alliance.
+     * W odróżnieniu od multipleMasterminds (ogólna flaga), ta flaga oznacza konieczność
+     * fizycznego wylosowania i przygotowania drugiego Masterminda przed grą.
+     */
+    requiresSecondMastermind?: boolean;
+    /**
+     * Czy ten schemat wprowadza mechnikę Multiple Masterminds — podczas gry mogą pojawić się
+     * lub zostać aktywowani dodatkowi Mastermindowie (ascension villainów lub drugi Mastermind
+     * z Tactics). Ascending Masterminds nie mają Tactics (pokonywani jedną walką), ale mogą
+     * być ich wiele; drugi prawdziwy Mastermind (Dark Alliance) ma pełny zestaw Tactics.
+     */
+    multipleMasterminds?: boolean;
   };
   cards: readonly SchemeCard[];
 }

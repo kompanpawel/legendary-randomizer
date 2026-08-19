@@ -67,17 +67,17 @@ export async function importStats(file: File): Promise<{ imported: number; error
 
   const parsed = BackupSchema.safeParse(json);
   if (!parsed.success) {
-    throw new Error(`Nieprawidłowy format pliku: ${parsed.error.message}`);
+    throw new Error(`Invalid file format: ${parsed.error.message}`);
   }
 
   const { matchLog, heroStats } = parsed.data;
   const errors: string[] = [];
 
-  // Importuj logi meczów
+  // Import match logs
   const logsToImport: Omit<MatchLog, 'id'>[] = matchLog.map(({ id: _id, ...log }) => log);
   await db.matchLog.bulkPut(logsToImport as MatchLog[]);
 
-  // Importuj statystyki bohaterów
+  // Import hero stats
   await db.heroStats.bulkPut(heroStats as HeroStats[]);
 
   return { imported: matchLog.length + heroStats.length, errors };

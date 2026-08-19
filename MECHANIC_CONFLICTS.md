@@ -38,8 +38,14 @@ wpływa na strukturę silnika losującego (`src/engine/`). Wnioski wstępne:
      jeszcze nie scommitowane zmiany w tym pliku — nanieś je ponownie ręcznie).
 - **Konwencja oznaczania napraw w tym pliku:** nagłówek punktu dostaje dopisek
   `✅ NAPRAWIONE` (lub `✅ NAPRAWIONE (częściowo — ...)` gdy tylko część punktu wymagała akcji),
-  a bezpośrednio pod oryginalnym opisem problemu dodawany jest akapit **„Status:”** z konkretnymi
+  a bezpośrednio pod oryginalnym opisem problemu dodawany jest akapit **„Status:"** z konkretnymi
   ścieżkami plików, które zmieniono, oraz nazwami plików testowych, które to pokrywają.
+- **Język aplikacji — OBOWIĄZKOWE:** Wszystkie teksty dodawane do kodu produkcyjnego (string
+  literals w `*.ts`/`*.tsx`, klucze i wartości w `src/i18n/en.json`, komunikaty błędów, ARIA
+  labels, console.logi skryptów CLI) **muszą być w języku angielskim**. Komentarze deweloperskie
+  (`//` i `/** */`) mogą pozostać w języku polskim jako wewnętrzna dokumentacja, jednak nowy kod
+  powinien preferować angielski dla spójności. Teksty widoczne dla użytkownika zawsze przez
+  `t()` z kluczem zdefiniowanym w `src/i18n/en.json`.
 - **Przydatny słownik tagów `countersNeeded` / `countersProvided`** (zebrany przez
   `node -e "require('./src/assets/cards.json')..."` przy pkt. 1-2, przydatny przy kolejnych
   punktach, żeby nie wymyślać nowych tagów, gdy pasujący już istnieje): `ambush`, `aoe`,
@@ -178,10 +184,35 @@ kosztu/ataku karty, próg trudności villaina z Abomination może być źle skal
 - Test: `src/engine/__tests__/dividedCards.test.ts` (6 przypadków — weryfikacja danych
   i potwierdzenie braku rozbieżności dla wszystkich istniejących par Divided Card).
 
-## 7. Multiple Masterminds (Ascending Villains) — inny próg trudności
+## 7. Multiple Masterminds (Ascending Villains) — inny próg trudności ✅ NAPRAWIONE
 Wchłonięty Mastermind nie ma Tactics — wystarczy go pokonać raz. Jeśli silnik liczy trudność na
 podstawie standardowej liczby Tactics per Mastermind, zaniży realną liczbę potrzebnych starć dla
 takich Schematów.
+
+**Status:** Naprawione. Zidentyfikowano dokładnie 3 schematy z mechaniką Multiple Masterminds:
+**Dark Alliance** (dodaje pełny drugi Mastermind z Tactics), **Enthrone the Barons of Battleworld**
+(villains ascendują do Mastermindów; może ich być do 6 — bez Tactics, jeden fight każdy),
+**God-Emperor of Battleworld** (schemat sam ascenduje do Masterminda).
+- Dodano pole `overrides.multipleMasterminds?: boolean` do typu `Scheme` w `src/types/cards.ts`
+  oraz `overrides.requiresSecondMastermind?: boolean` dla schematu wymagającego fizycznie drugiego
+  Masterminda z Tactics (wyłącznie Dark Alliance). Zaktualizowano `GameSetup` w
+  `src/store/useAppStore.ts` (pole `setupNotes: string[]`, `secondMastermind?: Mastermind`).
+- Oznaczono 3 schematy w `src/assets/cards.json` (`"multipleMasterminds": true`);
+  Dark Alliance dodatkowo `"requiresSecondMastermind": true`.
+- Dodano `deriveMultipleMasterminds()` i `deriveRequiresSecondMastermind()` w
+  `src/utils/jsonMigration.ts`; wyniki wbudowane w `overrides` schematu.
+- `generateSetup()` w `SmartRandomizerEngine.ts`:
+  - Dla **Dark Alliance**: losuje drugiego Masterminda z dostępnej puli (z wyłączeniem głównego),
+    zwraca go jako `secondMastermind: Mastermind` w `GameSetup`, a w `setupNotes` podaje
+    jego imię i instrukcję (Twist 1, liczba Tactics).
+  - Dla **Enthrone / God-Emperor**: dodaje ogólną notę o zasadzie Multiple Masterminds.
+- **Naprawiono brakującą funkcję UI**: `src/pages/SetupPage.tsx` nie renderował `setupNotes`
+  w ogóle (luka z kroku 3). Dodano sekcję wyświetlającą `setupNotes` jako żółte alerty.
+  Dla Dark Alliance renderowany jest pełny `MastermindCard` drugiego Masterminda (z fioletowym
+  obramowaniem i etykietą „2nd Mastermind (Dark Alliance — Twist 1)") bezpośrednio pod
+  kartą głównego Masterminda.
+- Test: `src/engine/__tests__/multipleMasterminds.test.ts` (12 przypadków — weryfikacja danych,
+  secondMastermind w GameSetup, setupNotes dla każdego ze 3 schematów i brak false-positive).
 
 ## 8. Cross-Dimensional Rampage — zależność nazewnicza kart
 Wymaga obecności konkretnie nazwanych bohaterów (np. „Hulk” w nazwie). Jeśli losowanie Heroes nie

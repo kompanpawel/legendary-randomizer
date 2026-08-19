@@ -1136,6 +1136,34 @@ function deriveHasAmbushScheme(cards: RawVillainCard[]): boolean {
   );
 }
 
+/**
+ * Czy schemat wprowadza mechnikę Multiple Masterminds — podczas gry pojawiają się
+ * dodatkowi Mastermindowie (Twist lub Escape powoduje ascension villaina do Masterminda
+ * albo dodaje drugiego prawdziwego Masterminda z Tactics).
+ *
+ * Wzorce detekcji:
+ *   - "[second Mastermind]"        → Dark Alliance (drugi prawdziwy Mastermind z Tactics)
+ *   - "ascends to become[s]* a [new Mastermind]" → Enthrone the Barons, God-Emperor
+ */
+function deriveMultipleMasterminds(cards: RawSchemeCard[]): boolean {
+  const all = cards.map(c => c.abilities).join('\n');
+  return (
+    /\[second Mastermind\]/i.test(all) ||
+    /ascends? to become[s]? a? ?\[?(new )?Mastermind/i.test(all)
+  );
+}
+
+/**
+ * Czy schemat wymaga wylosowania drugiego pełnego Masterminda z Tactics
+ * (Dark Alliance: "[second Mastermind]" z Tactics dodawany na Twist 1).
+ * W odróżnieniu od multipleMasterminds, ta flaga oznacza że randomizer
+ * powinien wylosować i wyświetlić konkretną kartę drugiego Masterminda.
+ */
+function deriveRequiresSecondMastermind(cards: RawSchemeCard[]): boolean {
+  const all = cards.map(c => c.abilities).join('\n');
+  return /\[second Mastermind\]/i.test(all);
+}
+
 // ─── Derive countersNeeded for Henchman Group ────────────────────────────────
 /**
  * Analyzes all cards in a henchman group and determines what hero abilities
@@ -1346,7 +1374,10 @@ function migrate(): CardsDatabase {
     expansionId: s.setId,
     difficulty: 3 as const,
     countersNeeded: deriveSchemeCounters(s.cards),
-    overrides: {},
+    overrides: {
+      ...(deriveMultipleMasterminds(s.cards) ? { multipleMasterminds: true } : {}),
+      ...(deriveRequiresSecondMastermind(s.cards) ? { requiresSecondMastermind: true } : {}),
+    },
     cards: s.cards.map(c => ({
       name: c.name,
       abilities: c.abilities,
@@ -1399,14 +1430,14 @@ if (!fs.existsSync(outDir)) {
 }
 
 fs.writeFileSync(outputPath, JSON.stringify(db, null, 2), 'utf-8');
-console.log(`✅ Migracja zakończona!`);
-console.log(`   Ekspansje: ${db.expansions.length}`);
-console.log(`   Bohaterowie: ${db.heroes.length}`);
-console.log(`   Mastermindowie: ${db.masterminds.length}`);
-console.log(`   Schematy: ${db.schemes.length}`);
-console.log(`   Grupy łotrów: ${db.villains.length}`);
-console.log(`   Słudzy: ${db.henchmen.length}`);
-console.log(`   Wynik zapisany do: ${outputPath}`);
+console.log(`✅ Migration complete!`);
+console.log(`   Expansions: ${db.expansions.length}`);
+console.log(`   Heroes: ${db.heroes.length}`);
+console.log(`   Masterminds: ${db.masterminds.length}`);
+console.log(`   Schemes: ${db.schemes.length}`);
+console.log(`   Villain groups: ${db.villains.length}`);
+console.log(`   Henchmen: ${db.henchmen.length}`);
+console.log(`   Output written to: ${outputPath}`);
 
 
 

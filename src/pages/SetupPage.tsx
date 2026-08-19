@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Shuffle, ChevronDown, ChevronUp, Zap, Lock } from 'lucide-react';
+import { Shuffle, ChevronDown, ChevronUp, Zap, Lock, AlertTriangle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import cardsData from '../assets/cards.json';
 import type { CardsDatabase } from '../types/cards';
@@ -425,6 +425,21 @@ export default function SetupPage() {
               stats={mastermindStatsMap.get(currentSetup.mastermind.id)}
               isEpic={currentSetup.isEpicMastermind}
             />
+
+            {/* Drugi Mastermind (Dark Alliance — losowany na Twist 1) */}
+            {currentSetup.secondMastermind && (
+              <div className="space-y-1">
+                <p className="text-xs font-medium text-purple-400/80 uppercase tracking-wide px-1">
+                  2nd Mastermind <span className="normal-case text-purple-300/60">(Dark Alliance — Twist 1)</span>
+                </p>
+                <MastermindCard
+                  mastermind={currentSetup.secondMastermind}
+                  stats={mastermindStatsMap.get(currentSetup.secondMastermind.id)}
+                  isEpic={false}
+                  className="border-purple-800/50 bg-gradient-to-br from-purple-950/30 to-zinc-900/60"
+                />
+              </div>
+            )}
             <SchemeCard
               scheme={currentSetup.scheme}
               stats={schemeStatsMap.get(currentSetup.scheme.id)}
@@ -465,6 +480,21 @@ export default function SetupPage() {
             <Button variant="secondary" size="lg" className="w-full" onClick={() => setSaveModalOpen(true)}>
               {t('setup.saveMatchButton')}
             </Button>
+
+            {/* Setup Notes (np. Ambush Scheme overlap, Multiple Masterminds) */}
+            {currentSetup.setupNotes.length > 0 && (
+              <div className="space-y-2">
+                {currentSetup.setupNotes.map((note, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-2 px-3 py-2 rounded-xl text-xs border bg-amber-950/30 border-amber-700/50 text-amber-200"
+                  >
+                    <AlertTriangle size={13} className="flex-shrink-0 mt-0.5 text-amber-400" />
+                    <span>{t(note.key, note.params)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700">
               <span className="text-xl">{'🧑‍🤝‍🧑'}</span>

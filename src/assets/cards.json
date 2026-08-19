@@ -26722,7 +26722,7 @@
         "multi-class",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": { "multipleMasterminds": true, "requiresSecondMastermind": true },
       "cards": [
         {
           "name": "Dark Alliance",
@@ -26821,7 +26821,7 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": { "multipleMasterminds": true },
       "cards": [
         {
           "name": "Enthrone the Barons of Battleworld",
@@ -26855,7 +26855,7 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": { "multipleMasterminds": true },
       "cards": [
         {
           "name": "God-Emperor of Battleworld, The",

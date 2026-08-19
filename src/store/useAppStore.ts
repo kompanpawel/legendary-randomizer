@@ -2,12 +2,17 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { RandomizationMode } from '../types/stats';
 import type { Hero, Mastermind, Scheme, VillainGroup, Henchman } from '../types/cards';
-import type { CounterCoverage } from '../engine/SmartRandomizerEngine';
+import type { CounterCoverage, SetupNote } from '../engine/SmartRandomizerEngine';
 
 export type { CounterCoverage };
 
 export interface GameSetup {
   mastermind: Mastermind;
+  /**
+   * Drugi Mastermind losowany dla Dark Alliance — dodawany na Twist 1.
+   * Obecny tylko gdy scheme.overrides.requiresSecondMastermind === true.
+   */
+  secondMastermind?: Mastermind;
   scheme: Scheme;
   heroes: Hero[];
   villains: VillainGroup[];
@@ -19,6 +24,8 @@ export interface GameSetup {
   threatScore: number;
   balanceGap: number;
   counterCoverage: CounterCoverage;
+  /** Notatki setupowe — klucze i18n do przetłumaczenia w UI */
+  setupNotes: SetupNote[];
 }
 interface AppState {
   selectedExpansionIds: number[];

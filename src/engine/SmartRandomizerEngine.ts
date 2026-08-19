@@ -13,8 +13,22 @@ import { blendedStrength } from '../utils/blendedStrength';
 
 export type { CounterCoverage };
 
+/** Pojedyncza nota setupowa — klucz i18n + opcjonalne parametry interpolacji. */
+export interface SetupNote {
+  /** Klucz tłumaczenia z en.json (np. "setup.notes.ambushSchemeOverlap") */
+  key: string;
+  /** Parametry przekazywane do t(key, params) */
+  params?: Record<string, string>;
+}
+
 export interface GameSetup {
   mastermind: Mastermind;
+  /**
+   * Drugi Mastermind wylosowany dla schematu Dark Alliance.
+   * Dodawany do gry na Twist 1 z jedną Mastermind Tactic (zyskuje kolejne na Twistach 2-4).
+   * Obecny tylko gdy `scheme.overrides.requiresSecondMastermind === true`.
+   */
+  secondMastermind?: Mastermind;
   scheme: Scheme;
   heroes: Hero[];
   villains: VillainGroup[];
@@ -34,11 +48,10 @@ export interface GameSetup {
   /** Szczegóły pokrycia kontrników — które zagrożenia są/nie są kontrowalne */
   counterCoverage: CounterCoverage;
   /**
-   * Opcjonalne notatki setupowe — informacje o mechanikach wymagających
-   * uwagi gracza, które nie blokują gry, ale wpływają na przebieg sesji.
-   * Np. redundantne karty Ambush Scheme gdy kilka grup je zawiera.
+   * Opcjonalne notatki setupowe — klucze i18n do przetłumaczenia w UI.
+   * Np. redundantne karty Ambush Scheme, Multiple Masterminds.
    */
-  setupNotes: string[];
+  setupNotes: SetupNote[];
 }
 
 export interface RandomizerInput {
@@ -108,6 +121,18 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   const schemeHeroModMinPlayers = scheme.overrides.heroCountModMinPlayers ?? 1;
   const effectiveHeroMod = playerCount >= schemeHeroModMinPlayers ? schemeHeroMod : 0;
   const heroCount = rules.heroCount + effectiveHeroMod;
+
+  // ── Second Mastermind (Dark Alliance) ────────────────────────────────────
+  // Schemat Dark Alliance dodaje na Twist 1 losowego drugiego Masterminda z Tactics.
+  // Losujemy go teraz z puli (z wyłączeniem głównego Masterminda), żeby gracz wiedział
+  // kogo przygotować przed grą.
+  let secondMastermind: Mastermind | undefined;
+  if (scheme.overrides.requiresSecondMastermind) {
+    const secondPool = masterminds.filter(m => m.id !== mastermind.id);
+    if (secondPool.length > 0) {
+      [secondMastermind] = uniformSample(secondPool, 1);
+    }
+  }
 
   // ── Always Leads ──────────────────────────────────────────────────────────
   const resolution = resolveAlwaysLeads(mastermind.alwaysLeads, villains, henchmen);
@@ -193,16 +218,25 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   const balanceGap = computeBalanceGap(heroBlendedPowers, threatScore);
 
   // ── Setup Notes ──────────────────────────────────────────────────────────
-  const setupNotes: string[] = [];
+  const setupNotes: SetupNote[] = [];
 
   // Nota 1: Redundantna karta Ambush Scheme (krok 3)
   const ambushSchemeGroups = selectedVillains.filter(v => v.hasAmbushScheme);
   if (ambushSchemeGroups.length >= 2) {
     const names = ambushSchemeGroups.map(v => v.name).join(', ');
-    setupNotes.push(
-      `Kilka wybranych grup (${names}) zawiera kartę Ambush Scheme. ` +
-      `Zgodnie z zasadami tylko jedna może być aktywna naraz — kolejne są KO'wane gdy wyjdą z talii.`
-    );
+    setupNotes.push({ key: 'setup.notes.ambushSchemeOverlap', params: { names } });
+  }
+
+  // Nota 2: Multiple Masterminds (krok 7)
+  if (scheme.overrides.multipleMasterminds) {
+    if (scheme.overrides.requiresSecondMastermind && secondMastermind) {
+      setupNotes.push({
+        key: 'setup.notes.darkAllianceSecondMastermind',
+        params: { name: secondMastermind.name },
+      });
+    } else {
+      setupNotes.push({ key: 'setup.notes.multipleMasterminds' });
+    }
   }
 
   const sortByName = <T extends { name: string }>(arr: T[]): T[] =>
@@ -210,6 +244,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
 
   return {
     mastermind,
+    ...(secondMastermind ? { secondMastermind } : {}),
     scheme,
     heroes: sortByName(selectedHeroes),
     villains: sortByName(selectedVillains),
