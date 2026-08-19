@@ -1237,10 +1237,8 @@ function deriveRequiresSecondMastermind(cards: RawSchemeCard[]): boolean {
  *   - "Add two extra Villain Groups" → 2  (Five Families of Crime)
  *   - "Add an extra Villain Group"   → 1  (np. Change the Outcome of WWII, Predict Future Crime…)
  *   - "Add [name] as an extra Villain Group" → 1  (Ritual Sacrifice, Symbiotic Absorption)
- *
- * Celowo WYKLUCZONE (warunki player-count z kroku 11):
- *   - "If playing solo, add an extra Villain Group" (Crush Them With My Bare Hands)
- *   - "3-5 players: Add a Villain Group" (Deadpool Wants a Chimichanga — używa "a", nie "extra")
+ *   - "3-5 players: Add a Villain Group" → 1  (Deadpool Wants a Chimichanga — krok 11)
+ *   - "If playing solo, add an extra Villain Group" → 1  (Crush Them With My Bare Hands — krok 11)
  *
  * Celowo WYKLUCZONE (efekt kart w grze, nie instrukcja setupu):
  *   - "When revealed: Shuffle a random additional Villain Group" (...Open Rifts to Future Timelines)
@@ -1249,13 +1247,56 @@ function deriveExtraVillains(cards: RawSchemeCard[]): number {
   const all = cards.map(c => c.abilities).join('\n');
   // Two extra villain groups — Five Families of Crime
   if (/add two extra Villain Group/i.test(all)) return 2;
+  // "3-5 players: Add a Villain Group" → 1 (krok 11: conditional, also sets extraVillainsMinPlayers)
+  if (/[0-9]-[0-9]\s*players:\s*Add (?:an? extra |a )Villain Group/i.test(all)) return 1;
+  // "If playing solo, add an extra Villain Group" → 1 (krok 11: conditional, also sets extraVillainsMaxPlayers)
+  if (/If playing solo,?\s+add an extra Villain Group/i.test(all)) return 1;
   // One extra villain group — unconditional setup
   // Pattern: "add (an/a named group) [as an] extra Villain Group"
-  const hasExtra = /add .+?extra Villain Group/i.test(all);
-  // Exclude "If playing solo, add an extra Villain Group" (step 11)
-  const isConditional = /(?:if playing solo|[0-9]-[0-9] players:).+extra Villain Group/is.test(all);
-  if (hasExtra && !isConditional) return 1;
+  if (/add .+?extra Villain Group/i.test(all)) return 1;
   return 0;
+}
+
+/**
+ * Minimalna liczba graczy, od której extraVillains jest aktywne.
+ * Np. "3-5 players: Add a Villain Group" → 3 (Deadpool Wants a Chimichanga).
+ */
+function deriveExtraVillainsMinPlayers(cards: RawSchemeCard[]): number | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const match = all.match(/([0-9])-[0-9]\s*players:\s*Add (?:an? extra |a )Villain Group/i);
+  if (match) return parseInt(match[1], 10);
+  return null;
+}
+
+/**
+ * Maksymalna liczba graczy, do której extraVillains jest aktywne.
+ * Np. "If playing solo, add an extra Villain Group" → 1 (Crush Them With My Bare Hands).
+ */
+function deriveExtraVillainsMaxPlayers(cards: RawSchemeCard[]): number | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  if (/If playing solo,?\s+add an extra Villain Group/i.test(all)) return 1;
+  return null;
+}
+
+/**
+ * Addytywna modyfikacja liczby Bystanders w Villain Decku.
+ * Np. "Add 4 extra Bystanders" → 4 (Negative Zone Prison Breakout exp 42).
+ */
+function deriveBystandersMod(cards: RawSchemeCard[]): number | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const match = all.match(/Add (\d+) extra Bystanders/i);
+  if (match) return parseInt(match[1], 10);
+  return null;
+}
+
+/**
+ * Nadpisuje liczbę Bystanders dokładną wartością.
+ * Np. "No Bystanders in the Villain Deck" → 0 (Hypnotize Every Human).
+ */
+function deriveBystandersOverride(cards: RawSchemeCard[]): number | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  if (/No Bystanders in the Villain Deck/i.test(all)) return 0;
+  return null;
 }
 
 /**
@@ -1567,6 +1608,14 @@ function migrate(): CardsDatabase {
       ...(deriveMultipleMasterminds(s.cards) ? { multipleMasterminds: true } : {}),
       ...(deriveRequiresSecondMastermind(s.cards) ? { requiresSecondMastermind: true } : {}),
       ...(deriveExtraVillains(s.cards) > 0 ? { extraVillains: deriveExtraVillains(s.cards) } : {}),
+      ...(deriveExtraVillainsMinPlayers(s.cards) != null
+        ? { extraVillainsMinPlayers: deriveExtraVillainsMinPlayers(s.cards)! } : {}),
+      ...(deriveExtraVillainsMaxPlayers(s.cards) != null
+        ? { extraVillainsMaxPlayers: deriveExtraVillainsMaxPlayers(s.cards)! } : {}),
+      ...(deriveBystandersMod(s.cards) != null
+        ? { bystandersMod: deriveBystandersMod(s.cards)! } : {}),
+      ...(deriveBystandersOverride(s.cards) != null
+        ? { bystandersOverride: deriveBystandersOverride(s.cards)! } : {}),
       ...(deriveRequiredVillainGroups(s.cards).length > 0
         ? { requiredVillainGroups: deriveRequiredVillainGroups(s.cards) } : {}),
       ...(deriveXorVillainGroups(s.cards).length > 0

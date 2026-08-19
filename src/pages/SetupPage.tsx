@@ -445,6 +445,7 @@ export default function SetupPage() {
               stats={schemeStatsMap.get(currentSetup.scheme.id)}
               playerCount={playerCount}
               schemeHeroMod={currentSetup.schemeHeroMod}
+              schemeExtraVillainMod={currentSetup.schemeExtraVillainMod}
             />
 
             <div className="space-y-2">

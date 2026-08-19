@@ -21,6 +21,11 @@ export interface GameSetup {
   isEpicMastermind: boolean;
   /** Modyfikator liczby hero wynikający ze schematu (0 jeśli brak) */
   schemeHeroMod: number;
+  /**
+   * Efektywny modyfikator liczby villain groups ze schematu (0 jeśli warunek player-count nie spełniony).
+   * Uwzględnia extraVillainsMinPlayers / extraVillainsMaxPlayers.
+   */
+  schemeExtraVillainMod: number;
   threatScore: number;
   balanceGap: number;
   counterCoverage: CounterCoverage;

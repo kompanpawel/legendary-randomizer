@@ -128,6 +128,26 @@ export interface Scheme {
      * Np. ["Party Thor"] dla Trash Earth with Hugest Party Ever.
      */
     requiredHeroes?: string[];
+    /**
+     * Minimalna liczba graczy, od której extraVillains jest aktywne.
+     * Np. 3 dla „3-5 players: Add a Villain Group" (Deadpool Wants a Chimichanga).
+     */
+    extraVillainsMinPlayers?: number;
+    /**
+     * Maksymalna liczba graczy, do której extraVillains jest aktywne (włącznie).
+     * Np. 1 dla „If playing solo, add an extra Villain Group" (Crush Them With My Bare Hands).
+     */
+    extraVillainsMaxPlayers?: number;
+    /**
+     * Addytywna modyfikacja liczby Bystanders w Villain Decku ponad wartość bazową z PLAYER_SETUP_RULES.
+     * Np. 4 dla „Add 4 extra Bystanders" (Negative Zone Prison Breakout exp 42).
+     */
+    bystandersMod?: number;
+    /**
+     * Nadpisuje liczbę Bystanders dokładną wartością (niezależną od liczby graczy).
+     * Np. 0 dla „No Bystanders in the Villain Deck" (Hypnotize Every Human).
+     */
+    bystandersOverride?: number;
   };
   cards: readonly SchemeCard[];
 }

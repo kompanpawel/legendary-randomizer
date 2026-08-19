@@ -40,6 +40,11 @@ export interface GameSetup {
   /** Modyfikator liczby hero wynikający ze schematu (0 jeśli brak) */
   schemeHeroMod: number;
   /**
+   * Efektywny modyfikator liczby villain groups ze schematu (0 jeśli warunek player-count nie spełniony).
+   * Uwzględnia extraVillainsMinPlayers / extraVillainsMaxPlayers.
+   */
+  schemeExtraVillainMod: number;
+  /**
    * POST-SELECTION threat score ∈ [2,10]
    * 30% power-based + 70% counter-gap (niepokryte countery wrogów)
    */
@@ -125,7 +130,22 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   const heroCount = rules.heroCount + effectiveHeroMod;
 
   // Oblicz efektywną liczbę villain groups (base + bonus ze schematu, krok 9)
-  const villainCount = rules.villainCount + (scheme.overrides.extraVillains ?? 0);
+  // Dla schematów z warunkiem player-count (krok 11): extraVillainsMinPlayers / extraVillainsMaxPlayers
+  const schemeExtraVillains = scheme.overrides.extraVillains ?? 0;
+  const extraVillainsMinP = scheme.overrides.extraVillainsMinPlayers ?? 1;
+  const extraVillainsMaxP = scheme.overrides.extraVillainsMaxPlayers ?? Infinity;
+  const isExtraVillainsActive = playerCount >= extraVillainsMinP && playerCount <= extraVillainsMaxP;
+  const effectiveExtraVillains = isExtraVillainsActive ? schemeExtraVillains : 0;
+  const villainCount = rules.villainCount + effectiveExtraVillains;
+
+  // Oblicz efektywną liczbę Bystanders (krok 11)
+  // bystandersOverride → ustawia dokładną wartość; bystandersMod → addytywny; brak → wartość bazowa
+  let effectiveBystanders = bystanders;
+  if (scheme.overrides.bystandersOverride !== undefined) {
+    effectiveBystanders = scheme.overrides.bystandersOverride;
+  } else if (scheme.overrides.bystandersMod !== undefined) {
+    effectiveBystanders = Math.max(0, bystanders + scheme.overrides.bystandersMod);
+  }
 
   // ── Second Mastermind (Dark Alliance) ────────────────────────────────────
   // Schemat Dark Alliance dodaje na Twist 1 losowego drugiego Masterminda z Tactics.
@@ -313,9 +333,10 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     heroes: sortByName(selectedHeroes),
     villains: sortByName(selectedVillains),
     henchmen: sortByName(selectedHenchmen),
-    bystanders,
+    bystanders: effectiveBystanders,
     isEpicMastermind,
     schemeHeroMod: effectiveHeroMod,
+    schemeExtraVillainMod: effectiveExtraVillains,
     threatScore,
     balanceGap,
     counterCoverage,

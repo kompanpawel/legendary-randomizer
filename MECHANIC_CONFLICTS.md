@@ -316,7 +316,7 @@ i wdrożono pełne wsparcie silnika dla wszystkich trybów wymuszeń.
 - Test: `src/engine/__tests__/schemeVillainRequirements.test.ts` (28 przypadków: weryfikacja
   danych, testy resolveSchemeVillainRequirements, testy generateSetup dla każdego trybu).
 
-## 11. Warunkowe (player-count-gated) dodatki do puli Villain/Bystander
+## 11. Warunkowe (player-count-gated) dodatki do puli Villain/Bystander ✅ NAPRAWIONE
 Analogicznie do `heroCountModMinPlayers` (które działa tylko dla Hero), część schematów ma
 zależne od liczby graczy modyfikacje **Villain Group** lub **Bystanders**, bez żadnego
 odpowiednika w silniku:
@@ -329,6 +329,36 @@ odpowiednika w silniku:
 
 `bystanders` w `GameSetup` pochodzi wyłącznie z `PLAYER_SETUP_RULES` — schemat nigdy go nie
 modyfikuje.
+
+**Status:** Naprawione. Wdrożono pełne wsparcie silnika dla warunkowych villain groups i modyfikacji bystanders.
+
+- Dodano 4 pola do `Scheme.overrides` w `src/types/cards.ts`:
+  - `extraVillainsMinPlayers?: number` — warunek dolny (np. 3 dla „3-5 players")
+  - `extraVillainsMaxPlayers?: number` — warunek górny (np. 1 dla solo-only)
+  - `bystandersMod?: number` — addytywna modyfikacja liczby Bystanders (+4 dla Negative Zone)
+  - `bystandersOverride?: number` — nadpisanie liczby Bystanders (0 dla Hypnotize Every Human)
+- Zaktualizowano `generateSetup()` w `SmartRandomizerEngine.ts`:
+  - `villainCount` sprawdza `extraVillainsMinPlayers`/`extraVillainsMaxPlayers` względem `playerCount`
+    — +1 villain group tylko gdy warunek spełniony.
+  - `effectiveBystanders` obliczany z `bystandersOverride` lub `bystandersMod`; zwracany w GameSetup.
+  - Dodano `schemeExtraVillainMod: number` do `GameSetup` (oraz `useAppStore.ts`) — analogicznie do
+    `schemeHeroMod`, żeby UI wiedziało czy warunkowy mod był aktywny.
+- Zaktualizowano `deriveExtraVillains()` w `src/utils/jsonMigration.ts` — usunieto wykluczenie
+  wzorców warunkowych; dodano 4 nowe funkcje derive: `deriveExtraVillainsMinPlayers()`,
+  `deriveExtraVillainsMaxPlayers()`, `deriveBystandersMod()`, `deriveBystandersOverride()`.
+- Ręcznie naniesiono overrides do 4 schematów w `src/assets/cards.json`:
+  - Deadpool Wants a Chimichanga: `"extraVillains": 1, "extraVillainsMinPlayers": 3`
+  - Crush Them With My Bare Hands: `"extraVillains": 1, "extraVillainsMaxPlayers": 1`
+  - Negative Zone Prison Breakout (exp 42): `"bystandersMod": 4`
+  - Hypnotize Every Human: `"bystandersOverride": 0`
+- Zaktualizowano `SchemeCard.tsx`: conditional villain badge (szary gdy nieaktywny, czerwony gdy aktywny,
+  z tekstem „solo only" / „≥N players"), badge bystanders override (UserMinus, szary), badge
+  bystanders mod (niebieski, +N Bystanders). Nowe klucze i18n w `src/i18n/en.json`.
+- Zaktualizowano `SetupPage.tsx`: przekazuje `schemeExtraVillainMod` do `SchemeCard`.
+- Zaktualizowano test `extraVillains.test.ts` (krok 9): liczba schematów 17→19, zmienione asercje
+  dla Deadpool/Crush Them na weryfikację nowych pól warunkowych.
+- Nowy test: `src/engine/__tests__/conditionalVillainsBystanders.test.ts` (23 przypadki: weryfikacja
+  danych dla wszystkich 4 schematów + testy silnika dla każdego wariantu player-count).
 
 ## 12. Drugi Mastermind jako część setupu Schematu
 *Symbiotic Absorption*: „Set aside a second 'Drained' Mastermind and its 4 Tactics... Add its

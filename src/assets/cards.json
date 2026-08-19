@@ -24503,7 +24503,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "bystandersOverride": 0
+      },
       "cards": [
         {
           "name": "Hypnotize Every Human",
@@ -24871,7 +24873,8 @@
         "villain-control"
       ],
       "overrides": {
-        "extraVillains": 1
+        "extraVillains": 1,
+        "bystandersMod": 4
       },
       "cards": [
         {
@@ -25134,7 +25137,10 @@
       "countersNeeded": [
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1,
+        "extraVillainsMinPlayers": 3
+      },
       "cards": [
         {
           "name": "Deadpool Wants a Chimichanga",
@@ -26803,7 +26809,10 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1,
+        "extraVillainsMaxPlayers": 1
+      },
       "cards": [
         {
           "name": "Crush Them With My Bare Hands",

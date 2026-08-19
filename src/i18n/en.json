@@ -201,6 +201,12 @@
       "extraHeroConditional": "+{{count}} Extra Hero (only ≥{{min}} players – inactive)",
       "extraVillain": "+{{count}} Extra Villain Group to setup",
       "extraVillainPlural": "+{{count}} Extra Villain Groups to setup",
+      "extraVillainConditionalMin": "+{{count}} Extra Villain Group (only ≥{{min}} players – inactive)",
+      "extraVillainConditionalMinActive": "+{{count}} Extra Villain Group (≥{{min}} players – active)",
+      "extraVillainSolo": "+{{count}} Extra Villain Group (solo only – active)",
+      "extraVillainSoloInactive": "+{{count}} Extra Villain Group (solo only – inactive)",
+      "bystandersNone": "No Bystanders in Villain Deck",
+      "bystandersMod": "+{{count}} extra Bystanders in Villain Deck",
       "tooltip": {
         "noData": "No data – neutral value",
         "withData": "Difficulty: {{value}}/5"
