@@ -391,13 +391,37 @@ dla roli „Drained":
   drainedMastermind w GameSetup, wymuszona Villain Group, liczba villain groups, setupNotes,
   brak false-positive dla innych schematów).
 
-## 13. Schematy zakładające wiele równoległych talii Villain (multi-deck)
+## 13. Schematy zakładające wiele równoległych talii Villain (multi-deck) ✅ NAPRAWIONE
 *Breach the Nexus of All Realities*, *Five Families of Crime*, *Fragmented Realities*,
 *Smash Two Dimensions Together* dzielą pulę Villain na kilka niezależnych talii/„rzeczywistości"
 (po jednej na gracza lub 3-5 stałych). To fundamentalnie inna struktura niż zakładany przez
 silnik jeden płaski `selectedVillains: VillainGroup[]`. Randomizer nie musi symulować rozgrywki,
 ale dobrze byłoby oznaczyć te schematy jako wymagające dodatkowej liczby grup Villain
 proporcjonalnej do liczby graczy (obecnie brak jakiejkolwiek adnotacji o tym w danych).
+
+**Status:** Naprawione. Wszystkie 4 schematy są teraz w pełni zaannotowane, a dla Breach the
+Nexus naprawiono realny błąd z za małą liczbą villain groups przy 1-2 graczach.
+
+- **Nowe pole `isMultiDeck?: boolean`** w `Scheme.overrides` (`src/types/cards.ts`) — metadana
+  informująca UI i silnik o konieczności podziału Villain Deck na wiele talii.
+- **Nowe pole `minVillainCount?: number`** — minimalna łączna liczba Villain Groups niezależna
+  od playerCount; `effectiveVillainCount = max(standard+extra, forced, minVillainCount)`.
+- Dodano `deriveIsMultiDeck()` i `deriveMinVillainCount()` w `src/utils/jsonMigration.ts`.
+- **Ręczne adnotacje w `src/assets/cards.json`** (4 schematy):
+  - **Breach the Nexus of All Realities**: `"isMultiDeck": true, "minVillainCount": 3`
+    (naprawia realny błąd: 1 gracz standardowo = 1 villain, schemat wymaga ≥3)
+  - **Five Families of Crime**: `"isMultiDeck": true` (miało już `extraVillains: 2` z kroku 9)
+  - **Fragmented Realities**: `"isMultiDeck": true` (miało już `extraVillains: 1`)
+  - **Smash Two Dimensions Together**: `"isMultiDeck": true` (miało już `extraVillains: 1`)
+- **Silnik**: `generateSetup()` w `SmartRandomizerEngine.ts` używa `minVillainCount` przy
+  obliczaniu `effectiveVillainCount`; dodaje setup note `setup.notes.multiDeck` dla tych
+  schematów.
+- **UI**: `SchemeCard.tsx` wyświetla indygowy badge „Multi-Deck Setup" (ikona Layers) gdy
+  `scheme.overrides.isMultiDeck === true`.
+- Nowe klucze i18n: `cards.scheme.multiDeckBadge`, `setup.notes.multiDeck`.
+- Test: `src/engine/__tests__/multiDeckSchemes.test.ts` (20 przypadków: weryfikacja danych
+  dla wszystkich 4 schematów, testy silnika dla minVillainCount przy każdym playerCount,
+  setup notes, brak false-positive).
 
 ## 14. Wymóg konkretnego Hero/keywordu Hero z poziomu Schematu
 *Everybody Hates Deadpool* — „Use at least 1 [Mercs for Money] Hero" wymaga obecności bohatera

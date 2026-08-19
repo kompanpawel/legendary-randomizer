@@ -90,7 +90,8 @@
       "schemeRequiredVillainKeyword": "This scheme requires one Villain Group with [{{keyword}}]. Included: {{selected}}.",
       "schemeRequiredHenchmen": "Required henchmen by this scheme: {{names}} (already included in the setup).",
       "schemeRequiredHeroes": "This scheme requires: {{names}} (already included in the hero lineup).",
-      "symbioticAbsorptionDrained": "Symbiotic Absorption: Set aside \"{{name}}\" as the Drained Mastermind (out of play). Its 4 Tactics shuffle into the main Mastermind on Twists 1–4. Its Always Leads Villain Group ({{villain}}) is included in this setup."
+      "symbioticAbsorptionDrained": "Symbiotic Absorption: Set aside \"{{name}}\" as the Drained Mastermind (out of play). Its 4 Tactics shuffle into the main Mastermind on Twists 1–4. Its Always Leads Villain Group ({{villain}}) is included in this setup.",
+      "multiDeck": "This scheme splits the Villain Deck into multiple parallel decks (one per Reality / player / city). Place Villain Groups in separate decks as described in the rulebook."
     }
   },
   "settings": {
@@ -208,6 +209,7 @@
       "extraVillainSoloInactive": "+{{count}} Extra Villain Group (solo only – inactive)",
       "bystandersNone": "No Bystanders in Villain Deck",
       "bystandersMod": "+{{count}} extra Bystanders in Villain Deck",
+      "multiDeckBadge": "Multi-Deck Setup",
       "tooltip": {
         "noData": "No data – neutral value",
         "withData": "Difficulty: {{value}}/5"

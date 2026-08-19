@@ -1,4 +1,4 @@
-import { Scroll, Star, Users, Info, Swords, UserMinus } from 'lucide-react';
+import { Scroll, Star, Users, Info, Swords, UserMinus, Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/utils/cn.ts';
 import type { Scheme } from '@/types/cards.ts';
@@ -141,6 +141,14 @@ export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMo
         <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-blue-500/10 border-blue-500/30 text-blue-300">
           <Users size={12} className="flex-shrink-0" />
           <span>{t('cards.scheme.bystandersMod', { count: scheme.overrides.bystandersMod })}</span>
+        </div>
+      )}
+
+      {/* Multi-Deck badge */}
+      {scheme.overrides.isMultiDeck && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-indigo-500/10 border-indigo-500/30 text-indigo-300">
+          <Layers size={12} className="flex-shrink-0" />
+          <span>{t('cards.scheme.multiDeckBadge')}</span>
         </div>
       )}
 

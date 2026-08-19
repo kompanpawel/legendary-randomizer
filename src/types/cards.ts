@@ -124,6 +124,19 @@ export interface Scheme {
      */
     requiredVillainKeyword?: string;
     /**
+     * Minimalna łączna liczba Villain Groups w setupie, niezależna od liczby graczy.
+     * Nadpisuje villainCount „od dołu": effectiveCount = max(standard+extra, minVillainCount).
+     * Np. 3 dla „Breach the Nexus of All Realities" (1-2 players: Use 3 Villain Groups).
+     */
+    minVillainCount?: number;
+    /**
+     * Czy schemat wymaga podziału Villain Deck na wiele równoległych talii/„rzeczywistości".
+     * Metadane informacyjne — nie zmienia logiki losowania, ale służy jako badge UI
+     * i podstawa do setup note. Dotyczy: Breach the Nexus, Five Families, Fragmented Realities,
+     * Smash Two Dimensions Together.
+     */
+    isMultiDeck?: boolean;
+    /**
      * Czy schemat wymaga losowego „Drained" Masterminda (Symbiotic Absorption).
      * Jego alwaysLeads Villain trafia jako wymuszona dodatkowa Villain Group,
      * a jego 4 Tactics są sukcesywnie tasowane do talii głównego Masterminda (Twisty 1–4).

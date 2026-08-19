@@ -1239,6 +1239,32 @@ function deriveRequiresDrainedMastermind(cards: RawSchemeCard[]): boolean {
 }
 
 /**
+ * Minimalna łączna liczba Villain Groups w setupie — nadpisuje villainCount „od dołu".
+ * Wykrywa wzorzec: „N-M players: Use K Villain Groups" → minVillainCount = K.
+ * Np. „1-2 players: Use 3 Villain Groups" dla Breach the Nexus of All Realities → 3.
+ */
+function deriveMinVillainCount(cards: RawSchemeCard[]): number | null {
+  const all = cards.map(c => c.abilities).join('\n');
+  const match = all.match(/[0-9]-[0-9]\s*players:\s*Use (\d+) Villain Groups?/i);
+  if (match) return parseInt(match[1], 10);
+  return null;
+}
+
+/**
+ * Czy schemat dzieli Villain Deck na wiele równoległych talii/„rzeczywistości".
+ * Dotyczy: Breach the Nexus, Five Families, Fragmented Realities, Smash Two Dimensions.
+ */
+function deriveIsMultiDeck(cards: RawSchemeCard[]): boolean {
+  const all = cards.map(c => c.abilities).join('\n');
+  return (
+    /split the villain deck/i.test(all) ||
+    /each villain group.{1,50}own.{1,30}deck/i.test(all) ||
+    /each villain group.{1,50}own.{1,30}reality/i.test(all) ||
+    /stack each villain group.{1,50}face down as its own/i.test(all)
+  );
+}
+
+/**
  * Ile dodatkowych Villain Groups wymaga schemat ponad standardową liczbę
  * wynikającą z liczby graczy (z `playerSetupRules`).
  *
@@ -1617,6 +1643,9 @@ function migrate(): CardsDatabase {
       ...(deriveMultipleMasterminds(s.cards) ? { multipleMasterminds: true } : {}),
       ...(deriveRequiresSecondMastermind(s.cards) ? { requiresSecondMastermind: true } : {}),
       ...(deriveRequiresDrainedMastermind(s.cards) ? { requiresDrainedMastermind: true } : {}),
+      ...(deriveIsMultiDeck(s.cards) ? { isMultiDeck: true } : {}),
+      ...(deriveMinVillainCount(s.cards) != null
+        ? { minVillainCount: deriveMinVillainCount(s.cards)! } : {}),
       ...(deriveExtraVillains(s.cards) > 0 ? { extraVillains: deriveExtraVillains(s.cards) } : {}),
       ...(deriveExtraVillainsMinPlayers(s.cards) != null
         ? { extraVillainsMinPlayers: deriveExtraVillainsMinPlayers(s.cards)! } : {}),

@@ -237,8 +237,10 @@ export function generateSetup(input: RandomizerInput): GameSetup {
 
   // Villain pool: wyklucz wszystkie wymuszone
   const villainPool = villains.filter(v => !allForcedVillains.some(fv => fv.id === v.id));
-  // Effectivna liczba villain groups: co najmniej tyle, ile wymuszonych
-  const effectiveVillainCount = Math.max(villainCount, allForcedVillains.length);
+  // Effectivna liczba villain groups: co najmniej tyle, ile wymuszonych,
+  // oraz co najmniej minVillainCount (krok 13: np. Breach the Nexus wymaga ≥3 grup).
+  const minVillainCount = scheme.overrides.minVillainCount ?? 0;
+  const effectiveVillainCount = Math.max(villainCount, allForcedVillains.length, minVillainCount);
   const remainingVillainCount = Math.max(0, effectiveVillainCount - allForcedVillains.length);
   const selectedVillains: VillainGroup[] = [
     ...allForcedVillains,
@@ -332,6 +334,11 @@ export function generateSetup(input: RandomizerInput): GameSetup {
         villain: drainedForcedVillain?.name ?? '—',
       },
     });
+  }
+
+  // Nota 2c: Multi-Deck setup (krok 13)
+  if (scheme.overrides.isMultiDeck) {
+    setupNotes.push({ key: 'setup.notes.multiDeck' });
   }
 
   // Nota 3: Scheme-required villain groups (krok 10)

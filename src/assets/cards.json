@@ -26235,7 +26235,10 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "isMultiDeck": true,
+        "minVillainCount": 3
+      },
       "cards": [
         {
           "name": "Breach the Nexus of All Realities",
@@ -26357,6 +26360,7 @@
         "villain-control"
       ],
       "overrides": {
+        "isMultiDeck": true,
         "extraVillains": 2
       },
       "cards": [
@@ -26851,6 +26855,7 @@
         "villain-control"
       ],
       "overrides": {
+        "isMultiDeck": true,
         "extraVillains": 1
       },
       "cards": [
@@ -26902,6 +26907,7 @@
         "villain-control"
       ],
       "overrides": {
+        "isMultiDeck": true,
         "extraVillains": 1
       },
       "cards": [
