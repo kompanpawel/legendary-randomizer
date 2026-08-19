@@ -89,7 +89,8 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   if (schemes.length === 0 && !forcedScheme) throw new Error('No schemes in active expansions');
 
   const rules = getSetupRules(playerCount);
-  const { villainCount, henchmanCount, bystanders } = rules;
+  const { henchmanCount, bystanders } = rules;
+  // villainCount is finalized after scheme selection (scheme may add extraVillains)
 
   // Pick Mastermind and Scheme (forced or random).
   // Gdy tylko jedno z nich jest wymuszone, drugie losujemy z puli oczyszczonej
@@ -121,6 +122,9 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   const schemeHeroModMinPlayers = scheme.overrides.heroCountModMinPlayers ?? 1;
   const effectiveHeroMod = playerCount >= schemeHeroModMinPlayers ? schemeHeroMod : 0;
   const heroCount = rules.heroCount + effectiveHeroMod;
+
+  // Oblicz efektywną liczbę villain groups (base + bonus ze schematu, krok 9)
+  const villainCount = rules.villainCount + (scheme.overrides.extraVillains ?? 0);
 
   // ── Second Mastermind (Dark Alliance) ────────────────────────────────────
   // Schemat Dark Alliance dodaje na Twist 1 losowego drugiego Masterminda z Tactics.

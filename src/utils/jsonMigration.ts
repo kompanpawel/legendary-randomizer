@@ -1229,6 +1229,35 @@ function deriveRequiresSecondMastermind(cards: RawSchemeCard[]): boolean {
   return /\[second Mastermind\]/i.test(all);
 }
 
+/**
+ * Ile dodatkowych Villain Groups wymaga schemat ponad standardową liczbę
+ * wynikającą z liczby graczy (z `playerSetupRules`).
+ *
+ * Wzorce detekcji:
+ *   - "Add two extra Villain Groups" → 2  (Five Families of Crime)
+ *   - "Add an extra Villain Group"   → 1  (np. Change the Outcome of WWII, Predict Future Crime…)
+ *   - "Add [name] as an extra Villain Group" → 1  (Ritual Sacrifice, Symbiotic Absorption)
+ *
+ * Celowo WYKLUCZONE (warunki player-count z kroku 11):
+ *   - "If playing solo, add an extra Villain Group" (Crush Them With My Bare Hands)
+ *   - "3-5 players: Add a Villain Group" (Deadpool Wants a Chimichanga — używa "a", nie "extra")
+ *
+ * Celowo WYKLUCZONE (efekt kart w grze, nie instrukcja setupu):
+ *   - "When revealed: Shuffle a random additional Villain Group" (...Open Rifts to Future Timelines)
+ */
+function deriveExtraVillains(cards: RawSchemeCard[]): number {
+  const all = cards.map(c => c.abilities).join('\n');
+  // Two extra villain groups — Five Families of Crime
+  if (/add two extra Villain Group/i.test(all)) return 2;
+  // One extra villain group — unconditional setup
+  // Pattern: "add (an/a named group) [as an] extra Villain Group"
+  const hasExtra = /add .+?extra Villain Group/i.test(all);
+  // Exclude "If playing solo, add an extra Villain Group" (step 11)
+  const isConditional = /(?:if playing solo|[0-9]-[0-9] players:).+extra Villain Group/is.test(all);
+  if (hasExtra && !isConditional) return 1;
+  return 0;
+}
+
 // ─── Derive countersNeeded for Henchman Group ────────────────────────────────
 /**
  * Analyzes all cards in a henchman group and determines what hero abilities
@@ -1442,6 +1471,7 @@ function migrate(): CardsDatabase {
     overrides: {
       ...(deriveMultipleMasterminds(s.cards) ? { multipleMasterminds: true } : {}),
       ...(deriveRequiresSecondMastermind(s.cards) ? { requiresSecondMastermind: true } : {}),
+      ...(deriveExtraVillains(s.cards) > 0 ? { extraVillains: deriveExtraVillains(s.cards) } : {}),
     },
     cards: s.cards.map(c => ({
       name: c.name,

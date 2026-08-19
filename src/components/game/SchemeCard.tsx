@@ -1,4 +1,4 @@
-import { Scroll, Star, Users, Info } from 'lucide-react';
+import { Scroll, Star, Users, Info, Swords } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/utils/cn.ts';
 import type { Scheme } from '@/types/cards.ts';
@@ -70,6 +70,18 @@ export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMo
           ))}
         </div>
       </div>
+
+      {/* Extra Villain Group badge */}
+      {(scheme.overrides.extraVillains ?? 0) > 0 && (
+        <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border bg-red-500/10 border-red-500/30 text-red-300">
+          <Swords size={12} className="flex-shrink-0" />
+          <span>
+            {(scheme.overrides.extraVillains ?? 0) > 1
+              ? t('cards.scheme.extraVillainPlural', { count: scheme.overrides.extraVillains })
+              : t('cards.scheme.extraVillain', { count: scheme.overrides.extraVillains })}
+          </span>
+        </div>
+      )}
 
       {/* Extra Hero badge */}
       {heroMod > 0 && (

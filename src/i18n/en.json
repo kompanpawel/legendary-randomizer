@@ -194,6 +194,8 @@
       "extraHero": "+{{count}} Extra Hero to setup",
       "extraHeroPlural": "+{{count}} Extra Heroes to setup",
       "extraHeroConditional": "+{{count}} Extra Hero (only ≥{{min}} players – inactive)",
+      "extraVillain": "+{{count}} Extra Villain Group to setup",
+      "extraVillainPlural": "+{{count}} Extra Villain Groups to setup",
       "tooltip": {
         "noData": "No data – neutral value",
         "withData": "Difficulty: {{value}}/5"

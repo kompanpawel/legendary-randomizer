@@ -250,20 +250,38 @@ je wywołujące (10 villain groups, 6 mastermindów, 1 schemat).
   danych dla heroes/villains/masterminds/schemes oraz potwierdzenie że `synergyEngineMode`
   faworyzuje bohaterów z `hulk-name` gdy mastermind go wymaga).
 
-## 9. „Add an extra Villain Group" — 18 schematów bez żadnego pokrycia
+## 9. „Add an extra Villain Group" — 18 schematów bez żadnego pokrycia ✅ NAPRAWIONE
 Co najmniej 18 z 199 schematów (np. *Change the Outcome of WWII*, *Predict Future Crime*,
 *Bank Robbery Hostage Crisis*, *Steal the Weaponized Plutonium*, *Cursed Pages of the Darkhold
 Tome*, *Inescapable "Kyln" Space Prison*, *Provoke the Sovereign War Fleet*, *Superhuman Baseball
 Game*, *Earthquake Drains the Ocean*, *Deadlands Hordes Charge the Wall*, *Fragmented Realities*,
 *Smash Two Dimensions Together*, *Five Families of Crime* — ta ostatnia wymaga aż **dwóch**
 dodatkowych grup) wymaga w setupie jednej (lub więcej) dodatkowej grupy Villain Group ponad
-standardową liczbę wynikającą z liczby graczy. `generateSetup()` w `SmartRandomizerEngine.ts`
-liczy `villainCount` wyłącznie z `getSetupRules(playerCount)` (linia 72) i **nigdy** nie
-odczytuje żadnego pola ze Schematu, by je zwiększyć. Pole `overrides.extraVillains` istnieje
-w typie (`src/types/cards.ts:69`), ale nie jest ustawione w **żadnym** rekordzie `cards.json`
-ani odczytywane w kodzie silnika (`grep` na `extraVillains` w `src/` daje tylko definicję typu) —
-to martwe pole. W efekcie każdy z tych 18 schematów jest dziś losowany z o jedną (lub dwie) grupę
-Villain za mało względem instrukcji z pudełka.
+standardową liczbę wynikającą z liczby graczy. Pole `overrides.extraVillains` istnieje
+w typie (`src/types/cards.ts:88`), ale nie jest ustawione w **żadnym** rekordzie `cards.json`
+ani odczytywane w kodzie silnika — to martwe pole. W efekcie każdy z tych 18 schematów jest
+dziś losowany z o jedną (lub dwie) grupę Villain za mało względem instrukcji z pudełka.
+
+**Status:** Naprawione. Zidentyfikowano dokładnie 17 schematów bezwarunkowo wymagających
+dodatkowych grup Villain Group w setupie (18. przypadek — „Negative Zone Prison Breakout" w
+oryginalnym secie dodaje Henchman, nie Villain — nie liczy się do tej listy).
+- Pole `overrides.extraVillains?: number` było już zdefiniowane w typie — bez zmian w typach.
+- Dodano funkcję `deriveExtraVillains()` w `src/utils/jsonMigration.ts` (przyszłe regeneracje
+  `cards.json` automatycznie wykryją wzorce „Add [an/N] extra Villain Group" w tekście Setup:,
+  z wyłączeniem warunkowych przypadków z kroku 11: „If playing solo…" i „3-5 players:…").
+- Ręcznie naniesiono `"extraVillains": 1` do 16 schematów i `"extraVillains": 2` do
+  *Five Families of Crime* w `src/assets/cards.json` (17 zmian — wyłącznie celowane linie).
+- `generateSetup()` w `src/engine/SmartRandomizerEngine.ts` odczytuje teraz
+  `scheme.overrides.extraVillains` i dodaje tę wartość do `villainCount` po wylosowaniu
+  schematu — villain groups są losowane z poprawną łączną liczbą.
+- Dodano badge `+N Extra Villain Group(s)` w `src/components/game/SchemeCard.tsx`
+  (czerwone obramowanie, ikona Swords) analogicznie do istniejącego badge'a `extraHero`.
+  Nowe klucze i18n: `cards.scheme.extraVillain`, `cards.scheme.extraVillainPlural`.
+- Schematy warunkowe (*Deadpool Wants a Chimichanga* — tylko 3–5 graczy; *Crush Them With My
+  Bare Hands* — tylko solo) celowo pominięte — należą do kroku 11.
+- Test: `src/engine/__tests__/extraVillains.test.ts` (30 przypadków: weryfikacja danych dla
+  wszystkich 17 schematów, test braku fałszywych pozytywów, i testy silnika potwierdzające
+  poprawną liczbę villain groups dla extraVillains=1 i extraVillains=2 przy różnych liczbach graczy).
 
 ## 10. Wymuszona konkretna Villain Group na poziomie Schematu — brak odpowiednika `resolveAlwaysLeads`
 `resolveAlwaysLeads.ts` obsługuje wyłącznie pole `alwaysLeads` **Mastermindа**. Wiele schematów ma

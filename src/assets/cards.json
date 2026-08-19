@@ -24416,7 +24416,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Change the Outcome of WWII",
@@ -24618,7 +24620,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Predict Future Crime",
@@ -24810,7 +24814,9 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Bank Robbery Hostage Crisis",
@@ -24860,7 +24866,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Negative Zone Prison Breakout",
@@ -25047,7 +25055,9 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Steal the Weaponized Plutonium",
@@ -25168,7 +25178,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "War for the Dream Dimension",
@@ -25200,7 +25212,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Cursed Pages of the Darkhold Tome",
@@ -25860,7 +25874,9 @@
         "villain-control",
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Ritual Sacrifice to Summon Chthon",
@@ -25990,7 +26006,9 @@
         "villain-control",
         "wound-removal"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Inescapable “Kyln“ Space Prison",
@@ -26006,7 +26024,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Provoke the Sovereign War Fleet",
@@ -26247,7 +26267,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Superhuman Baseball Game",
@@ -26296,7 +26318,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 2
+      },
       "cards": [
         {
           "name": "Five Families of Crime",
@@ -26474,7 +26498,9 @@
         "transform",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Earthquake Drains the Ocean",
@@ -26774,7 +26800,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Fragmented Realities",
@@ -26823,7 +26851,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Smash Two Dimensions Together",
@@ -26839,7 +26869,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Deadlands Hordes Charge the Wall",
@@ -27033,7 +27065,9 @@
       "countersNeeded": [
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "extraVillains": 1
+      },
       "cards": [
         {
           "name": "Symbiotic Absorption",
