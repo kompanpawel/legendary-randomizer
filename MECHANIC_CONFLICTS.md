@@ -361,6 +361,14 @@ gwarancji podziału na drużyny, bez gwarancji obecności bohaterów z „Hulk" 
 gwarancji zróżnicowania klas — a gracz nie dostaje żadnego ostrzeżenia, bo tekst specialSetup
 nigdy nie został wyekstrahowany do `overrides` dla tych czterech pozycji.
 
+## 16. Specjalne scheme z nazwą Veiled oraz Unveiled
+Istnieją schematy, które przez kilka pierwszych twistów mają inne mechaniki, a po odwróceniu (Unveiled) zmieniają
+się w zupełnie inne schematy. Silnik nie ma mechanizmu rozróżniania Veiled/Unveiled,
+więc nie może w pełni symulować rozgrywki. Pytanie, czy narzucić graczowi wylosowany Veiled i Unveiled scheme, czy
+pozwolić na wylosowanie tylko Veiled a zostawić Unveiled do ręcznego wylosowania. Jednak niesie to za sobą ryzyko, że 
+nie będzie można określić trudności takich rozgrywek. Może warto dodać pewien przełącznik w aplikacji, albo przycisk,
+który opcjonalnie wylosuje drugą część scenariusza
+
 ---
 
 ### Źródła
