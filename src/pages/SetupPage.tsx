@@ -440,6 +440,21 @@ export default function SetupPage() {
                 />
               </div>
             )}
+
+            {/* Drained Mastermind (Symbiotic Absorption — odłożony poza grę) */}
+            {currentSetup.drainedMastermind && (
+              <div className="space-y-1">
+                <p className="text-xs font-medium text-zinc-400/80 uppercase tracking-wide px-1">
+                  Drained Mastermind <span className="normal-case text-zinc-300/60">(Symbiotic Absorption — set aside)</span>
+                </p>
+                <MastermindCard
+                  mastermind={currentSetup.drainedMastermind}
+                  stats={mastermindStatsMap.get(currentSetup.drainedMastermind.id)}
+                  isEpic={false}
+                  className="border-zinc-700/50 bg-gradient-to-br from-zinc-800/30 to-zinc-900/60"
+                />
+              </div>
+            )}
             <SchemeCard
               scheme={currentSetup.scheme}
               stats={schemeStatsMap.get(currentSetup.scheme.id)}

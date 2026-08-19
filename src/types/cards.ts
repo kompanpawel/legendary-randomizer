@@ -124,6 +124,13 @@ export interface Scheme {
      */
     requiredVillainKeyword?: string;
     /**
+     * Czy schemat wymaga losowego „Drained" Masterminda (Symbiotic Absorption).
+     * Jego alwaysLeads Villain trafia jako wymuszona dodatkowa Villain Group,
+     * a jego 4 Tactics są sukcesywnie tasowane do talii głównego Masterminda (Twisty 1–4).
+     * GameSetup.drainedMastermind przechowuje wylosowanego Masterminda dla UI.
+     */
+    requiresDrainedMastermind?: boolean;
+    /**
      * Bohaterowie, którzy muszą trafić do Hero Decku (rozwiązywani po nazwie).
      * Np. ["Party Thor"] dla Trash Earth with Hugest Party Ever.
      */

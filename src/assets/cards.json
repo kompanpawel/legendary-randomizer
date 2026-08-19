@@ -27119,6 +27119,7 @@
         "villain-control"
       ],
       "overrides": {
+        "requiresDrainedMastermind": true,
         "extraVillains": 1
       },
       "cards": [

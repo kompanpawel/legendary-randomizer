@@ -30,6 +30,13 @@ export interface GameSetup {
    * Obecny tylko gdy `scheme.overrides.requiresSecondMastermind === true`.
    */
   secondMastermind?: Mastermind;
+  /**
+   * „Drained" Mastermind wylosowany dla schematu Symbiotic Absorption.
+   * Odłożony poza grę; jego 4 Tactics trafiają do głównego Masterminda na Twistach 1–4.
+   * Jego alwaysLeads Villain jest wymuszony jako dodatkowa Villain Group w setupie.
+   * Obecny tylko gdy `scheme.overrides.requiresDrainedMastermind === true`.
+   */
+  drainedMastermind?: Mastermind;
   scheme: Scheme;
   heroes: Hero[];
   villains: VillainGroup[];
@@ -159,6 +166,30 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     }
   }
 
+  // ── Drained Mastermind (Symbiotic Absorption) ─────────────────────────────
+  // Schemat Symbiotic Absorption odkłada losowego „Drained" Masterminda poza grę.
+  // Jego 4 Tactics trafiają do głównego Masterminda na Twistach 1–4.
+  // Jego alwaysLeads Villain jest wymuszoną dodatkową Villain Group.
+  let drainedMastermind: Mastermind | undefined;
+  let drainedForcedVillain: VillainGroup | undefined;
+  if (scheme.overrides.requiresDrainedMastermind) {
+    const drainedPool = masterminds.filter(m => m.id !== mastermind.id);
+    if (drainedPool.length > 0) {
+      [drainedMastermind] = uniformSample(drainedPool, 1);
+      const drainedRes = resolveAlwaysLeads(drainedMastermind.alwaysLeads, villains, henchmen);
+      if (drainedRes.forcedVillain) {
+        drainedForcedVillain = drainedRes.forcedVillain;
+      } else if (drainedRes.villainKeywords && drainedRes.villainKeywords.length > 0) {
+        const matching = villains.filter(v =>
+          drainedRes.villainKeywords!.some(kw => v.name.toLowerCase().includes(kw.toLowerCase()))
+        );
+        if (matching.length > 0) {
+          [drainedForcedVillain] = uniformSample(matching, 1);
+        }
+      }
+    }
+  }
+
   // ── Always Leads (Mastermind) ─────────────────────────────────────────────
   const resolution = resolveAlwaysLeads(mastermind.alwaysLeads, villains, henchmen);
 
@@ -192,6 +223,10 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   if (mastermindForcedVillain) allForcedVillains.push(mastermindForcedVillain);
   for (const v of schemeRes.forcedVillains) {
     if (!allForcedVillains.some(fv => fv.id === v.id)) allForcedVillains.push(v);
+  }
+  // Drained Mastermind (krok 12): wymuszona Villain Group z alwaysLeads Drained Masterminda
+  if (drainedForcedVillain && !allForcedVillains.some(fv => fv.id === drainedForcedVillain!.id)) {
+    allForcedVillains.push(drainedForcedVillain);
   }
 
   // Scal wymuszone henchmen (mastermind + schemat), dedup po id
@@ -288,6 +323,17 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     }
   }
 
+  // Nota 2b: Drained Mastermind (krok 12 — Symbiotic Absorption)
+  if (drainedMastermind) {
+    setupNotes.push({
+      key: 'setup.notes.symbioticAbsorptionDrained',
+      params: {
+        name: drainedMastermind.name,
+        villain: drainedForcedVillain?.name ?? '—',
+      },
+    });
+  }
+
   // Nota 3: Scheme-required villain groups (krok 10)
   if (schemeRes.forcedVillains.length > 0) {
     const names = schemeRes.forcedVillains.map(v => v.name).join(', ');
@@ -329,6 +375,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   return {
     mastermind,
     ...(secondMastermind ? { secondMastermind } : {}),
+    ...(drainedMastermind ? { drainedMastermind } : {}),
     scheme,
     heroes: sortByName(selectedHeroes),
     villains: sortByName(selectedVillains),

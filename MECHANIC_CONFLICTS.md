@@ -360,12 +360,36 @@ modyfikuje.
 - Nowy test: `src/engine/__tests__/conditionalVillainsBystanders.test.ts` (23 przypadki: weryfikacja
   danych dla wszystkich 4 schematów + testy silnika dla każdego wariantu player-count).
 
-## 12. Drugi Mastermind jako część setupu Schematu
+## 12. Drugi Mastermind jako część setupu Schematu ✅ NAPRAWIONE
 *Symbiotic Absorption*: „Set aside a second 'Drained' Mastermind and its 4 Tactics... Add its
 'Always Leads' Villains as an extra Villain Group." To wymaga wylosowania/wybrania **dwóch**
 Mastermindów jednocześnie (jeden aktywny, jeden „Drained" tylko jako źródło Tactics i
 `alwaysLeads`). Model danych (`GameSetup.mastermind: Mastermind` — pojedynczy obiekt) nie ma
 miejsca na drugiego Mastermindа; silnik nie ma pojęcia takiego przypadku.
+
+**Status:** Naprawione. Obsługa analogiczna do Dark Alliance (krok 7), ale z dedykowaną logiką
+dla roli „Drained":
+
+- Dodano pole `requiresDrainedMastermind?: boolean` do `Scheme.overrides` w `src/types/cards.ts`.
+- Dodano pole `drainedMastermind?: Mastermind` do `GameSetup` w `SmartRandomizerEngine.ts` i
+  `useAppStore.ts`.
+- `generateSetup()` w `SmartRandomizerEngine.ts`: gdy `scheme.overrides.requiresDrainedMastermind`,
+  losuje Drained Masterminda z puli (z wyłączeniem głównego), rozwiązuje jego `alwaysLeads` przez
+  `resolveAlwaysLeads()` i dodaje wynik jako wymuszoną Villain Group do `allForcedVillains`.
+  `effectiveVillainCount = max(villainCount, allForcedVillains.length)` gwarantuje poprawną
+  łączną liczbę grup. Dodaje setupNote z kluczem `setup.notes.symbioticAbsorptionDrained`.
+- Oznaczono Symbiotic Absorption w `src/assets/cards.json`:
+  `"requiresDrainedMastermind": true, "extraVillains": 1` (extraVillains=1 pozostaje, żeby
+  villainCount bazowo uwzględniał +1 ponad standard).
+- Dodano `deriveRequiresDrainedMastermind()` w `src/utils/jsonMigration.ts` (przyszłe
+  regeneracje automatycznie wykryją wzorzec).
+- UI: `SetupPage.tsx` renderuje `drainedMastermind` jako szarą kartę z etykietą
+  „Drained Mastermind (Symbiotic Absorption — set aside)" — bezpośrednio pod `secondMastermind`
+  (jeśli oba obecne).
+- Nowy klucz i18n: `setup.notes.symbioticAbsorptionDrained`.
+- Test: `src/engine/__tests__/symbioticAbsorption.test.ts` (18 przypadków: weryfikacja danych,
+  drainedMastermind w GameSetup, wymuszona Villain Group, liczba villain groups, setupNotes,
+  brak false-positive dla innych schematów).
 
 ## 13. Schematy zakładające wiele równoległych talii Villain (multi-deck)
 *Breach the Nexus of All Realities*, *Five Families of Crime*, *Fragmented Realities*,

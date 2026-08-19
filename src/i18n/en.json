@@ -89,7 +89,8 @@
       "schemeXorVillain": "This scheme requires exactly one of: {{options}}. Selected at random: {{selected}}.",
       "schemeRequiredVillainKeyword": "This scheme requires one Villain Group with [{{keyword}}]. Included: {{selected}}.",
       "schemeRequiredHenchmen": "Required henchmen by this scheme: {{names}} (already included in the setup).",
-      "schemeRequiredHeroes": "This scheme requires: {{names}} (already included in the hero lineup)."
+      "schemeRequiredHeroes": "This scheme requires: {{names}} (already included in the hero lineup).",
+      "symbioticAbsorptionDrained": "Symbiotic Absorption: Set aside \"{{name}}\" as the Drained Mastermind (out of play). Its 4 Tactics shuffle into the main Mastermind on Twists 1–4. Its Always Leads Villain Group ({{villain}}) is included in this setup."
     }
   },
   "settings": {

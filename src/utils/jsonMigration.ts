@@ -1230,6 +1230,15 @@ function deriveRequiresSecondMastermind(cards: RawSchemeCard[]): boolean {
 }
 
 /**
+ * Czy schemat wymaga wylosowania „Drained" Masterminda (Symbiotic Absorption).
+ * Wzorzec: „Set aside a second "Drained" Mastermind"
+ */
+function deriveRequiresDrainedMastermind(cards: RawSchemeCard[]): boolean {
+  const all = cards.map(c => c.abilities).join('\n');
+  return /Set aside a second .{1,30}Drained.{1,30} Mastermind/i.test(all);
+}
+
+/**
  * Ile dodatkowych Villain Groups wymaga schemat ponad standardową liczbę
  * wynikającą z liczby graczy (z `playerSetupRules`).
  *
@@ -1607,6 +1616,7 @@ function migrate(): CardsDatabase {
     overrides: {
       ...(deriveMultipleMasterminds(s.cards) ? { multipleMasterminds: true } : {}),
       ...(deriveRequiresSecondMastermind(s.cards) ? { requiresSecondMastermind: true } : {}),
+      ...(deriveRequiresDrainedMastermind(s.cards) ? { requiresDrainedMastermind: true } : {}),
       ...(deriveExtraVillains(s.cards) > 0 ? { extraVillains: deriveExtraVillains(s.cards) } : {}),
       ...(deriveExtraVillainsMinPlayers(s.cards) != null
         ? { extraVillainsMinPlayers: deriveExtraVillainsMinPlayers(s.cards)! } : {}),

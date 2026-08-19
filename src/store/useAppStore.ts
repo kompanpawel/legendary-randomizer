@@ -13,6 +13,12 @@ export interface GameSetup {
    * Obecny tylko gdy scheme.overrides.requiresSecondMastermind === true.
    */
   secondMastermind?: Mastermind;
+  /**
+   * „Drained" Mastermind wylosowany dla Symbiotic Absorption.
+   * Odłożony poza grę; jego Tactics trafiają do głównego Masterminda na Twistach 1–4.
+   * Obecny tylko gdy scheme.overrides.requiresDrainedMastermind === true.
+   */
+  drainedMastermind?: Mastermind;
   scheme: Scheme;
   heroes: Hero[];
   villains: VillainGroup[];
