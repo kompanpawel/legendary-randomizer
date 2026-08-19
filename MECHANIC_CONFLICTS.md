@@ -283,30 +283,38 @@ oryginalnym secie dodaje Henchman, nie Villain — nie liczy się do tej listy).
   wszystkich 17 schematów, test braku fałszywych pozytywów, i testy silnika potwierdzające
   poprawną liczbę villain groups dla extraVillains=1 i extraVillains=2 przy różnych liczbach graczy).
 
-## 10. Wymuszona konkretna Villain Group na poziomie Schematu — brak odpowiednika `resolveAlwaysLeads`
+## 10. Wymuszona konkretna Villain Group na poziomie Schematu — brak odpowiednika `resolveAlwaysLeads` ✅ NAPRAWIONE
 `resolveAlwaysLeads.ts` obsługuje wyłącznie pole `alwaysLeads` **Mastermindа**. Wiele schematów ma
 analogiczny, ale niezależny wymóg dotyczący konkretnej grupy Villain, kompletnie pomijany przy
 losowaniu:
-- *Secret Invasion of the Skrull Shapeshifters* (2 warianty) — „Skrull Villain Group required" /
-  „Always include the Skrull Villain Group"
-- *Enslave Minds with the Chitauri Scepter* — „Chitauri Villain Group required"
-- *The Kree-Skrull War* — „Always include Kree Starforce **and** Skrull Villain Groups" (dwie
-  jednocześnie)
-- *Forge the Infinity Gauntlet* — „Always include the Infinity Gems Villain Group"
-- *The Mark of Khonshu* — „Always include Khonshu Guardians"
-- *Splice Humans with Spider DNA* — „Include Sinister Six as one of the Villain Groups"
-- *The Dark Phoenix Saga* — „Include Hellfire Club as one of the Villain Groups"
-- *The Demon Bear Saga* — „Include Demons of Limbo as one of the Villain Groups"
-- *S.H.I.E.L.D. vs. HYDRA War* — XOR: „Hydra Elite" **albo** „A.I.M., Hydra Offshoot", ale nie obie
-  naraz (silnik nie ma pojęcia „dokładnie jedna z zestawu, wzajemnie wykluczające się")
-- *Trash Earth with Hugest Party Ever* — wymaga jednocześnie konkretnego **Hero** (Party Thor) i
-  konkretnej Villain Group (Intergalactic Party Animals) — podwójny wymóg międzytypowy
-- *Marvel Zombies* — wymóg oparty o keyword na karcie, nie o nazwę: „Include exactly one Villain
-  Group with [Rise of The Living Dead]"
 
-Bez wsparcia dla tych przypadków losowanie może w ogóle nie zawrzeć wymaganej grupy (scheme
-staje się niegrywalny lub niezgodny z instrukcją) albo — w przypadku S.H.I.E.L.D. vs. HYDRA —
-wylosować obie wykluczające się grupy naraz.
+**Status:** Naprawione. Zidentyfikowano 12 schematów z wymogami grup Villain/Henchman/Hero
+i wdrożono pełne wsparcie silnika dla wszystkich trybów wymuszeń.
+
+- Dodano pola do `Scheme.overrides` w `src/types/cards.ts`:
+  - `requiredVillainGroups?: string[]` — grupy wymuszane zawsze (AND, np. Kree Starforce + Skrulls)
+  - `requiredHenchmanGroups?: string[]` — grupy henchmenów wymuszane (AND, np. Khonshu Guardians)
+  - `xorVillainGroups?: string[]` — dokładnie jedna z listy (XOR, S.H.I.E.L.D. vs. HYDRA War)
+  - `requiredVillainKeyword?: string` — jedna Villain Group z tym słowem w kartach (Marvel Zombies)
+  - `requiredHeroes?: string[]` — bohaterowie wymuszani po nazwie (Party Thor)
+- Stworzono `src/engine/utils/resolveSchemeVillainRequirements.ts` obsługujący wszystkie 5 trybów,
+  w tym fuzzy name matching (analogiczny do resolveAlwaysLeads).
+- `generateSetup()` w `SmartRandomizerEngine.ts`: wymuszone grupy z schematu są scalane z
+  grupami z mastermind.alwaysLeads (dedup po ID); `effectiveVillainCount = max(standard, forced)`
+  — schemat Kree-Skrull War przy 1 graczu (solo) poprawnie daje ≥2 villain groups; wymuszone
+  hero są pre-selekcjonowane przed trybem losowania (pool i heroCount odpowiednio redukowane).
+- Dodano funkcje derive w `src/utils/jsonMigration.ts`: `deriveRequiredVillainGroups()`,
+  `deriveXorVillainGroups()`, `deriveRequiredVillainKeyword()`, `deriveRequiredHeroes()`
+  (requiredHenchmanGroups nie jest wykrywalne bez dostępu do puli — wymaga ręcznej adnotacji).
+- Naniesiono overrides do 12 schematów w `src/assets/cards.json`:
+  Secret Invasion ×2 (Skrulls), Enslave Minds (Chitauri), Kree-Skrull War (Kree+Skrull),
+  Forge the Infinity Gauntlet (Infinity Gems), Mark of Khonshu (requiredHenchmanGroups: Khonshu
+  Guardians), Splice Humans with Spider DNA (Sinister Six), Dark Phoenix Saga (Hellfire Club),
+  Demon Bear Saga (Demons of Limbo), S.H.I.E.L.D. vs. HYDRA War (xorVillainGroups),
+  Trash Earth (Party Animals + Party Thor), Marvel Zombies (requiredVillainKeyword).
+- Dodano 5 nowych kluczy i18n w `src/i18n/en.json` dla setupNotes.
+- Test: `src/engine/__tests__/schemeVillainRequirements.test.ts` (28 przypadków: weryfikacja
+  danych, testy resolveSchemeVillainRequirements, testy generateSetup dla każdego trybu).
 
 ## 11. Warunkowe (player-count-gated) dodatki do puli Villain/Bystander
 Analogicznie do `heroCountModMinPlayers` (które działa tylko dla Hero), część schematów ma
@@ -386,6 +394,11 @@ więc nie może w pełni symulować rozgrywki. Pytanie, czy narzucić graczowi w
 pozwolić na wylosowanie tylko Veiled a zostawić Unveiled do ręcznego wylosowania. Jednak niesie to za sobą ryzyko, że 
 nie będzie można określić trudności takich rozgrywek. Może warto dodać pewien przełącznik w aplikacji, albo przycisk,
 który opcjonalnie wylosuje drugą część scenariusza
+
+## 17. Scheme Negative Zone Prison Breakout — wymaga dodatkowego Henchmana
+Należy dodać warunek dodający grupę Henchman do setupu, jeśli wylosowany zostanie ten schemat. 
+W przeciwnym razie schemat nie będzie zgodny z instrukcją. Dodatkowo sprawdzamy, czy nie ma więcej
+takich schematów.
 
 ---
 

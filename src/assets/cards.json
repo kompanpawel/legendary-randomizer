@@ -24690,7 +24690,11 @@
         "recruit-boost",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Skrulls"
+        ]
+      },
       "cards": [
         {
           "name": "Secret Invasion of the Skrull Shapeshifters",
@@ -24919,7 +24923,10 @@
         "villain-control"
       ],
       "overrides": {
-        "heroCountMod": 1
+        "heroCountMod": 1,
+        "requiredVillainGroups": [
+          "Skrulls"
+        ]
       },
       "cards": [
         {
@@ -25366,7 +25373,11 @@
         "artifact-synergy",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Infinity Gems"
+        ]
+      },
       "cards": [
         {
           "name": "Forge the Infinity Gauntlet",
@@ -25402,7 +25413,12 @@
         "recruit-boost",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Kree Starforce",
+          "Skrulls"
+        ]
+      },
       "cards": [
         {
           "name": "Kree-Skrull War, The",
@@ -25611,7 +25627,11 @@
         "recruit-boost",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Chitauri"
+        ]
+      },
       "cards": [
         {
           "name": "Enslave Minds with the Chitauri Scepter",
@@ -26146,7 +26166,14 @@
         "ambush",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Intergalactic Party Animals"
+        ],
+        "requiredHeroes": [
+          "Party Thor"
+        ]
+      },
       "cards": [
         {
           "name": "Trash Earth with Hugest Party Ever",
@@ -26165,7 +26192,8 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "8 random Extra Hero cards go to the Villain deck"
+        "specialSetup": "8 random Extra Hero cards go to the Villain deck",
+        "requiredVillainKeyword": "Rise of The Living Dead"
       },
       "cards": [
         {
@@ -26218,7 +26246,11 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Demons of Limbo"
+        ]
+      },
       "cards": [
         {
           "name": "Demon Bear Saga, The",
@@ -26389,7 +26421,11 @@
         "heavy-hitter",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Sinister Six"
+        ]
+      },
       "cards": [
         {
           "name": "Splice Humans with Spider DNA",
@@ -26592,7 +26628,12 @@
         "undercover",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "xorVillainGroups": [
+          "Hydra Elite",
+          "A.I.M., Hydra Offshoot"
+        ]
+      },
       "cards": [
         {
           "name": "S.H.I.E.L.D. vs. HYDRA War",
@@ -26946,7 +26987,10 @@
       ],
       "overrides": {
         "heroCountMod": 1,
-        "specialSetup": "All 14 Extra Hero cards go to the Villain deck"
+        "specialSetup": "All 14 Extra Hero cards go to the Villain deck",
+        "requiredHenchmanGroups": [
+          "Khonshu Guardians"
+        ]
       },
       "cards": [
         {
@@ -27449,7 +27493,11 @@
         "ambush",
         "villain-control"
       ],
-      "overrides": {},
+      "overrides": {
+        "requiredVillainGroups": [
+          "Hellfire Club"
+        ]
+      },
       "cards": [
         {
           "name": "Dark Phoenix Saga, The",

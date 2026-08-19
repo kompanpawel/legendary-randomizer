@@ -1258,6 +1258,101 @@ function deriveExtraVillains(cards: RawSchemeCard[]): number {
   return 0;
 }
 
+/**
+ * Nazwy Villain Groups wymaganych bezwarunkowo w setupie przez schemat (logika AND).
+ * Zwraca tablicę nazw możliwych do dopasowania przez matchGroup (fuzzy).
+ *
+ * Wykrywane wzorce:
+ *   - "X Villain Group required"
+ *   - "Always include (the) X Villain Group[s]"
+ *   - "Always include X and Y Villain Groups" → ["X", "Y"]
+ *   - "Include X as one of the Villain Groups"
+ *   - "Always include the X Hero and Y Villain Group" → ["Y"]
+ *
+ * UWAGA: Wyniki są przybliżone — nazwy w tekście kart mogą różnić się od nazw grup
+ * w bazie (np. "Skrull" → "Skrulls"). matchGroup() radzi sobie z fuzzy matching runtime.
+ * xorVillainGroups i requiredVillainKeyword obsługiwane przez osobne funkcje.
+ * requiredHenchmanGroups NIE są tu wykrywane (wymaga dostępu do puli henchmenów).
+ */
+function deriveRequiredVillainGroups(cards: RawSchemeCard[]): string[] {
+  const all = cards.map(c => c.abilities).join('\n');
+  const groups: string[] = [];
+
+  // "X Villain Group required" — np. "Skrull Villain Group required"
+  const reqMatch = all.match(/\b([\w\s'-]+?)\s+Villain Groups?\s+required/i);
+  if (reqMatch) {
+    const raw = reqMatch[1].trim();
+    // Utnij "Setup: N Twists. " i podobne prefixy
+    const clean = raw.replace(/^(?:Setup:.*?[.]\s+)?/, '').trim();
+    if (clean) groups.push(clean);
+  }
+
+  // "Always include [the] X Villain Group[s]" lub "... and Y Villain Group[s]"
+  const alwaysMatch = all.match(/Always include (?:the )?(.+?)\s+Villain Groups?(?=[.,\s]|$)/i);
+  if (alwaysMatch) {
+    const part = alwaysMatch[1].trim();
+    if (/ and /i.test(part)) {
+      // "Kree Starforce and Skrull" → dwie grupy
+      const subParts = part.split(/ and /i).map(s => s.trim().replace(/^the /i, '').trim());
+      groups.push(...subParts.filter(Boolean));
+    } else {
+      // "Party Thor Hero and Intergalactic Part Animals" → wyciągnij część po "Hero and"
+      const heroAndMatch = part.match(/Hero\s+and\s+(.+)$/i);
+      if (heroAndMatch) {
+        groups.push(heroAndMatch[1].trim());
+      } else {
+        groups.push(part.replace(/^the /i, '').trim());
+      }
+    }
+  }
+
+  // "Include X as one of the Villain Groups"
+  const includeAsMatch = all.match(/Include (.+?) as one of the Villain Groups/i);
+  if (includeAsMatch) {
+    groups.push(includeAsMatch[1].trim());
+  }
+
+  return [...new Set(groups)].filter(Boolean);
+}
+
+/**
+ * Lista nazw Villain Groups dla logiki XOR (dokładnie jedna wylosowana).
+ * Wzorzec: "Include either the X or Y Villain Group, but not both"
+ */
+function deriveXorVillainGroups(cards: RawSchemeCard[]): string[] {
+  const all = cards.map(c => c.abilities).join('\n');
+  const m = all.match(/Include either (?:the )?(.+?) or (?:the )?([\w,.\s'-]+?) Villain Group/i);
+  if (m) {
+    return [m[1].trim().replace(/[""]/g, ''), m[2].trim().replace(/[""]/g, '')];
+  }
+  return [];
+}
+
+/**
+ * Słowo kluczowe dla mechaniki "exactly one Villain Group with [keyword]".
+ * Wzorzec: "Include exactly one Villain Group with [X]"
+ */
+function deriveRequiredVillainKeyword(cards: RawSchemeCard[]): string | undefined {
+  const all = cards.map(c => c.abilities).join('\n');
+  // Obsługa zarówno nawiasów kwadratowych jak i cudzysłowów typograficznych
+  const m = all.match(/Include exactly one Villain Group with [\u201c"\[]+([^\u201d"\]]+)[\u201d"\]]+/i);
+  return m ? m[1].trim() : undefined;
+}
+
+/**
+ * Nazwy Hero wymaganych bezwarunkowo w Hero Decku przez schemat.
+ * Wzorzec: "Always include the X Hero" (np. Party Thor)
+ *
+ * UWAGA: Nie wykrywa złożonych wymagań z kroków 14-15 (typy drużyny, klasy, substrings).
+ */
+function deriveRequiredHeroes(cards: RawSchemeCard[]): string[] {
+  const all = cards.map(c => c.abilities).join('\n');
+  // "Always include the X Hero [and Y Villain Group]"
+  const m = all.match(/Always include (?:the )?(.+?) Hero(?:\s+and|\s*\.|\s*$)/i);
+  if (m) return [m[1].trim()];
+  return [];
+}
+
 // ─── Derive countersNeeded for Henchman Group ────────────────────────────────
 /**
  * Analyzes all cards in a henchman group and determines what hero abilities
@@ -1472,6 +1567,16 @@ function migrate(): CardsDatabase {
       ...(deriveMultipleMasterminds(s.cards) ? { multipleMasterminds: true } : {}),
       ...(deriveRequiresSecondMastermind(s.cards) ? { requiresSecondMastermind: true } : {}),
       ...(deriveExtraVillains(s.cards) > 0 ? { extraVillains: deriveExtraVillains(s.cards) } : {}),
+      ...(deriveRequiredVillainGroups(s.cards).length > 0
+        ? { requiredVillainGroups: deriveRequiredVillainGroups(s.cards) } : {}),
+      ...(deriveXorVillainGroups(s.cards).length > 0
+        ? { xorVillainGroups: deriveXorVillainGroups(s.cards) } : {}),
+      ...(deriveRequiredVillainKeyword(s.cards) != null
+        ? { requiredVillainKeyword: deriveRequiredVillainKeyword(s.cards)! } : {}),
+      ...(deriveRequiredHeroes(s.cards).length > 0
+        ? { requiredHeroes: deriveRequiredHeroes(s.cards) } : {}),
+      // requiredHenchmanGroups: nie wykrywane automatycznie (wymaga dostępu do puli henchmenów).
+      // Adnotowane ręcznie w cards.json (patrz krok 10, The Mark of Khonshu).
     },
     cards: s.cards.map(c => ({
       name: c.name,

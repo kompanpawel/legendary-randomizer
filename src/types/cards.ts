@@ -102,6 +102,32 @@ export interface Scheme {
      * być ich wiele; drugi prawdziwy Mastermind (Dark Alliance) ma pełny zestaw Tactics.
      */
     multipleMasterminds?: boolean;
+    /**
+     * Villain Groups, które muszą zostać zawarte w setupie (logika AND).
+     * Nazwy są rozwiązywane runtime przez matchGroup (fuzzy matching).
+     * Np. ["Kree Starforce", "Skrulls"] dla The Kree-Skrull War.
+     */
+    requiredVillainGroups?: string[];
+    /**
+     * Henchman Groups, które muszą zostać zawarte w setupie (logika AND).
+     * Np. ["Khonshu Guardians"] dla The Mark of Khonshu.
+     */
+    requiredHenchmanGroups?: string[];
+    /**
+     * Dokładnie jedna Villain Group z tej listy jest losowana (logika XOR).
+     * Np. ["Hydra Elite", "A.I.M., Hydra Offshoot"] dla S.H.I.E.L.D. vs. HYDRA War.
+     */
+    xorVillainGroups?: string[];
+    /**
+     * Słowo kluczowe — do setupu musi trafić jedna Villain Group, której karty zawierają
+     * ten tekst. Np. "Rise of The Living Dead" dla Marvel Zombies.
+     */
+    requiredVillainKeyword?: string;
+    /**
+     * Bohaterowie, którzy muszą trafić do Hero Decku (rozwiązywani po nazwie).
+     * Np. ["Party Thor"] dla Trash Earth with Hugest Party Ever.
+     */
+    requiredHeroes?: string[];
   };
   cards: readonly SchemeCard[];
 }

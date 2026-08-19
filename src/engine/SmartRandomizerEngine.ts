@@ -6,6 +6,7 @@ import { dustOffMode } from './modes/dustOff';
 import { synergyEngineMode } from './modes/synergyEngine';
 import { getSetupRules } from './playerSetupRules';
 import { resolveAlwaysLeads } from './utils/resolveAlwaysLeads';
+import { resolveSchemeVillainRequirements } from './utils/resolveSchemeVillainRequirements';
 import { isMastermindSchemeIncompatible } from './utils/mastermindSchemeConflicts';
 import { computeThreatScore, computeFullThreatScore, type CounterCoverage } from './utils/computeThreatScore';
 import { computeBalanceGap } from './utils/powerBiasMultiplier';
@@ -138,45 +139,62 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     }
   }
 
-  // ── Always Leads ──────────────────────────────────────────────────────────
+  // ── Always Leads (Mastermind) ─────────────────────────────────────────────
   const resolution = resolveAlwaysLeads(mastermind.alwaysLeads, villains, henchmen);
 
-  let forcedVillain: VillainGroup | undefined = resolution.forcedVillain;
-  if (!forcedVillain && resolution.villainKeywords && resolution.villainKeywords.length > 0) {
+  let mastermindForcedVillain: VillainGroup | undefined = resolution.forcedVillain;
+  if (!mastermindForcedVillain && resolution.villainKeywords && resolution.villainKeywords.length > 0) {
     const matchingVillains = villains.filter(v =>
       resolution.villainKeywords!.some(kw =>
         v.name.toLowerCase().includes(kw.toLowerCase())
       )
     );
     if (matchingVillains.length > 0) {
-      [forcedVillain] = uniformSample(matchingVillains, 1);
+      [mastermindForcedVillain] = uniformSample(matchingVillains, 1);
     }
   }
 
-  let forcedHenchman: Henchman | undefined = resolution.forcedHenchman;
-  let additionalForcedHenchman: Henchman | undefined;
+  const mastermindForcedHenchmen: Henchman[] = [];
+  if (resolution.forcedHenchman) mastermindForcedHenchmen.push(resolution.forcedHenchman);
   if (resolution.additionalHenchmanKeyword) {
     const kw = resolution.additionalHenchmanKeyword.toLowerCase();
     const matchingHenchmen = henchmen.filter(h => h.name.toLowerCase().includes(kw));
     if (matchingHenchmen.length > 0) {
-      [additionalForcedHenchman] = uniformSample(matchingHenchmen, 1);
+      mastermindForcedHenchmen.push(uniformSample(matchingHenchmen, 1)[0]);
     }
   }
 
-  const villainPool = villains.filter(v => v.id !== forcedVillain?.id);
-  const remainingVillainCount = Math.max(0, villainCount - (forcedVillain ? 1 : 0));
+  // ── Scheme Villain/Henchman/Hero Requirements (krok 10) ──────────────────
+  const schemeRes = resolveSchemeVillainRequirements(scheme, villains, henchmen, heroes);
+
+  // Scal wymuszone villain groups (mastermind + schemat), dedup po id
+  const allForcedVillains: VillainGroup[] = [];
+  if (mastermindForcedVillain) allForcedVillains.push(mastermindForcedVillain);
+  for (const v of schemeRes.forcedVillains) {
+    if (!allForcedVillains.some(fv => fv.id === v.id)) allForcedVillains.push(v);
+  }
+
+  // Scal wymuszone henchmen (mastermind + schemat), dedup po id
+  const allForcedHenchmen: Henchman[] = [...mastermindForcedHenchmen];
+  for (const h of schemeRes.forcedHenchmen) {
+    if (!allForcedHenchmen.some(fh => fh.id === h.id)) allForcedHenchmen.push(h);
+  }
+
+  // Villain pool: wyklucz wszystkie wymuszone
+  const villainPool = villains.filter(v => !allForcedVillains.some(fv => fv.id === v.id));
+  // Effectivna liczba villain groups: co najmniej tyle, ile wymuszonych
+  const effectiveVillainCount = Math.max(villainCount, allForcedVillains.length);
+  const remainingVillainCount = Math.max(0, effectiveVillainCount - allForcedVillains.length);
   const selectedVillains: VillainGroup[] = [
-    ...(forcedVillain ? [forcedVillain] : []),
+    ...allForcedVillains,
     ...uniformSample(villainPool, remainingVillainCount),
   ];
 
-  const forcedHenchmenList = [forcedHenchman, additionalForcedHenchman].filter(
-    (h): h is Henchman => h !== undefined
-  );
-  const henchmanPool = henchmen.filter(h => !forcedHenchmenList.some(fh => fh.id === h.id));
-  const remainingHenchmanCount = Math.max(0, henchmanCount - forcedHenchmenList.length);
+  // Henchman pool: wyklucz wymuszone
+  const henchmanPool = henchmen.filter(h => !allForcedHenchmen.some(fh => fh.id === h.id));
+  const remainingHenchmanCount = Math.max(0, henchmanCount - allForcedHenchmen.length);
   const selectedHenchmen: Henchman[] = [
-    ...forcedHenchmenList,
+    ...allForcedHenchmen,
     ...uniformSample(henchmanPool, remainingHenchmanCount),
   ];
 
@@ -185,26 +203,33 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   const scStats = schemeStats.find(s => s.schemeId === scheme.id);
   const preSelectionThreat = computeThreatScore(mastermind, mmStats, isEpicMastermind, scheme, scStats);
 
+  // ── Required heroes from scheme (krok 10) ─────────────────────────────────
+  // Pre-select named heroes before running the hero selection mode for the rest.
+  const schemeRequiredHeroes = schemeRes.forcedHeroes;
+  const heroPoolForMode = heroes.filter(h => !schemeRequiredHeroes.some(rh => rh.id === h.id));
+  const remainingHeroCount = Math.max(0, heroCount - schemeRequiredHeroes.length);
+
   // ── Pick heroes based on mode ──────────────────────────────────────────────
-  let selectedHeroes: Hero[];
+  let additionalHeroes: Hero[];
 
   switch (mode) {
     case 'smart':
-      selectedHeroes = smartEqualizerMode(heroes, heroStats, totalMatches, heroCount, alpha, preSelectionThreat);
+      additionalHeroes = smartEqualizerMode(heroPoolForMode, heroStats, totalMatches, remainingHeroCount, alpha, preSelectionThreat);
       break;
     case 'dustOff':
-      // Dust Off: bez bias siły — zachowuje charakter trybu (grasz zapomnianymi kartami)
-      selectedHeroes = dustOffMode(heroes, heroStats, heroCount);
+      additionalHeroes = dustOffMode(heroPoolForMode, heroStats, remainingHeroCount);
       break;
     case 'synergy':
-      selectedHeroes = synergyEngineMode(
-        heroes, heroStats, scheme, mastermind, totalMatches, heroCount, alpha,
+      additionalHeroes = synergyEngineMode(
+        heroPoolForMode, heroStats, scheme, mastermind, totalMatches, remainingHeroCount, alpha,
         selectedVillains, selectedHenchmen, preSelectionThreat
       );
       break;
     default:
-      selectedHeroes = uniformSample(heroes, heroCount);
+      additionalHeroes = uniformSample(heroPoolForMode, remainingHeroCount);
   }
+
+  const selectedHeroes: Hero[] = [...schemeRequiredHeroes, ...additionalHeroes];
 
   // ── POST-SELECTION threat score (counter-gap dominant, 30% power + 70% counter) ──
   const { threatScore, counterCoverage } = computeFullThreatScore(
@@ -241,6 +266,41 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     } else {
       setupNotes.push({ key: 'setup.notes.multipleMasterminds' });
     }
+  }
+
+  // Nota 3: Scheme-required villain groups (krok 10)
+  if (schemeRes.forcedVillains.length > 0) {
+    const names = schemeRes.forcedVillains.map(v => v.name).join(', ');
+    if ((scheme.overrides.xorVillainGroups ?? []).length > 0) {
+      // XOR — informuj który wylosowano z możliwych opcji
+      const options = (scheme.overrides.xorVillainGroups ?? []).join(', ');
+      setupNotes.push({
+        key: 'setup.notes.schemeXorVillain',
+        params: { options, selected: names },
+      });
+    } else if (scheme.overrides.requiredVillainKeyword) {
+      setupNotes.push({
+        key: 'setup.notes.schemeRequiredVillainKeyword',
+        params: { keyword: scheme.overrides.requiredVillainKeyword, selected: names },
+      });
+    } else {
+      setupNotes.push({
+        key: 'setup.notes.schemeRequiredVillains',
+        params: { names },
+      });
+    }
+  }
+
+  // Nota 4: Scheme-required henchman groups (krok 10)
+  if (schemeRes.forcedHenchmen.length > 0) {
+    const names = schemeRes.forcedHenchmen.map(h => h.name).join(', ');
+    setupNotes.push({ key: 'setup.notes.schemeRequiredHenchmen', params: { names } });
+  }
+
+  // Nota 5: Scheme-required heroes (krok 10)
+  if (schemeRes.forcedHeroes.length > 0) {
+    const names = schemeRes.forcedHeroes.map(h => h.name).join(', ');
+    setupNotes.push({ key: 'setup.notes.schemeRequiredHeroes', params: { names } });
   }
 
   const sortByName = <T extends { name: string }>(arr: T[]): T[] =>

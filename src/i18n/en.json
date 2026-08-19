@@ -84,7 +84,12 @@
     "notes": {
       "ambushSchemeOverlap": "Multiple selected villain groups ({{names}}) contain an Ambush Scheme card. Only one can be active at a time — additional ones are KO'd when drawn from the deck.",
       "darkAllianceSecondMastermind": "Dark Alliance: on Twist 1, a second Mastermind joins the game — \"{{name}}\" (starts with 1 Tactic, gains more on Twists 2–4). Prepare its cards before the game.",
-      "multipleMasterminds": "This scheme uses the Multiple Masterminds rule — additional Masterminds may appear during the game. Ascending Masterminds have no Tactics (defeated with a single fight). See the Multiple Masterminds rule in the rulebook."
+      "multipleMasterminds": "This scheme uses the Multiple Masterminds rule — additional Masterminds may appear during the game. Ascending Masterminds have no Tactics (defeated with a single fight). See the Multiple Masterminds rule in the rulebook.",
+      "schemeRequiredVillains": "Required by this scheme: {{names}} (already included in the setup).",
+      "schemeXorVillain": "This scheme requires exactly one of: {{options}}. Selected at random: {{selected}}.",
+      "schemeRequiredVillainKeyword": "This scheme requires one Villain Group with [{{keyword}}]. Included: {{selected}}.",
+      "schemeRequiredHenchmen": "Required henchmen by this scheme: {{names}} (already included in the setup).",
+      "schemeRequiredHeroes": "This scheme requires: {{names}} (already included in the hero lineup)."
     }
   },
   "settings": {
