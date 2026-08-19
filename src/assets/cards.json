@@ -685,6 +685,7 @@
       "countersProvided": [
         "heavy-hitter",
         "recruit-boost",
+        "time-travel",
         "top-deck-control",
         "undercover"
       ],
@@ -746,7 +747,8 @@
         "heavy-hitter",
         "recruit-boost",
         "undercover",
-        "wound-removal"
+        "wound-removal",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -1159,6 +1161,7 @@
       "countersProvided": [
         "deck-thinning",
         "focus",
+        "multi-class",
         "recruit-boost",
         "time-travel",
         "top-deck-control"
@@ -1631,6 +1634,7 @@
         "aoe",
         "empowered",
         "heavy-hitter",
+        "multi-class",
         "recruit-boost",
         "villain-control",
         "wound-deal"
@@ -3259,6 +3263,7 @@
       "countersProvided": [
         "extra-draws",
         "heavy-hitter",
+        "location-control",
         "top-deck-control"
       ],
       "cards": [
@@ -5790,7 +5795,8 @@
       "countersProvided": [
         "heavy-hitter",
         "recruit-boost",
-        "top-deck-control"
+        "top-deck-control",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -6232,6 +6238,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "multi-class",
         "recruit-boost"
       ],
       "cards": [
@@ -6507,7 +6514,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "deck-thinning",
-        "heavy-hitter"
+        "heavy-hitter",
+        "time-travel"
       ],
       "cards": [
         {
@@ -7008,6 +7016,7 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
+        "artifact-synergy",
         "extra-draws",
         "recruit-boost"
       ],
@@ -7062,6 +7071,7 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
+        "artifact-synergy",
         "extra-draws",
         "recruit-boost",
         "top-deck-control"
@@ -7117,6 +7127,7 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
+        "artifact-synergy",
         "extra-draws",
         "recruit-boost",
         "top-deck-control",
@@ -7290,6 +7301,7 @@
         "artifact-synergy",
         "heavy-hitter",
         "recruit-boost",
+        "sidekick",
         "villain-control"
       ],
       "cards": [
@@ -8421,7 +8433,8 @@
         "deck-thinning",
         "extra-draws",
         "recruit-boost",
-        "top-deck-control"
+        "top-deck-control",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -8476,7 +8489,8 @@
       "countersProvided": [
         "extra-draws",
         "heavy-hitter",
-        "recruit-boost"
+        "recruit-boost",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -8530,6 +8544,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
+        "multi-class",
         "recruit-boost"
       ],
       "cards": [
@@ -8799,7 +8814,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "extra-draws",
-        "henchman-synergy"
+        "henchman-synergy",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -9283,7 +9299,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "extra-draws"
+        "extra-draws",
+        "multi-class"
       ],
       "cards": [
         {
@@ -9682,7 +9699,8 @@
         "location-control",
         "recruit-boost",
         "top-deck-control",
-        "villain-control"
+        "villain-control",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -9739,7 +9757,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "city-control",
-        "location-control"
+        "location-control",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -9792,7 +9811,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "recruit-boost",
-        "wound-removal"
+        "wound-removal",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -9847,7 +9867,8 @@
       "countersProvided": [
         "bystander-rescue",
         "extra-draws",
-        "heavy-hitter"
+        "heavy-hitter",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -10737,6 +10758,7 @@
       ],
       "powerLevel": 3,
       "countersProvided": [
+        "artifact-synergy",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -10838,6 +10860,7 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
+        "artifact-synergy",
         "deck-thinning",
         "top-deck-control"
       ],
@@ -11013,6 +11036,7 @@
       "countersProvided": [
         "heavy-hitter",
         "recruit-boost",
+        "time-travel",
         "top-deck-control"
       ],
       "cards": [
@@ -11160,6 +11184,7 @@
         "deck-thinning",
         "heavy-hitter",
         "henchman-synergy",
+        "multi-class",
         "wound-removal"
       ],
       "cards": [
@@ -11482,6 +11507,7 @@
         "deck-thinning",
         "empowered",
         "extra-draws",
+        "multi-class",
         "top-deck-control"
       ],
       "cards": [
@@ -11626,7 +11652,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "aoe"
+        "aoe",
+        "multi-class"
       ],
       "cards": [
         {
@@ -12936,6 +12963,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "extra-draws",
+        "multi-class",
         "recruit-boost",
         "top-deck-control"
       ],
@@ -13820,7 +13848,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "deck-thinning",
-        "recruit-boost"
+        "recruit-boost",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -13874,7 +13903,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "extra-draws",
-        "top-deck-control"
+        "top-deck-control",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -13927,7 +13957,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "top-deck-control"
+        "top-deck-control",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -14034,7 +14065,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
-        "recruit-boost"
+        "recruit-boost",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -14252,6 +14284,7 @@
       "countersProvided": [
         "extra-draws",
         "heavy-hitter",
+        "multi-class",
         "recruit-boost"
       ],
       "cards": [
@@ -14363,6 +14396,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "extra-draws",
+        "multi-class",
         "recruit-boost"
       ],
       "cards": [
@@ -14534,6 +14568,7 @@
       "countersProvided": [
         "deck-thinning",
         "extra-draws",
+        "multi-class",
         "recruit-boost",
         "sidekick"
       ],
@@ -14863,6 +14898,7 @@
       "countersProvided": [
         "extra-draws",
         "location-control",
+        "multi-class",
         "recruit-boost"
       ],
       "cards": [
@@ -14920,6 +14956,7 @@
       "countersProvided": [
         "extra-draws",
         "location-control",
+        "multi-class",
         "recruit-boost"
       ],
       "cards": [
@@ -14976,6 +15013,7 @@
       "countersProvided": [
         "extra-draws",
         "location-control",
+        "multi-class",
         "top-deck-control"
       ],
       "cards": [
@@ -15092,6 +15130,7 @@
         "deck-thinning",
         "heavy-hitter",
         "location-control",
+        "multi-class",
         "recruit-boost"
       ],
       "cards": [
@@ -15323,6 +15362,7 @@
         "deck-thinning",
         "heavy-hitter",
         "location-control",
+        "multi-class",
         "recruit-boost",
         "shield-synergy"
       ],
@@ -15546,6 +15586,7 @@
       "countersProvided": [
         "deck-thinning",
         "extra-draws",
+        "multi-class",
         "top-deck-control"
       ],
       "cards": [
@@ -16210,7 +16251,8 @@
       "countersProvided": [
         "deck-thinning",
         "extra-draws",
-        "recruit-boost"
+        "recruit-boost",
+        "sidekick"
       ],
       "cards": [
         {
@@ -16372,7 +16414,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "recruit-boost"
+        "recruit-boost",
+        "sidekick"
       ],
       "cards": [
         {
@@ -16485,6 +16528,7 @@
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
+        "sidekick",
         "top-deck-control",
         "villain-ally-synergy"
       ],
@@ -16656,6 +16700,7 @@
       "powerLevel": 3,
       "countersProvided": [
         "dodge-offense",
+        "multi-class",
         "recruit-boost",
         "top-deck-control",
         "villain-ally-synergy"
@@ -16931,7 +16976,8 @@
       "countersProvided": [
         "extra-draws",
         "recruit-boost",
-        "top-deck-control"
+        "top-deck-control",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -16984,7 +17030,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "top-deck-control"
+        "top-deck-control",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -17037,7 +17084,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "wound-removal"
+        "wound-removal",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -17093,8 +17141,10 @@
       "countersProvided": [
         "deck-thinning",
         "extra-draws",
+        "multi-class",
         "top-deck-control",
-        "transform"
+        "transform",
+        "trap-handling"
       ],
       "cards": [
         {
@@ -17161,8 +17211,10 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "multi-class",
         "top-deck-control",
         "transform",
+        "trap-handling",
         "wound-synergy"
       ],
       "cards": [
@@ -17230,7 +17282,9 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "multi-class",
         "transform",
+        "trap-handling",
         "wound-synergy"
       ],
       "cards": [
@@ -17431,7 +17485,9 @@
       "countersProvided": [
         "extra-draws",
         "heavy-hitter",
+        "multi-class",
         "transform",
+        "trap-handling",
         "wound-synergy"
       ],
       "cards": [
@@ -17567,7 +17623,9 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "multi-class",
         "transform",
+        "trap-handling",
         "wound-synergy"
       ],
       "cards": [
@@ -17999,9 +18057,11 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "multi-class",
         "recruit-boost",
         "top-deck-control",
         "transform",
+        "trap-handling",
         "wound-synergy"
       ],
       "cards": [
@@ -18131,7 +18191,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "extra-draws"
+        "extra-draws",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -18193,7 +18254,8 @@
       "keywords": [],
       "powerLevel": 3,
       "countersProvided": [
-        "extra-draws"
+        "extra-draws",
+        "multi-class"
       ],
       "cards": [
         {
@@ -18247,7 +18309,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "extra-draws",
-        "top-deck-control"
+        "top-deck-control",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -18355,7 +18418,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "deck-thinning",
-        "extra-draws"
+        "extra-draws",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -18471,7 +18535,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "discard",
-        "recruit-boost"
+        "recruit-boost",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -18635,7 +18700,8 @@
       "countersProvided": [
         "extra-draws",
         "multi-class",
-        "top-deck-control"
+        "top-deck-control",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -18716,7 +18782,8 @@
       "powerLevel": 3,
       "countersProvided": [
         "heavy-hitter",
-        "top-deck-control"
+        "top-deck-control",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -18772,7 +18839,8 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
-        "recruit-boost"
+        "recruit-boost",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -18938,7 +19006,8 @@
       "countersProvided": [
         "deck-thinning",
         "extra-draws",
-        "wound-removal"
+        "wound-removal",
+        "wound-synergy"
       ],
       "cards": [
         {
@@ -19269,6 +19338,7 @@
       "vp": 6,
       "countersNeeded": [
         "deck-thinning",
+        "empowered",
         "extra-draws",
         "multi-class"
       ],
@@ -19454,6 +19524,7 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "ambush",
         "multi-class",
         "villain-control",
         "wound-removal"
@@ -19586,6 +19657,7 @@
       "countersNeeded": [
         "deck-thinning",
         "heavy-hitter",
+        "size-changing",
         "villain-control",
         "wound-removal"
       ],
@@ -19675,6 +19747,7 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "location-control",
         "villain-control"
       ],
       "cards": [
@@ -19797,6 +19870,7 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "location-control",
         "multi-class",
         "wound-removal"
       ],
@@ -20904,6 +20978,7 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "artifact-synergy",
         "conqueror",
         "heavy-hitter",
         "wound-removal"
@@ -20950,6 +21025,7 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "artifact-synergy",
         "extra-draws",
         "villain-control"
       ],
@@ -21494,6 +21570,7 @@
         "conqueror",
         "extra-draws",
         "multi-class",
+        "size-changing",
         "wound-removal"
       ],
       "cards": [
@@ -21633,6 +21710,7 @@
       "theme": "",
       "vp": null,
       "countersNeeded": [
+        "artifact-synergy",
         "bystander-control",
         "extra-draws"
       ],
@@ -21864,6 +21942,7 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "ambush",
         "wound-removal"
       ],
       "cards": [
@@ -21956,6 +22035,7 @@
       "vp": 6,
       "countersNeeded": [
         "deck-thinning",
+        "empowered",
         "villain-control"
       ],
       "cards": [
@@ -22343,6 +22423,7 @@
       "vp": 6,
       "countersNeeded": [
         "heavy-hitter",
+        "location-control",
         "recruit-boost",
         "villain-control",
         "wound-removal"
@@ -22389,8 +22470,10 @@
       "theme": "",
       "vp": 6,
       "countersNeeded": [
+        "dark-memories",
         "deck-thinning",
         "extra-draws",
+        "location-control",
         "multi-class",
         "recruit-boost",
         "villain-control",
@@ -22439,6 +22522,7 @@
       "vp": 6,
       "countersNeeded": [
         "heavy-hitter",
+        "location-control",
         "multi-class",
         "villain-control",
         "wound-removal"
@@ -27248,6 +27332,7 @@
       "difficulty": 3,
       "countersNeeded": [
         "heavy-hitter",
+        "trap-handling",
         "villain-control",
         "wound-removal"
       ],
@@ -27350,6 +27435,7 @@
       "expansionId": 16,
       "difficulty": 3,
       "countersNeeded": [
+        "trap-handling",
         "wound-removal"
       ],
       "overrides": {},
@@ -27366,7 +27452,8 @@
       "expansionId": 16,
       "difficulty": 3,
       "countersNeeded": [
-        "recruit-boost"
+        "recruit-boost",
+        "trap-handling"
       ],
       "overrides": {},
       "cards": [
@@ -27384,6 +27471,7 @@
       "expansionId": 40,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "artifact-synergy",
         "bystander-rescue",
         "extra-draws",
@@ -27441,6 +27529,7 @@
       "expansionId": 40,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -27497,6 +27586,7 @@
       "expansionId": 30,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "deck-thinning",
         "heavy-hitter",
@@ -27554,6 +27644,7 @@
       "expansionId": 30,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "conqueror",
         "deck-thinning",
         "heavy-hitter",
@@ -27613,6 +27704,7 @@
       "expansionId": 21,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "empowered",
@@ -27807,6 +27899,7 @@
       "expansionId": 34,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "extra-draws",
         "heavy-hitter",
@@ -27864,6 +27957,7 @@
       "expansionId": 34,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "empowered",
@@ -27931,6 +28025,7 @@
       "expansionId": 35,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "heavy-hitter",
         "villain-control",
@@ -27985,6 +28080,7 @@
       "expansionId": 35,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "dark-memories",
         "extra-draws",
         "heavy-hitter",
@@ -28098,6 +28194,7 @@
       "expansionId": 12,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -28154,6 +28251,7 @@
       "expansionId": 18,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "deck-thinning",
@@ -28253,6 +28351,7 @@
       "expansionId": 18,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "discard-attack",
         "extra-draws",
@@ -28311,6 +28410,7 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "location-control",
         "recruit-boost",
         "size-changing"
       ],
@@ -28364,7 +28464,9 @@
       "theme": "",
       "countersNeeded": [
         "heavy-hitter",
+        "location-control",
         "multi-class",
+        "sidekick",
         "size-changing",
         "villain-control",
         "wound-removal"
@@ -28422,6 +28524,7 @@
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
+        "location-control",
         "recruit-boost",
         "villain-control",
         "wound-removal"
@@ -28475,6 +28578,7 @@
       "expansionId": 13,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -28530,7 +28634,9 @@
       "expansionId": 13,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
+        "location-control",
         "shield-synergy",
         "villain-control",
         "wound-removal"
@@ -28584,7 +28690,9 @@
       "expansionId": 13,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
+        "location-control",
         "size-changing",
         "wound-removal"
       ],
@@ -28638,6 +28746,7 @@
       "theme": "",
       "countersNeeded": [
         "heavy-hitter",
+        "location-control",
         "multi-class",
         "wound-removal"
       ],
@@ -28690,6 +28799,7 @@
       "expansionId": 1,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
@@ -28745,6 +28855,7 @@
       "expansionId": 1,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "multi-class",
@@ -28906,6 +29017,7 @@
       "expansionId": 1,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "multi-class",
@@ -28961,6 +29073,7 @@
       "expansionId": 1,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
@@ -29015,6 +29128,7 @@
       "expansionId": 1,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "heavy-hitter",
         "wound-removal"
@@ -29068,6 +29182,7 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
         "multi-class",
@@ -29124,6 +29239,7 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -29181,9 +29297,11 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
+        "sidekick",
         "wound-removal"
       ],
       "cards": [
@@ -29235,6 +29353,7 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "multi-class",
@@ -29291,6 +29410,7 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
         "multi-class",
         "wound-removal"
@@ -29344,9 +29464,11 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "recruit-boost",
+        "sidekick",
         "wound-removal"
       ],
       "cards": [
@@ -29398,6 +29520,7 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -29455,6 +29578,7 @@
       "expansionId": 42,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "recruit-boost"
       ],
@@ -29507,6 +29631,7 @@
       "expansionId": 3,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
         "wound-removal"
       ],
@@ -29613,6 +29738,7 @@
       "expansionId": 3,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "extra-draws"
       ],
@@ -29717,6 +29843,7 @@
       "expansionId": 3,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "deck-thinning",
         "extra-draws",
@@ -29774,6 +29901,7 @@
       "expansionId": 3,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
         "wound-removal"
       ],
@@ -29826,6 +29954,7 @@
       "expansionId": 14,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "wound-removal"
       ],
@@ -29878,6 +30007,7 @@
       "expansionId": 14,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
@@ -29933,6 +30063,7 @@
       "expansionId": 32,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -29988,6 +30119,7 @@
       "expansionId": 32,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
         "villain-control",
         "wound-removal"
@@ -30051,6 +30183,7 @@
       "expansionId": 8,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "artifact-synergy",
         "discard-attack",
         "villain-ally-synergy"
@@ -30144,6 +30277,7 @@
       "expansionId": 4,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "heavy-hitter",
@@ -30200,6 +30334,7 @@
       "expansionId": 4,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost"
@@ -30253,6 +30388,7 @@
       "expansionId": 7,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
         "wound-removal"
       ],
@@ -30335,6 +30471,7 @@
       "expansionId": 7,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "artifact-synergy",
         "heavy-hitter",
         "villain-control"
@@ -30408,6 +30545,7 @@
       "expansionId": 26,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "artifact-synergy",
         "deck-thinning",
         "extra-draws",
@@ -30485,6 +30623,7 @@
       "expansionId": 26,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "artifact-synergy",
         "conqueror",
         "deck-thinning",
@@ -30562,6 +30701,7 @@
       "expansionId": 28,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -30621,6 +30761,7 @@
         "bystander-rescue",
         "heavy-hitter",
         "henchman-synergy",
+        "multi-class",
         "recruit-boost",
         "villain-control"
       ],
@@ -30683,9 +30824,11 @@
       "expansionId": 28,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "deck-thinning",
         "heavy-hitter",
+        "multi-class",
         "recruit-boost",
         "wound-removal"
       ],
@@ -30738,6 +30881,7 @@
       "expansionId": 28,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -30804,6 +30948,7 @@
       "expansionId": 20,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "conqueror",
         "villain-control",
@@ -30858,6 +31003,7 @@
       "expansionId": 20,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "conqueror",
         "deck-thinning",
         "extra-draws",
@@ -30914,6 +31060,7 @@
       "expansionId": 20,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "multi-class",
@@ -31022,6 +31169,7 @@
       "expansionId": 20,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "conqueror",
         "heavy-hitter",
@@ -31078,6 +31226,7 @@
       "expansionId": 31,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -31134,9 +31283,11 @@
       "expansionId": 31,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "multi-class",
+        "sidekick",
         "villain-control"
       ],
       "cards": [
@@ -31228,6 +31379,7 @@
       "expansionId": 31,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "deck-thinning",
@@ -31284,6 +31436,7 @@
       "expansionId": 31,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -31339,6 +31492,7 @@
       "expansionId": 37,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -31404,6 +31558,7 @@
       "expansionId": 37,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -31461,6 +31616,7 @@
       "expansionId": 39,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "deck-thinning",
@@ -31530,6 +31686,7 @@
       "expansionId": 39,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
         "size-changing"
@@ -31623,6 +31780,7 @@
       "expansionId": 39,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "conqueror",
         "deck-thinning",
         "heavy-hitter",
@@ -31721,6 +31879,7 @@
       "expansionId": 39,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
@@ -31815,6 +31974,7 @@
       "expansionId": 33,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "artifact-synergy",
         "deck-thinning",
         "heavy-hitter",
@@ -31910,6 +32070,8 @@
       "expansionId": 33,
       "theme": "",
       "countersNeeded": [
+        "ambush",
+        "artifact-synergy",
         "deck-thinning",
         "recruit-boost",
         "villain-control"
@@ -32003,6 +32165,7 @@
       "expansionId": 36,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -32100,6 +32263,7 @@
       "expansionId": 36,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -32196,6 +32360,7 @@
       "expansionId": 38,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "deck-thinning",
@@ -32294,6 +32459,7 @@
       "expansionId": 38,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "deck-thinning",
@@ -32392,8 +32558,10 @@
       "expansionId": 38,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
+        "empowered",
         "extra-draws",
         "heavy-hitter",
         "recruit-boost",
@@ -32448,6 +32616,7 @@
       "expansionId": 38,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
@@ -32522,6 +32691,7 @@
       "expansionId": 38,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -32606,6 +32776,7 @@
       "expansionId": 27,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -32673,6 +32844,7 @@
       "expansionId": 27,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -32750,6 +32922,7 @@
       "expansionId": 15,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "multi-class",
         "recruit-boost",
@@ -32909,6 +33082,7 @@
       "expansionId": 5,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "heavy-hitter",
         "wound-removal"
@@ -32962,6 +33136,7 @@
       "expansionId": 5,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -33040,6 +33215,7 @@
       "expansionId": 29,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "multi-class",
         "recruit-boost",
@@ -33094,6 +33270,7 @@
       "expansionId": 29,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -33149,6 +33326,7 @@
       "expansionId": 24,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
         "multi-class",
@@ -33213,6 +33391,7 @@
       "expansionId": 24,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -33310,6 +33489,7 @@
       "expansionId": 24,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "dark-memories",
         "deck-thinning",
@@ -33378,9 +33558,11 @@
       "expansionId": 24,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "extra-draws",
         "heavy-hitter",
+        "location-control",
         "multi-class",
         "wound-removal"
       ],
@@ -33473,6 +33655,7 @@
       "expansionId": 25,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
         "undercover",
         "wound-removal"
@@ -33526,6 +33709,7 @@
       "expansionId": 25,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
         "wound-removal"
@@ -33579,6 +33763,7 @@
       "expansionId": 17,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "multi-class",
         "wound-removal"
@@ -33632,6 +33817,7 @@
       "expansionId": 17,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -33686,6 +33872,7 @@
       "expansionId": 10,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "deck-thinning",
@@ -33838,6 +34025,7 @@
       "expansionId": 10,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -33994,11 +34182,13 @@
       "expansionId": 10,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "extra-draws",
         "heavy-hitter",
         "multi-class",
+        "recruit-boost",
         "wound-removal"
       ],
       "cards": [
@@ -34050,6 +34240,7 @@
       "expansionId": 11,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "recruit-boost",
         "wound-removal"
@@ -34103,8 +34294,10 @@
       "expansionId": 11,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
+        "location-control",
         "recruit-boost",
         "wound-removal"
       ],
@@ -34222,6 +34415,7 @@
       "expansionId": 11,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue"
       ],
       "cards": [
@@ -34273,8 +34467,10 @@
       "expansionId": 11,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
+        "location-control",
         "transform",
         "wound-removal"
       ],
@@ -34327,6 +34523,7 @@
       "expansionId": 11,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter"
       ],
       "cards": [
@@ -34378,6 +34575,7 @@
       "expansionId": 22,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "multi-class",
         "recruit-boost",
@@ -34452,6 +34650,7 @@
       "expansionId": 22,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "recruit-boost"
       ],
@@ -34544,6 +34743,7 @@
       "expansionId": 6,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "discard-attack",
         "extra-draws",
         "heavy-hitter",
@@ -34618,6 +34818,7 @@
       "expansionId": 6,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "discard-attack",
         "heavy-hitter",
         "top-deck-control",
@@ -34777,6 +34978,7 @@
       "expansionId": 6,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "discard-attack",
         "extra-draws",
         "heavy-hitter",
@@ -34831,6 +35033,7 @@
       "expansionId": 6,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "discard-attack",
         "villain-ally-synergy",
         "villain-control"
@@ -34884,6 +35087,7 @@
       "expansionId": 6,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
         "top-deck-control",
@@ -34948,6 +35152,7 @@
       "expansionId": 41,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "villain-control",
         "wound-removal"
@@ -35001,6 +35206,7 @@
       "expansionId": 41,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -35076,6 +35282,7 @@
       "expansionId": 19,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "heavy-hitter",
         "villain-control"
@@ -35139,6 +35346,7 @@
       "expansionId": 19,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "multi-class",
@@ -35215,6 +35423,7 @@
       "expansionId": 19,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "aoe",
         "bystander-rescue",
         "extra-draws",
@@ -35280,6 +35489,7 @@
       "expansionId": 19,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "recruit-boost",
@@ -35466,6 +35676,7 @@
       "expansionId": 19,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
         "villain-control",
@@ -35540,6 +35751,7 @@
       "expansionId": 16,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost"
@@ -35603,6 +35815,7 @@
       "expansionId": 16,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "heavy-hitter",
         "villain-control",
         "wound-removal"
@@ -35666,6 +35879,7 @@
       "expansionId": 16,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "extra-draws",
@@ -35734,6 +35948,7 @@
       "expansionId": 16,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "recruit-boost",
         "villain-control",
         "wound-removal"
@@ -35797,6 +36012,7 @@
       "expansionId": 16,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "extra-draws",
         "heavy-hitter",
         "multi-class",
@@ -35873,6 +36089,7 @@
       "expansionId": 16,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "extra-draws",
         "heavy-hitter",
@@ -35940,6 +36157,7 @@
       "expansionId": 16,
       "theme": "",
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "multi-class",
@@ -36238,6 +36456,7 @@
       "name": "Sidera Maris, Bridge Builders",
       "expansionId": 28,
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "recruit-boost",
         "villain-control"
@@ -36257,6 +36476,7 @@
       "name": "Universal Church of Truth",
       "expansionId": 28,
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "recruit-boost",
         "villain-control"
@@ -36345,6 +36565,7 @@
       "name": "Mr. Sinister Clones",
       "expansionId": 31,
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "heavy-hitter",
         "villain-control"
@@ -36364,6 +36585,7 @@
       "name": "Sentinel Squad O∗N∗E∗",
       "expansionId": 31,
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "recruit-boost",
@@ -36471,6 +36693,7 @@
       "name": "Giants of Jotunheim",
       "expansionId": 38,
       "countersNeeded": [
+        "ambush",
         "extra-draws"
       ],
       "cards": [
@@ -36488,6 +36711,7 @@
       "name": "Vibranium Liberator Drones",
       "expansionId": 38,
       "countersNeeded": [
+        "ambush",
         "bystander-rescue",
         "deck-thinning",
         "heavy-hitter",
@@ -36656,6 +36880,7 @@
       "name": "Ghost Racers",
       "expansionId": 10,
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "heavy-hitter",
         "multi-class",
@@ -36750,6 +36975,7 @@
       "name": "Spider-Infected",
       "expansionId": 11,
       "countersNeeded": [
+        "ambush",
         "bystander-rescue"
       ],
       "cards": [
@@ -36941,6 +37167,7 @@
       "name": "Shi'ar Death Commandos",
       "expansionId": 16,
       "countersNeeded": [
+        "ambush",
         "deck-thinning",
         "recruit-boost"
       ],
@@ -36973,7 +37200,3 @@
     }
   ]
 }
-
-
-
-
