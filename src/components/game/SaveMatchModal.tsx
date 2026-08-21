@@ -16,14 +16,13 @@ interface SaveMatchModalProps {
   playerCount: number;
   mode: RandomizationMode;
 }
-type Step = 1 | 2 | 3;
+type Step = 1 | 2;
 export function SaveMatchModal({ open, onClose, setup, playerCount, mode }: SaveMatchModalProps) {
   const { t } = useTranslation();
   const [step, setStep] = useState<Step>(1);
   const [result, setResult] = useState<'win' | 'loss' | null>(null);
-  const [score, setScore] = useState('');
   const [saving, setSaving] = useState(false);
-  const reset = () => { setStep(1); setResult(null); setScore(''); setSaving(false); };
+  const reset = () => { setStep(1); setResult(null); setSaving(false); };
   const handleClose = () => { reset(); onClose(); };
   const handleSave = async () => {
     if (!result) return;
@@ -32,7 +31,6 @@ export function SaveMatchModal({ open, onClose, setup, playerCount, mode }: Save
       await addMatch({
         date: new Date().toISOString(),
         result,
-        score: score ? parseInt(score, 10) : undefined,
         playerCount,
         mastermindId: setup.mastermind.id,
         schemeId: setup.scheme.id,
@@ -81,18 +79,6 @@ export function SaveMatchModal({ open, onClose, setup, playerCount, mode }: Save
       )}
       {step === 2 && (
         <div className="space-y-4">
-          <p className="text-zinc-400 text-sm">{t('saveMatch.step2.label')}</p>
-          <input type="number" min="0" max="999" value={score} onChange={(e) => setScore(e.target.value)}
-            placeholder={t('saveMatch.step2.placeholder')}
-            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white text-lg font-mono focus:outline-none focus:border-marvel-red" />
-          <div className="flex gap-3">
-            <Button variant="ghost" onClick={() => setStep(1)} className="flex-1">{t('saveMatch.step2.back')}</Button>
-            <Button onClick={() => setStep(3)} className="flex-1">{t('saveMatch.step2.next')}</Button>
-          </div>
-        </div>
-      )}
-      {step === 3 && (
-        <div className="space-y-4">
           <p className="text-zinc-400 text-sm">{t('saveMatch.step3.summary')}</p>
           <div className="bg-zinc-800/50 rounded-xl p-4 space-y-2 text-sm">
             <div className="flex justify-between">
@@ -101,12 +87,6 @@ export function SaveMatchModal({ open, onClose, setup, playerCount, mode }: Save
                 {result === 'win' ? t('saveMatch.step3.win') : t('saveMatch.step3.loss')}
               </span>
             </div>
-            {score && (
-              <div className="flex justify-between">
-                <span className="text-zinc-500">{t('saveMatch.step3.score')}</span>
-                <span className="text-white font-mono">{score} VP</span>
-              </div>
-            )}
             <div className="flex justify-between">
               <span className="text-zinc-500">{t('saveMatch.step3.mastermind')}</span>
               <span className="text-white flex items-center gap-1">
@@ -133,7 +113,7 @@ export function SaveMatchModal({ open, onClose, setup, playerCount, mode }: Save
             </div>
           </div>
           <div className="flex gap-3">
-            <Button variant="ghost" onClick={() => setStep(2)} className="flex-1">{t('saveMatch.step3.back')}</Button>
+            <Button variant="ghost" onClick={() => setStep(1)} className="flex-1">{t('saveMatch.step3.back')}</Button>
             <Button onClick={handleSave} loading={saving} className="flex-1">{t('saveMatch.step3.save')}</Button>
           </div>
         </div>
