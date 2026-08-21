@@ -6,9 +6,10 @@ import type { VillainGroup, Henchman } from '@/types/cards.ts';
 interface VillainCardProps {
   villain: VillainGroup;
   className?: string;
+  expansionLabel?: string;
 }
 
-export function VillainCard({ villain, className }: VillainCardProps) {
+export function VillainCard({ villain, className, expansionLabel }: VillainCardProps) {
   const { t } = useTranslation();
   return (
     <div
@@ -22,7 +23,12 @@ export function VillainCard({ villain, className }: VillainCardProps) {
       </div>
       <div>
         <p className="text-xs text-zinc-500 uppercase tracking-wide">{t('cards.villain.label')}</p>
-        <p className="text-white text-sm font-medium">{villain.name}</p>
+        <p className="text-white text-sm font-medium">
+          {villain.name}
+          {expansionLabel && (
+            <span className="text-zinc-400 font-normal opacity-75"> ({expansionLabel})</span>
+          )}
+        </p>
       </div>
     </div>
   );
@@ -31,9 +37,10 @@ export function VillainCard({ villain, className }: VillainCardProps) {
 interface HenchmanCardProps {
   henchman: Henchman;
   className?: string;
+  expansionLabel?: string;
 }
 
-export function HenchmanCard({ henchman, className }: HenchmanCardProps) {
+export function HenchmanCard({ henchman, className, expansionLabel }: HenchmanCardProps) {
   const { t } = useTranslation();
   return (
     <div
@@ -47,7 +54,12 @@ export function HenchmanCard({ henchman, className }: HenchmanCardProps) {
       </div>
       <div>
         <p className="text-xs text-zinc-500 uppercase tracking-wide">{t('cards.henchman.label')}</p>
-        <p className="text-white text-sm font-medium">{henchman.name}</p>
+        <p className="text-white text-sm font-medium">
+          {henchman.name}
+          {expansionLabel && (
+            <span className="text-zinc-400 font-normal opacity-75"> ({expansionLabel})</span>
+          )}
+        </p>
       </div>
     </div>
   );

@@ -15,9 +15,10 @@ interface SchemeCardProps {
   schemeHeroMod?: number;
   /** Jeśli podane – wyświetli ile dodatkowych villain groups zostało faktycznie dodanych */
   schemeExtraVillainMod?: number;
+  expansionLabel?: string;
 }
 
-export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMod, schemeExtraVillainMod }: SchemeCardProps) {
+export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMod, schemeExtraVillainMod, expansionLabel }: SchemeCardProps) {
   const { t } = useTranslation();
   // Dynamiczna trudność: ile razy schemat pokonał graczy; jeśli brak danych – 3 (neutralna)
   const effectiveDifficulty = computeStrength(stats?.playCount ?? 0, stats?.wins ?? 0);
@@ -55,7 +56,12 @@ export function SchemeCard({ scheme, stats, className, playerCount, schemeHeroMo
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-xs text-amber-400 font-medium uppercase tracking-wide mb-0.5">{t('cards.scheme.label')}</p>
-          <h3 className="font-bold text-white text-sm leading-snug">{scheme.name}</h3>
+          <h3 className="font-bold text-white text-sm leading-snug">
+            {scheme.name}
+            {expansionLabel && (
+              <span className="text-zinc-400 font-normal opacity-75"> ({expansionLabel})</span>
+            )}
+          </h3>
           {stats && (
             <div className="mt-1 flex gap-3 text-xs text-zinc-500 font-mono">
               <span>▶ {stats.playCount}x</span>

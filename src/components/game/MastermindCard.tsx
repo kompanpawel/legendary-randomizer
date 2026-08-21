@@ -10,9 +10,10 @@ interface MastermindCardProps {
   stats?: MastermindStats;
   isEpic?: boolean;
   className?: string;
+  expansionLabel?: string;
 }
 
-export function MastermindCard({ mastermind, stats, isEpic = false, className }: MastermindCardProps) {
+export function MastermindCard({ mastermind, stats, isEpic = false, className, expansionLabel }: MastermindCardProps) {
   const { t } = useTranslation();
   // W trybie Epic używamy epickich statystyk i dodajemy +1 do bazy
   const playCount = isEpic ? (stats?.epicPlayCount ?? 0) : (stats?.playCount ?? 0);
@@ -61,7 +62,12 @@ export function MastermindCard({ mastermind, stats, isEpic = false, className }:
               <span className="text-xs text-zinc-600 font-mono">{t('cards.mastermind.epicAvailable')}</span>
             )}
           </div>
-          <h3 className="font-bold text-white text-sm">{mastermind.name}</h3>
+          <h3 className="font-bold text-white text-sm">
+            {mastermind.name}
+            {expansionLabel && (
+              <span className="text-zinc-400 font-normal opacity-75"> ({expansionLabel})</span>
+            )}
+          </h3>
           {mastermind.alwaysLeads && (
             <p className="text-zinc-500 text-xs mt-1 truncate">
               {t('cards.mastermind.alwaysLeads', { name: mastermind.alwaysLeads })}

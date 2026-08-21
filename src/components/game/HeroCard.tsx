@@ -29,9 +29,10 @@ interface HeroCardProps {
   className?: string;
   /** Opcjonalny etykieta (np. 'Extra') wyświetlana jako badge */
   badge?: string;
+  expansionLabel?: string;
 }
 
-export function HeroCard({ hero, stats, onReroll, className, badge }: HeroCardProps) {
+export function HeroCard({ hero, stats, onReroll, className, badge, expansionLabel }: HeroCardProps) {
   const { t } = useTranslation();
   const primaryClass = hero.primaryClasses[0];
   const gradientClass = primaryClass ? classColorMap[primaryClass] : classColorMap['Tech'];
@@ -59,17 +60,22 @@ export function HeroCard({ hero, stats, onReroll, className, badge }: HeroCardPr
         </button>
       )}
 
-      <div className="pr-8">
-        <div className="flex items-center gap-2">
-          <h3 className="font-semibold text-white text-sm leading-tight">{hero.name}</h3>
-          {badge && (
-            <span className="text-xs font-bold px-1.5 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-300">
-              {badge}
-            </span>
-          )}
+        <div className="pr-8">
+          <div className="flex items-center gap-2">
+            <h3 className="font-semibold text-white text-sm leading-tight">{hero.name}</h3>
+            {badge && (
+              <span className="text-xs font-bold px-1.5 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-300">
+                {badge}
+              </span>
+            )}
+          </div>
+          <p className="text-zinc-400 text-xs mt-0.5">
+            {hero.faction}
+            {expansionLabel && (
+              <span className="text-zinc-500 opacity-80"> ({expansionLabel})</span>
+            )}
+          </p>
         </div>
-        <p className="text-zinc-400 text-xs mt-0.5">{hero.faction}</p>
-      </div>
 
       <div className="flex items-center gap-2 mt-3 flex-wrap">
         {/* Power level – dynamiczny na podstawie historii rozgrywek */}

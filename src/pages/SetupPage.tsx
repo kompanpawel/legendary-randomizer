@@ -182,6 +182,7 @@ export default function SetupPage() {
   const statsMap           = new Map(heroStats.map((s) => [s.heroId, s]));
   const mastermindStatsMap = new Map(mastermindStats.map((s) => [s.mastermindId, s]));
   const schemeStatsMap     = new Map(schemeStats.map((s) => [s.schemeId, s]));
+  const expansionMap       = useMemo(() => new Map(db.expansions.map((e) => [e.id, e.label])), []);
 
   const handleEpicToggle = () => {
     const newEpicValue = !isEpicMastermind;
@@ -537,6 +538,7 @@ export default function SetupPage() {
               mastermind={currentSetup.mastermind}
               stats={mastermindStatsMap.get(currentSetup.mastermind.id)}
               isEpic={currentSetup.isEpicMastermind}
+              expansionLabel={expansionMap.get(currentSetup.mastermind.expansionId)}
             />
 
             {/* Drugi Mastermind (Dark Alliance — losowany na Twist 1) */}
@@ -550,6 +552,7 @@ export default function SetupPage() {
                   stats={mastermindStatsMap.get(currentSetup.secondMastermind.id)}
                   isEpic={false}
                   className="border-purple-800/50 bg-gradient-to-br from-purple-950/30 to-zinc-900/60"
+                  expansionLabel={expansionMap.get(currentSetup.secondMastermind.expansionId)}
                 />
               </div>
             )}
@@ -565,6 +568,7 @@ export default function SetupPage() {
                   stats={mastermindStatsMap.get(currentSetup.drainedMastermind.id)}
                   isEpic={false}
                   className="border-zinc-700/50 bg-gradient-to-br from-zinc-800/30 to-zinc-900/60"
+                  expansionLabel={expansionMap.get(currentSetup.drainedMastermind.expansionId)}
                 />
               </div>
             )}
@@ -574,6 +578,7 @@ export default function SetupPage() {
               playerCount={playerCount}
               schemeHeroMod={currentSetup.schemeHeroMod}
               schemeExtraVillainMod={currentSetup.schemeExtraVillainMod}
+              expansionLabel={expansionMap.get(currentSetup.scheme.expansionId)}
             />
 
             {/* Unveiled Scheme (krok 16 — "druga faza" Veiled Scheme, opcjonalny spoiler) */}
@@ -609,6 +614,7 @@ export default function SetupPage() {
                       stats={schemeStatsMap.get(currentSetup.unveiledScheme.id)}
                       playerCount={playerCount}
                       className="border-orange-800/50 bg-gradient-to-br from-orange-950/30 to-zinc-900/60"
+                      expansionLabel={expansionMap.get(currentSetup.unveiledScheme.expansionId)}
                     />
                   </div>
                 )}
@@ -641,14 +647,14 @@ export default function SetupPage() {
             <div className="space-y-2">
               <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">{t('setup.sections.villains')}</p>
               {currentSetup.villains.map((v) => (
-                <VillainCard key={v.id} villain={v} />
+                <VillainCard key={v.id} villain={v} expansionLabel={expansionMap.get(v.expansionId)} />
               ))}
             </div>
 
             <div className="space-y-2">
               <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide px-1">{t('setup.sections.henchmen')}</p>
               {currentSetup.henchmen.map((h) => (
-                <HenchmanCard key={h.id} henchman={h} />
+                <HenchmanCard key={h.id} henchman={h} expansionLabel={expansionMap.get(h.expansionId)} />
               ))}
             </div>
 
@@ -663,6 +669,7 @@ export default function SetupPage() {
                     stats={statsMap.get(hero.id)}
                     onReroll={() => handleReroll(idx)}
                     badge={isExtra ? 'Extra' : undefined}
+                    expansionLabel={expansionMap.get(hero.expansionId)}
                   />
                 );
               })}
