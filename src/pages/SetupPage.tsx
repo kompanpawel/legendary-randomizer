@@ -23,6 +23,32 @@ import { SaveMatchModal } from '../components/game/SaveMatchModal';
 
 const db = cardsData as unknown as CardsDatabase;
 
+// ── Phase 1 duplicate detection (computed once at module level from static data) ─────────────
+const PHASE1_EXPANSION_ID = 20;
+
+function computePhase1DuplicateIds(): Set<string> {
+  const ids = new Set<string>();
+  const cardTypes = ['heroes', 'masterminds', 'schemes', 'villains', 'henchmen'] as const;
+  for (const type of cardTypes) {
+    const allCards = (db as unknown as Record<string, Array<{ id: string; name: string; expansionId: number | number[] }>>)[type];
+    const phase1Cards = allCards.filter(c => c.expansionId === PHASE1_EXPANSION_ID);
+    const otherNames = new Set(
+      allCards
+        .filter(c => c.expansionId !== PHASE1_EXPANSION_ID)
+        .map(c => c.name.toLowerCase().trim())
+    );
+    for (const card of phase1Cards) {
+      if (otherNames.has(card.name.toLowerCase().trim())) {
+        ids.add(card.id);
+      }
+    }
+  }
+  return ids;
+}
+
+/** IDs kart Phase 1, które są przedrukami istniejącymi w innych dodatkach. */
+const PHASE1_DUPLICATE_IDS = computePhase1DuplicateIds();
+
 function getBalanceInfo(gap: number, t: (key: string) => string) {
   if (gap > 3)  return { color: 'border-red-700/60 bg-red-950/40 text-red-300',         icon: '💀', label: t('setup.balance.veryHard.label'),    hint: t('setup.balance.veryHard.hint') };
   if (gap > 1)  return { color: 'border-orange-700/60 bg-orange-950/40 text-orange-300', icon: '⚔️', label: t('setup.balance.challenging.label'), hint: t('setup.balance.challenging.hint') };
@@ -49,6 +75,7 @@ export default function SetupPage() {
     isEpicMastermind, setIsEpicMastermind,
     pinnedMastermindId, setPinnedMastermindId,
     pinnedSchemeId, setPinnedSchemeId,
+    phase1UniqueOnly, setPhase1UniqueOnly,
   } = useAppStore();
 
   const heroStats       = useAllHeroStats()       ?? [];
@@ -100,11 +127,39 @@ export default function SetupPage() {
 
   // Pule kart do losowania — zawsze ze wszystkich aktywnych ekspansji.
   // Jedynym ograniczeniem doboru jest warunek alwaysLeads (obsługiwany w silniku).
-  const filteredHeroes      = useMemo(() => db.heroes.filter((h) => activeIds.includes(h.expansionId)),      [activeIds]);
-  const filteredVillains    = useMemo(() => db.villains.filter((v) => activeIds.includes(v.expansionId)),    [activeIds]);
-  const filteredHenchmen    = useMemo(() => db.henchmen.filter((h) => activeIds.includes(h.expansionId)),    [activeIds]);
-  const filteredMasterminds = useMemo(() => db.masterminds.filter((m) => activeIds.includes(m.expansionId)), [activeIds]);
-  const filteredSchemes     = useMemo(() => db.schemes.filter((s) => activeIds.includes(s.expansionId)),     [activeIds]);
+  // Gdy phase1UniqueOnly=true i Phase 1 jest aktywne: wyklucz karty Phase 1
+  // będące przedrukami z innych dodatków (ta sama nazwa gdzie indziej).
+  const phase1Active = activeIds.includes(PHASE1_EXPANSION_ID);
+
+  const filteredHeroes = useMemo(() => db.heroes.filter((h) => {
+    if (!activeIds.includes(h.expansionId)) return false;
+    if (phase1UniqueOnly && phase1Active && h.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(h.id)) return false;
+    return true;
+  }), [activeIds, phase1UniqueOnly, phase1Active]);
+
+  const filteredVillains = useMemo(() => db.villains.filter((v) => {
+    if (!activeIds.includes(v.expansionId)) return false;
+    if (phase1UniqueOnly && phase1Active && v.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(v.id)) return false;
+    return true;
+  }), [activeIds, phase1UniqueOnly, phase1Active]);
+
+  const filteredHenchmen = useMemo(() => db.henchmen.filter((h) => {
+    if (!activeIds.includes(h.expansionId)) return false;
+    if (phase1UniqueOnly && phase1Active && h.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(h.id)) return false;
+    return true;
+  }), [activeIds, phase1UniqueOnly, phase1Active]);
+
+  const filteredMasterminds = useMemo(() => db.masterminds.filter((m) => {
+    if (!activeIds.includes(m.expansionId)) return false;
+    if (phase1UniqueOnly && phase1Active && m.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(m.id)) return false;
+    return true;
+  }), [activeIds, phase1UniqueOnly, phase1Active]);
+
+  const filteredSchemes = useMemo(() => db.schemes.filter((s) => {
+    if (!activeIds.includes(s.expansionId)) return false;
+    if (phase1UniqueOnly && phase1Active && s.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(s.id)) return false;
+    return true;
+  }), [activeIds, phase1UniqueOnly, phase1Active]);
 
   const currentMastermindHasEpic = currentSetup?.mastermind.cards.some(c => c.isEpic) ?? false;
   const pinnedMastermindHasEpic  = pinnedMastermind?.cards.some(c => c.isEpic) ?? false;
@@ -295,6 +350,26 @@ export default function SetupPage() {
                   );
                 })}
               </div>
+
+              {/* Phase 1 unique content toggle — widoczny gdy Phase 1 jest aktywne */}
+              {phase1Active && (
+                <label className="flex items-start gap-3 mt-3 px-3 py-2.5 rounded-xl bg-zinc-800/60 border border-zinc-700/60 cursor-pointer hover:border-zinc-600 transition-colors">
+                  <input
+                    type="checkbox"
+                    checked={phase1UniqueOnly}
+                    onChange={() => setPhase1UniqueOnly(!phase1UniqueOnly)}
+                    className="w-4 h-4 rounded accent-marvel-red flex-shrink-0 mt-0.5"
+                  />
+                  <div>
+                    <p className={`text-xs font-semibold leading-tight ${phase1UniqueOnly ? 'text-marvel-red' : 'text-zinc-300'}`}>
+                      {t('setup.expansions.phase1UniqueOnly')}
+                    </p>
+                    <p className="text-xs text-zinc-500 mt-0.5 leading-relaxed">
+                      {t('setup.expansions.phase1UniqueOnlyHint', { count: PHASE1_DUPLICATE_IDS.size })}
+                    </p>
+                  </div>
+                </label>
+              )}
             </div>
           )}
         </div>

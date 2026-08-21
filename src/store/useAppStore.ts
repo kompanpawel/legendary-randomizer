@@ -61,6 +61,12 @@ interface AppState {
   pinnedMastermindId: string | null;
   /** null = losuj, string = id wybranego schematu */
   pinnedSchemeId: string | null;
+  /**
+   * Gdy true i Phase 1 jest aktywne: wyklucza z losowania karty Phase 1, które
+   * są przedrukami z innych dodatków (ta sama nazwa w innym dodatku).
+   * Pozwala używać Phase 1 wyłącznie jako źródła unikalnej zawartości.
+   */
+  phase1UniqueOnly: boolean;
   setExpansions: (ids: number[]) => void;
   toggleExpansion: (id: number) => void;
   setMode: (mode: RandomizationMode) => void;
@@ -72,6 +78,7 @@ interface AppState {
   setIsEpicMastermind: (value: boolean) => void;
   setPinnedMastermindId: (id: string | null) => void;
   setPinnedSchemeId: (id: string | null) => void;
+  setPhase1UniqueOnly: (value: boolean) => void;
 }
 export const useAppStore = create<AppState>()(
   persist(
@@ -86,6 +93,7 @@ export const useAppStore = create<AppState>()(
       isEpicMastermind: false,
       pinnedMastermindId: null,
       pinnedSchemeId: null,
+      phase1UniqueOnly: false,
       setExpansions: (ids) => set({ selectedExpansionIds: ids, expansionsEverSet: true }),
       toggleExpansion: (id) =>
         set((state) => ({
@@ -103,6 +111,7 @@ export const useAppStore = create<AppState>()(
       setIsEpicMastermind: (value) => set({ isEpicMastermind: value }),
       setPinnedMastermindId: (id) => set({ pinnedMastermindId: id }),
       setPinnedSchemeId: (id) => set({ pinnedSchemeId: id }),
+      setPhase1UniqueOnly: (value) => set({ phase1UniqueOnly: value }),
     }),
     {
       name: "legendary-app-settings",
@@ -116,6 +125,7 @@ export const useAppStore = create<AppState>()(
         isEpicMastermind: state.isEpicMastermind,
         pinnedMastermindId: state.pinnedMastermindId,
         pinnedSchemeId: state.pinnedSchemeId,
+        phase1UniqueOnly: state.phase1UniqueOnly,
       }),
     }
   )

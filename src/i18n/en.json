@@ -14,7 +14,9 @@
       "noneSelected": "None selected — choose at least one",
       "countOf": "{{count}} of {{total}}",
       "selectAllButton": "Select All",
-      "clearButton": "Deselect All"
+      "clearButton": "Deselect All",
+      "phase1UniqueOnly": "Phase 1: unique content only",
+      "phase1UniqueOnlyHint": "Excludes {{count}} reprinted cards (heroes, masterminds, schemes, villains) that also exist in other expansions. Keeps only content exclusive to Phase 1."
     },
     "manualPick": {
       "heading": "Manual pick",
