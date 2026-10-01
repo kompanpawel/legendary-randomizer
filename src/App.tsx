@@ -6,6 +6,7 @@ import { UpdatePrompt } from './components/ui/UpdatePrompt';
 
 const SetupPage = lazy(() => import('./pages/SetupPage'));
 const StatsPage = lazy(() => import('./pages/StatsPage'));
+const KeywordsPage = lazy(() => import('./pages/KeywordsPage'));
 const DatabasePage = lazy(() => import('./pages/DatabasePage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const LegalPage = lazy(() => import('./pages/LegalPage'));
@@ -43,6 +44,14 @@ export default function App() {
               element={
                 <PageSuspense>
                   <StatsPage />
+                </PageSuspense>
+              }
+            />
+            <Route
+              path="/keywords"
+              element={
+                <PageSuspense>
+                  <KeywordsPage />
                 </PageSuspense>
               }
             />

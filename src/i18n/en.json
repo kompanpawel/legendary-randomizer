@@ -2,6 +2,7 @@
   "nav": {
     "setup": "Setup",
     "stats": "Stats",
+    "keywords": "Keywords",
     "database": "Database",
     "settings": "Settings"
   },
@@ -228,6 +229,13 @@
       "next": "Next match",
       "jumpTo": "Go to match {{index}}"
     }
+  },
+  "keywords": {
+    "title": "Hero Keywords",
+    "subtitle": "Browse all unique keywords with rule text",
+    "searchLabel": "Search hero keywords",
+    "searchPlaceholder": "Search keywords...",
+    "noResults": "No keywords match your search."
   },
   "database": {
     "title": "Database",

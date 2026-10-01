@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Shuffle, BarChart2, Database, Settings } from 'lucide-react';
+import { Shuffle, BarChart2, Tags, Database, Settings } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/utils/cn.ts';
 
@@ -9,6 +9,7 @@ export function BottomNav() {
   const NAV_ITEMS = [
     { to: '/', icon: Shuffle, label: t('nav.setup') },
     { to: '/stats', icon: BarChart2, label: t('nav.stats') },
+    { to: '/keywords', icon: Tags, label: t('nav.keywords') },
     { to: '/database', icon: Database, label: t('nav.database') },
     { to: '/settings', icon: Settings, label: t('nav.settings') },
   ] as const;
@@ -40,5 +41,4 @@ export function BottomNav() {
     </nav>
   );
 }
-
 
