@@ -32,6 +32,7 @@ const avengersVsXmen   = db.schemes.find(s => s.name === 'Avengers vs. X-Men')!;
 const houseOfM         = db.schemes.find(s => s.name === 'House of M')!;
 const fallOfTheHulks   = db.schemes.find(s => s.name === 'Fall of the Hulks')!;
 const divideAndConquer = db.schemes.find(s => s.name === 'Divide and Conquer')!;
+const revealSecretIds  = db.schemes.find(s => s.name === "Reveal Heroes' Secret Identities")!;
 
 function makeInput(forcedScheme: Scheme, playerCount = 2) {
   return {
@@ -77,6 +78,10 @@ describe('Step 15 — dane (overrides)', () => {
   it('Divide and Conquer: heroCountOverride=7, requiresAllHeroClasses=true', () => {
     expect(divideAndConquer.overrides.heroCountOverride).toBe(7);
     expect(divideAndConquer.overrides.requiresAllHeroClasses).toBe(true);
+  });
+
+  it("Reveal Heroes' Secret Identities: heroCountOverride=7", () => {
+    expect(revealSecretIds.overrides.heroCountOverride).toBe(7);
   });
 });
 
@@ -205,6 +210,13 @@ describe('generateSetup() — Divide and Conquer: 7 heroes, all classes', () => 
   });
 });
 
+describe("generateSetup() — Reveal Heroes' Secret Identities: always 7 heroes", () => {
+  it.each([1, 2, 3, 4, 5])('%i graczy → zawsze 7 hero', (pc) => {
+    const setup = generateSetup(makeInput(revealSecretIds, pc));
+    expect(setup.heroes).toHaveLength(7);
+  });
+});
+
 // ---------------------------------------------------------------------------
 // F. Brak false-positive dla normalnych schematów
 // ---------------------------------------------------------------------------
@@ -229,5 +241,4 @@ describe('generateSetup() — normalne schematy: brak step-15 notes', () => {
     }
   });
 });
-
 

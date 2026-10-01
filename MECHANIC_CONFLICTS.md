@@ -621,3 +621,15 @@ Te grupy (10 custom kart) są dołączone do pudełka schematu, nie są losowane
   Clearance, Cross-Dimensional Rampage, Abomination, itd.)
 - `src/engine/modes/synergyEngine.ts` — istniejąca logika `countersNeeded`
 - `src/engine/utils/computeThreatScore.ts`, `src/engine/weightCalculator.ts` — logika trudności/wag
+
+## 18. Reveal Heroes' Secret Identities wyjątek liczby bohaterów ✅ NAPRAWIONE
+Ten schemat wymaga **dokładnie 7 Heroes w Hero Decku** niezależnie od liczby graczy
+(`Setup: ... 7 Heroes in Hero Deck.`). To jest wyjątek od standardowego `heroCount`
+zależnego od `playerCount`.
+
+**Zmiany:**
+- Dodano `overrides.heroCountOverride: 7` dla
+  `reveal-heroes-secret-identities-13-66` w `src/assets/cards.json`.
+- Rozszerzono testy w `src/engine/__tests__/heroSpecialSetup.test.ts`:
+  - asercja danych (`heroCountOverride=7`),
+  - test silnika dla `playerCount` 1–5 (zawsze 7 bohaterów).

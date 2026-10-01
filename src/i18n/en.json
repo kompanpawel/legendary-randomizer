@@ -162,8 +162,72 @@
     },
     "mostPlayed": "🏆 Most Played",
     "shelfOfShame": "🏚️ Shelf of Shame",
+    "savedMatchHeroes": {
+      "heading": "🦸 Match Heroes",
+      "subtitle": "{{count}} heroes tracked from saved matches",
+      "columns": {
+        "hero": "Hero",
+        "matches": "Matches",
+        "record": "Record"
+      }
+    },
+    "toughestMatchups": {
+      "heading": "☠️ Toughest Matchups",
+      "masterminds": "Masterminds",
+      "schemes": "Schemes"
+    },
     "recentMatches": "📜 Recent Matches",
-    "noHistory": "No match history. Play and save a result!"
+    "noHistory": "No match history. Play and save a result!",
+    "recentCarousel": {
+      "filters": {
+        "all": "All",
+        "wins": "Wins",
+        "losses": "Losses",
+        "epic": "Epic"
+      },
+      "result": {
+        "win": "Victory",
+        "loss": "Defeat"
+      },
+      "meta": {
+        "players": "{{count}} players",
+        "epic": "EPIC"
+      },
+      "sections": {
+        "mastermind": "Mastermind",
+        "scheme": "Scheme",
+        "villains": "Villains",
+        "henchmen": "Henchmen",
+        "heroes": "Heroes"
+      },
+      "metrics": {
+        "threatScore": "Threat Score",
+        "balance": "Balance",
+        "players": "Players"
+      },
+      "balance": {
+        "hard": "Hard",
+        "challenging": "Challenging",
+        "balanced": "Balanced",
+        "easier": "Easier",
+        "easy": "Easy"
+      },
+      "entityStats": {
+        "mastermindRecord": "Record: {{wins}}W / {{losses}}L ({{playCount}})",
+        "schemeWinRate": "Player WR: {{percentage}}% ({{playCount}})",
+        "heroAvgWinRate": "Hero Avg WR"
+      },
+      "mode": {
+        "smart": "Smart",
+        "dustOff": "Dust Off",
+        "synergy": "Synergy",
+        "manual": "Manual"
+      },
+      "noFilteredHistory": "No matches for this filter.",
+      "previous": "Previous match",
+      "next": "Next match",
+      "jumpTo": "Go to match {{index}}"
+    }
   },
   "database": {
     "title": "Database",
@@ -176,7 +240,14 @@
     "import": {
       "heading": "Import Stats",
       "description": "Restore from backup",
-      "button": "Choose backup file"
+      "button": "Choose backup file",
+      "modal": {
+        "title": "Import mode",
+        "description": "Choose how to apply imported statistics.",
+        "merge": "Merge with current statistics",
+        "replace": "Replace all statistics",
+        "cancel": "Cancel"
+      }
     },
     "validation": {
       "heading": "Card Database Validation",

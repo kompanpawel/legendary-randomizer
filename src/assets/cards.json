@@ -24649,7 +24649,9 @@
         "deck-thinning",
         "recruit-boost"
       ],
-      "overrides": {},
+      "overrides": {
+        "heroCountOverride": 7
+      },
       "cards": [
         {
           "name": "Reveal Heroes' Secret Identities",

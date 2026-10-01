@@ -1,6 +1,6 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../schema';
-import type { MatchLog } from '../../types/stats';
+import type { MatchLog } from '@/types/stats.ts';
 
 export function useRecentMatchLog(limit = 10) {
   return useLiveQuery(
@@ -17,6 +17,10 @@ export async function addMatch(log: Omit<MatchLog, 'id'>): Promise<number | unde
   return db.matchLog.add(log);
 }
 
+export async function updateMatch(id: number, changes: Partial<MatchLog>): Promise<number> {
+  return db.matchLog.update(id, changes);
+}
+
 export async function clearMatchLog(): Promise<void> {
   await db.matchLog.clear();
 }
@@ -24,5 +28,4 @@ export async function clearMatchLog(): Promise<void> {
 export function useTotalMatchCount() {
   return useLiveQuery(() => db.matchLog.count(), []);
 }
-
 

@@ -3,9 +3,11 @@ import { Download, Upload, Database as DbIcon, CheckCircle, AlertCircle } from '
 import { useTranslation } from 'react-i18next';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Button } from '../components/ui/Button';
+import { Modal } from '../components/ui/Modal';
 import { exportStats, importStats, validateCardsJson } from '../utils/importExport';
 
 type ToastType = 'success' | 'error';
+type ImportMode = 'merge' | 'replace';
 
 interface Toast {
   type: ToastType;
@@ -18,6 +20,8 @@ export default function DatabasePage() {
   const cardsFileRef = useRef<HTMLInputElement>(null);
   const [toast, setToast] = useState<Toast | null>(null);
   const [loading, setLoading] = useState(false);
+  const [importModalOpen, setImportModalOpen] = useState(false);
+  const [importMode, setImportMode] = useState<ImportMode>('merge');
 
   const showToast = (type: ToastType, message: string) => {
     setToast({ type, message });
@@ -33,12 +37,20 @@ export default function DatabasePage() {
     }
   };
 
+  const openImportPicker = (mode: ImportMode) => {
+    setImportMode(mode);
+    setImportModalOpen(false);
+    requestAnimationFrame(() => {
+      statsFileRef.current?.click();
+    });
+  };
+
   const handleImportStats = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     setLoading(true);
     try {
-      const { imported } = await importStats(file);
+      const { imported } = await importStats(file, importMode);
       showToast('success', t('database.toast.importSuccess', { count: imported }));
     } catch (err) {
       showToast('error', t('database.toast.importError', { error: String(err) }));
@@ -118,7 +130,7 @@ export default function DatabasePage() {
           <Button
             variant="secondary"
             className="w-full"
-            onClick={() => statsFileRef.current?.click()}
+            onClick={() => setImportModalOpen(true)}
             loading={loading}
           >
             {t('database.import.button')}
@@ -131,6 +143,29 @@ export default function DatabasePage() {
             onChange={handleImportStats}
           />
         </div>
+
+        <Modal
+          open={importModalOpen}
+          onClose={() => setImportModalOpen(false)}
+          title={t('database.import.modal.title')}
+        >
+          <div className="space-y-4">
+            <p className="text-sm text-zinc-300">
+              {t('database.import.modal.description')}
+            </p>
+            <div className="space-y-3">
+              <Button variant="secondary" className="w-full" onClick={() => openImportPicker('merge')}>
+                {t('database.import.modal.merge')}
+              </Button>
+              <Button variant="danger" className="w-full" onClick={() => openImportPicker('replace')}>
+                {t('database.import.modal.replace')}
+              </Button>
+            </div>
+            <Button variant="ghost" className="w-full" onClick={() => setImportModalOpen(false)}>
+              {t('database.import.modal.cancel')}
+            </Button>
+          </div>
+        </Modal>
 
         {/* Card Database Validation */}
         <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-4">

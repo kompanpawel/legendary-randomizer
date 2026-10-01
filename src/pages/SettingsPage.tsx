@@ -7,7 +7,9 @@ import { Button } from '../components/ui/Button';
 import { Modal } from '../components/ui/Modal';
 import { useAppStore } from '../store/useAppStore';
 import { resetAllHeroStats } from '../db/hooks/useHeroStats';
+import { resetAllMastermindStats } from '../db/hooks/useMastermindStats';
 import { clearMatchLog } from '../db/hooks/useMatchLog';
+import { resetAllSchemeStats } from '../db/hooks/useSchemeStats';
 
 export default function SettingsPage() {
   const { t } = useTranslation();
@@ -21,6 +23,8 @@ export default function SettingsPage() {
     setResetting(true);
     try {
       await resetAllHeroStats();
+      await resetAllMastermindStats();
+      await resetAllSchemeStats();
       await clearMatchLog();
       setToast(t('settings.toast.success'));
       setConfirmOpen(false);

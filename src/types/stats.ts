@@ -6,6 +6,7 @@ export interface MatchLog {
   date: string;
   result: MatchResult;
   score?: number;
+  threatScore?: number;
   playerCount: number;
   mastermindId: string;
   schemeId: string;
@@ -62,4 +63,3 @@ export interface AppSettings {
   heroCount: number;
   playerCount: number;
 }
-

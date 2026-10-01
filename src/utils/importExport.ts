@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { db } from '../db/schema';
-import type { MatchLog, HeroStats } from '../types/stats';
+import type { HeroStats, MastermindStats, MatchLog, SchemeStats } from '../types/stats';
+import { backfillLegacyMatchMetrics } from './legacyMatchMetrics';
 
 // ─── Zod schemas ─────────────────────────────────────────────────────────────
 
@@ -9,6 +10,7 @@ const MatchLogSchema = z.object({
   date: z.string(),
   result: z.enum(['win', 'loss']),
   score: z.number().optional(),
+  threatScore: z.number().optional(),
   playerCount: z.number(),
   mastermindId: z.string(),
   schemeId: z.string(),
@@ -16,6 +18,8 @@ const MatchLogSchema = z.object({
   villainIds: z.array(z.string()),
   henchmanIds: z.array(z.string()),
   randomizationMode: z.enum(['smart', 'dustOff', 'synergy', 'manual']),
+  isEpicMastermind: z.boolean().optional(),
+  balanceGap: z.number().optional(),
 });
 
 const HeroStatsSchema = z.object({
@@ -26,12 +30,42 @@ const HeroStatsSchema = z.object({
   lastPlayedAt: z.string(),
 });
 
-const BackupSchema = z.object({
+const MastermindStatsSchema = z.object({
+  mastermindId: z.string(),
+  playCount: z.number(),
+  wins: z.number(),
+  losses: z.number(),
+  lastPlayedAt: z.string(),
+  epicPlayCount: z.number().optional(),
+  epicWins: z.number().optional(),
+  epicLosses: z.number().optional(),
+});
+
+const SchemeStatsSchema = z.object({
+  schemeId: z.string(),
+  playCount: z.number(),
+  wins: z.number(),
+  losses: z.number(),
+  lastPlayedAt: z.string(),
+});
+
+const BackupSchemaV1 = z.object({
   exportedAt: z.string(),
   version: z.literal(1),
   matchLog: z.array(MatchLogSchema),
   heroStats: z.array(HeroStatsSchema),
 });
+
+const BackupSchemaV2 = z.object({
+  exportedAt: z.string(),
+  version: z.literal(2),
+  matchLog: z.array(MatchLogSchema),
+  heroStats: z.array(HeroStatsSchema),
+  mastermindStats: z.array(MastermindStatsSchema),
+  schemeStats: z.array(SchemeStatsSchema),
+});
+
+const BackupSchema = z.union([BackupSchemaV1, BackupSchemaV2]);
 
 export type Backup = z.infer<typeof BackupSchema>;
 
@@ -40,12 +74,16 @@ export type Backup = z.infer<typeof BackupSchema>;
 export async function exportStats(): Promise<void> {
   const matchLog = await db.matchLog.toArray();
   const heroStats = await db.heroStats.toArray();
+  const mastermindStats = await db.mastermindStats.toArray();
+  const schemeStats = await db.schemeStats.toArray();
 
   const backup: Backup = {
     exportedAt: new Date().toISOString(),
-    version: 1,
+    version: 2,
     matchLog,
     heroStats,
+    mastermindStats,
+    schemeStats,
   };
 
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
@@ -61,7 +99,10 @@ export async function exportStats(): Promise<void> {
 
 // ─── Import kopii zapasowej ───────────────────────────────────────────────────
 
-export async function importStats(file: File): Promise<{ imported: number; errors: string[] }> {
+export async function importStats(
+  file: File,
+  mode: 'merge' | 'replace' = 'merge'
+): Promise<{ imported: number; errors: string[] }> {
   const text = await file.text();
   const json: unknown = JSON.parse(text);
 
@@ -71,16 +112,53 @@ export async function importStats(file: File): Promise<{ imported: number; error
   }
 
   const { matchLog, heroStats } = parsed.data;
+  const mastermindStats = parsed.data.version === 2 ? parsed.data.mastermindStats : [];
+  const schemeStats = parsed.data.version === 2 ? parsed.data.schemeStats : [];
+  const normalizedMastermindStats: MastermindStats[] = mastermindStats.map((stats) => ({
+    ...stats,
+    epicPlayCount: stats.epicPlayCount ?? 0,
+    epicWins: stats.epicWins ?? 0,
+    epicLosses: stats.epicLosses ?? 0,
+  }));
   const errors: string[] = [];
 
-  // Import match logs
-  const logsToImport: Omit<MatchLog, 'id'>[] = matchLog.map(({ id: _id, ...log }) => log);
-  await db.matchLog.bulkPut(logsToImport as MatchLog[]);
+  const migratedMatchLog = backfillLegacyMatchMetrics(matchLog, heroStats, normalizedMastermindStats, schemeStats);
+  const logsToImport: Omit<MatchLog, 'id'>[] = migratedMatchLog.map(({ id: _id, ...log }) => log);
 
-  // Import hero stats
-  await db.heroStats.bulkPut(heroStats as HeroStats[]);
+  if (mode === 'replace') {
+    await db.transaction('rw', db.matchLog, db.heroStats, db.mastermindStats, db.schemeStats, async () => {
+      await db.matchLog.clear();
+      await db.heroStats.clear();
+      await db.mastermindStats.clear();
+      await db.schemeStats.clear();
 
-  return { imported: matchLog.length + heroStats.length, errors };
+      if (logsToImport.length > 0) {
+        await db.matchLog.bulkPut(logsToImport as MatchLog[]);
+      }
+      if (heroStats.length > 0) {
+        await db.heroStats.bulkPut(heroStats as HeroStats[]);
+      }
+      if (normalizedMastermindStats.length > 0) {
+        await db.mastermindStats.bulkPut(normalizedMastermindStats);
+      }
+      if (schemeStats.length > 0) {
+        await db.schemeStats.bulkPut(schemeStats as SchemeStats[]);
+      }
+    });
+  } else {
+    await db.matchLog.bulkPut(logsToImport as MatchLog[]);
+    await db.heroStats.bulkPut(heroStats as HeroStats[]);
+
+    if (normalizedMastermindStats.length > 0) {
+      await db.mastermindStats.bulkPut(normalizedMastermindStats);
+    }
+
+    if (schemeStats.length > 0) {
+      await db.schemeStats.bulkPut(schemeStats as SchemeStats[]);
+    }
+  }
+
+  return { imported: matchLog.length + heroStats.length + mastermindStats.length + schemeStats.length, errors };
 }
 
 // ─── Walidacja pliku cards.json ───────────────────────────────────────────────
@@ -125,4 +203,3 @@ export function validateCardsJson(json: unknown): { valid: boolean; error?: stri
   }
   return { valid: true };
 }
-

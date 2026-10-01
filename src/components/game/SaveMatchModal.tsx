@@ -7,6 +7,7 @@ import { addMatch } from '@/db/hooks/useMatchLog.ts';
 import { upsertHeroStats } from '@/db/hooks/useHeroStats.ts';
 import { upsertMastermindStats } from '@/db/hooks/useMastermindStats.ts';
 import { upsertSchemeStats } from '@/db/hooks/useSchemeStats.ts';
+import { db } from '@/db/schema.ts';
 import type { GameSetup } from '@/store/useAppStore.ts';
 import type { RandomizationMode } from '@/types/stats.ts';
 interface SaveMatchModalProps {
@@ -28,22 +29,25 @@ export function SaveMatchModal({ open, onClose, setup, playerCount, mode }: Save
     if (!result) return;
     setSaving(true);
     try {
-      await addMatch({
-        date: new Date().toISOString(),
-        result,
-        playerCount,
-        mastermindId: setup.mastermind.id,
-        schemeId: setup.scheme.id,
-        heroIds: setup.heroes.map((h) => h.id),
-        villainIds: setup.villains.map((v) => v.id),
-        henchmanIds: setup.henchmen.map((h) => h.id),
-        randomizationMode: mode,
-        isEpicMastermind: setup.isEpicMastermind,
-        balanceGap: setup.balanceGap,
+      await db.transaction('rw', db.matchLog, db.heroStats, db.mastermindStats, db.schemeStats, async () => {
+        await addMatch({
+          date: new Date().toISOString(),
+          result,
+          playerCount,
+          mastermindId: setup.mastermind.id,
+          schemeId: setup.scheme.id,
+          heroIds: setup.heroes.map((h) => h.id),
+          villainIds: setup.villains.map((v) => v.id),
+          henchmanIds: setup.henchmen.map((h) => h.id),
+          randomizationMode: mode,
+          isEpicMastermind: setup.isEpicMastermind,
+          balanceGap: setup.balanceGap,
+          threatScore: setup.threatScore,
+        });
+        await Promise.all(setup.heroes.map((h) => upsertHeroStats(h.id, result === 'win')));
+        await upsertMastermindStats(setup.mastermind.id, result === 'win', setup.isEpicMastermind);
+        await upsertSchemeStats(setup.scheme.id, result === 'win');
       });
-      await Promise.all(setup.heroes.map((h) => upsertHeroStats(h.id, result === 'win')));
-      await upsertMastermindStats(setup.mastermind.id, result === 'win', setup.isEpicMastermind);
-      await upsertSchemeStats(setup.scheme.id, result === 'win');
       handleClose();
     } catch (err) {
       console.error(err);
