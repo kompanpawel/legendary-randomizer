@@ -1,6 +1,7 @@
 import type { Hero, Mastermind, Scheme, VillainGroup, Henchman, HeroClass } from '../types/cards';
 import type { HeroStats, MastermindStats, SchemeStats, RandomizationMode } from '../types/stats';
 import { uniformSample } from './utils/weightedSample';
+import { historyWeightedPick } from './utils/historyWeightedPick';
 import { smartEqualizerMode } from './modes/smartEqualizer';
 import { dustOffMode } from './modes/dustOff';
 import { synergyEngineMode } from './modes/synergyEngine';
@@ -93,6 +94,8 @@ export interface RandomizerInput {
   forcedMastermind?: Mastermind;
   /** Wymuszony schemat (wybrany ręcznie przez gracza, pomija losowanie) */
   forcedScheme?: Scheme;
+  /** Historia meczów (pary Mastermind + Scheme) do unikania powtórzeń par */
+  matchHistory?: Array<{ mastermindId: string; schemeId: string }>;
 }
 
 export function generateSetup(input: RandomizerInput): GameSetup {
@@ -103,6 +106,7 @@ export function generateSetup(input: RandomizerInput): GameSetup {
     isEpicMastermind = false,
     forcedMastermind,
     forcedScheme,
+    matchHistory = [],
   } = input;
 
   if (masterminds.length === 0 && !forcedMastermind) throw new Error('No masterminds in active expansions');
@@ -125,21 +129,63 @@ export function generateSetup(input: RandomizerInput): GameSetup {
   let mastermind: Mastermind;
   let scheme: Scheme;
 
+  // Losowanie z uwzględnieniem historii (rzadziej/dawniej grane mają większą szansę).
+  const mmHistory = new Map(mastermindStats.map(s => [s.mastermindId, s]));
+  const schemeHistory = new Map(schemeStats.map(s => [s.schemeId, s]));
+  const pickMastermind = (pool: Mastermind[]): Mastermind =>
+    mode === 'manual' ? uniformSample(pool, 1)[0] : historyWeightedPick(pool, mmHistory, alpha);
+  const pickScheme = (pool: Scheme[]): Scheme =>
+    mode === 'manual' ? uniformSample(pool, 1)[0] : historyWeightedPick(pool, schemeHistory, alpha);
+
+  // Liczba rozegranych par Mastermind + Scheme (z historii meczów)
+  const pairCounts = new Map<string, number>();
+  if (mode !== 'manual') {
+    for (const m of matchHistory) {
+      const key = `${m.mastermindId}|${m.schemeId}`;
+      pairCounts.set(key, (pairCounts.get(key) ?? 0) + 1);
+    }
+  }
+  const pairCount = (m: Mastermind, s: Scheme) => pairCounts.get(`${m.id}|${s.id}`) ?? 0;
+  const compatibleSchemesFor = (m: Mastermind) => {
+    const c = standaloneSchemes.filter(s => !isMastermindSchemeIncompatible(m, s));
+    return c.length > 0 ? c : standaloneSchemes;
+  };
+  const compatibleMastermindsFor = (s: Scheme) => {
+    const c = masterminds.filter(m => !isMastermindSchemeIncompatible(m, s));
+    return c.length > 0 ? c : masterminds;
+  };
+  /** Zawęża do elementów o najmniejszej liczbie wspólnych rozgrywek (preferuje nowe pary). */
+  const leastPlayedSchemes = (m: Mastermind) => {
+    const pool = compatibleSchemesFor(m);
+    const min = Math.min(...pool.map(s => pairCount(m, s)));
+    return pool.filter(s => pairCount(m, s) === min);
+  };
+  const leastPlayedMasterminds = (s: Scheme) => {
+    const pool = compatibleMastermindsFor(s);
+    const min = Math.min(...pool.map(m => pairCount(m, s)));
+    return pool.filter(m => pairCount(m, s) === min);
+  };
+
   if (forcedMastermind && forcedScheme) {
     mastermind = forcedMastermind;
     scheme = forcedScheme;
   } else if (forcedMastermind) {
     mastermind = forcedMastermind;
-    const compatibleSchemes = standaloneSchemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
-    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : standaloneSchemes, 1)[0];
+    scheme = pickScheme(leastPlayedSchemes(mastermind));
   } else if (forcedScheme) {
     scheme = forcedScheme;
-    const compatibleMasterminds = masterminds.filter(m => !isMastermindSchemeIncompatible(m, scheme));
-    mastermind = uniformSample(compatibleMasterminds.length > 0 ? compatibleMasterminds : masterminds, 1)[0];
+    mastermind = pickMastermind(leastPlayedMasterminds(scheme));
   } else {
-    mastermind = uniformSample(masterminds, 1)[0];
-    const compatibleSchemes = standaloneSchemes.filter(s => !isMastermindSchemeIncompatible(mastermind, s));
-    scheme = uniformSample(compatibleSchemes.length > 0 ? compatibleSchemes : standaloneSchemes, 1)[0];
+    // Zostaw masterminds, które mają jeszcze niezagrany schemat; jeśli brak — wszystkie
+    let mmPool = masterminds;
+    if (pairCounts.size > 0) {
+      const withFreshPair = masterminds.filter(m =>
+        leastPlayedSchemes(m).every(s => pairCount(m, s) === 0)
+      );
+      if (withFreshPair.length > 0) mmPool = withFreshPair;
+    }
+    mastermind = pickMastermind(mmPool);
+    scheme = pickScheme(leastPlayedSchemes(mastermind));
   }
 
   // ── Unveiled Scheme (krok 16 — Veiled/Unveiled) ────────────────────────────

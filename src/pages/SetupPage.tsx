@@ -5,7 +5,7 @@ import cardsData from '../assets/cards.json';
 import type { CardsDatabase } from '../types/cards';
 import { useAppStore } from '../store/useAppStore';
 import { useAllHeroStats } from '../db/hooks/useHeroStats';
-import { useTotalMatchCount } from '../db/hooks/useMatchLog';
+import { useTotalMatchCount, useMatchLog } from '../db/hooks/useMatchLog';
 import { useAllMastermindStats } from '../db/hooks/useMastermindStats';
 import { useAllSchemeStats } from '../db/hooks/useSchemeStats';
 import { generateSetup, rerollHero } from '../engine/SmartRandomizerEngine';
@@ -80,6 +80,7 @@ export default function SetupPage() {
 
   const heroStats       = useAllHeroStats()       ?? [];
   const totalMatches    = useTotalMatchCount()     ?? 0;
+  const matchHistory    = useMatchLog()            ?? [];
   const mastermindStats = useAllMastermindStats()  ?? [];
   const schemeStats     = useAllSchemeStats()      ?? [];
   const [generating, setGenerating]       = useState(false);
@@ -133,32 +134,32 @@ export default function SetupPage() {
 
   const filteredHeroes = useMemo(() => db.heroes.filter((h) => {
     if (!activeIds.includes(h.expansionId)) return false;
-    if (phase1UniqueOnly && phase1Active && h.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(h.id)) return false;
-    return true;
+    return !(phase1UniqueOnly && phase1Active && h.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(h.id));
+
   }), [activeIds, phase1UniqueOnly, phase1Active]);
 
   const filteredVillains = useMemo(() => db.villains.filter((v) => {
     if (!activeIds.includes(v.expansionId)) return false;
-    if (phase1UniqueOnly && phase1Active && v.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(v.id)) return false;
-    return true;
+    return !(phase1UniqueOnly && phase1Active && v.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(v.id));
+
   }), [activeIds, phase1UniqueOnly, phase1Active]);
 
   const filteredHenchmen = useMemo(() => db.henchmen.filter((h) => {
     if (!activeIds.includes(h.expansionId)) return false;
-    if (phase1UniqueOnly && phase1Active && h.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(h.id)) return false;
-    return true;
+    return !(phase1UniqueOnly && phase1Active && h.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(h.id));
+
   }), [activeIds, phase1UniqueOnly, phase1Active]);
 
   const filteredMasterminds = useMemo(() => db.masterminds.filter((m) => {
     if (!activeIds.includes(m.expansionId)) return false;
-    if (phase1UniqueOnly && phase1Active && m.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(m.id)) return false;
-    return true;
+    return !(phase1UniqueOnly && phase1Active && m.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(m.id));
+
   }), [activeIds, phase1UniqueOnly, phase1Active]);
 
   const filteredSchemes = useMemo(() => db.schemes.filter((s) => {
     if (!activeIds.includes(s.expansionId)) return false;
-    if (phase1UniqueOnly && phase1Active && s.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(s.id)) return false;
-    return true;
+    return !(phase1UniqueOnly && phase1Active && s.expansionId === PHASE1_EXPANSION_ID && PHASE1_DUPLICATE_IDS.has(s.id));
+
   }), [activeIds, phase1UniqueOnly, phase1Active]);
 
   const currentMastermindHasEpic = currentSetup?.mastermind.cards.some(c => c.isEpic) ?? false;
@@ -185,6 +186,7 @@ export default function SetupPage() {
           isEpicMastermind,
           forcedMastermind: pinnedMastermind ?? undefined,
           forcedScheme: pinnedScheme ?? undefined,
+          matchHistory,
         });
         setSetup(setup);
         setUnveiledVisible(false); // reset spoiler przy nowym setupie
